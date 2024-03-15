@@ -5,8 +5,9 @@
 // Function
 function Concept(){
     return(
-        <section>            
+        <section id="#concept">            
             <img src="/public/phone-situation.png" alt="Exemple de l'application" />
+            <div>
                 <p>Salut les amis ! 
                     C&rsquo;est Max, votre oiseau préféré.
 
@@ -38,6 +39,7 @@ function Concept(){
                     financier radieux ! </p>
                 <img src="/public/mascotte-max.png" alt="L'oiseau Max" />
                 <button>Rejoins Max dans l’aventure Nest Egg</button>
+            </div>
         </section>
 
     )
