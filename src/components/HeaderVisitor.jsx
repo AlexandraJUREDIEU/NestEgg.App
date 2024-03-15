@@ -8,7 +8,7 @@
     
         return (
             <>
-                <img src="../public/logoNestEgg.png" alt="Logo NestEgg" className="logo-default"/>
+                <img src="/logoNestEgg.png" alt="Logo NestEgg" className="logo-default"/>
                 <Navbar/>        
             </>
         )

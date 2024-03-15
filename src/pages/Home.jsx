@@ -1,6 +1,9 @@
 // Import
     import HeaderVisitor from '../components/HeaderVisitor';
+    import Concept from '../components/Concept';
     import '../styles/home.css';
+    
+    
 
 
 // Function
@@ -9,6 +12,7 @@
         return(
             <>
             <HeaderVisitor/>
+            <Concept/>
             <p>#Atterissage</p>
             <p>#Concept</p>
             <p>#Qui sommes nous?</p>
