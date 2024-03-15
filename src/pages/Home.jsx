@@ -1,7 +1,7 @@
 // Import
     import HeaderVisitor from '../components/HeaderVisitor';
     import '../styles/home.css';
-
+    import ProfileCard from '../components/AboutUs';
 
 // Function
     export default function Home() {
@@ -15,6 +15,7 @@
             <p>#Tarifs</p>
             <p>#Footer</p>
 
+            <ProfileCard/>
             </>
 
         );        
