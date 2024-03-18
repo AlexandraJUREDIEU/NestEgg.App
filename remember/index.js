@@ -1,3 +1,12 @@
+/**
+ * Cache des sections au chargement de la page
+ */
+const aboutUsArticles = document.querySelectorAll("#about-us article");
+aboutUsArticles[0].querySelector("p").setAttribute("style", "display: none");
+aboutUsArticles[2].setAttribute("style", "display: none");
+aboutUsArticles[3].setAttribute("style", "display: none");
+aboutUsArticles[4].setAttribute("style", "display: none");
+
 
 /**
  * Scrolle automatiquement vers la balise de la section ayant l'id correspondant
