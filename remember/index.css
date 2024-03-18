@@ -1,0 +1,26 @@
+*{
+    box-sizing: border-box;
+    font-family: "Quicksand";
+    color: white;
+    font-size: 1em;
+}
+
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgb(92,39,116);
+    background: linear-gradient(180deg, rgba(92,39,116,1) 0%, rgba(57,96,203,1) 100%);
+}
+
+#landing h1{
+    text-align: center;
+    font-size: 2.5em;
+}
+
+#art-btn-concept{
+    margin-top: 0.75em;
+    gap: 0.5em;
+}
+
