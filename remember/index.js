@@ -37,7 +37,7 @@ for (e of element) {
     
 
     function showConnexion () {
-        console.log("sC");
+        //console.log("sC");
         connexion = document.getElementById("connexion");
         connexion.style.display = "block";
         authentification.style.display = "block";
