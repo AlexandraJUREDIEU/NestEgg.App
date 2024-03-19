@@ -86,62 +86,65 @@ a{
 }
 
 
-/* header{
-    height: 82px;
-    width: 100%;
-    background-color: red;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-header ul{
-    display: none;
-}
-
-header img{
-    height: 82px;
-    height: 88px;
-    width: 88px;
-}
-
-
-#landing{
+ #landing{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#landing h1{
+
+.title-nest-egg{
     text-align: center;
     font-size: 2.5em;
-    margin: 0px;
 }
 
-#landing p{
+.span-title-nest-egg{
+    font-family: "Balmy";
+}
+
+.text-intro{
     text-align: center;
     width: 225px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.img-egg{
+    display: flex;
+    margin: auto;
+    margin-top: 10px;
 }
 
 #art-btn-concept{
     display: flex;
     flex-direction: column;
-    margin-top: 0.75em;
-    gap: 0.5em;
+    justify-content: center;
+    width: 188px;
+    margin: auto;
+    margin-top: 10px;
+    gap: 8px;
 }
 
-#landing button{
-    background-color: FFFFFF;
-    opacity: 50%;
+.btn-link-concept{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:0.5em;
+    background-color: rgba(255,255,255,0.5);    
+    align-items: center;
     border-radius: 100px;
-    height: 41px;
+    width:50vw;
 }
 
-#landing button a{
-    opacity: 100%;
-    color: white;
-    padding: 5px;
-    text-decoration: none;
-    font-size: 0.75em;
-} */
+.btn-link-concept>a{
+    width: 100%;
+    text-align: center;
+}
+
+
+#concept{
+    background-color: rgba(221, 185, 147, 1);
+    /* temporaire  */
+    margin-top: 10px;
+}
 
