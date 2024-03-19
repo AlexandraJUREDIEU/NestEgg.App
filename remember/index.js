@@ -6,6 +6,11 @@ var swiper = new Swiper(".mySwiper", {
     slidesPerView: 1
 });
 
+var swiper2 = new Swiper(".mySwiper", {
+    slidesPerView: 1
+});
+
+
 
 
 
@@ -24,7 +29,7 @@ function removeBlurBackground () {
 /**
  * Slider 'Qui sommes nous ?'
  * Cache toutes les sections sauf le paragraphe de la première et l'idSlideVisible
- */
+ *//*
 const aboutUsArticles = document.querySelectorAll("#about-us article");
 aboutUsArticles[0].querySelector("p").setAttribute("style", "display: none");
 
@@ -64,7 +69,7 @@ function increaseActiveSlide() {
   } else {
     throw new Error("Bouton précédent cliqué lorsque slide la plus à gauche");
   }
-}
+}*/
 
 /**
  * Affiche/Cache les parties Connexion/Inscription
