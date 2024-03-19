@@ -16,12 +16,21 @@ var swiper2 = new Swiper(".mySwiper", {
  */
 document.querySelector(".ico-menu-hamburger").addEventListener("click", switchScrollingMenu)
 function switchScrollingMenu() {
-    let element = document.querySelector(".nav-primary").style.display;
-    if (element == "flex" ){
+    if (document.querySelector(".nav-primary").style.display == "flex" ){
         document.querySelector(".nav-primary").style.display = "none";
     }else {
         document.querySelector(".nav-primary").style.display = "flex";
     }
+}
+/**
+ * Fermer le menu lorsqu'on clique dans un lien de la nav
+ */
+let  navA = document.querySelectorAll("body>header nav a");
+for (a of navA){
+    a.addEventListener("click", closeScrollingMenu);
+}
+function closeScrollingMenu() {
+    document.querySelector(".nav-primary").style.display = "none";
 }
 
 
