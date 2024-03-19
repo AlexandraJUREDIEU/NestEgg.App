@@ -8,24 +8,6 @@ aboutUsArticles[3].setAttribute("style", "display: none");
 aboutUsArticles[4].setAttribute("style", "display: none");
 
 
-/**
- * Scrolle automatiquement vers la balise de la section ayant l'id correspondant
- * @param {href} event 
- */
-const buttons = document.querySelectorAll("button");
-for (b of buttons) {
-    b.addEventListener("click", scrolltoX);
-}
-const aLinks = document.querySelectorAll("a");
-for (a of aLinks) {
-    a.addEventListener("click", scrolltoX);
-}
-function scrolltoX (event) {
-    const eth = event.target.getAttribute("href");
-    const element = document.querySelector(eth);
-    element.scrollIntoView({behavior: 'smooth'})
-}
-
 
 /**
  * Ajoute du blur quand on affiche la Connexion ou l'Inscription
