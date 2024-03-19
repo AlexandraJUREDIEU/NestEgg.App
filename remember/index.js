@@ -16,11 +16,11 @@ var swiper2 = new Swiper(".mySwiper", {
  */
 document.querySelector(".ico-menu-hamburger").addEventListener("click", switchScrollingMenu)
 function switchScrollingMenu() {
-    let element = document.querySelector(".ul-nav-header").style.display;
+    let element = document.querySelector(".nav-primary").style.display;
     if (element == "flex" ){
-        document.querySelector(".ul-nav-header").style.display = "none";
+        document.querySelector(".nav-primary").style.display = "none";
     }else {
-        document.querySelector(".ul-nav-header").style.display = "flex";
+        document.querySelector(".nav-primary").style.display = "flex";
     }
 }
 
