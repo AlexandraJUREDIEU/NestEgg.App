@@ -1,4 +1,15 @@
 /**
+ * Librairie swiper
+ */
+
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1
+});
+
+
+
+
+/**
  * Ajoute du blur quand on affiche la Connexion ou l'Inscription
  */
 /*document.querySelector(".btn-connect").addEventListener("click", addBlurBackground);
@@ -95,3 +106,14 @@ function hideConnexionInscription() {
   connexion.style.display = "none";
   inscription.style.display = "none";
 }
+
+
+
+
+
+
+
+
+
+
+

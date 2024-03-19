@@ -2,14 +2,24 @@
 <html lang="fr">
 
 <head>
+
+    <!-- librairie swiper-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="index.js" defer></script>
-   <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/balmy" rel="stylesheet">
-                
+
     <link rel="stylesheet" href="index.css">
     <title>Nest Egg</title>
 </head>
@@ -19,13 +29,14 @@
     <header>
         <img src="../public/logoNestEgg.png" alt="Logo NestEgg">
         <nav>
-        <ul>
-            <li><a href="#concept">Concept</a></li>
-            <li><a href="#about-us">Qui sommes nous?</a></li>
-            <li><a href="#price">Tarifs</a></li>
-            <button><a class="btn-connect" href="#landing"><img src="../public/icons-user-round.png" alt="Avatar utilisateur">Connexion</a></button>
-        </ul>
-        <img class="ico-menu-hamburger" src="../public/icons-menu-hamburger.png" alt="Icone du menu">
+            <ul>
+                <li><a href="#concept">Concept</a></li>
+                <li><a href="#about-us">Qui sommes nous?</a></li>
+                <li><a href="#price">Tarifs</a></li>
+                <button><a class="btn-connect" href="#landing"><img src="../public/icons-user-round.png"
+                            alt="Avatar utilisateur">Connexion</a></button>
+            </ul>
+            <img class="ico-menu-hamburger" src="../public/icons-menu-hamburger.png" alt="Icone du menu">
         </nav>
     </header>
     <main>
@@ -174,40 +185,48 @@
                     accusantium? Deleniti consequatur a debitis doloribus, natus quis vel corrupti illum.
                 </p>
             </header>
-            <main>
-                <article>
-                    <h3>Offre <span>Smart</span></h3>
-                    <ul>
-                        <li>item1</li>
-                        <li>item2</li>
-                        <li>item3</li>
-                        <li>item4</li>
-                        <li>item5</li>
-                    </ul>
-                    <button href="/paiement" class="btn-default"><a href="/paiement">Gratuit</a></button>
-                </article>
-                <article>
-                    <h3>Offre <span>Max</span></h3>
-                    <ul>
-                        <li>item1</li>
-                        <li>item2</li>
-                        <li>item3</li>
-                        <li>item4</li>
-                        <li>item5</li>
-                    </ul>
-                    <button href="/paiement" class="btn-default"><a href="/paiement">2,99€ / mois</a></button>
-                </article>
-                <article>
-                    <h3>Offre <span>Business</span></h3>
-                    <ul>
-                        <li>item1</li>
-                        <li>item2</li>
-                        <li>item3</li>
-                        <li>item4</li>
-                        <li>item5</li>
-                    </ul>
-                    <button href="/paiement" class="btn-default"><a href="/paiement">3,99€ / mois</a></button>
-                </article>
+            <main class="swiper mySwiper">
+                <div class="swiper-wrapper">
+
+                    <article class="swiper-slide">
+                        <h3>Offre <span>Smart</span></h3>
+                        <ul>
+                            <li>item1</li>
+                            <li>item2</li>
+                            <li>item3</li>
+                            <li>item4</li>
+                            <li>item5</li>
+                        </ul>
+                        <button href="/paiement" class="btn-default"><a href="/paiement">Gratuit</a></button>
+                    </article>
+                    <article class="swiper-slide">
+                        <h3>Offre <span>Max</span></h3>
+                        <ul>
+                            <li>item1</li>
+                            <li>item2</li>
+                            <li>item3</li>
+                            <li>item4</li>
+                            <li>item5</li>
+                        </ul>
+                        <button href="/paiement" class="btn-default"><a href="/paiement">2,99€ / mois</a></button>
+                    </article class="swiper-slide">
+                    <article>
+                        <h3>Offre <span>Business</span></h3>
+                        <ul>
+                            <li>item1</li>
+                            <li>item2</li>
+                            <li>item3</li>
+                            <li>item4</li>
+                            <li>item5</li>
+                        </ul>
+                        <button href="/paiement" class="btn-default"><a href="/paiement">3,99€ / mois</a></button>
+                    </article>
+
+                    <!--Bug pour la dernière slide de swiper-->
+                    <article class="swiper-slide">
+                    </article>
+                    <!---->
+                </div>
             </main>
         </section>
     </main>
