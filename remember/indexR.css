@@ -1,0 +1,19 @@
+.scroll-container,
+.scroll-area {
+    /*max-width: 850px;*/
+    height: 600px;
+    /*font-size: 60px;*/
+}
+
+
+
+.scroll-container {
+    overflow: auto;
+    /*-webkit-scroll-snap-type: y mandatory;
+            -ms-scroll-snap-type: y mandatory;*/
+    scroll-snap-type: y mandatory;
+}
+
+.scroll-area {
+    scroll-snap-align: start;
+}
