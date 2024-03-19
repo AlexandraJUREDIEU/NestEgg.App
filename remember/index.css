@@ -7,20 +7,66 @@
 
 
 body{
+   
+    background: rgb(92,39,116);
+    background: linear-gradient(180deg, rgba(92,39,116,1) 0%, rgba(57,96,203,1) 100%);
+}
+
+header{
+    height: 82px;
+    width: 100%;
+    background-color: red;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+header ul{
+    display: none;
+}
+
+header img{
+    height: 82px;
+    height: 88px;
+    width: 88px;
+}
+
+
+#landing{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: rgb(92,39,116);
-    background: linear-gradient(180deg, rgba(92,39,116,1) 0%, rgba(57,96,203,1) 100%);
 }
 
 #landing h1{
     text-align: center;
     font-size: 2.5em;
+    margin: 0px;
+}
+
+#landing p{
+    text-align: center;
+    width: 225px;
 }
 
 #art-btn-concept{
+    display: flex;
+    flex-direction: column;
     margin-top: 0.75em;
     gap: 0.5em;
 }
 
+#landing button{
+    background-color: FFFFFF;
+    opacity: 50%;
+    border-radius: 100px;
+    height: 41px;
+}
+
+#landing button a{
+    opacity: 100%;
+    color: white;
+    padding: 5px;
+    text-decoration: none;
+    font-size: 0.75em;
+}
