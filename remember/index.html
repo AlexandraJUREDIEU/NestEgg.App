@@ -21,16 +21,16 @@
     <link href="https://fonts.cdnfonts.com/css/balmy" rel="stylesheet">
 
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="indexR.css">
+    <!-- <link rel="stylesheet" href="indexR.css"> -->
     <title>Nest Egg</title>
 </head>
 
 <body>
     
     <!-- Header -->
-    <header>
+    <header id="header-home">
         <img class="logo-nestegg-default" src="../public/logoNestEgg.png" alt="Logo NestEgg">
-        <img class="ico-menu-hamburger" src="../public/icons-menu-hamburger.png" alt="Icone du menu" height="50px" width="50px">
+        <img class="ico-menu-hamburger" src="../public/icons-menu-hamburger.png" alt="Icone du menu" height="40px" width="40px">
         <nav class="nav-primary">            
             <ul class="ul-nav-header">
                 <li><a href="#concept" class="a-concept">Concept</a></li>
@@ -38,11 +38,64 @@
                 <li><a href="#price" class="a-price">Tarifs</a></li>                
             </ul>
             <div class="btn-connect">
-                    <img class="ico-user" src="../public/icons-user-round.png" alt="Avatar utilisateur" width="40px">             <a href="#landing">Connexion</a>       
+                    <img class="ico-user" src="../public/icons-user-round.png" alt="Avatar utilisateur" width="40px">             
+                    <a href="#header-home">Connexion</a>       
                 </div>
         </nav>
     </header>
     <main class="scroll-container scroll-area">
+
+    <section id="pop-up-auth" class="pop-up-auth" style="display:none">
+<!-- Authentification -->
+    <article id="authentification">
+        <img src="../public/logoSansTexte.png" alt="Nest Egg" height="120px">
+        <p>type de connexion</p>
+    </article>
+
+<!-- Connexion -->
+    <form id="connexion" class="form-connexion" action="">
+        <section>
+            <input type="text" placeholder="E-mail" />
+            <input type="text" placeholder="Mot de passe" />
+            <p class="text-small">Mot de passe oublié ? Cliquez<a href="#oubli"> ici</a></p>
+        </section>
+
+        <section>
+            <input type="radio" checked>Se souvenir de moi</input>
+            <bouton>Me connecter</bouton>
+            <p>Je n'ai pas de compte. <a class="btn-sign-in" href="#inscription">S'inscrire</a></p>
+        </section>
+        <img src="../public/icons-logout.png" alt="sortie de l'authentification">
+    </form>
+
+<!-- Inscription -->
+    <form id="inscription" action="">
+        <section>
+            <input type="text" placeholder="Nom" />
+            <input type="text" placeholder="Prénom" />
+            <input type="email" placeholder="E-mail" />
+            <input type="password" placeholder="Mot de passe" />
+        </section>
+
+        <section>
+            <article>
+                <input type="checkbox">
+                <p>Je souhaite recevoir une newletter des astuces et nouvelles fonctionnalitées proposé par “Nest Egg”
+                </p>
+            </article>
+
+            <article>
+                <input type="checkbox">
+                <p>J’autorise Nest Egg à me proposer des offres commerciales partenaires</p>
+            </article>
+        </section>
+
+        <button>M'inscrire</button>
+        <p>J’ai déjà un compte. <a class="btn-connect" href="#connexion">Me connecter</a></p>
+        <img src="../public/icons-logout.png" alt="sortie de l'authentification">
+    </form>
+    
+</section>
 
         <!-- Section Landing -->
         <section id="landing" class="scroll-area">
@@ -51,7 +104,7 @@
                 <p class="text-intro">Ne mettez pas tout vos oeufs dans le même panier</p>
             </article>
             <aside>
-                <img src="https://placehold.co/200x300" alt="" class="img-egg">
+                <img src="../public/oeufNestEgg.png" alt="" class="img-egg" height="280px">
             </aside>
             <article id="art-btn-concept">
                 <button href="#concept" class="btn-link-concept"><a href="#concept">Découvrir le concept</a></button>
@@ -93,7 +146,7 @@
 
             <aside class="aside-text-concept">
             <button href="#landing" class="btn-connect"><a href="#landing">Rejoins Max</a></button>
-            <img src="https://placehold.co/133x133" alt="L'oiseau Max qui présente le concept">
+            <img src="../public/2-Mascotte.png" alt="L'oiseau Max qui présente le concept" height="135px">
             </aside>
 
         </section>
@@ -276,53 +329,6 @@
             <a href="">Cookies</a>
         </section>
     </footer>
-
-    <!-- Authentification -->
-    <section id="authentification">
-        <img src="https://placehold.co/100x100" alt="">
-        <h4>type de connexion</h4>
-    </section>
-
-    <!-- Connexion -->
-    <form id="connexion" action="">
-        <section>
-            <input type="text" placeholder="E-mail" />
-            <input type="text" placeholder="Mot de passe" />
-            <p class="text-small">Mot de passe oublié ? Cliquez <a href="#oubli">ici</a></p>
-        </section>
-
-        <section>
-            <input type="radio" checked>Se souvenir de moi</input>
-            <bouton>Me connecter</bouton>
-            <p>Je n'ai pas de compte. <a class="btn-sign-in" href="#inscription">S'inscrire</a></p>
-        </section>
-    </form>
-
-    <!-- Inscription -->
-    <form id="inscription" action="">
-        <section>
-            <input type="text" placeholder="Nom" />
-            <input type="text" placeholder="Prénom" />
-            <input type="email" placeholder="E-mail" />
-            <input type="password" placeholder="Mot de passe" />
-        </section>
-
-        <section>
-            <article>
-                <input type="checkbox">
-                <p>Je souhaite recevoir une newletter des astuces et nouvelles fonctionnalitées proposé par “Nest Egg”
-                </p>
-            </article>
-
-            <article>
-                <input type="checkbox">
-                <p>J’autorise Nest Egg à me proposer des offres commerciales partenaires</p>
-            </article>
-        </section>
-
-        <button>M'inscrire</button>
-        <p>J’ai déjà un compte. <a class="btn-connect" href="#connexion">Me connecter</a></p>
-    </form>
 </body>
 
 </html>

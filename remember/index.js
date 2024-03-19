@@ -103,8 +103,8 @@ for (e of element) {
   function showConnexion() {
     //console.log("sC");
     connexion = document.getElementById("connexion");
-    connexion.style.display = "block";
-    authentification.style.display = "block";
+    connexion.style.display = "flex";
+    authentification.style.display = "flex";
     inscription = document.getElementById("inscription");
     inscription.style.display = "none";
   }
@@ -116,8 +116,8 @@ for (e of element) {
   function showInscription() {
     //console.log("sI");
     inscription = document.getElementById("inscription");
-    inscription.style.display = "block";
-    authentification.style.display = "block";
+    inscription.style.display = "flex";
+    authentification.style.display = "flex";
     connexion = document.getElementById("connexion");
     connexion.style.display = "none";
   }
