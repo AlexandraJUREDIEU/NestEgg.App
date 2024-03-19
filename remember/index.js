@@ -11,9 +11,20 @@ var swiper2 = new Swiper(".mySwiper", {
 });
 
 
+/**
+ * Montrer la nav quand la souris est dans celle-ci
+ */
+document.querySelector("nav picture").addEventListener("mouseenter", displayScrollingMenu)
+function displayScrollingMenu() {
+    //console.log("+");
+    document.querySelector("nav ul").style.display = "flex";
+}
 
-
-
+document.querySelector("nav").addEventListener("mouseleave", stopDisplayScrollingMenu)
+function stopDisplayScrollingMenu () {
+    //console.log("-");
+    document.querySelector("nav ul").style.display = "none";
+}
 /**
  * Ajoute du blur quand on affiche la Connexion ou l'Inscription
  */
