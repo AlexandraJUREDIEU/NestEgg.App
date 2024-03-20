@@ -25,7 +25,6 @@ function closeScrollingMenu() {
 
 
 
-
 /**
  * Slider 'Qui sommes nous ?'
  * Cache toutes les sections sauf le paragraphe de la première et l'idSlideVisible
@@ -42,7 +41,7 @@ function changeSlide(nbr) {
   for (let i = 1; i < 5; i++) {
     aboutUsArticles[i].setAttribute("style", "display: none");
   }
-  aboutUsArticles[nbr].setAttribute("style", "display: block");
+  aboutUsArticles[nbr].setAttribute("style", "display: flex");
 }
 buttonSlideGauche = document.querySelector("#slideGauche");
 buttonSlideGauche.addEventListener("click", () => {
@@ -72,10 +71,14 @@ function increaseActiveSlide() {
   }
 }
 
+/**
+ * Slider 'Tarifs'
+ */
 
-
-
-
+const aboutUsArticlesTarifs = document.querySelectorAll(".article-price");
+aboutUsArticlesTarifs[0].setAttribute("style", "display:flex");
+aboutUsArticlesTarifs[1].setAttribute("style", "display:none");
+aboutUsArticlesTarifs[2].setAttribute("style", "display:none");
 
 
 
@@ -128,7 +131,6 @@ function hideConnexionInscription() {
   connexion.style.display = "none";
   inscription.style.display = "none";
 }
-
 
 
 
