@@ -1,40 +1,71 @@
 /**
- * Montrer la nav quand la souris est dans celle-ci
+ *
+ * ===== MENU DEROULANT =====
+ *
+ */
+/**
+ * Ouvrir/Fermer/Switch le menu
+ */
+function switchScrollingMenu() {
+  if (document.querySelector(".nav-primary").style.display == "flex") {
+    //menu sera fermé
+    closeScrollingMenu();
+  } else {
+    //menu sera ouvert
+    document.querySelector(".nav-primary").style.display = "flex";
+    document
+      .querySelector(".close-pop-up-auth")
+      .setAttribute("style", "display: flex");
+  }
+}
+function closeScrollingMenu() {
+  //menu sera fermé
+  document.querySelector(".nav-primary").style.display = "none";
+  document.querySelector("#pop-up-auth").setAttribute("style", "display: none");
+}
+/**
+ * Bouton pour fermer le menu invisible par défaut
+ */
+document.querySelector("#pop-up-auth").setAttribute("style", "display: none");
+/**
+ * Switch le menu quand on clique sur le bouton en haut à droite
  */
 document
   .querySelector(".ico-menu-hamburger")
   .addEventListener("click", switchScrollingMenu);
-function switchScrollingMenu() {
-  if (document.querySelector(".nav-primary").style.display == "flex") {
-    document.querySelector(".nav-primary").style.display = "none";
-  } else {
-    document.querySelector(".nav-primary").style.display = "flex";
-  }
-}
 /**
  * Fermer le menu lorsqu'on clique dans un lien de la nav
  */
-let navA = document.querySelectorAll("body>header nav a");
+let navA = document.querySelectorAll("body>header nav ul a");
 for (a of navA) {
   a.addEventListener("click", closeScrollingMenu);
 }
-function closeScrollingMenu() {
-  document.querySelector(".nav-primary").style.display = "none";
-}
-
 /**
  * Fermer le menu quand on clique sur le bouton correspondant
  */
-document.querySelector(".close-pop-up-auth").addEventListener("click", () => 
-{
-  document.querySelector("#pop-up-auth").style.display = "none";
-}
-);
+document
+  .querySelector("#close-pop-up-connexion")
+  .addEventListener("click", closeScrollingMenu);
+document
+  .querySelector("#close-pop-up-inscription")
+  .addEventListener("click", closeScrollingMenu);
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+  
 /**
  * Slider 'Qui sommes nous ?'
  * Cache toutes les sections sauf le paragraphe de la première et l'idSlideVisible
@@ -90,14 +121,6 @@ aboutUsArticlesTarifs[0].setAttribute("style", "display:flex");
 aboutUsArticlesTarifs[1].setAttribute("style", "display:none");
 aboutUsArticlesTarifs[2].setAttribute("style", "display:none");
 
-
-
-
-
-
-
-
-
 /**
  * Affiche/Cache les parties Connexion/Inscription
  */
@@ -142,31 +165,6 @@ function hideConnexionInscription() {
   inscription.style.display = "none";
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Autres: poubelle
 
 /**
@@ -180,13 +178,3 @@ function addBlurBackground () {
 function removeBlurBackground () {
     document.querySelector(":root").style.filter = 'blur(0px)';
 }*/
-
-
-
-
-
-
-
-
-
-
