@@ -16,6 +16,7 @@
 body{
     background: rgb(92,39,116);
     background: linear-gradient(180deg, rgba(92,39,116,1) 0%, rgba(57,96,203,1) 100%);
+    width:100vw;
     overflow-x: hidden;
 }
 
@@ -210,7 +211,22 @@ input{
 
 /* #concept */
 
-#concept{ /*Validé*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* #concept{ 
+    display:flex;
+    flex-direction: column;
     background-color: rgba(221, 185, 147, 1);
     height: 120vh;
     padding: 1.25em;
@@ -218,14 +234,28 @@ input{
     position: relative;
     z-index: 1;
     border-radius: 50%;
-    width: 800px; /* Ajustez la taille selon vos besoins */
-    margin: 25px -210px; /* Pour centrer le cercle sur la page */
+     
+    width: 800px; Ajustez la taille selon vos besoins
+    margin: 25px -210px; Pour centrer le cercle sur la page
     overflow: hidden;
+}
+
+
+.text-concept, .aside-text-concept{
+    display:flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 80vw;
+    z-index:3;
+
 }
 
 #concept-1, #concept-2, #concept-3{
     margin-top: 3em;
-    width: 100vw;
+    
+    
 }
 
 #concept-1 span{
@@ -243,13 +273,13 @@ input{
 }
 
 #concept::before {
-    top: -25%; /* Ajustez la valeur pour contrôler le dépassement vers le haut */
-    left: -25%; /* Ajustez la valeur pour contrôler le dépassement vers la gauche */
+    top: -25%; Ajustez la valeur pour contrôler le dépassement vers le haut
+    left: -25%; Ajustez la valeur pour contrôler le dépassement vers la gauche
 }
 
 #concept::after {
-    bottom: -25%; /* Ajustez la valeur pour contrôler le dépassement vers le bas */
-    right: -25%; /* Ajustez la valeur pour contrôler le dépassement vers la droite */
+    bottom: -25%; Ajustez la valeur pour contrôler le dépassement vers le bas
+    right: -25%; Ajustez la valeur pour contrôler le dépassement vers la droite
 } 
 
 .aside-text-concept{
@@ -261,13 +291,18 @@ input{
 .aside-text-concept button{
     height: 35px;
     font-size: 1.25em;
-    /* a revoir */
+    a revoir
     box-shadow: 0.5px 0.5px rgba(131, 114, 114, 0.226);
-}
+} */
+
+
+
+
+
+
+
 
 /* about us */
-
-
 .text-intro-about-us{
     /* >400px : visible */
     display: none;
@@ -287,8 +322,6 @@ input{
     margin-top: 10px;
 }
 
-
-
 #art-card-collaborator{
     display: flex;
     flex-direction: column;
@@ -298,7 +331,6 @@ input{
     text-align: center;
     margin-top: 3em;
 }
-
 
 #art-card-collaborator img{
     border-radius: 50%;
@@ -317,6 +349,14 @@ input{
 #art-card-collaborator p{
     margin: 1em 2em;
 }
+
+
+
+
+
+
+
+
 
 /* price */
 
