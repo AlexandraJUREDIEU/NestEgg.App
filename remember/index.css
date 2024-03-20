@@ -16,6 +16,7 @@
 body{
     background: rgb(92,39,116);
     background: linear-gradient(180deg, rgba(92,39,116,1) 0%, rgba(57,96,203,1) 100%);
+    overflow-x: hidden;
 }
 
 body>header{ /*Validé*/   
@@ -209,22 +210,47 @@ input{
 
 /* #concept */
 
-#concept{
+#concept{ /*Validé*/
     background-color: rgba(221, 185, 147, 1);
     height: 120vh;
-    /* temporaire  */
-    margin-top: 10px;
     padding: 1.25em;
     text-align: center;
+    position: relative;
+    z-index: 1;
+    border-radius: 50%;
+    width: 800px; /* Ajustez la taille selon vos besoins */
+    margin: 25px -210px; /* Pour centrer le cercle sur la page */
+    overflow: hidden;
 }
 
 #concept-1, #concept-2, #concept-3{
     margin-top: 3em;
+    width: 100vw;
 }
 
 #concept-1 span{
     font-family: "Balmy";
 }
+
+#concept::before,
+#concept::after {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background-color: inherit;
+    border-radius: 50%;
+}
+
+#concept::before {
+    top: -25%; /* Ajustez la valeur pour contrôler le dépassement vers le haut */
+    left: -25%; /* Ajustez la valeur pour contrôler le dépassement vers la gauche */
+}
+
+#concept::after {
+    bottom: -25%; /* Ajustez la valeur pour contrôler le dépassement vers le bas */
+    right: -25%; /* Ajustez la valeur pour contrôler le dépassement vers la droite */
+} 
 
 .aside-text-concept{
     display: flex;
@@ -240,7 +266,77 @@ input{
 }
 
 /* about us */
+
+
 .text-intro-about-us{
     /* >400px : visible */
     display: none;
 }
+
+#about-us{
+    height: 90vh;
+    margin: auto;
+} 
+
+#about-us h2{
+    color: rgba(221, 185, 147, 1);
+    font-size: 2em;
+    font-weight: 300;
+    text-align: center;
+    /* temporaire */
+    margin-top: 10px;
+}
+
+
+
+#art-card-collaborator{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+    margin-top: 3em;
+}
+
+
+#art-card-collaborator img{
+    border-radius: 50%;
+}
+
+#art-card-collaborator h3{
+    color: rgba(221, 185, 147, 1);
+    font-size: 1.5em;
+}
+
+#art-card-collaborator span{
+    font-family: "Balmy";
+    color: rgba(221, 185, 147, 1);
+}
+
+#art-card-collaborator p{
+    margin: 1em 2em;
+}
+
+/* price */
+
+#price{
+    margin: 1em 2em;
+}
+
+#text-intro-price{
+    /* >400 = visible */
+    display: none;
+}
+
+#price h2{
+    font-size: 2.5em;
+    font-family: "Balmy";
+    color: rgba(221, 185, 147, 1);
+}
+
+#art-card-price{
+    background-color: rgba(217, 217, 217, 0.25);
+    border-radius: 2.5em;
+}
+
