@@ -1,15 +1,4 @@
 /**
- * Librairie swiper
- */
-
-var swiper = new Swiper(".mySwiper", {
-  slidesPerView: 1,
-});
-
-
-
-
-/**
  * Montrer la nav quand la souris est dans celle-ci
  */
 document
