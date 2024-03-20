@@ -3,36 +3,109 @@
  */
 
 var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 1
+  slidesPerView: 1,
 });
 
-var swiper2 = new Swiper(".mySwiper", {
-    slidesPerView: 1
-});
+
 
 
 /**
  * Montrer la nav quand la souris est dans celle-ci
  */
-document.querySelector(".ico-menu-hamburger").addEventListener("click", switchScrollingMenu)
+document
+  .querySelector(".ico-menu-hamburger")
+  .addEventListener("click", switchScrollingMenu);
 function switchScrollingMenu() {
-    if (document.querySelector(".nav-primary").style.display == "flex" ){
-        document.querySelector(".nav-primary").style.display = "none";
-    }else {
-        document.querySelector(".nav-primary").style.display = "flex";
-    }
+  if (document.querySelector(".nav-primary").style.display == "flex") {
+    document.querySelector(".nav-primary").style.display = "none";
+  } else {
+    document.querySelector(".nav-primary").style.display = "flex";
+  }
 }
 /**
  * Fermer le menu lorsqu'on clique dans un lien de la nav
  */
-let  navA = document.querySelectorAll("body>header nav a");
-for (a of navA){
-    a.addEventListener("click", closeScrollingMenu);
+let navA = document.querySelectorAll("body>header nav a");
+for (a of navA) {
+  a.addEventListener("click", closeScrollingMenu);
 }
 function closeScrollingMenu() {
-    document.querySelector(".nav-primary").style.display = "none";
+  document.querySelector(".nav-primary").style.display = "none";
 }
 
+
+
+/**
+ * Affiche/Cache les parties Connexion/Inscription
+ */
+hideConnexionInscription();
+authentification = document.getElementById("authentification");
+
+element = document.querySelectorAll(".btn-connect");
+for (e of element) {
+  e.addEventListener("click", showConnexion);
+  function showConnexion() {
+    //console.log("sC");
+    pop = document.getElementById("pop-up-auth");
+    connexion = document.getElementById("connexion");
+    inscription = document.getElementById("inscription");
+    pop.style.display = "flex";
+    connexion.style.display = "flex";
+    authentification.style.display = "flex";
+
+    inscription.style.display = "none";
+  }
+}
+
+element = document.querySelectorAll(".btn-sign-in");
+for (e of element) {
+  e.addEventListener("click", showInscription);
+  function showInscription() {
+    //console.log("sI");
+    inscription = document.getElementById("inscription");
+    inscription.style.display = "flex";
+    authentification.style.display = "flex";
+    connexion = document.getElementById("connexion");
+    connexion.style.display = "none";
+  }
+}
+
+function hideConnexionInscription() {
+  //console.log("hCI");
+  connexion = document.getElementById("connexion");
+  inscription = document.getElementById("inscription");
+  authentification.style.display = "none";
+  connexion.style.display = "none";
+  inscription.style.display = "none";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Autres: poubelle
 
 /**
  * Ajoute du blur quand on affiche la Connexion ou l'Inscription
@@ -49,7 +122,10 @@ function removeBlurBackground () {
 /**
  * Slider 'Qui sommes nous ?'
  * Cache toutes les sections sauf le paragraphe de la première et l'idSlideVisible
- *//*
+ */
+
+
+/*
 const aboutUsArticles = document.querySelectorAll("#about-us article");
 aboutUsArticles[0].querySelector("p").setAttribute("style", "display: none");
 
@@ -90,52 +166,6 @@ function increaseActiveSlide() {
     throw new Error("Bouton précédent cliqué lorsque slide la plus à gauche");
   }
 }*/
-
-/**
- * Affiche/Cache les parties Connexion/Inscription
- */
-hideConnexionInscription();
-authentification = document.getElementById("authentification");
-
-element = document.querySelectorAll(".btn-connect");
-for (e of element) {
-  e.addEventListener("click", showConnexion);
-  function showConnexion() {
-    //console.log("sC");
-    pop = document.getElementById("pop-up-auth");
-    connexion = document.getElementById("connexion");
-    inscription = document.getElementById("inscription");
-    pop.style.display= "flex";
-    connexion.style.display = "flex";
-    authentification.style.display = "flex";
-    
-    inscription.style.display = "none";
-  }
-}
-
-element = document.querySelectorAll(".btn-sign-in");
-for (e of element) {
-  e.addEventListener("click", showInscription);
-  function showInscription() {
-    //console.log("sI");
-    inscription = document.getElementById("inscription");
-    inscription.style.display = "flex";
-    authentification.style.display = "flex";
-    connexion = document.getElementById("connexion");
-    connexion.style.display = "none";
-  }
-}
-
-function hideConnexionInscription() {
-  //console.log("hCI");
-  connexion = document.getElementById("connexion");
-  inscription = document.getElementById("inscription");
-  authentification.style.display = "none";
-  connexion.style.display = "none";
-  inscription.style.display = "none";
-}
-
-
 
 
 
