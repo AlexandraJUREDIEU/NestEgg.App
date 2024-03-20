@@ -24,6 +24,67 @@ function closeScrollingMenu() {
 
 
 
+
+
+/**
+ * Slider 'Qui sommes nous ?'
+ * Cache toutes les sections sauf le paragraphe de la première et l'idSlideVisible
+ */
+
+const aboutUsArticles = document.querySelectorAll("#about-us article");
+aboutUsArticles[0].querySelector("p").setAttribute("style", "display: none");
+
+//Slide visible par défaut
+let idSlideVisible = 1;
+changeSlide(idSlideVisible);
+
+function changeSlide(nbr) {
+  for (let i = 1; i < 5; i++) {
+    aboutUsArticles[i].setAttribute("style", "display: none");
+  }
+  aboutUsArticles[nbr].setAttribute("style", "display: block");
+}
+buttonSlideGauche = document.querySelector("#slideGauche");
+buttonSlideGauche.addEventListener("click", () => {
+  decreaseActiveSlide();
+  changeSlide(idSlideVisible);
+});
+function decreaseActiveSlide() {
+  if (idSlideVisible > 1) {
+    idSlideVisible--;
+    changeSlide(idSlideVisible);
+  } else {
+    throw new Error("Bouton suivant cliqué lorsque slide la plus à droite");
+  }
+}
+
+buttonSlideDroite = document.querySelector("#slideDroite");
+buttonSlideDroite.addEventListener("click", () => {
+  increaseActiveSlide();
+  changeSlide(idSlideVisible);
+});
+function increaseActiveSlide() {
+  if (idSlideVisible < 4) {
+    idSlideVisible++;
+    changeSlide(idSlideVisible);
+  } else {
+    throw new Error("Bouton précédent cliqué lorsque slide la plus à gauche");
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * Affiche/Cache les parties Connexion/Inscription
  */
@@ -108,53 +169,6 @@ function removeBlurBackground () {
     document.querySelector(":root").style.filter = 'blur(0px)';
 }*/
 
-/**
- * Slider 'Qui sommes nous ?'
- * Cache toutes les sections sauf le paragraphe de la première et l'idSlideVisible
- */
-
-
-/*
-const aboutUsArticles = document.querySelectorAll("#about-us article");
-aboutUsArticles[0].querySelector("p").setAttribute("style", "display: none");
-
-//Slide visible par défaut
-let idSlideVisible = 1;
-changeSlide(idSlideVisible);
-
-function changeSlide(nbr) {
-  for (let i = 1; i < 5; i++) {
-    aboutUsArticles[i].setAttribute("style", "display: none");
-  }
-  aboutUsArticles[nbr].setAttribute("style", "display: block");
-}
-buttonSlideGauche = document.querySelector("#slideGauche");
-buttonSlideGauche.addEventListener("click", () => {
-  decreaseActiveSlide();
-  changeSlide(idSlideVisible);
-});
-function decreaseActiveSlide() {
-  if (idSlideVisible > 1) {
-    idSlideVisible--;
-    changeSlide(idSlideVisible);
-  } else {
-    throw new Error("Bouton suivant cliqué lorsque slide la plus à droite");
-  }
-}
-
-buttonSlideDroite = document.querySelector("#slideDroite");
-buttonSlideDroite.addEventListener("click", () => {
-  increaseActiveSlide();
-  changeSlide(idSlideVisible);
-});
-function increaseActiveSlide() {
-  if (idSlideVisible < 4) {
-    idSlideVisible++;
-    changeSlide(idSlideVisible);
-  } else {
-    throw new Error("Bouton précédent cliqué lorsque slide la plus à gauche");
-  }
-}*/
 
 
 
