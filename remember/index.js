@@ -22,6 +22,16 @@ function closeScrollingMenu() {
   document.querySelector(".nav-primary").style.display = "none";
 }
 
+/**
+ * Fermer le menu quand on clique sur le bouton correspondant
+ */
+document.querySelector(".close-pop-up-auth").addEventListener("click", () => 
+{
+  document.querySelector("#pop-up-auth").style.display = "none";
+}
+);
+
+
 
 
 
