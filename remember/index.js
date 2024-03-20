@@ -102,10 +102,13 @@ for (e of element) {
   e.addEventListener("click", showConnexion);
   function showConnexion() {
     //console.log("sC");
+    pop = document.getElementById("pop-up-auth");
     connexion = document.getElementById("connexion");
+    inscription = document.getElementById("inscription");
+    pop.style.display= "flex";
     connexion.style.display = "flex";
     authentification.style.display = "flex";
-    inscription = document.getElementById("inscription");
+    
     inscription.style.display = "none";
   }
 }
