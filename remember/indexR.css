@@ -17,3 +17,16 @@
 .scroll-area {
     scroll-snap-align: start;
 }
+
+
+.nav-secondary {
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    position: absolute;
+    top: 0em;
+    backdrop-filter: none;
+    border-radius: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}

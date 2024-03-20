@@ -43,20 +43,24 @@ for (a of navA) {
 /**
  * Fermer le menu quand on clique sur le bouton correspondant
  */
-document
-  .querySelector("#close-pop-up-connexion")
-  .addEventListener("click", closeScrollingMenu);
-document
-  .querySelector("#close-pop-up-inscription")
-  .addEventListener("click", closeScrollingMenu);
+document.querySelector("#close-pop-up-connexion").addEventListener("click", closeScrollingMenu);
+document.querySelector("#close-pop-up-inscription").addEventListener("click", closeScrollingMenu);
 
+/**
+ * Afficher la nav barre de façon différente en fonction de la largeur (980)
+ */
 
-
-
-
-
-
-
+if (window.innerWidth > 980){
+  document.querySelector(".ico-menu-hamburger").setAttribute("style", "display: none");
+  document.querySelector(".ul-nav-header").setAttribute("style", "display: flex");
+  document.querySelector("nav").classList.remove("nav-primary");
+  document.querySelector("nav").classList.add("nav-secondary");
+} else {
+  document.querySelector(".ico-menu-hamburger").setAttribute("style", "display: flex");
+  document.querySelector(".nav-primary").setAttribute("style", "display: none");
+  document.querySelector("nav").classList.add("nav-primary");
+  document.querySelector("nav").classList.remove("nav-secondary");
+}
 
 
 
