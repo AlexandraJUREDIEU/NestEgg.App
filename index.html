@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="index.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
@@ -33,13 +32,13 @@
                     <img class="img-nav-header" src="img/3-Mascotte.png">
                     <div class="btn-connect">
                         <img class="ico-user" src="img/icons-user-round.png" alt="Avatar utilisateur" width="40px">
-                        <a class="connexion-a-div-nav-header" href="#header-home">Connexion</a>
+                        <a class="connexion-div-nav-header" href="#header-home">Connexion</a>
                     </div>
                 </nav>
             </header>
-            <article id="pop-up-auth" class="pop-up-auth" style="display:none">
-                <header id="authentification">
-                    <img id="close-pop-up-inscription" class="close-pop-up-auth" src="img/icons-logout.png"
+            <article id="pop-up-auth" class="pop-up-auth">
+                <header id="authentification" class="authentification">
+                    <img id="close-pop-up" class="close-pop-up" src="img/icons-logout.png"
                         alt="sortie de l'authentification">
                     <img src="img/logoSansTexte.png" alt="Nest Egg" height="120px">
                     <p>type de connexion</p>
@@ -55,12 +54,12 @@
                         <button>Me connecter</button>
                         <p>Je n'ai pas de compte. <a class="btn-sign-in" href="#inscription">S'inscrire</a></p>
                     </section>
-                    <img id="close-pop-up-connexion" class="close-pop-up-auth" src="img/icons-logout.png"
+                    <img id="close-pop-up" class="close-pop-up" src="img/icons-logout.png"
                         alt="sortie de l'authentification">
 
                 </form>
 
-                <form id="inscription" action="">
+                <form id="inscription" class="form-inscription" action="">
                     <section>
                         <input type="text" placeholder="Nom" />
                         <input type="text" placeholder="Prénom" />

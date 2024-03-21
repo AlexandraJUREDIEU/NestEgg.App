@@ -226,3 +226,7 @@ div{
     position: relative;
     right: 5em;
 }
+
+.pop-up-auth {
+    display:none;
+}
