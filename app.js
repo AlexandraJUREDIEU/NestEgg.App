@@ -12,7 +12,7 @@ const mainNav = document.querySelector("nav");
 const navLinks = document.querySelectorAll(".ul-nav-header li");
 const btnConnect = document.querySelectorAll(".btn-connect");
 const btnSignIn = document.querySelectorAll(".btn-sign-in");
-
+const imgOiseauMenu = document.querySelector(".img-nav-header");
 
 /**
  *  RESPONSIVITÉ
@@ -51,10 +51,15 @@ const btnSignIn = document.querySelectorAll(".btn-sign-in");
 // Fonction pour ouvrir le menu
 function openNavPrimary() {
   navPrimary.style.display = "flex";
+  // Afficher l'image d'oiseau dans le menu Authentification
+  imgOiseauMenu.style.display = "flex";
 }
 // Fonction pour fermer le menu
 function closeNavPrimary() {
   navPrimary.style.display = "none";
+  // Supprimer l'image d'oiseau dans le menu Authentification
+  imgOiseauMenu.style.display = "none";
+  console.log("closenavprimary");
 }
 // Fonction de basculement du menu
 function toggleScrollingMenu() {
@@ -109,6 +114,8 @@ function closeMenu () {
   closeAuthentification();
   closeConnexion();
   closeInscription();
+  navPrimary.style.display = "flex";
+  adjustNavDisplay();
 }
 
 
