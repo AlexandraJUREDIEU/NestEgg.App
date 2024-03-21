@@ -11,40 +11,37 @@ const btnConnect = document.querySelector(".btn-connect");
 
 /**
  *  RESPONSIVITÉ
- * 
+ *
  *  1.Fonction pour ajuster l'affichage de la Navbar en fonction de la largeur de l'écran
- * 
- * 
-  */  
-  function adjustNavDisplay() {
-    // Si la largeur est supérieur à 980px
-    if (window.innerWidth > 980) {
-      hamburgerMenuIcon.style.display = "none";
-      navPrimary.style.display = "flex";
-      mainNav.classList.remove("nav-primary");
-      mainNav.classList.add("nav-secondary");
-    } else {
-      // Si la largeur est inférieur à 980px
-      hamburgerMenuIcon.style.display = "flex";
-      navPrimary.style.display = "none";
-      mainNav.classList.add("nav-primary");
-      mainNav.classList.remove("nav-secondary");
-    }
-    // Écouter les changements de taille de la fenêtre
-    window.addEventListener("resize", adjustNavDisplay);
-    
+ *
+ *
+ */
+function adjustNavDisplay() {
+  // Si la largeur est supérieur à 980px
+  if (window.innerWidth > 980) {
+    hamburgerMenuIcon.style.display = "none";
+    navPrimary.style.display = "flex";
+    mainNav.classList.remove("nav-primary");
+    mainNav.classList.add("nav-secondary");
+  } else {
+    // Si la largeur est inférieur à 980px
+    hamburgerMenuIcon.style.display = "flex";
+    navPrimary.style.display = "none";
+    mainNav.classList.add("nav-primary");
+    mainNav.classList.remove("nav-secondary");
   }
-  // Appel initial pour configurer l'affichage basé sur la largeur actuelle
-  adjustNavDisplay();
+  // Écouter les changements de taille de la fenêtre
+  window.addEventListener("resize", adjustNavDisplay);
+}
+// Appel initial pour configurer l'affichage basé sur la largeur actuelle
+adjustNavDisplay();
 
-
-
- /**
+/**
  * MENU DÉROULANT
  * Fonction de basculement du menu déroulant
- * 
- * 
-  */ 
+ *
+ *
+ */
 // Fonction pour ouvrir le menu
 function openScrollingMenu() {
   navPrimary.style.display = "flex";
@@ -64,14 +61,12 @@ function toggleScrollingMenu() {
   } else {
     openScrollingMenu();
   }
-};
+}
 // Ajout de l'écouteur d'événements pour le menu hamburger
 hamburgerMenuIcon.addEventListener("click", toggleScrollingMenu);
- 
+
 // Fermer le menu lorsqu'on clique dans un lien de la nav ()
 for (let link of navLinks) {
   link.addEventListener("click", closeScrollingMenu);
   btnConnect.addEventListener("click", closeScrollingMenu);
 }
-
-

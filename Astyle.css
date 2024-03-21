@@ -1,0 +1,380 @@
+/**
+ * ANCIEN PROJET
+ **/
+ 
+ /* Box Sizing */
+
+/* border : 4px solid vert; */
+
+*{
+    box-sizing: border-box;
+    font-family: "Quicksand";
+    color: white;
+    font-size: 1em;
+    margin: 0;
+    padding:0;
+    border: 0;
+}
+
+body{
+    background: rgb(92,39,116);
+    background: linear-gradient(180deg, rgba(92,39,116,1) 0%, rgba(57,96,203,1) 100%);
+    width:100vw;
+    overflow-x: hidden;
+}
+
+body>header{ /*Validé*/
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 13vh;
+    padding:0.75em 1em 0.75em 0em;
+    z-index: 1;    
+}
+
+ul>li{
+    text-decoration: none;
+    list-style: none;
+    font-size: 1.5em;
+    margin: 0.5em;
+    
+}
+a{
+ display:flex;
+ justify-content:center;
+ align-items: center;
+ align-content:center;
+ text-decoration:none;
+}
+
+/* icons  & images*/
+.logo-nestegg-default{
+    width: 5.5em;
+    z-index: 1;  
+
+}
+
+.ico-menu-hamburger{
+    height: 3.125em;
+    z-index:1;
+
+    
+}
+
+.nav-primary{
+    background-color: linear-gradient(180deg, rgba(92,39,116,1) 0%, rgba(57,96,203,1) 25%);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 0em;
+    backdrop-filter: blur(50px);
+    width:100vw;
+    height:90vh;
+    border-radius: 0px 0px 160px 160px;
+    -webkit-box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25); 
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+}
+.nav-primary>ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:0;
+    
+}
+
+.pop-up-auth{    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgba(92,39,116,0.); */
+    backdrop-filter: blur(70px);    
+    height:100vh;
+    width: 100%;
+    z-index: 15;
+    position: absolute;
+    top: 0em;
+}
+
+#authentification{ /* Validé */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 1.25em;    
+}
+
+#connexion{
+    border:2px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#connexion>section{
+    border:2px solid green;
+    display: flex;
+    flex-direction: column;
+}
+#connexion>section>input{
+    height: 3.25em;
+    margin: 0.5em;
+    width: 80vw;
+    padding: 0.75em;
+}
+input{
+    background-color: rgba(255,255,255,0.20);
+    border-radius: 3.125em;
+}
+.text-small{
+    font-size: 0.75em;
+}
+
+/* Boutons */
+.btn-connect{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:0.25em;
+    background-color: rgba(255,255,255,0.5);    
+    align-items: center;
+    border-radius: 100px;
+    width:50vw;
+}
+.btn-connect>a{
+    width: 100%;
+    text-align: center;
+}
+
+ #landing{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 77vh;
+}
+
+.title-nest-egg{
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.span-title-nest-egg{
+    font-family: "Balmy";
+}
+
+.text-intro{
+    text-align: center;
+    width: 225px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.img-egg{
+    display: flex;
+    margin: auto;
+    margin-top: 10px;
+}
+
+#art-btn-concept{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 188px;
+    margin: auto;
+    margin-top: 10px;
+    gap: 8px;
+}
+
+.btn-link-concept{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:0.5em;
+    background-color: rgba(255,255,255,0.5);    
+    align-items: center;
+    border-radius: 100px;
+    width:50vw;
+}
+
+.btn-link-concept>a{
+    width: 100%;
+    text-align: center;
+}
+
+/* #concept */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* #concept{ 
+    display:flex;
+    flex-direction: column;
+    background-color: rgba(221, 185, 147, 1);
+    height: 120vh;
+    padding: 1.25em;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    border-radius: 50%;
+     
+    width: 800px; Ajustez la taille selon vos besoins
+    margin: 25px -210px; Pour centrer le cercle sur la page
+    overflow: hidden;
+}
+
+.text-concept, .aside-text-concept{
+    display:flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 80vw;
+    z-index:3;
+
+}
+
+#concept-1, #concept-2, #concept-3{
+    margin-top: 3em;
+    
+    
+}
+
+#concept-1 span{
+    font-family: "Balmy";
+}
+
+#concept::before,
+#concept::after {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background-color: inherit;
+    border-radius: 50%;
+}
+
+#concept::before {
+    top: -25%; Ajustez la valeur pour contrôler le dépassement vers le haut
+    left: -25%; Ajustez la valeur pour contrôler le dépassement vers la gauche
+}
+
+#concept::after {
+    bottom: -25%; Ajustez la valeur pour contrôler le dépassement vers le bas
+    right: -25%; Ajustez la valeur pour contrôler le dépassement vers la droite
+} 
+
+.aside-text-concept{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2em;
+}
+
+.aside-text-concept button{
+    height: 35px;
+    font-size: 1.25em;
+    a revoir
+    box-shadow: 0.5px 0.5px rgba(131, 114, 114, 0.226);
+} */
+
+
+
+
+
+
+
+/* about us */
+.text-intro-about-us{
+    /* >400px : visible */
+    display: none;
+}
+
+#about-us{
+    height: 90vh;
+    margin: auto;
+} 
+
+#about-us h2{
+    color: rgba(221, 185, 147, 1);
+    font-size: 2em;
+    font-weight: 300;
+    text-align: center;
+    /* temporaire */
+    margin-top: 10px;
+}
+
+#art-card-collaborator{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+    margin-top: 3em;
+}
+
+#art-card-collaborator img{
+    border-radius: 50%;
+}
+
+#art-card-collaborator h3{
+    color: rgba(221, 185, 147, 1);
+    font-size: 1.5em;
+}
+
+#art-card-collaborator span{
+    font-family: "Balmy";
+    color: rgba(221, 185, 147, 1);
+}
+
+#art-card-collaborator p{
+    margin: 1em 2em;
+}
+
+
+
+
+
+
+
+
+/* price */
+
+#price{
+    margin: 1em 2em;
+}
+
+#text-intro-price{
+    /* >400 = visible */
+    display: none;
+}
+
+#price h2{
+    font-size: 2.5em;
+    font-family: "Balmy";
+    color: rgba(221, 185, 147, 1);
+}
+
+#art-card-price{
+    background-color: rgba(217, 217, 217, 0.25);
+    border-radius: 2.5em;
+}
+
+
+
+
+
+

@@ -1,63 +1,70 @@
 /* Globales */
-*{
+* {
     box-sizing: border-box;
     font-family: "Quicksand";
     color: white;
     font-size: 1em;
     margin: 0;
-    padding:0;
+    padding: 0;
     border: 0;
     text-align: center;
 }
-body{
-    background: rgb(92,39,116);
-    background: linear-gradient(180deg, rgba(92,39,116,1) 0%, rgba(57,96,203,1) 100%);
-    width:100vw;
+
+body {
+    background: rgb(92, 39, 116);
+    background: linear-gradient(180deg, rgba(92, 39, 116, 1) 0%, rgba(57, 96, 203, 1) 100%);
+    width: 100vw;
     overflow-x: hidden;
 }
 
-.scroller{
+.scroller {
     height: 100vh;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
-  }
-  
-.item-scroll{
+}
+
+.item-scroll {
     scroll-snap-align: start;
 }
 
-h1{
+h1 {
     font-size: 2.5em;
     font-weight: 300;
     text-transform: uppercase;
 }
-li,a{
+
+li,
+a {
     list-style: none;
     text-decoration: none;
 }
 
-span{
+span {
     font-family: "Balmy";
 }
 
 /* icones & images */
-.logo-nestegg-default{
+.logo-nestegg-default {
     width: 5.5em;
     z-index: 1;
 }
-.ico-menu-hamburger{
+
+.ico-menu-hamburger {
     height: 3.125em;
-    z-index:1;    
+    z-index: 1;
 }
 
-#landing,#concept,#about-us,#price{
+#landing,
+#concept,
+#about-us,
+#price {
     height: 100vh;
     /* scroll-snap-align: start; */
 }
 
 /* Boutons */
 
-#art-btn-concept{
+#art-btn-concept {
     display: flex;
     flex-direction: column;
     gap: 0.75em;
@@ -65,40 +72,40 @@ span{
 
 
 
-.btn-primary{
+.btn-primary {
     height: 2.5em;
     border-radius: 15px;
     padding: 0 1em;
     margin: auto;
-    background-color:rgba(255, 255, 255, 0.5);
-    -webkit-box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25); 
-    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+    background-color: rgba(255, 255, 255, 0.5);
+    -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 
 
 /* Landing */
-header{
+header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding:0.75em 1em 0.75em 0em;
+    padding: 0.75em 1em 0.75em 0em;
     z-index: 1;
     /* outline: 1px solid red; */
 }
 
 #landing {
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
+
 }
 
-#landing main{
+#landing main {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly; 
+    justify-content: space-evenly;
     padding: 0em 2.5em;
 }
 
@@ -120,3 +127,11 @@ p,h1,h2,h3,h4,h5,img{
 div{
     outline: 1px solid greenyellow;
 } */
+
+.nav-primary {
+    background-color: red;
+    flex-direction: column;
+    position: absolute;
+    top: 200px;
+    left: 200px;
+}
