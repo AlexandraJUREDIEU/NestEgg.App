@@ -2,7 +2,7 @@
  * VARIABLES D'ENVIRONNEMENT
  *  */
 const navPrimary = document.querySelector(".nav-primary");
-const popUpAuth = document.querySelector("#pop-up-auth");
+const popUpAuth = document.querySelector(".pop-up-auth");
 const closePopUp = document.querySelectorAll(".close-pop-up");
 const authentification = document.querySelector(".authentification");
 const connexion = document.querySelector(".form-connexion");
