@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="index.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/balmy" rel="stylesheet">  
+    <script src="app.js" defer></script>  
+    <link rel="stylesheet" href="style.css">
+
+    <title>Nest Egg</title>
+</head>
+<body>
+    <div class="scroller">
+    <!--Landing -->
+        <section id="landing" class="item-scroll">
+            <header>
+                <img class="logo-nestegg-default" src="img/logoNestEgg.png" alt="Logo NestEgg">
+                <img class="ico-menu-hamburger" src="img/icons-menu-hamburger.png" alt="Icone du menu" height="40px" width="40px">
+                <!-- Navbar (Affichage selon taille d'écran) -->
+                <nav class="nav-primary">            
+                    <ul class="ul-nav-header">
+                        <li><a href="#concept" class="a-concept">Concept</a></li>
+                        <li><a href="#about-us" class="a-about-us">Qui sommes nous?</a></li>
+                        <li><a href="#price" class="a-price">Tarifs</a></li>                
+                    </ul>
+                    <div class="btn-connect">
+                            <img class="ico-user" src="img/icons-user-round.png" alt="Avatar utilisateur" width="40px">             
+                            <a href="#header-home">Connexion</a>       
+                        </div>
+                </nav>
+            </header>
+            <article id="pop-up-auth" class="pop-up-auth" style="display:none">
+                <header id="authentification">
+                    <img id="close-pop-up-inscription" class="close-pop-up-auth" src="img/icons-logout.png" alt="sortie de l'authentification">
+                    <img src="img/logoSansTexte.png" alt="Nest Egg" height="120px">
+                    <p>type de connexion</p>
+                </header>
+                <form action="" id="connexion" class="form-connexion">
+                    <section>
+                        <input type="text" placeholder="E-mail" />
+                        <input type="password" placeholder="Mot de passe" />
+                        <p class="text-small">Mot de passe oublié ? Cliquez<span>ici</span></p>
+                    </section>            
+                    <section>
+                        <input type="radio" value="Se souvenir de moi"checked />
+                        <button>Me connecter</button>
+                        <p>Je n'ai pas de compte. <a class="btn-sign-in" href="#inscription">S'inscrire</a></p>
+                    </section>
+                    <img id="close-pop-up-connexion" class="close-pop-up-auth" src="img/icons-logout.png" alt="sortie de l'authentification">
+
+                </form>
+
+                <form id="inscription"action="">
+                    <section>
+                        <input type="text" placeholder="Nom" />
+                        <input type="text" placeholder="Prénom" />
+                        <input type="email" placeholder="E-mail" />
+                        <input type="password" placeholder="Mot de passe" />
+                    </section>
+            
+                    <section>
+                        <article>
+                            <input type="checkbox">
+                            <p>Je souhaite recevoir une newletter des astuces et nouvelles fonctionnalitées proposé par “Nest Egg”
+                            </p>
+                        </article>
+            
+                        <article>
+                            <input type="checkbox">
+                            <p>J’autorise Nest Egg à me proposer des offres commerciales partenaires</p>
+                        </article>
+                        <button>M'inscrire</button>
+                        <p>J’ai déjà un compte.<a class="btn-connect" href="#connexion">Me connecter</a></p>
+                    </section>
+
+                </form>
+            </article>
+            <main>
+                <article>
+                    <h1 class="title-nest-egg">Nest <span class="span-title-nest-egg">Egg</span></h1>
+                    <p class="text-intro">Ne mettez pas tout vos oeufs dans le même panier</p>
+                </article>
+                <aside>
+                    <img src="img/oeufNestEgg.png" alt="" class="img-egg" height="280px" style="margin-left: 3.5em;">
+                </aside>
+                <article id="art-btn-concept">
+                    <button href="#concept" class="btn-primary btn-link-concept"><a href="#concept">Découvrir le concept</a></button>
+                    <button href="#connexion" class="btn-primary  btn-connect"><a href="#connexion">Accéder à mon tableau de bord</a></button>
+                </article>
+            </main>
+
+
+
+
+
+        </section>
+    <!--concept -->
+        <section id="concept" class="item-scroll"></section>
+    <!--About-us -->
+        <section id="about-us" class="item-scroll"></section>
+    <!--Price -->
+        <section id="price" class="item-scroll"></section>
+    </div>
+    
+    
+
+
+
+
+
+</body>
+</html>
