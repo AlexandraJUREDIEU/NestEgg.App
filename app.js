@@ -1,3 +1,5 @@
+//Essayer d'avoir un truc un peu plus safe
+
 /**
  * VARIABLES D'ENVIRONNEMENT
  *  */
@@ -59,7 +61,6 @@ function closeNavPrimary() {
   navPrimary.style.display = "none";
   // Supprimer l'image d'oiseau dans le menu Authentification
   imgOiseauMenu.style.display = "none";
-  console.log("closenavprimary");
 }
 // Fonction de basculement du menu
 function toggleScrollingMenu() {
@@ -70,6 +71,30 @@ function toggleScrollingMenu() {
   }
 }
 
+/** POP-UP AUTHENTIFICATION */
+//Ouvre le menu Authentification
+function openMenuAuthentification () {
+  closeNavPrimary();
+  openAuthentification();
+  openConnexion();
+  closeInscription();
+}
+//Ouvre le menu Inscription
+function openMenuInscription () {
+  closeNavPrimary();
+  openAuthentification();
+  closeConnexion();
+  openInscription();
+}
+//Ferme le menu
+function closeMenu () {
+  closeNavPrimary();
+  closeAuthentification();
+  closeConnexion();
+  closeInscription();
+  navPrimary.style.display = "flex";
+  adjustNavDisplay();
+}
 // Affiche la partie Authentification du menu
 function openAuthentification () {
   popUpAuth.style.display = "flex";
@@ -93,29 +118,6 @@ function openInscription () {
 // Ferme la partie Inscription du menu
 function closeInscription () {
   inscription.style.display = "none";
-}
-//Ouvre le menu Authentification
-function openMenuAuthentification () {
-  closeNavPrimary();
-  openAuthentification();
-  openConnexion();
-  closeInscription();
-}
-//Ouvre le menu Inscription
-function openMenuInscription () {
-  closeNavPrimary();
-  openAuthentification();
-  closeConnexion();
-  openInscription();
-}
-//Ferme le menu
-function closeMenu () {
-  closeNavPrimary();
-  closeAuthentification();
-  closeConnexion();
-  closeInscription();
-  navPrimary.style.display = "flex";
-  adjustNavDisplay();
 }
 
 

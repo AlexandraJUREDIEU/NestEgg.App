@@ -140,12 +140,12 @@ div{
     top: 0em;
     backdrop-filter: blur(50px);
     width: 100vw;
-    /*height:50vh;*/
+    height:100vh;
     border-radius: 0px 0px 160px 160px;
     -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     font-size: 32px;
-    margin-top: 90px;
+    /*margin-top: 90px;*/
     padding-top: 20px;
     padding-bottom: 20px;
 }
@@ -155,7 +155,6 @@ div{
     flex-direction: column;
     align-items: center;
     padding: 0;
-    margin-left: 50px;
     /*background-color: aqua;*/
 }
 
@@ -231,7 +230,7 @@ div{
 
 .img-nav-header {
     position: relative;
-    right: 5em;
+    right: 3em;
 }
 
 
@@ -246,7 +245,7 @@ div{
     width: 100%;
     z-index: 15;
     position: absolute;
-    top: 0em; /* top: 90px;*/
+    top: 0em;
 }
 #authentification{ /* Validé */
     display: flex;
@@ -259,7 +258,7 @@ div{
 
 
 #connexion{
-    border:2px solid red;
+    /*border:2px solid red;*/
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -267,7 +266,7 @@ div{
 }
 
 #connexion>section{
-    border:2px solid green;
+    /*border:2px solid green;*/
     display: flex;
     flex-direction: column;
 }
@@ -284,8 +283,6 @@ input{
 .text-small{
     font-size: 0.75em;
 }
-
-
 
 .img-nav-header {
     display:none;
