@@ -43,6 +43,10 @@ span {
     font-family: "Balmy";
 }
 
+.balmy {
+    font-family: "Balmy";
+}
+
 /* generic classes */
 .flex-column {
     display: flex;
@@ -126,6 +130,18 @@ header {
     padding: 0em 2.5em;
 }
 
+.img-nav-header {
+    width: 100px;
+    /*background-color: red;*/
+    /*position: absolute;*/
+    height: 150px;
+    width: 150px;
+    bottom: 37px;
+    right: 78px;
+    /*right: 3em;*/
+    display: none;
+}
+
 
 /*Concept*/
 
@@ -148,7 +164,6 @@ div{
 .nav-primary {
     background-color: linear-gradient(180deg, rgba(92, 39, 116, 1) 0%, rgba(57, 96, 203, 1) 25%);
 
-    /*background-color: red;*/
     display: block;
     justify-content: center;
     align-items: center;
@@ -172,60 +187,38 @@ div{
     flex-direction: column;
     align-items: center;
     padding: 0;
-    /*background-color: aqua;*/
 }
 
-/*.nav-primary>ul::after {
-        content:"";
-        background-color: #DDB993;
-        height:10px;
-        display:block;
-        width:900px;
-        align-items:right;
-        */
-/*doit être modifié*/
-/*
-        width:900px;
-        position: relative;
-        left: 400px;
-        */
-/*^*/
-/*
-    }*/
 .nav-primary>ul>li {
     padding-top: 40px;
     padding-bottom: 40px;
-    /*background-color: darkred;*/
     width: 100%;
 }
 
 
-/*.btn-connect {
-    list-style: none;
-    text-decoration: none;
-    box-sizing: border-box;
-    font-family: "Quicksand";
-    color: white;
-    font-size: 1em;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    text-align: center;
-    height: 2.5em;
-    border-radius: 15px;
-    padding: 0 1em;
-    margin: auto;
-    background-color: rgba(255, 255, 255, 0.5);
-    -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}*/
-/* essai d'alignement vertical du contenu de la balise connexion*/
-/*.btn-connect {
+
+/* nav-secondary */
+
+.nav-secondary {
     flex-direction: row;
-    display:block;
-    text-align: center;
-    line-height: 2.5em;
-}*/
+}
+
+.nav-secondary ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 60vh;
+}
+
+.nav-secondary .ul-nav-header li {
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+/* connexion */
 
 .connexion-a-div-nav-header {
     text-align: center;
@@ -297,11 +290,58 @@ input {
 
 
 
+/* connexion */
+.connexion-div-nav-header {
+    display: inline;
+}
 
+.connexion-div-nav-header,
+.ico-user,
+.button-div-nav-header {
+    display: inline-flex;
+    justify-content: center;
+    line-height: 1em;
+    display: flex;
+    /* A regarder*/
+    align-items: center;
+    /* A regarder*/
+}
 
+.ico-user {
+    display: inline;
+    height: 30px;
+    width: 30px;
+}
 
+.bottom-section-form-article-header {
+    /*should change */
+    margin-top: 4em;
+    gap: 1em;
+}
 
+.close-pop-up {
+    margin-top: 1em;
+    width: 3em;
+}
 
+.form-connexion,
+.form-inscription {
+    height: 400px;
+}
+
+/* inscription */
+.article-section-inscription {
+    margin: 0 2em;
+    font-size: 12px;
+}
+
+.section2-inscription {
+    gap: 1em;
+}
+
+.meConnecter-a-p-section-inscription {
+    text-decoration: underline;
+}
 
 
 
@@ -328,129 +368,26 @@ button {
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-
-.balmy {
-    font-family: "Balmy";
-}
-
-.img-nav-header {
-    width: 100px;
-    /*background-color: red;*/
-    /*position: absolute;*/
-    height: 150px;
-    width: 150px;
-    bottom: 37px;
-    right: 78px;
-    /*right: 3em;*/
-    display: none;
-}
-
-
+/*.btn-connect {
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Quicksand";
+    color: white;
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-align: center;
+    height: 2.5em;
+    border-radius: 15px;
+    padding: 0 1em;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.5);
+    -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}*/
 
 .btn-sign-in {
     font-weight: 700;
-}
-
-
-
-
-/* Test pour créer une ligne sur le hover:
-ul {
-    position: relative;
-    left:35%;
-    width: 100%;
-}
-li:hover {
-    border-bottom: solid black 5px;
-}
-a{
-    position: relative;
-    top:40px;
-    left:-35%;
-}
-*/
-
-
-.connexion-div-nav-header {
-    /*background-color: lightgreen;*/
-    display: inline;
-}
-
-.connexion-div-nav-header,
-.ico-user,
-.button-div-nav-header {
-    display: inline-flex;
-    justify-content: center;
-    line-height: 1em;
-    /*background-color: red;*/
-    display: flex;
-    /* A regarder*/
-    align-items: center;
-    /* A regarder*/
-}
-
-/*.connexion-div-nav-header {
-    display:flex;
-    align-items: center;
-}*/
-.ico-user {
-    /*background-color: purple;*/
-    display: inline;
-    height: 30px;
-    width: 30px;
-}
-
-.close-pop-up {
-    margin-top: 1em;
-    width: 3em;
-}
-
-.bottom-section-form-article-header {
-    /*should change */
-    margin-top: 4em;
-    gap: 1em;
-}
-
-.article-section-inscription {
-    margin: 0 2em;
-    font-size: 12px;
-}
-
-.section2-inscription {
-    gap: 1em;
-}
-
-.meConnecter-a-p-section-inscription {
-    text-decoration: underline;
-}
-
-.form-connexion,
-.form-inscription {
-    /*background-color: red;*/
-    height: 400px;
-}
-
-
-
-
-
-
-
-
-
-.nav-secondary {
-    flex-direction: row;
-}
-
-.nav-secondary ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 60vh;
-}
-
-
-.nav-secondary .ul-nav-header li {
-    display: flex;
-    align-items: center;
 }
