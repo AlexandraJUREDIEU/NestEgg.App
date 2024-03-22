@@ -18,6 +18,10 @@ const btnConnect = document.querySelectorAll(".btn-connect");
 const btnSignIn = document.querySelectorAll(".btn-sign-in");
 const imgOiseauMenu = document.querySelector(".img-nav-header");
 
+// this variable tell which page is active
+// can take values default, scrollMenu, connexion, inscription
+let activeTab = "default"; //non utilisé pour le moment
+
 /**
  *  RESPONSIVITÉ
  * 
@@ -32,6 +36,8 @@ const imgOiseauMenu = document.querySelector(".img-nav-header");
       navPrimary.style.display = "flex";
       mainNav.classList.remove("nav-primary");
       mainNav.classList.add("nav-secondary");
+      //cas particulier où l'utlisateur serait <980, ouvrirait le menu (avec l'oiseau), puis passerait >980 ce qui chanve le menu en haut mais il faut enlever l'oiseau manuellement
+      imgOiseauMenu.style.display = "none";
     } else {
       // Si la largeur est inférieur à 980px
       hamburgerMenuIcon.style.display = "flex";
@@ -53,23 +59,25 @@ const imgOiseauMenu = document.querySelector(".img-nav-header");
  * 
   */ 
 // Fonction pour ouvrir le menu
-function openNavPrimary() {
+function openScrollingMenu() {
   navPrimary.style.display = "flex";
   // Afficher l'image d'oiseau dans le menu Authentification
   imgOiseauMenu.style.display = "flex";
+  activeTab = "scrollMenu";
 }
 // Fonction pour fermer le menu
-function closeNavPrimary() {
+function closeScrollingMenu() {
   navPrimary.style.display = "none";
   // Supprimer l'image d'oiseau dans le menu Authentification
   imgOiseauMenu.style.display = "none";
+  activeTab = "default";
 }
 // Fonction de basculement du menu
 function toggleScrollingMenu() {
-  if (navPrimary.style.display === "flex") {
-    closeNavPrimary();
+  if (navPrimary.style.display === "flex" || popUpAuth.style.display === "flex" || inscription.style.display === "flex") {
+    closeMenu();
   } else {
-    openNavPrimary();
+    openScrollingMenu();
   }
 }
 
@@ -88,23 +96,26 @@ function toggleScrollingMenu() {
 /** POP-UP AUTHENTIFICATION */
 //Ouvre le menu Authentification
 function openMenuAuthentification () {
-  closeNavPrimary();
+  closeScrollingMenu();
   desactiveScroll();
   openAuthentification();
   openConnexion();
   closeInscription();
+  adjustNavDisplay();
 }
 //Ouvre le menu Inscription
 function openMenuInscription () {
-  closeNavPrimary();
+  closeScrollingMenu();
   desactiveScroll();
   openAuthentification();
   closeConnexion();
   openInscription();
+  activeTab = "inscription";
+  adjustNavDisplay();
 }
 //Ferme le menu
 function closeMenu () {
-  closeNavPrimary();
+  closeScrollingMenu();
   activeScroll();
   closeAuthentification();
   closeConnexion();
@@ -128,10 +139,12 @@ function activeScroll () {
 function desactiveScroll () {
   scroller.style.overflowY = "hidden";
 }
+// CONNEXION
 // Affiche la partie Connexion du menu
 function openConnexion () {
   connexion.style.display = "flex";
   typeConnexion.innerHTML = "Connexion";
+  activeTab = "connexion";
 }
 // Ferme la partie Connexion du menu
 function closeConnexion () {
@@ -162,9 +175,9 @@ hamburgerMenuIcon.addEventListener("click", toggleScrollingMenu);
  
 // Fermer le menu lorsqu'on clique dans un lien de la nav ()
 for (let link of navLinks) {
-  link.addEventListener("click", closeNavPrimary);
+  link.addEventListener("click", closeScrollingMenu);
   for (b of btnConnect){
-    b.addEventListener("click", closeNavPrimary);
+    b.addEventListener("click", closeScrollingMenu);
   }
 }
 
