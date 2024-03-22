@@ -332,7 +332,7 @@ button {
 
 .img-nav-header {
     width: 100px;
-    /*background-color: white;*/
+    /*background-color: red;*/
     /*position: absolute;*/
     height: 150px;
     width:150px;
@@ -340,14 +340,6 @@ button {
     right:78px;
     /*right: 3em;*/
     display:none;
-}
-
-.mobile-connexion {
-    /* gérer position oiseau*/
-    display:absolute;
-    bottom:10em;
-
-
 }
 
 
@@ -376,19 +368,27 @@ a{
 */
 
 
-.ico-user {
-    /*background-color: purple;*/
-    display: inline;
-}
 .connexion-div-nav-header {
     /*background-color: lightgreen;*/
     display: inline;
 }
-.connexion-div-nav-header, .ico-user {
+.connexion-div-nav-header, .ico-user, .button-div-nav-header {
     display: inline-flex;
     justify-content:center;
     line-height: 1em;
     /*background-color: red;*/
+    display:flex; /* A regarder*/
+    align-items: center; /* A regarder*/
+}
+/*.connexion-div-nav-header {
+    display:flex;
+    align-items: center;
+}*/
+.ico-user {
+    /*background-color: purple;*/
+    display: inline;
+    height:30px;
+    width:30px;
 }
 
 .close-pop-up {
@@ -419,3 +419,22 @@ a{
     /*background-color: red;*/
     height:400px;
 }
+
+
+
+
+
+
+
+
+
+.nav-secondary {
+    flex-direction: row;
+}
+.nav-secondary ul {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 60vh;
+}
+

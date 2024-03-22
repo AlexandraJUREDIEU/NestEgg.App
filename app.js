@@ -109,7 +109,7 @@ function closeMenu () {
   closeAuthentification();
   closeConnexion();
   closeInscription();
-  navPrimary.style.display = "flex";
+  //navPrimary.style.display = "flex"; //normalement inutile
   adjustNavDisplay();
 }
 // Affiche la partie Authentification du menu
