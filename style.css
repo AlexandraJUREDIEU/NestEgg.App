@@ -48,10 +48,12 @@ span {
     display: flex;
     flex-direction: column;
 }
+
 .flex-row {
     display: flex;
     flex-direction: row;
 }
+
 .inline {
     display: inline;
 }
@@ -113,7 +115,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-bottom:10%;
+    padding-bottom: 10%;
 }
 
 #landing main {
@@ -155,7 +157,7 @@ div{
     top: 0em;
     backdrop-filter: blur(50px);
     width: 100vw;
-    height:100vh;
+    height: 100vh;
     border-radius: 0px 0px 160px 160px;
     -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -241,19 +243,21 @@ div{
 
 
 .pop-up-auth {
-    display:none;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     /* background-color: rgba(92,39,116,0.); */
     backdrop-filter: blur(70px);
-    height:100vh;
+    height: 100vh;
     width: 100%;
     z-index: 15;
     position: absolute;
     top: 0em;
 }
-#authentification{ /* Validé */
+
+#authentification {
+    /* Validé */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -262,7 +266,8 @@ div{
 }
 
 
-#connexion, #inscription {
+#connexion,
+#inscription {
     /*border:2px solid red;*/
     display: flex;
     flex-direction: column;
@@ -270,25 +275,32 @@ div{
     justify-content: center;
 }
 
-#connexion>section, #inscription>section{
+#connexion>section,
+#inscription>section {
     /*border:2px solid green;*/
     display: flex;
     flex-direction: column;
 }
-#connexion>section>input, #inscription>section>input{
-    height: 3.25em; /*seulement pour #connexion*/
+
+#connexion>section>input,
+#inscription>section>input {
+    height: 3.25em;
+    /*seulement pour #connexion*/
     margin: 0.5em;
     width: 80vw;
     padding: 0.75em;
 }
+
 #inscription>section>input {
     height: 2em;
 }
-input{
-    background-color: rgba(255,255,255,0.20);
+
+input {
+    background-color: rgba(255, 255, 255, 0.20);
     border-radius: 3.125em;
 }
-.text-small{
+
+.text-small {
     font-size: 0.75em;
 }
 
@@ -335,11 +347,11 @@ button {
     /*background-color: red;*/
     /*position: absolute;*/
     height: 150px;
-    width:150px;
-    bottom:37px;
-    right:78px;
+    width: 150px;
+    bottom: 37px;
+    right: 78px;
     /*right: 3em;*/
-    display:none;
+    display: none;
 }
 
 
@@ -372,14 +384,20 @@ a{
     /*background-color: lightgreen;*/
     display: inline;
 }
-.connexion-div-nav-header, .ico-user, .button-div-nav-header {
+
+.connexion-div-nav-header,
+.ico-user,
+.button-div-nav-header {
     display: inline-flex;
-    justify-content:center;
+    justify-content: center;
     line-height: 1em;
     /*background-color: red;*/
-    display:flex; /* A regarder*/
-    align-items: center; /* A regarder*/
+    display: flex;
+    /* A regarder*/
+    align-items: center;
+    /* A regarder*/
 }
+
 /*.connexion-div-nav-header {
     display:flex;
     align-items: center;
@@ -387,37 +405,38 @@ a{
 .ico-user {
     /*background-color: purple;*/
     display: inline;
-    height:30px;
-    width:30px;
+    height: 30px;
+    width: 30px;
 }
 
 .close-pop-up {
     margin-top: 1em;
-    width:3em;
+    width: 3em;
 }
 
 .bottom-section-form-article-header {
     /*should change */
-    margin-top:4em;
-    gap:1em;
+    margin-top: 4em;
+    gap: 1em;
 }
 
 .article-section-inscription {
     margin: 0 2em;
-    font-size:12px;
+    font-size: 12px;
 }
 
 .section2-inscription {
-    gap:1em;
+    gap: 1em;
 }
 
 .meConnecter-a-p-section-inscription {
     text-decoration: underline;
 }
 
-.form-connexion, .form-inscription {
+.form-connexion,
+.form-inscription {
     /*background-color: red;*/
-    height:400px;
+    height: 400px;
 }
 
 
@@ -431,10 +450,10 @@ a{
 .nav-secondary {
     flex-direction: row;
 }
+
 .nav-secondary ul {
-    display:flex;
+    display: flex;
     flex-direction: row;
     justify-content: space-around;
     width: 60vh;
 }
-
