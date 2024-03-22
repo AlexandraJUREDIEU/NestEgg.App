@@ -175,15 +175,6 @@ div{
     /*background-color: aqua;*/
 }
 
-/* Ligne accueil */
-.a-about-us {
-    content: "Accueil";
-    padding-top: 20px;
-    padding-bottom: 20px;
-    /*background-color: darkmagenta;*/
-    text-align: left;
-}
-
 /*.nav-primary>ul::after {
         content:"";
         background-color: #DDB993;
@@ -456,4 +447,10 @@ a{
     flex-direction: row;
     justify-content: space-around;
     width: 60vh;
+}
+
+
+.nav-secondary .ul-nav-header li {
+    display: flex;
+    align-items: center;
 }
