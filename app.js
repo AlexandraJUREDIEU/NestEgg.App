@@ -3,6 +3,7 @@
 /**
  * VARIABLES D'ENVIRONNEMENT
  *  */
+const scroller = document.querySelector(".scroller");
 const navPrimary = document.querySelector(".nav-primary");
 const popUpAuth = document.querySelector(".pop-up-auth");
 const closePopUp = document.querySelectorAll(".close-pop-up");
@@ -72,10 +73,23 @@ function toggleScrollingMenu() {
   }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
 /** POP-UP AUTHENTIFICATION */
 //Ouvre le menu Authentification
 function openMenuAuthentification () {
   closeNavPrimary();
+  desactiveScroll();
   openAuthentification();
   openConnexion();
   closeInscription();
@@ -83,6 +97,7 @@ function openMenuAuthentification () {
 //Ouvre le menu Inscription
 function openMenuInscription () {
   closeNavPrimary();
+  desactiveScroll();
   openAuthentification();
   closeConnexion();
   openInscription();
@@ -90,6 +105,7 @@ function openMenuInscription () {
 //Ferme le menu
 function closeMenu () {
   closeNavPrimary();
+  activeScroll();
   closeAuthentification();
   closeConnexion();
   closeInscription();
@@ -103,6 +119,14 @@ function openAuthentification () {
 // Ferme la partie Authentification du menu
 function closeAuthentification () {
   popUpAuth.style.display = "none";
+}
+// ré-Active le scroll sur toute la page
+function activeScroll () {
+  scroller.style.overflowY = "scroll";
+}
+// Désactive le scroll sur toute la page
+function desactiveScroll () {
+  scroller.style.overflowY = "hidden";
 }
 // Affiche la partie Connexion du menu
 function openConnexion () {
