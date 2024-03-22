@@ -7,6 +7,7 @@ const navPrimary = document.querySelector(".nav-primary");
 const popUpAuth = document.querySelector(".pop-up-auth");
 const closePopUp = document.querySelectorAll(".close-pop-up");
 const authentification = document.querySelector(".authentification");
+const typeConnexion = document.querySelector(".type-connexion");
 const connexion = document.querySelector(".form-connexion");
 const inscription = document.querySelector(".form-inscription");
 const hamburgerMenuIcon = document.querySelector(".ico-menu-hamburger");
@@ -106,6 +107,7 @@ function closeAuthentification () {
 // Affiche la partie Connexion du menu
 function openConnexion () {
   connexion.style.display = "flex";
+  typeConnexion.innerHTML = "Connexion";
 }
 // Ferme la partie Connexion du menu
 function closeConnexion () {
@@ -114,6 +116,7 @@ function closeConnexion () {
 // Affiche la partie Inscription du menu
 function openInscription () {
   inscription.style.display = "flex";
+  typeConnexion.innerHTML = "Inscription";
 }
 // Ferme la partie Inscription du menu
 function closeInscription () {
@@ -155,3 +158,7 @@ for (b of btnConnect){
 for (c of closePopUp) {
   c.addEventListener("click", closeMenu);
 }
+
+
+
+// A classer

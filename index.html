@@ -29,27 +29,27 @@
                         <li><a href="#about-us" class="a-about-us">Qui sommes nous?</a></li>
                         <li><a href="#price" class="a-price">Tarifs</a></li>
                     </ul>
-                    <img class="img-nav-header" src="img/3-Mascotte.png">
-                    <div class="btn-connect">
-                        <img class="ico-user" src="img/icons-user-round.png" alt="Avatar utilisateur" width="40px">
-                        <a class="connexion-div-nav-header" href="#header-home">Connexion</a>
+                    <div class="mobile-connexion">
+                        <img class="img-nav-header" src="img/3-Mascotte.png">
+                        <button class="inline btn-connect">
+                            <img class="ico-user" src="img/icons-user-round.png" alt="Avatar utilisateur" width="40px">
+                            <a class="connexion-div-nav-header" href="#header-home">Connexion</a>
+                        </button>
                     </div>
                 </nav>
             </header>
             <article id="pop-up-auth" class="pop-up-auth">
                 <header id="authentification" class="authentification">
-                    <!--<img id="close-pop-up" class="close-pop-up" src="img/icons-logout.png"
-                        alt="sortie de l'authentification">-->
                     <img src="img/logoSansTexte.png" alt="Nest Egg" height="120px">
-                    <p>type de connexion</p>
+                    <p class="type-connexion">type de connexion</p>
                 </header>
                 <form action="" id="connexion" class="form-connexion">
                     <section class="inputs-form flex-column">
                         <input type="text" placeholder="E-mail" />
                         <input type="password" placeholder="Mot de passe" />
-                        <p class="text-small">Mot de passe oublié ? Cliquez<span>ici</span></p>
+                        <p class="text-small">Mot de passe oublié ? Cliquez <span>ici</span></p>
                     </section>
-                    <section class="flex-column">
+                    <section class="flex-column bottom-section-form-article-header">
                         <div class="input-seSouvenirDeMoi">
                             <input type="radio" value="Se souvenir de moi" checked>Se souvenir de moi</input>
                         </div>
@@ -69,20 +69,22 @@
                         <input type="password" placeholder="Mot de passe" />
                     </section>
 
-                    <section>
-                        <article class="flex-row">
-                            <input type="checkbox">
-                            <p>Je souhaite recevoir une newletter des astuces et nouvelles fonctionnalitées proposé par
-                                “Nest Egg”
+                    <section class="section2-inscription">
+                        <article class="flex-row article-section-inscription">
+                            <input type="checkbox" checked>
+                            <p class="p-article-section-inscription">
+                                Je souhaite recevoir une newletter des astuces et nouvelles fonctionnalitées proposé par “Nest Egg”
                             </p>
                         </article>
 
-                        <article class="flex-row">
+                        <article class="flex-row article-section-inscription">
                             <input type="checkbox">
-                            <p>J’autorise Nest Egg à me proposer des offres commerciales partenaires</p>
+                            <p class="p-article-section-inscription">
+                                J’autorise Nest Egg à me proposer des offres commerciales partenaires
+                            </p>
                         </article>
                         <button>M'inscrire</button>
-                        <p>J’ai déjà un compte.<a class="btn-connect" href="#connexion">Me connecter</a></p>
+                        <p>J’ai déjà un compte. <a class="btn-connect meConnecter-a-p-section-inscription" href="#connexion">Me connecter</a></p>
                     </section>
 
                 </form>

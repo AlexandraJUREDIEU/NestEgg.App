@@ -43,6 +43,21 @@ span {
     font-family: "Balmy";
 }
 
+/* generic classes */
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+.inline {
+    display: inline;
+}
+
+
+
 /* icones & images */
 .logo-nestegg-default {
     width: 5.5em;
@@ -72,15 +87,15 @@ span {
 
 
 
-.btn-primary {
+/*.btn-primary {
     height: 2.5em;
-    border-radius: 15px;
+    border-radius: 25px;
     padding: 0 1em;
     margin: auto;
     background-color: rgba(255, 255, 255, 0.5);
     -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
+}*/
 
 
 
@@ -90,7 +105,7 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 0.75em 1em 0.75em 0em;
-    z-index: 1;
+    z-index: 1000;
     /* outline: 1px solid red; */
 }
 
@@ -98,7 +113,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
+    padding-bottom:10%;
 }
 
 #landing main {
@@ -191,12 +206,8 @@ div{
     width: 100%;
 }
 
-.img-nav-header {
-    width: 200px;
-    /*background-color: white;*/
-}
 
-.btn-connect {
+/*.btn-connect {
     list-style: none;
     text-decoration: none;
     box-sizing: border-box;
@@ -214,23 +225,18 @@ div{
     background-color: rgba(255, 255, 255, 0.5);
     -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
+}*/
 /* essai d'alignement vertical du contenu de la balise connexion*/
-.btn-connect {
+/*.btn-connect {
     flex-direction: row;
     display:block;
     text-align: center;
     line-height: 2.5em;
-}
+}*/
 
 .connexion-a-div-nav-header {
     text-align: center;
     justify-content: center;
-}
-
-.img-nav-header {
-    position: relative;
-    right: 3em;
 }
 
 
@@ -252,12 +258,11 @@ div{
     flex-direction: column;
     align-items: center;
     text-transform: uppercase;
-    font-size: 1.25em;    
+    font-size: 1.25em;
 }
 
 
-
-#connexion{
+#connexion, #inscription {
     /*border:2px solid red;*/
     display: flex;
     flex-direction: column;
@@ -265,16 +270,19 @@ div{
     justify-content: center;
 }
 
-#connexion>section{
+#connexion>section, #inscription>section{
     /*border:2px solid green;*/
     display: flex;
     flex-direction: column;
 }
-#connexion>section>input{
-    height: 3.25em;
+#connexion>section>input, #inscription>section>input{
+    height: 3.25em; /*seulement pour #connexion*/
     margin: 0.5em;
     width: 80vw;
     padding: 0.75em;
+}
+#inscription>section>input {
+    height: 2em;
 }
 input{
     background-color: rgba(255,255,255,0.20);
@@ -284,6 +292,130 @@ input{
     font-size: 0.75em;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+/* Buttons */
+button {
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Quicksand";
+    color: white;
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-align: center;
+    height: 2em;
+    border-radius: 100px;
+    padding: 0 1em;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.5);
+    -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+
+.balmy {
+    font-family: "Balmy";
+}
+
 .img-nav-header {
+    width: 100px;
+    /*background-color: white;*/
+    /*position: absolute;*/
+    height: 150px;
+    width:150px;
+    bottom:37px;
+    right:78px;
+    /*right: 3em;*/
     display:none;
+}
+
+.mobile-connexion {
+    /* gérer position oiseau*/
+    display:absolute;
+    bottom:10em;
+
+
+}
+
+
+
+.btn-sign-in {
+    font-weight: 700;
+}
+
+
+
+
+/* Test pour créer une ligne sur le hover:
+ul {
+    position: relative;
+    left:35%;
+    width: 100%;
+}
+li:hover {
+    border-bottom: solid black 5px;
+}
+a{
+    position: relative;
+    top:40px;
+    left:-35%;
+}
+*/
+
+
+.ico-user {
+    /*background-color: purple;*/
+    display: inline;
+}
+.connexion-div-nav-header {
+    /*background-color: lightgreen;*/
+    display: inline;
+}
+.connexion-div-nav-header, .ico-user {
+    display: inline-flex;
+    justify-content:center;
+    line-height: 1em;
+    /*background-color: red;*/
+}
+
+.close-pop-up {
+    margin-top: 1em;
+    width:3em;
+}
+
+.bottom-section-form-article-header {
+    /*should change */
+    margin-top:4em;
+    gap:1em;
+}
+
+.article-section-inscription {
+    margin: 0 2em;
+    font-size:12px;
+}
+
+.section2-inscription {
+    gap:1em;
+}
+
+.meConnecter-a-p-section-inscription {
+    text-decoration: underline;
+}
+
+.form-connexion, .form-inscription {
+    /*background-color: red;*/
+    height:400px;
 }
