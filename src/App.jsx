@@ -1,11 +1,10 @@
-import { useState } from 'react'
-
 function App() {
 
   return (
-    <>
-      <h1>Hello world</h1>
-    </>
+  <>
+  <h1>yo</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>  
+  </>
   )
 }
 
