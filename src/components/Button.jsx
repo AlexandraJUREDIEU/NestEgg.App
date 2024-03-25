@@ -1,9 +1,9 @@
-import buttonStyle from "../styles/ButtonStyle";
+import ButtonStyle from "../styles/ButtonStyle";
 
 export default function Button(){
     return (
         <>
-        <button>click</button>
+        <ButtonStyle>cliquez ici</ButtonStyle>
         </>
     )
 }
