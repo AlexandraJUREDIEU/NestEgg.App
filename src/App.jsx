@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import GlobalStyle from './globalStyle';
+import GlobalStyle from './GlobalStyle';
 import Routeur from './Routeur';
 
 function App() {
