@@ -1,14 +1,13 @@
-import { useState } from "react";
-
-const router = createBrowserRouter([
-]);
-
+import React, { Fragment } from 'react';
+import GlobalStyle from './globalStyle';
+ 
 function App() {
   return (
-    <>
-      <RouterProvider router={router} />
-    </>
+    <Fragment>
+      <GlobalStyle />
+    </Fragment>
   );
-}
-
+};
+ 
 export default App;
+
