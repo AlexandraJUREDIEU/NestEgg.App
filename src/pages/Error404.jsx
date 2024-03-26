@@ -1,5 +1,4 @@
 import Button from "../components/Button"
-import ButtonStyle from "../styles/ButtonStyle"
 import HeaderStyle from "../styles/HeaderStyle"
 
 export default function Error404(){
@@ -14,4 +13,4 @@ export default function Error404(){
         </main>
         </>
     )
-}
+};

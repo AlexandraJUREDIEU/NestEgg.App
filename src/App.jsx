@@ -1,3 +1,4 @@
+
 function App() {
 
   return (
@@ -6,6 +7,6 @@ function App() {
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>  
   </>
   )
-}
+};
 
-export default App
+export default App;

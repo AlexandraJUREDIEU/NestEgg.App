@@ -3,4 +3,4 @@ export default function Contact() {
         <h1>Test contact</h1>
         </>
     )
-}
+};

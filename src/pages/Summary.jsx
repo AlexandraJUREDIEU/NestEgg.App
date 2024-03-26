@@ -1,5 +1,8 @@
+import { Outlet } from "react-router-dom"
+import Button from "../components/Button"
 export default function Summary(){
-    return(
-        <h1>Test Summary</h1>
-    )
-}
+    return(<>
+        <Button>bouton</Button>
+        <Outlet/>
+    </>)
+};
