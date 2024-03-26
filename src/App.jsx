@@ -1,15 +1,17 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import GlobalStyle from './GlobalStyle';
 import Routeur from './Routeur';
+import Button from './composants/Button';
 
 function App() {
   return (
-    <Fragment>
+    <>
       <GlobalStyle />
+      <Button 
+      />
       <Routeur />
-    </Fragment>
+    </>
   );
 };
  
 export default App;
-

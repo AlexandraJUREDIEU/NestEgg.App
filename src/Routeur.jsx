@@ -1,5 +1,4 @@
-import { Controller } from "@svgdotjs/svg.js";
-import React, { Fragment } from "react";
+import React from "react";
 import {
   RouterProvider,
   NavLink,
@@ -11,8 +10,8 @@ import AddTransaction from "./pages/AddTransaction";
 import Contact from "./pages/Contact";
 import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
-import MyAccount from "./pages/MyAccount/MyAccount";
-import Summary from "./pages/Summary/Summary";
+import MyAccount from "./pages/MyAccount";
+import Summary from "./pages/Summary";
 import Error from "./pages/Error";
 
 const router = createBrowserRouter([
@@ -20,7 +19,7 @@ const router = createBrowserRouter([
     path: "/",
     element: (
       <>
-        <Root />
+        <Home />
       </>
     ),
     errorElement: <Error />,
@@ -53,25 +52,6 @@ const router = createBrowserRouter([
   },
 ]);
 
-function Root() {
-  return (
-    <>
-      <header>
-        <nav>
-          <NavLink to="/AddTransaction">go to AddTransaction</NavLink>
-          <NavLink to="/Contact">go to Contact</NavLink>
-          <NavLink to="/Dashboard">go to Dashboard</NavLink>
-          <NavLink to="/Home">go to Home</NavLink>
-          <NavLink to="/Summary">go to Summary</NavLink>
-          <NavLink to="/MyAccount">go to MyAccount</NavLink>
-        </nav>
-        <div>
-          <Outlet />
-        </div>
-      </header>
-    </>
-  );
-}
 
 function Routeur() {
   return (

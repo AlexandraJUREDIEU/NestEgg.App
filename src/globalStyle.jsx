@@ -17,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
       background: rgb(92, 39, 116);
       background: linear-gradient(180deg, rgba(92, 39, 116, 1) 0%, rgba(57, 96, 203, 1) 100%);
       width: 100vw;
+      height:100vh;
       overflow-x: hidden;
   }
   
