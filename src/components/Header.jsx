@@ -5,12 +5,12 @@ export default function Header(){
     return (<>
     <Navbar
     links={[
-        { to: "/home", text: "Home" },
-        { to: "/dashboard", text: "Dashboard" },
-        { to: "/account", text: "MyAccount" },
-        { to: "/summary", text: "Summary" },
-        { to: "/contact", text: "Contact" },
-        { to: "/AddTransaction", text: "AddTransaction" }
+        { to: "/", text: "Home" },
+        { to: "admin/dashboard", text: "Dashboard" },
+        { to: "admin/account", text: "MyAccount" },
+        { to: "admin/summary", text: "Summary" },
+        { to: "admin/contact", text: "Contact" },
+        { to: "admin/AddTransaction", text: "AddTransaction" }
     ]}
 />
     <Outlet/>

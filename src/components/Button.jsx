@@ -16,7 +16,7 @@ margin: auto;
 export default function Button(){
     return (
         <>
-        <ButtonStyle>cliquez ici</ButtonStyle>
+        <ButtonStyle><a href="/">Home</a></ButtonStyle>
         </>
     )
 };

@@ -9,7 +9,7 @@ import AddTransaction from "./pages/AddTransaction.jsx"
 import Dashboard from "./pages/Dashboard.jsx"
 import Contact from './pages/Contact.jsx'
 import Summary from './pages/Summary.jsx'
-import Header from './components/Header.jsx'
+// import Header from './components/Header.jsx'
 import Admin from './pages/Admin.jsx'
 
 
@@ -17,7 +17,7 @@ import Admin from './pages/Admin.jsx'
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Header/>,
+    element: <Home/>,
     errorElement: <Error404 />,
 
     },
@@ -25,7 +25,7 @@ const router = createBrowserRouter([
     {
       path: "/admin",
       element: <Admin/>,
-      errorElement: <Error404 />,
+      // errorElement: <Error404 />,
       children: [
      
       {
