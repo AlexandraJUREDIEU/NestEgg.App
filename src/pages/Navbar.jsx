@@ -5,8 +5,11 @@ function Home() {
   return (
     <>
     <nav>
-        <NavLink to="/admin/Contact">go to Profil</NavLink>
-        <NavLink to="/admin/Summary">go to Synthèse</NavLink>
+        <NavLink to="./Dashbord">go to Dashbord</NavLink>
+        <NavLink to="./MyAccount">go to MyAccount</NavLink>
+        <NavLink to="./Summary">go to Summary</NavLink>
+        <NavLink to="./Contact">go to Contact</NavLink>
+        <NavLink to="./AddTransaction">go to AddTransaction</NavLink>
     </nav>
     </>
   );

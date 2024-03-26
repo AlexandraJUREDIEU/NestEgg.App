@@ -40,6 +40,14 @@ const router = createBrowserRouter([
             path: "Summary",
             element: <Summary />,
           },
+          {
+            path: "Dashbord",
+            element: <Dashbord />,
+          },
+          {
+            path: "AddTransaction",
+            element: <MyAccount />,
+          },
         ]
       }
     ],
