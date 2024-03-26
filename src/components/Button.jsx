@@ -13,10 +13,10 @@ color: white;
 margin: auto;
 `;
 
-export default function Button(){
+export default function Button(props){
     return (
         <>
-        <ButtonStyle><a href="/">Home</a></ButtonStyle>
+        <ButtonStyle><a href="/">{props.content}</a></ButtonStyle>
         </>
     )
 };

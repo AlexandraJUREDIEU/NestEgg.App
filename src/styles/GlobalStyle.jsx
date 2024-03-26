@@ -22,6 +22,7 @@ body {
 a:hover{
     color: white;
 }
+
 `;
 
 export default GlobalStyle;

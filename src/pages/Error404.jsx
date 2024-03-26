@@ -1,5 +1,8 @@
 import Button from "../components/Button"
 import HeaderStyle from "../styles/HeaderStyle"
+import Style404 from "../styles/404Style"
+import Text from "../components/Text"
+import Span from "../components/Span"
 
 export default function Error404(){
     return(<>
@@ -7,9 +10,13 @@ export default function Error404(){
             <HeaderStyle><img src="public\logoSansTexte.png" alt="" /></HeaderStyle>
         </header>
 
-        <main>
-            <img src="public\6-Mascotte.png" alt="" />
-        <Button/>
+        <main className="mainerror404">
+        <Style404>
+            <h1 className="balmy title-404">404</h1>
+        <Text className="text-404" content="On ne fait pas d’omelette sans casser des œufs. Cette page semble introuvable.">
+            <Span className="span-404" content="Oups..."/></Text>
+        <Button content="RETOUR" className="button-return-home"/>
+        </Style404>
         </main>
         </>
     )
