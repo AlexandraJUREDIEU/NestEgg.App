@@ -4,7 +4,7 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
 * {
       box-sizing: border-box;
-      font-family: "Quicksand";
+      font-family: 'Quicksand';
       color: white;
       font-size: 1em;
       margin: 0;
@@ -44,11 +44,11 @@ const GlobalStyle = createGlobalStyle`
   }
   
   span {
-      font-family: "Balmy";
+      font-family: Balmy;
   }
   
   .balmy {
-      font-family: "Balmy";
+      font-family: Balmy;
   }
 `;
 

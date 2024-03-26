@@ -13,6 +13,7 @@ import Home from "./pages/Home";
 import MyAccount from "./pages/MyAccount";
 import Summary from "./pages/Summary";
 import Error from "./pages/Error";
+import Admin from "./pages/Admin";
 
 const router = createBrowserRouter([
   {
@@ -25,29 +26,22 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
-        path: "AddTransaction",
-        element: <AddTransaction />,
-      },
-      {
-        path: "Contact",
-        element: <Contact />,
-      },
-      {
-        path: "Dashboard",
-        element: <Dashboard />,
-      },
-      {
-        path: "Home",
-        element: <Home />,
-      },
-      {
-        path: "Summary",
-        element: <Summary />,
-      },
-      {
-        path: "MyAccount",
-        element: <MyAccount />,
-      },
+        path: "/Admin",
+        element: <>
+        <Admin />
+        <Outlet />
+        </>,
+        children: [
+          {
+            path: "Contact",
+            element: <Contact />,
+          },
+          {
+            path: "Summary",
+            element: <Summary />,
+          },
+        ]
+      }
     ],
   },
 ]);

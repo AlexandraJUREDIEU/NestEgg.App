@@ -1,8 +1,12 @@
+import Home from "./Home";
+import AddTransaction from "./AddTransaction";
+
 function Contact() {
     return (
-        <div>
-            <h1>Contact</h1>
-        </div>
+        <>
+        Page Contact
+        
+        </>
     );
 }
 

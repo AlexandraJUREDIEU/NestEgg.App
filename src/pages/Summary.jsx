@@ -1,9 +1,10 @@
+import AddTransaction from "./AddTransaction";
+
 function Summary() {
-    return (
-        <div>
-            <h1>Summary</h1>
-        </div>
+    return (<>
+      Page summary
+      </>
     );
-}
+  }
 
 export default Summary;

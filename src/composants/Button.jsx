@@ -1,12 +1,13 @@
 import styled from 'styled-components'
 
-const styleButton = styled.button`
+const StyleButton = styled.button`
 display: flex;
 padding: 2em;
-backgroundColor: white;
-borderRadius: 100vh;
+background-color: white;
+color: black;
+border-radius: 100vh;
 blur: 19%;
-boxShadow: 2em 1em 1em black;
+box-shadow: 2em 1em 1em black;
 `;
 
 
@@ -24,7 +25,12 @@ function Button(props) {
 
 
   //Return (qu'est ce qu'il affche)
-  return (<button>zzz</button>);
+  return (<>
+    {props.image}
+      <StyleButton onClick={props.action}>
+        {props.text}
+      </StyleButton>
+    </>);
 }
 
 export default Button;
