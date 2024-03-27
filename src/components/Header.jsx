@@ -17,45 +17,4 @@ export default function Header(){
 />
     <Outlet/>
     </>)
-}
-
-export default function NavbarDashboard(){
-   return ( <>
-   <Navbar 
-    links={[
-        { to: "/profile", text: "Profile"},
-        { to: "/addTransaction", text: "Ajouter une transaction"},
-        { to: "/summary", text: "Synthèse"},
-    ]} 
-/>
-<Outlet/>
-    </>)
-}
-
-export default function NavbarProfile(){
-    return ( <>
-    <Navbar 
-     links={[
-         { to: "/account", text: "Mon compte"},
-         { to: "/income", text: "Revenus"},
-         { to: "/settings", text: "Paramètres"},
-         { to: "/fixedCharges", text: "Synthèse"},
-     ]} 
- />
- <Outlet/>
-     </>)
- }
-
- export default function NavbarSummary(){
-    return ( <>
-    <Navbar 
-     links={[
-         { to: "/stats", text: "Statistiques"},
-         { to: "/incoming", text: "A venir"},
-         { to: "/saving", text: "Épargne"},
-         { to: "/transactions", text: "Transactions"},
-     ]} 
- />
- <Outlet/>
-     </>)
- }
+};
