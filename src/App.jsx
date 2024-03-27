@@ -5,7 +5,7 @@ import Routeur from './Routeur';
 function App() {
   return (
     <>
-    <GlobalStyle />
+      <GlobalStyle />
       <Routeur />
     </>
   );

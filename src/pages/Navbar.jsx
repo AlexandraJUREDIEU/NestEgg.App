@@ -5,7 +5,7 @@ function Home() {
   return (
     <>
     <nav>
-        <NavLink to="./Dashbord">go to Dashbord</NavLink>
+        <NavLink to="./Dashboard">go to Dashbord</NavLink>
         <NavLink to="./MyAccount">go to MyAccount</NavLink>
         <NavLink to="./Summary">go to Summary</NavLink>
         <NavLink to="./Contact">go to Contact</NavLink>

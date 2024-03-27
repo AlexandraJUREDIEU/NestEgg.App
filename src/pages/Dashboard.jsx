@@ -13,3 +13,17 @@ function Dashboard() {
 }
 
 export default Dashboard;
+
+/*
+
+function Dashboard() {
+    return (
+        <>
+            <Navbar />
+            <div>
+                <h1>Dashboard</h1>
+            </div>
+        </>
+    );
+}
+*/

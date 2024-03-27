@@ -4,8 +4,6 @@ import Navbar from "./Navbar.jsx";
 function Home() {
   return (
     <>
-      <Navbar />
-      <Outlet />
     </>
   );
 }

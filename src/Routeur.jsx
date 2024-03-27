@@ -21,6 +21,7 @@ const router = createBrowserRouter([
     element: (
       <>
         <Home />
+        <Outlet />
       </>
     ),
     errorElement: <Error />,
@@ -29,7 +30,6 @@ const router = createBrowserRouter([
         path: "/Admin",
         element: <>
         <Admin />
-        <Outlet />
         </>,
         children: [
           {
@@ -41,12 +41,12 @@ const router = createBrowserRouter([
             element: <Summary />,
           },
           {
-            path: "Dashbord",
-            element: <Dashbord />,
+            path: "Dashboard",
+            element: <Dashboard />,
           },
           {
             path: "AddTransaction",
-            element: <MyAccount />,
+            element: <AddTransaction />,
           },
         ]
       }
