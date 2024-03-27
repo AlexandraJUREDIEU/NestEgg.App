@@ -10,7 +10,7 @@ import Dashboard from "./pages/Dashboard.jsx"
 import Contact from './pages/Contact.jsx'
 import Summary from './pages/Summary.jsx'
 // import Header from './components/Header.jsx'
-import Admin from './pages/Admin.jsx'
+import Admin from './pages/Profile.jsx'
 
 
 

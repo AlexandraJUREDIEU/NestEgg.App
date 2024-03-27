@@ -28,6 +28,10 @@ const Style404 = styled.main`
     background-color: red;
    }
 
+
+   .dtliYg{
+      background: red;
+   }
 `
 
 export default Style404
