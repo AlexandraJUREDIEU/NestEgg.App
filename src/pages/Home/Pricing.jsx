@@ -8,11 +8,11 @@
 
 
 // Functions
-export default function SingIn(){
-    // State
+export default function Pricing(){
+     // State
      //Comportement
       //Return
     return (
-        <h1>Inscription</h1>
+        <h1>Tarifs</h1>
     )
 }

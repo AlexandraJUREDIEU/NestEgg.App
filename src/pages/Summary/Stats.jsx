@@ -8,11 +8,11 @@
 
 
 // Functions
-export default function SingIn(){
-    // State
+export default function Stats(){
+       // State
      //Comportement
       //Return
     return (
-        <h1>Inscription</h1>
+        <h1>Statistiques</h1>
     )
 }

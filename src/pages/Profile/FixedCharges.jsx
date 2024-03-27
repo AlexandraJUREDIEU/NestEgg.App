@@ -8,11 +8,11 @@
 
 
 // Functions
-export default function SingIn(){
-    // State
+export default function FixedCharges(){
+     // State
      //Comportement
       //Return
     return (
-        <h1>Inscription</h1>
+        <h1>Charges fixes</h1>
     )
 }

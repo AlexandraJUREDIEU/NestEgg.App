@@ -8,11 +8,11 @@
 
 
 // Functions
-export default function SingIn(){
+export default function Concept(){
     // State
      //Comportement
       //Return
     return (
-        <h1>Inscription</h1>
+        <h1>Concept</h1>
     )
 }

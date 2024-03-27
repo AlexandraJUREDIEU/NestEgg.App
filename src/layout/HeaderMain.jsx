@@ -1,7 +1,18 @@
-import Navbar from "./Navbar"
+// Import 
+import Navbar from "../components/Navbar"
 import { Outlet } from "react-router-dom"
 
+
+// Styles
+
+
+
+
+// Functions
 export default function Header(){
+    // State
+     //Comportement
+      //Return
     return (<>
     <Navbar
     links={[
@@ -13,6 +24,7 @@ export default function Header(){
         { to: "/signIn", text: "S'inscrire" },
         { to: "/contact", text: "Nous contacter" },
         { to: "/legalterms", text: "Mentions Légales" },
+        { to: "/dashboard", text: "Tableau de bord" },
     ]}
 />
     <Outlet/>

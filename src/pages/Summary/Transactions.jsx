@@ -1,18 +1,17 @@
 // Import 
 
 
-
 // Styles
 
 
 
 
 // Functions
-export default function SingIn(){
+export default function Transactions(){
     // State
      //Comportement
       //Return
     return (
-        <h1>Inscription</h1>
+        <h1>Transactions</h1>
     )
 }

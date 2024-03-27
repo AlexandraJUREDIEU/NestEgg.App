@@ -23,6 +23,10 @@ a:hover{
     color: white;
 }
 
+a{
+    color: yellow;
+}
+
 `;
 
 export default GlobalStyle;

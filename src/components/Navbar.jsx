@@ -1,6 +1,15 @@
+// Import 
 import { NavLink, Outlet } from "react-router-dom";
+// Styles
 
+
+
+
+// Functions
 export default function Navbar({ links }) {
+    // State
+     //Comportement
+      //Return
     return (
         <>
             <ul>

@@ -8,11 +8,11 @@
 
 
 // Functions
-export default function SingIn(){
+export default function Settings(){
     // State
      //Comportement
       //Return
     return (
-        <h1>Inscription</h1>
+        <h1>Paramètres</h1>
     )
 }

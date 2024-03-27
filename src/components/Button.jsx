@@ -1,5 +1,7 @@
+//import
 import styled from "styled-components";
 
+// Styles
 const ButtonStyle = styled.button`
 display:flex;
 align-items: center;
@@ -13,7 +15,12 @@ color: white;
 margin: auto;
 `;
 
+
+// Functions
 export default function Button(props){
+     // State
+     //Comportement
+    //return
     return (
         <>
         <ButtonStyle><a href="/">{props.content}</a></ButtonStyle>
