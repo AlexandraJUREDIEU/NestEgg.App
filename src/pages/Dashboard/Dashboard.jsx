@@ -17,6 +17,7 @@ export default function dashboard(){
     <HeaderStyle>
         <HeaderDashboard/>
         <h1>Test dashboard</h1>
-        <Outlet/></HeaderStyle>
+        <Outlet/>
+    </HeaderStyle>
    </> )
 };

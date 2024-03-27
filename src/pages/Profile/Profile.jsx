@@ -1,6 +1,7 @@
 // Import 
 import { Outlet } from "react-router-dom"
 import HeaderProfile from "../../layout/HeaderProfile"
+import HeaderStyle from "../styles/HeaderStyle"
 
 // Styles
 
@@ -13,7 +14,9 @@ export default function Profile(){
      //Comportement
       //Return
     return (<>
+    <HeaderStyle>
     <HeaderProfile/>
     <Outlet/>
+    </HeaderStyle>
     </>)
 }
