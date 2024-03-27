@@ -9,7 +9,7 @@ import { Outlet } from "react-router-dom"
 
 
 // Functions
-export default function HeaderProfile(){
+export default function HeaderDashboard(){
       // State
      //Comportement
       //Return
@@ -18,10 +18,9 @@ export default function HeaderProfile(){
             <img src="public\logoSansTexte.png" alt="logo Nest Egg"/>
             <Navbar 
              links={[
-                 { to: "/account", text: "Mon compte"},
-                 { to: "/income", text: "Revenus"},
-                 { to: "/settings", text: "Paramètres"},
-                 { to: "/fixedCharges", text: "Charges fixes"},
+                { to: "/profile", text: "Profile"},
+                { to: "/addTransaction", text: "Ajouter une transaction"},
+                { to: "/summary", text: "Synthèse"},
              ]} 
          /></HeaderStyle>
          <Outlet/>

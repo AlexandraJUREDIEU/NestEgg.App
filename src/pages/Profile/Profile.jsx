@@ -1,7 +1,6 @@
 // Import 
-import Button from "../../components/Button"
 import { Outlet } from "react-router-dom"
-import NavbarProfile from '../../components/NavProfile'
+import HeaderProfile from "../../layout/HeaderProfile"
 
 // Styles
 
@@ -14,7 +13,7 @@ export default function Profile(){
      //Comportement
       //Return
     return (<>
-    <NavbarProfile/>
+    <HeaderProfile/>
     <Outlet/>
     </>)
 }

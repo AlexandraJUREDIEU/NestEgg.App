@@ -1,6 +1,6 @@
 // Import 
 import { Outlet } from "react-router-dom"
-
+import HeaderSummary from "../../layout/HeaderSummary"
 // Styles
 
 
@@ -12,6 +12,7 @@ export default function Summary(){
      //Comportement
       //Return
     return(<>
+    <HeaderSummary/>
         <h1>Test summary</h1>
         <Outlet/>
     </>)

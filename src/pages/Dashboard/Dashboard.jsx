@@ -1,6 +1,7 @@
 // Import 
 import { Outlet } from "react-router-dom"
-import NavbarDashboard from "../../components/NavDashboard"
+import HeaderDashboard from "../../layout/HeaderDashboard"
+import HeaderStyle from "../../styles/HeaderStyle"
 
 // Styles
 
@@ -13,8 +14,9 @@ export default function dashboard(){
      //Comportement
       //Return
     return(<>
-        <NavbarDashboard/>
+    <HeaderStyle>
+        <HeaderDashboard/>
         <h1>Test dashboard</h1>
-        <Outlet/>
+        <Outlet/></HeaderStyle>
    </> )
 };
