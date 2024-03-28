@@ -1,16 +1,16 @@
 import { NavLink } from "react-router-dom";
-
+import Header from "../composants/Header"
 
 function Home() {
   return (
     <>
-    <nav>
-        <NavLink to="./Dashboard">go to Dashbord</NavLink>
-        <NavLink to="./MyAccount">go to MyAccount</NavLink>
-        <NavLink to="./Summary">go to Summary</NavLink>
-        <NavLink to="./Contact">go to Contact</NavLink>
-        <NavLink to="./AddTransaction">go to AddTransaction</NavLink>
-    </nav>
+    <Header
+      page1="Dashboard"
+      page2="MyAccount"
+      page3="Summary"
+      page4="Contact"
+      page5="AddTransaction"
+    />
     </>
   );
 }
