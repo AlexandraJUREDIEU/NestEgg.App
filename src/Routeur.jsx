@@ -21,7 +21,6 @@ const router = createBrowserRouter([
     element: (
       <>
         <Home />
-        <Outlet />
       </>
     ),
     errorElement: <Error />,
@@ -31,6 +30,7 @@ const router = createBrowserRouter([
         element: <>
         <Admin />
         </>,
+        errorElement: <Error />,
         children: [
           {
             path: "Contact",

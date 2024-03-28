@@ -28,6 +28,8 @@ function Header(props) {
     </>);
 }
 
+export default Header;
+
 /*
 export default function Header(){
     return (<>
@@ -47,5 +49,3 @@ export default function Header(){
     </>)
 }
 */
-
-export default Header;

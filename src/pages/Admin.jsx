@@ -19,7 +19,7 @@ import Footer from "../composants/Footer";
           text="Clique moi"
           action= {() => onClick()}
         />
-        <Footer></Footer>
+        <Footer />
       </>
     );
   }

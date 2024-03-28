@@ -34,3 +34,24 @@ function Button(props) {
 }
 
 export default Button;
+
+/*
+
+Composant 1: BUTTON
+Button (texte, image ou icone, path, action) -> revoir vidéo 1h React (fin de vidéo)
+Style (button) : flex, padding, bg-color, border-radius, box-shadow.
+Style (span) : font-family.
+
+
+Composant 2: HEADER
+Function à voir
+Style : flex, (position), z-index
+
+Composant 3:  TEXT
+Text (ClassName, span, variables)
+
+Style H1:
+Style (Class) :
+Style text (font-family, size !!! en em, color, margin et padding, flex)
+
+*/
