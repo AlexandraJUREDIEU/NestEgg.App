@@ -1,8 +1,7 @@
 // Import 
 import { Outlet } from "react-router-dom"
 import HeaderProfile from "../../layout/HeaderProfile"
-import HeaderStyle from "../styles/HeaderStyle"
-
+import HeaderStyle from "../../styles/HeaderStyle"
 // Styles
 
 

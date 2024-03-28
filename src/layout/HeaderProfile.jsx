@@ -7,7 +7,7 @@ import HeaderStyle from "../styles/HeaderStyle"
 
 
 // Functions
-export default function Header() {
+export default function HeaderProfile() {
     // State
     //Comportement
     //Return
