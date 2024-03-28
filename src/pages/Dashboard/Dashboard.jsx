@@ -3,6 +3,7 @@ import HeaderDashboard from "../../layout/HeaderDashboard";
 import HeaderStyle from "../../styles/HeaderStyle";
 import Box from "../../components/Box";
 import styled, { createGlobalStyle } from "styled-components";
+import Button from "../../components/Button";
 
 // Styles
 const DashboardStyle = createGlobalStyle`
@@ -46,6 +47,12 @@ export default function Dashboard() {
           <Box id={5} href="/incoming" onClickAction={handleBoxClick} />
           <Box id={6} href="/incoming" onClickAction={handleBoxClick} />
         </div>
+        <Button
+  action={() => console.log("Button clicked!")}
+  to="/"
+  className="custom-class"
+  content="Accueil"
+/>
         <Outlet />
       </HeaderStyle>
     </>
