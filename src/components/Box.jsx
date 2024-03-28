@@ -1,16 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const BoxStyle = styled.div`
+const BoxStyle = styled.article`
+display: flex;
+flex-direction: column;
+flex-grow: 1;
+
 a{
-    display: flex;
+display: flex;
 flex-direction: column;
 background-color: rgba(255, 255, 255, 0.25);
 gap: 2;
 padding: 3em;
-width: 20em;
 height: 20em;
 border-radius: 4em;
+width: 100%;
 }
 `
 
@@ -22,7 +26,7 @@ const Box = ({ id, href, onClickAction, className }) => {
   };
 
   return (
-    <BoxStyle>
+    <BoxStyle className={className}>
       <a href={href} onClick={handleClick} className={className}>
         {id}
       </a>
