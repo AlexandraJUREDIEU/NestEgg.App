@@ -16,6 +16,7 @@ const ButtonStyle = styled.button`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: nowrap;
   padding: 0.5em 2.5em;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 6.25em;

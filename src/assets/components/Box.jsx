@@ -16,15 +16,14 @@ import styled from 'styled-components';
 const BoxStyle = styled.article`
 display: flex;
 flex-direction: column;
+background-color: rgba(255, 255, 255, 0.25);
+height: 100%;
+width: 100%;
+border-radius: 4em;
 
     a{
     display: flex;
     flex-direction: column;
-    background-color: rgba(255, 255, 255, 0.25);
-    height: 100%;
-    width: 100%;
-    padding: 3em;
-    border-radius: 4em;
     }
 `
 
@@ -43,8 +42,8 @@ const Box = ({ id, href, onClickAction, className, children }) => {
   return (
     <BoxStyle className={className}>
       <a href={href} onClick={handleClick} className={className}>
-        {children}
-      </a>
+       
+      </a> {children}
     </BoxStyle>
   );
 };
