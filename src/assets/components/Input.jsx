@@ -36,7 +36,7 @@ function Input(props) {
     setInputValue(e.target.value);
   };
   
-  //Return
+  // Render
   return (
     <div>
       <StyledInput
