@@ -7,12 +7,16 @@ import Error from './Error.jsx'
 import Dashboard from './Dashboard.jsx'
 import MyAccount from './MyAccount.jsx'
 import Summary from './Summary.jsx'
+import Login from './Login.jsx'
+import SignIn from './SignIn.jsx'
 
 
 
 // Router
 const router = createBrowserRouter([ 
       {path:"/", element: <App/>, errorElement:<Error/>},
+      {path:"/login", element: <Login/>, errorElement:<Error/>},
+      {path:"/signin", element: <SignIn/>, errorElement:<Error/>},
       {path:"/dashboard", element:<Dashboard/>, errorElement:<Error/>},
       {path:"/my-account", element:<MyAccount/>, errorElement:<Error/>},
       {path:"/summary", element:<Summary/>, errorElement:<Error/>},
