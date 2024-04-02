@@ -2,7 +2,7 @@
 import HeaderContainer from "./assets/layout/Header";
 import Box from "./assets/components/Box"
 import { createGlobalStyle } from "styled-components";
-import Button from "./assets/components/Button"
+import { ButtonLink } from "./assets/components/Button";
 
 //Styles
 const DashboardStyle = createGlobalStyle`
@@ -53,7 +53,7 @@ function Dashboard() {
         <HeaderContainer links={links}/>
         <h1>Tableau de bord</h1>
         <section className="div-container-boxes">
-          <Box id={1} href="/profile" onClickAction={handleBoxClick} className="short-box" children={<><h3>Salut lekip</h3> <Button content="Actualiser mes charges" /></>}/>
+          <Box id={1} href="/profile" onClickAction={handleBoxClick} className="short-box" children={<><h3>Salut lekip</h3> <ButtonLink content="Actualiser mes charges" /></>}/>
           <Box id={2} href="/settings" onClickAction={handleBoxClick} className="short-box" children={<><h3>Box 2</h3></>}/>
           <Box id={3} href="/transactions" onClickAction={handleBoxClick} className="long-box" children={<><h3>Box 3</h3></>}/>
           <Box id={4} href="/addTransaction" onClickAction={handleBoxClick} className="short-box" children={<><h3>Box 4</h3></>}/>

@@ -2,8 +2,7 @@ import { Outlet } from "react-router-dom";
 import HeaderDashboard from "../../layout/HeaderDashboard";
 import HeaderStyle from "../../styles/HeaderStyle";
 import Box from "../../components/Box";
-import Button from "../../components/Button";
-
+import { ButtonLink } from "../../assets/components/Button";
 // Styles
 const DashboardStyle = createGlobalStyle`
   h1{
@@ -52,12 +51,7 @@ export default function Dashboard() {
           <Box id={5} href="/incoming" onClickAction={handleBoxClick} className="short-box"/>
           <Box id={6} href="/incoming" onClickAction={handleBoxClick} className="long-box"/>
         </div>
-        <Button
-  action={() => console.log("Button clicked!")}
-  to="/"
-  className="custom-class"
-  content="Accueil"
-/>
+       
         <Outlet />
       </HeaderStyle>
     </>
