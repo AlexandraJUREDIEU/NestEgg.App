@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
 
 body {
     height: 100vh;
+    width: 100vw;
     font-family: "Quicksand";
     color: white;
     font-size: 1em;

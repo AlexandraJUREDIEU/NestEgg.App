@@ -4,12 +4,25 @@ import AboutUs from "./pages/AboutUs";
 import Concept from "./pages/Concept";
 import Landing from "./pages/Landing";
 import Pricing from "./pages/Pricing";
-import { forwardRef, useRef } from 'react';
+import { useRef } from 'react';
+import styled from "styled-components";
 
 
 //Styles
 
+const StyledSection = styled.section`
+  height: 85vh;
 
+  .scroller{
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+  }
+
+.item-scroll{
+    scroll-snap-align: start;
+}
+`;
 
 //Fonctions
 
@@ -23,6 +36,7 @@ export default function App() {
 const pricingRef = useRef(null);
 const aboutUsRef = useRef(null);
 const conceptRef = useRef(null);
+const landingRef = useRef(null);
 
 const links = [
 {to:"#concept" , text:"Concept", onClick: () => scrollToSection(conceptRef)},
@@ -38,12 +52,14 @@ const links = [
   //Comportement
   //Render
   return (<>
+  <div className="scroller">
       <HeaderContainer links={links}/>
       <h1>Accueil</h1>
-      <Landing/>
-      <div ref={conceptRef}><Concept/></div>
-      <div ref={aboutUsRef}><AboutUs/></div>
-      <div ref={pricingRef}><Pricing /></div>
+      <StyledSection ref={landingRef} className="item-scroll"><Landing/></StyledSection>
+      <StyledSection ref={conceptRef} className="item-scroll"><Concept/></StyledSection>
+      <StyledSection ref={aboutUsRef} className="item-scroll"><AboutUs/></StyledSection>
+      <StyledSection ref={pricingRef} className="item-scroll"><Pricing /></StyledSection>
+  </div>
       </>
   )
 }
