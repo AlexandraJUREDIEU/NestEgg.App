@@ -11,7 +11,7 @@ const database =  class Database {
         }).promise();
     }
 
-    // Query function
+  // Query function
   async userQuery(query) {
     try {
       const [rows] = await this.pool.query(query);
