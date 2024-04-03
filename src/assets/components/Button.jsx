@@ -32,8 +32,10 @@ const LinkStyle = styled(Link)`
 `;
 
 const ButtonLink = ({ to, className, content }) => {
+
+
   return (
-    <ButtonStyle className={className}>
+    <ButtonStyle className={className} >
       <LinkStyle to={to}>{content}</LinkStyle>
     </ButtonStyle>
   );

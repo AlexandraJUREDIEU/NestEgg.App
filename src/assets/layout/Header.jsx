@@ -43,7 +43,7 @@ export default function HeaderContainer({ links }) {
                <nav>
                     <ul>
                         {links.map((link, index) => (
-                            <li key={index}><Link to={link.to}>{link.text}</Link></li>
+                            <li key={index}><Link to={link.to} onClick={link.onClick}>{link.text}</Link></li>
                         ))}
                     </ul>
                </nav>

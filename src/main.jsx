@@ -9,6 +9,7 @@ import MyAccount from './MyAccount.jsx'
 import Summary from './Summary.jsx'
 import Login from './pages/Login.jsx'
 import SignIn from './pages/SignIn.jsx'
+import Pricing from './pages/Pricing.jsx'
 
 
 
@@ -16,7 +17,9 @@ import SignIn from './pages/SignIn.jsx'
 const router = createBrowserRouter([ 
       {path:"/", element: <App/>, errorElement:<Error/>, children: [
            {path:"/login", element: <Login/>},
-           {path:"/signin", element: <SignIn/>}]},
+           {path:"/signin", element: <SignIn/>},
+          ]},
+      {path:"/price", element: <App/>},
       {path:"/dashboard", element:<Dashboard/>, errorElement:<Error/>},
       {path:"/my-account", element:<MyAccount/>, errorElement:<Error/>},
       {path:"/summary", element:<Summary/>, errorElement:<Error/>},
