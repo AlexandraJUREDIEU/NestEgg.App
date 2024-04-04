@@ -6,10 +6,10 @@ const cors = require('cors');
 app.use(cors());
 
 app.get('/', (req, res) => {
-    res.send('Hello World!')
+    res.send('Hello World!');
 })
 
-app.get('/hello', (req, res) => {
+app.get('/login', (req, res) => {
     res.json({ message: 'Hello World' });
 });
 

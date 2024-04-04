@@ -6,6 +6,7 @@ const Database = require('../models/Database');
 const db = new Database('localhost', 'root', 'root', 'nestegg');
 
 const authController = class AuthController {
+	
 	async register(req, res) {
 		const { username, password } = req.body;
 		if (!username || !password) {
