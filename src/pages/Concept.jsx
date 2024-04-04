@@ -1,20 +1,31 @@
 import { ButtonLink } from "../assets/components/Button"
+import Text from "../assets/components/Text"
 
 function Concept() {
+
+  
     return (<>
         <section id="concept">
             <aside>
                 <img src="" alt="Téléphone Screenshot Nest-egg" />
             </aside>
             <div>
-                <p>
-                    Salut les amis !
-                    C'est Max, votre oiseau préféré. <br/>
+                <Text 
+                className="concept-para-1"
+                content = {<span>Salut les amis !
+                    C&apos;est Max, votre oiseau préféré. 
                     <br/>
-                    Je suis tellement ravi de vous présenter notre incroyable aventure appelée "Nest Egg" !<br/>
+                    Je suis tellement ravi de vous présenter notre incroyable aventure appelée &quot;Nest Egg&quot; !<br/>
                     <br/>
                     Alors voilà, imaginez qu'on voyage ensemble dans le monde des finances, et je serai là pour vous guider et vous aider à faire briller votre nid financier.<br/>
-                    Avec "Nest Egg", on peut construire notre propre petit nid douillet, en créant des budgets géniaux pour économiser, dépenser intelligemment et atteindre tous nos rêves magiques !
+                    Avec &quot;Nest Egg&quot;, on peut construire notre propre petit nid douillet, en créant des budgets géniaux pour économiser, dépenser intelligemment et atteindre tous nos rêves magiques !<br/> 
+                    </span> } 
+
+                />
+
+
+                <p>
+                   
                 </p>
                 <p>
                     Et ce n'est pas tout, on peut même inviter nos amis et notre famille à se joindre à nous pour gérer notre budget à plusieurs, c'est tellement fun !<br/>

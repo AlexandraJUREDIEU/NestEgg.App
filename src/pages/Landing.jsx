@@ -1,11 +1,12 @@
 import { ButtonLink } from "../assets/components/Button"
+import Text from "../assets/components/Text"
 
 function Landing(){
     return (<>
         <section id="landing">
             <div>
                 <h1>NEST <span>EGG</span></h1>
-                <p>Ne mettez pas tout vos oeufs dans le même panier</p> 
+                <Text className="title-intro" content="Ne mettez pas tout vos oeufs dans le même panier"/>
                 <ButtonLink to="#concept" content="Découvrir le concept"/>           
                 <ButtonLink to="/dashboard" content="Accéder à mon tableau de bord"/>     
             </div>          

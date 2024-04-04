@@ -1,13 +1,12 @@
 import CardCollaborator from "../assets/components/CardCollaborator"
+import Text from "../assets/components/Text"
 
 function AboutUs(){
     return (<>
         <section id="about-us">
             <h2>Qui sommes-nous ?</h2>
-            <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus molestiae sequi consequuntur nesciunt voluptatibus, quam nobis perspiciatis nostrum at eaque esse neque, corrupti dolore quibusdam, impedit obcaecati? Enim, veritatis commodi?
-            </p>
-
+            <Text className="intro-about-us" content="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus molestiae sequi consequuntur nesciunt voluptatibus, quam nobis perspiciatis nostrum at eaque esse neque, corrupti dolore quibusdam, impedit obcaecati? Enim, veritatis commodi?"/>
+                
            <CardCollaborator 
                 src="https://placehold.co/100"
                 name="Alexandra"
