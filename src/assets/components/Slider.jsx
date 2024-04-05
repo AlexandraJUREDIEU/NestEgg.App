@@ -13,7 +13,7 @@ import React, { useState } from 'react';
 
 
 // Functions
-const Slider = ({ pages, index }) => {
+const Slider = ({ pages, index = 0 }) => {
   
   // State
   const [currentSlide, setCurrentSlide] = useState(index);

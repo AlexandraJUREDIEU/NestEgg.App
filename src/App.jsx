@@ -58,7 +58,7 @@ const links = [
       <StyledSection ref={landingRef} className="item-scroll"><Landing/></StyledSection>
       <StyledSection ref={conceptRef} className="item-scroll"><Concept/></StyledSection>
       <StyledSection ref={aboutUsRef} className="item-scroll"><AboutUs/></StyledSection>
-      <StyledSection ref={pricingRef} className="item-scroll"><Pricing /></StyledSection>
+      <StyledSection ref={pricingRef} className="item-scroll"><Pricing/></StyledSection>
   </div>
       </>
   )
