@@ -9,7 +9,8 @@ import MyAccount from './MyAccount.jsx'
 import Summary from './Summary.jsx'
 import Login from './pages/Login.jsx'
 import SignIn from './pages/SignIn.jsx'
-import Pricing from './pages/Pricing.jsx'
+import Income from './pages/Income.jsx'
+
 
 
 
@@ -21,7 +22,9 @@ const router = createBrowserRouter([
           ]},
       {path:"/price", element: <App/>},
       {path:"/dashboard", element:<Dashboard/>, errorElement:<Error/>},
-      {path:"/my-account", element:<MyAccount/>, errorElement:<Error/>},
+      {path:"/my-account", element:<MyAccount/>, errorElement:<Error/>, children: [
+            {path:"income", element: <Income/>},
+      ]},
       {path:"/summary", element:<Summary/>, errorElement:<Error/>},
 ])
 
