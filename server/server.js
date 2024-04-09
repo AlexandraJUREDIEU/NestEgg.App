@@ -1,18 +1,23 @@
-const express = require('express')
-const app = express()
-const port = 3000
+// import dotenv and use it to load the environment variables
+require("dotenv").config();
+
+// Basic express server
+const express = require('express');
+const app = express();
+const port = process.env.PORT;
 const cors = require('cors');
+
+require('./config/Database');
 
 app.use(cors());
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-})
+// Define the routes
+app.use('/api', require('./routes'));
 
-app.get('/login', (req, res) => {
-    res.json({ message: 'Hello World' });
-});
+
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
+    console.log(`app listening on port ${port}`)
 })
+
+process.env;
