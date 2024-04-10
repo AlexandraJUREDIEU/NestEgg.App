@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 
 // Import the controllers
-const userController = require('../controllers/userController');
+const userRoute = require('./userRoute');
 
 // Define the routes
-router.get('/users/:id', require('./userRoute.js'));
+router.use('/users', userRoute);
 
 
 module.exports = router;

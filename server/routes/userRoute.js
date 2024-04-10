@@ -6,6 +6,6 @@ const router = express.Router();
 const userController = require('../controllers/userController');
 
 // Define the routes
-router.get('/users/:id', userController.getUser);
+router.get('/users/:mail', userController.getUserByEmail);
 
 module.exports = router;
