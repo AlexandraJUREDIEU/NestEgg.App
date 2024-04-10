@@ -9,7 +9,7 @@ const budget =  require("./budget");
 const userSchema = new mongoose.Schema({
 	lastNameUser: { type: String, required: true },
 	firstNameUser: { type: String, required: true },
-	emailUser: { type: String, required: true },
+	emaiUser: { type: String, required: true },
 	password: { type: String, required: true },
 	confirmPassword: { type: String, required: true },
 	newsletter: { type: Boolean, required: true },

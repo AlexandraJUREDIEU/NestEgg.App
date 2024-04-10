@@ -1,11 +1,15 @@
-const userModel = require('../models/userModel');
+const userModel = require('../models/user');
 
 // Define the functions that will be used in the routes
 exports.getUserByEmail = async (req, res) => {
 	try {
-		const user = await userModel.findOne({ email: req.params.mail });
+		const user = await userModel.findOne({ emaiUser: req.params.mail });
+		if (!user) {
+			res.status(404).send('No item found');
+		}
 		res.json(user);
 	} catch (err) {
+		console.error(err);
 		res.status(500).send(err);
 	}
 }
@@ -13,7 +17,10 @@ exports.getUserByEmail = async (req, res) => {
 exports.getsDeleteUser = async (req, res) => {
 	try {
 		const user = await userModel
-			.findOneAndDelete({ email: req.params.mail });
+			.findOneAndDelete({ emaiUser: req.params.mail });
+		if (!user) {
+			res.status(404).send('No item found');
+		}
 		res.json(user);
 	}
 	catch (err) {
@@ -31,5 +38,3 @@ exports.createUser = async (req, res) => {
 		res.status(500).send(err);
 	}
 }
-
-exports.default = exports;

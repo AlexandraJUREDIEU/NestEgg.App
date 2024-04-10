@@ -52,7 +52,7 @@ function Dashboard() {
     const userEmail = encodeURIComponent("romain.meese@hotmail.fr");
     const apiUrl = 'http://localhost:5000';
     try {
-      const response = await axios.get(`${apiUrl}/user/${userEmail}`);
+      const response = await axios.get(`${apiUrl}/users/${userEmail}`);
       const jsonData = response.data; // Avec axios, les données sont directement accessibles via `response.data`
       setData(jsonData);
       console.log(jsonData); // Log ici si vous voulez voir les données immédiatement après la mise à jour

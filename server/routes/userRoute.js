@@ -6,6 +6,10 @@ const router = express.Router();
 const userController = require('../controllers/userController');
 
 // Define the routes
-router.get('/users/:mail', userController.getUserByEmail);
+router.get('/', (req, res) => {
+	res.send('Hello Users!');
+})
+
+router.get('/:mail', userController.getUserByEmail);
 
 module.exports = router;
