@@ -14,16 +14,13 @@ main().catch((err) => console.log(err));
 async function main() {
     try
     {
-        await mongoose.connect(mongoDB, {
-            serverSelectionTimeoutMS: 5000
-        });
+        await mongoose.connect(mongoDB);
     }
     catch (err)
     {
         console.error(err);
     }
 }
-
 // log if connected to the database
 mongoose.connection.on("connected", () => {
     console.log("Connected to the database");

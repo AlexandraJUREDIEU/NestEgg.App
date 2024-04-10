@@ -7,13 +7,16 @@ const app = express();
 const port = process.env.PORT;
 const cors = require('cors');
 
-require('./config/Database');
+require('./config/Database');   
 
 app.use(cors());
 
 // Define the routes
-app.use('/api', require('./routes'));
+// app.use('/api', require('./routes'));
 
+app.get('/', (req, res) => {
+    res.send('Hello World');
+})
 
 
 app.listen(port, () => {
