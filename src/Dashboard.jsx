@@ -4,6 +4,7 @@ import Box from "./assets/components/Box"
 import { createGlobalStyle } from "styled-components";
 import Button from "./assets/components/Button";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 //Styles
 const DashboardStyle = createGlobalStyle`
@@ -48,16 +49,31 @@ function Dashboard() {
   }, [])
 
   const fetchData = async () => {
+    const userEmail = encodeURIComponent("romain.meese@hotmail.fr");
+    const apiUrl = 'http://localhost:5000';
     try {
-      const response = await fetch("http://localhost:3000/login");
-      if (!response.ok) {
-        throw new Error(`Erreur HTTP : ${response.status}`);
-      }
-      const jsonData = await response.json();
+      const response = await axios.get(`${apiUrl}/user/${userEmail}`);
+      const jsonData = response.data; // Avec axios, les données sont directement accessibles via `response.data`
       setData(jsonData);
       console.log(jsonData); // Log ici si vous voulez voir les données immédiatement après la mise à jour
     } catch (error) {
       console.error("Échec de la récupération des données", error);
+      // Avec axios, les erreurs contiennent également une réponse (`error.response`),
+      // qui peut être utile pour le débogage.
+      if (error.response) {
+        // La requête a été faite et le serveur a répondu avec un code d'état
+        // qui sort de la plage de 2xx
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+      } else if (error.request) {
+        // La requête a été faite mais aucune réponse n'a été reçue
+        console.log(error.request);
+      } else {
+        // Quelque chose s'est produit lors de la mise en place de la requête
+        // qui a déclenché une erreur
+        console.log('Error', error.message);
+      }
     }
   };
 

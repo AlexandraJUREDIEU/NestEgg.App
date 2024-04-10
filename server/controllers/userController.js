@@ -10,4 +10,26 @@ exports.getUserByEmail = async (req, res) => {
 	}
 }
 
+exports.getsDeleteUser = async (req, res) => {
+	try {
+		const user = await userModel
+			.findOneAndDelete({ email: req.params.mail });
+		res.json(user);
+	}
+	catch (err) {
+		res.status(500).send(err);
+	}
+}
+
+exports.createUser = async (req, res) => {
+	try {
+		const user = new userModel(req.body);
+		await user.save();
+		res.json(user);
+	}
+	catch (err) {
+		res.status(500).send(err);
+	}
+}
+
 exports.default = exports;
