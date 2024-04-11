@@ -1,12 +1,27 @@
+/** ReadMe
+ * This slider takes two props : 
+ * - pages : Require a LIST (like '["Abcd","Bcde",partie3];') which represents the differents slides || REQUIRED
+ * - index : Which slide is visible by default (default: 0) || OPTIONNAL
+ * 
+ * An example of use is present at the end
+ * The slider will get the class 'slider'
+ * The items of the sliders will get the class 'slide-item' as well as 'slide-item[X]' where X is the number of the slide
+ * */
+
+
+
 import styled from "styled-components";
 import React, { useState } from "react";
 
 // Styles
 const SliderStyle = styled.div`
   .slides {
+    display: flex;
+    flex-direction: column;
   }
   .slider {
   }
+
 `;
 
 // Composant Slider
@@ -56,26 +71,35 @@ const Slider = ({ pages, index = 0 }) => {
   // Render
   const slides = pages.map((part, index) => {
     if (part !== undefined) {
-      return <div key={index}>{part}</div>;
+
+      return (
+        <div key={index} className={`slide-item slide-item${index}`}>
+          {part}
+        </div>
+      );
+
+
     }
     return null;
   });
 
   if (window.innerWidth < 769) {
     return (
-      <SliderStyle>
-        <div
+        <SliderStyle
           className="slider"
           onMouseDown={onMouseDown}
           onMouseMove={onMouseMove}
           onMouseUp={onMouseUp}
         >
           <div className="slides">{slides[currentSlide]}</div>
-        </div>
-      </SliderStyle>
+        </SliderStyle>
     );
   } else {
-    return <SliderStyle><div className="slides">{slides}</div></SliderStyle>;
+    return (
+        <SliderStyle className="slider">
+          {slides}
+        </SliderStyle>
+    );
   }
 };
 
