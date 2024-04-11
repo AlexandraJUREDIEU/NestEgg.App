@@ -11,8 +11,13 @@ const AboutUsStyle = styled.div`
     margin:115px;
     border: black 3px solid;
   }
+
+  h2 {
+    color:#DDB993;
+  }
   .h2AndIntro {
     color: skyblue;
+    margin: 0 15%;
   }
   .slider{
     border: black 3px solid;
@@ -24,9 +29,14 @@ const AboutUsStyle = styled.div`
       grid-template-columns: repeat(4, 1fr);
       grid-gap: 10px;
       grid-auto-rows: minmax(100px, auto);
+
+      
+      border: green 3px solid;
     }
 
     .slide-item {
+        border: red 3px solid;
+        margin:1em;
     }
     .slide-item0 {
       grid-row: 1;
