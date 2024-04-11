@@ -6,6 +6,7 @@ import Landing from "./pages/Landing";
 import Pricing from "./pages/Pricing";
 import { useRef } from 'react';
 import styled from "styled-components";
+import FooterMain from "./assets/layout/FooterMain";
 
 
 //Styles
@@ -58,6 +59,7 @@ const links = [
       <StyledSection ref={conceptRef} className="item-scroll"><Concept/></StyledSection>
       <StyledSection ref={aboutUsRef} className="item-scroll"><AboutUs/></StyledSection>
       <StyledSection ref={pricingRef} className="item-scroll"><Pricing/></StyledSection>
+      <FooterMain/>
   </div>
       </>
   )
