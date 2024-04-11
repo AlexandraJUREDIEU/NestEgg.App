@@ -9,7 +9,6 @@ const GlobalStyle = createGlobalStyle`
 
 
 body {
-    height: 100vh;
     width: 100vw;
     font-family: "Quicksand";
     color: white;
@@ -26,6 +25,10 @@ a:hover{
 
 a{
     color: yellow;
+}
+
+.balmy{
+    font-family: "balmy";
 }
 
 `;

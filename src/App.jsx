@@ -11,10 +11,10 @@ import styled from "styled-components";
 //Styles
 
 const StyledSection = styled.section`
-  height: 85vh;
+
 
   .scroller{
-    height: 100vh;
+    
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
   }
@@ -54,7 +54,6 @@ const links = [
   return (<>
   <div className="scroller">
       <HeaderContainer links={links}/>
-      <h1>Accueil</h1>
       <StyledSection ref={landingRef} className="item-scroll"><Landing/></StyledSection>
       <StyledSection ref={conceptRef} className="item-scroll"><Concept/></StyledSection>
       <StyledSection ref={aboutUsRef} className="item-scroll"><AboutUs/></StyledSection>
