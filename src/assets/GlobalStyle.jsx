@@ -24,7 +24,7 @@ a:hover{
 }
 
 a{
-    color: yellow;
+    color: white;
 }
 
 .balmy{
