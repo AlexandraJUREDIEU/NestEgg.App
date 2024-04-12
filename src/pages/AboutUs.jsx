@@ -77,6 +77,7 @@ const AboutUsStyle = styled.div`
 `;
 
 function AboutUs() {
+  
 //Reaction at the change of the size of the screen
 const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 769);
 useEffect(() => {
