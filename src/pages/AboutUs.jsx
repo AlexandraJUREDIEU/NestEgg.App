@@ -11,32 +11,22 @@ import React, { useState, useEffect } from "react";
 //style
 const AboutUsStyle = styled.div`
   #about-us {
-<<<<<<< HEAD
-=======
     margin: 115px;
->>>>>>> bf048528d3c704c139cda0d7983cf64ae291444f
   }
 
   h2 {
     color: #ddb993;
-<<<<<<< HEAD
     font-size:2em;
-=======
->>>>>>> bf048528d3c704c139cda0d7983cf64ae291444f
   }
   .h2AndIntro {
     color: skyblue;
     margin: 0 15%;
   }
-<<<<<<< HEAD
 
 
   
   .slider {
     margin: 0 115px;
-=======
-  .slider {
->>>>>>> bf048528d3c704c139cda0d7983cf64ae291444f
   }
 
   .intro-about-us{
@@ -44,7 +34,6 @@ const AboutUsStyle = styled.div`
   }
 
   @media screen and (min-width: 769px) {
-<<<<<<< HEAD
     .h2AndIntro h2 {
       font-size:3em;
     }
@@ -52,10 +41,6 @@ const AboutUsStyle = styled.div`
     .intro-about-us{
       display:flex;
       font-size:1.25em;
-=======
-    .intro-about-us{
-      display:flex;
->>>>>>> bf048528d3c704c139cda0d7983cf64ae291444f
     }
 
     .slider {
