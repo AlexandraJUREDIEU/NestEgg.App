@@ -83,7 +83,6 @@ const Slider = ({ pages, index = 0 }) => {
     return null;
   });
 
-  if (window.innerWidth < 769) {
     return (
         <SliderStyle
           className="slider"
@@ -94,13 +93,6 @@ const Slider = ({ pages, index = 0 }) => {
           <div className="slides">{slides[currentSlide]}</div>
         </SliderStyle>
     );
-  } else {
-    return (
-        <SliderStyle className="slider">
-          {slides}
-        </SliderStyle>
-    );
-  }
 };
 
 export default Slider;
