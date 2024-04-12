@@ -120,7 +120,6 @@ function AboutUs() {
     />
   );
 
-  if (window.innerWidth < 769) {
     return (
       <>
         <AboutUsStyle>
@@ -150,6 +149,5 @@ function AboutUs() {
       </AboutUsStyle>
     </>
   );
-}
 }
 export default AboutUs;
