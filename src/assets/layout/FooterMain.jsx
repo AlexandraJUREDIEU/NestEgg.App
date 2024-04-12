@@ -13,9 +13,6 @@ margin: auto;
 height: 15vh;
 text-align: center;
 
-img{
-    height: 1.875em;
-}
 
 .text-contact-us{
     margin-top: 0.25em;
@@ -33,8 +30,6 @@ img{
     display: none;
 }
 
-
-
 .footer-col-3{
     display: none;
 }
@@ -50,8 +45,23 @@ img{
 
 
 @media screen and (min-width: 540px){
+
+    .footer-col-1, .footer-col-4{
+        width: 10em;
+    }
     .footer-col-2{
         display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.5em;
+    }
+
+    .footer-col-3{
+        display: flex;
+    }
+
+    img{
+        height: 2.5em;
     }
 }
 `
