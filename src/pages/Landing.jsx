@@ -41,7 +41,7 @@ h1{
     margin: auto;
 }
 
-@media screen and (min-width: 520px){
+@media screen and (min-width: 540px){
     
     .landing-egg-img{
         height: 27.5em;
