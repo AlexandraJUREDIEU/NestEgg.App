@@ -11,7 +11,7 @@ import React, { useState, useEffect } from "react";
 //style
 const AboutUsStyle = styled.div`
   #about-us {
-    margin: 115px;
+    outline: red 3px black;
   }
 
   h2 {
@@ -19,11 +19,8 @@ const AboutUsStyle = styled.div`
     font-size:2em;
   }
   .h2AndIntro {
-    color: skyblue;
     margin: 0 15%;
   }
-
-
   
   .slider {
     margin: 0 115px;
@@ -37,15 +34,12 @@ const AboutUsStyle = styled.div`
     .h2AndIntro h2 {
       font-size:3em;
     }
-
     .intro-about-us{
       display:flex;
       font-size:1.25em;
     }
-
     .slider {
     }
-
     .slides {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
