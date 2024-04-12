@@ -35,9 +35,9 @@ const PricingStyle = styled.section`
 
 
   @media screen and (min-width: 769px) {
-h3{
-  font-size:3em;
-}
+    h3{
+      font-size:3em;
+    }
 
     .list-cardPrice{
       display:flex;
@@ -57,6 +57,9 @@ h3{
     .list-cardPrice button {
       font-size:1.5em;
       margin:10em auto;
+    }
+    .list-cardPrice div:nth-child(1) div button {
+      background-color:rgba(255,255,255,0.2);
     }
 
     .slider {
