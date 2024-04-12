@@ -1,5 +1,5 @@
-import CardPrice from "../assets/components/CardPricing"
-import Slider from "../assets/components/Slider"
+import CardPrice from "../assets/components/CardPricing";
+import Slider from "../assets/components/Slider";
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
@@ -125,63 +125,79 @@ const PricingStyle = styled.section`
   }
 `;
 
+function Pricing() {
+  //Reaction at the change of the size of the screen
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 769);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 769);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
+  let slidesTarifs = [];
+  slidesTarifs.push(
+    <>
+      <CardPrice
+        offerName="SMART"
+        description="Offre gratuite"
+        price="GRATUIT"
+      />
+    </>
+  );
+  slidesTarifs.push(
+    <>
+      <CardPrice offerName="MAX" description="Offre max" price="2.99/ MOIS" />
+    </>
+  );
+  slidesTarifs.push(
+    <>
+      <CardPrice
+        offerName="BUSINESS"
+        description="Offre business"
+        price="5.99/ MOIS"
+      />
+    </>
+  );
 
-
-
-
-function Pricing(){
-//Reaction at the change of the size of the screen
-const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 769);
-useEffect(() => {
-  const handleResize = () => {
-    setIsSmallScreen(window.innerWidth < 769);
-  };
-  window.addEventListener("resize", handleResize);
-  return () => {
-    window.removeEventListener("resize", handleResize);
-  };
-}, []);
-
-
-
-    let slidesTarifs = [];
-    slidesTarifs.push(
-        <>
-          <CardPrice offerName="SMART" description="Offre gratuite" price="GRATUIT"/>
-        </>
-      );
-    slidesTarifs.push(
-        <>
-          <CardPrice offerName="MAX" description="Offre max" price="2.99/ MOIS"/>
-        </>
-      );
-    slidesTarifs.push(
-        <>
-          <CardPrice offerName="BUSINESS" description="Offre business" price="5.99/ MOIS"/>
-        </>
-      );
-    
   if (window.innerWidth < 769) {
-    return (<>
-    <PricingStyle >
-        <h1 className="h1-tarifs">NOS TARIFS</h1>
-        <Slider pages={slidesTarifs} index={0} />
-    </PricingStyle>
-    </>);
+    return (
+      <>
+        <PricingStyle>
+          <h1 className="h1-tarifs">NOS TARIFS</h1>
+          <Slider pages={slidesTarifs} index={0} />
+        </PricingStyle>
+      </>
+    );
   } else {
-    return (<>
-    <PricingStyle >
-        <h1 className="h1-tarifs">NOS TARIFS</h1>
-        <div className="list-cardPrice">
-        <CardPrice offerName={slidesTarifs[0].props.children.props.offerName} description={slidesTarifs[0].props.children.props.description} price={slidesTarifs[0].props.children.props.price}/>
-        <CardPrice offerName={slidesTarifs[1].props.children.props.offerName} description={slidesTarifs[1].props.children.props.description} price={slidesTarifs[1].props.children.props.price}/>
-        <CardPrice offerName={slidesTarifs[2].props.children.props.offerName} description={slidesTarifs[2].props.children.props.description} price={slidesTarifs[2].props.children.props.price}/>
-        </div>
-    </PricingStyle>
-    </>);
-
+    return (
+      <>
+        <PricingStyle>
+          <h1 className="h1-tarifs">NOS TARIFS</h1>
+          <div className="list-cardPrice">
+            <CardPrice
+              offerName={slidesTarifs[0].props.children.props.offerName}
+              description={slidesTarifs[0].props.children.props.description}
+              price={slidesTarifs[0].props.children.props.price}
+            />
+            <CardPrice
+              offerName={slidesTarifs[1].props.children.props.offerName}
+              description={slidesTarifs[1].props.children.props.description}
+              price={slidesTarifs[1].props.children.props.price}
+            />
+            <CardPrice
+              offerName={slidesTarifs[2].props.children.props.offerName}
+              description={slidesTarifs[2].props.children.props.description}
+              price={slidesTarifs[2].props.children.props.price}
+            />
+          </div>
+        </PricingStyle>
+      </>
+    );
   }
 }
 
-export default Pricing
+export default Pricing;
