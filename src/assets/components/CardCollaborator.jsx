@@ -1,9 +1,16 @@
+
+
+
+
+
 function CardCollaborator({src, name, description, spanName}){
     return (<>
-        <div>
+        <div className="div-card-collaborator">
             <img src={src} alt={name} />
-            <h2>{name}{spanName}</h2>
-            <p>{description}</p>
+            <div>
+                <h2>{name} <span className="balmy">{spanName}</span></h2>
+                <p>{description}</p>
+            </div>
         </div>
     </>)
 }

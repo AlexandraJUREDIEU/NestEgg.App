@@ -1,12 +1,34 @@
 import { Button } from "./Button"
+import styled from "styled-components";
+
+
+// Styles
+const CardPricingStyle = styled.div`
+    
+  .div-cardPricing h3 {
+    display:flex;
+    flex-direction: column;
+  }
+
+  .div-cardPricing p {
+    display:none;
+  }
+
+  
+
+`;
+
+
 
 function CardPrice({offerName, description, price}){
     return (<>
-        <div>
-            <h3>Offre {offerName}</h3>
+        <CardPricingStyle>
+            <div className="div-cardPricing">
+            <h3>Offre <span className="balmy">{offerName}</span></h3>
             <p>{description}</p>
             <Button content={price}/>
         </div>
+        </CardPricingStyle>
     </>)
 }
 

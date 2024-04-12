@@ -4,30 +4,45 @@
  * - index : Which slide is visible by default (default: 0) || OPTIONNAL
  * 
  * An example of use is present at the end
+ * The slider will get the class 'slider'
+ * The items of the sliders will get the class 'slide-item' as well as 'slide-item[X]' where X is the number of the slide
  * */
 
-// Import
-import React, { useState } from 'react';
+
+
+import styled from "styled-components";
+import React, { useState } from "react";
 
 // Styles
+const SliderStyle = styled.div`
+  .slides {
+    display: flex;
+    flex-direction: column;
+  }
+  .slider {
+  }
 
+`;
 
-// Functions
+// Composant Slider
 const Slider = ({ pages, index = 0 }) => {
-  
   // State
   const [currentSlide, setCurrentSlide] = useState(index);
   const [startX, setStartX] = useState(null);
   const [endX, setEndX] = useState(null);
   const minSwipeDistance = 50;
 
-  //Comportement
+  // Comportement
   const nextSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide === pages.length - 1 ? 0 : prevSlide + 1));
+    setCurrentSlide((prevSlide) =>
+      prevSlide === pages.length - 1 ? 0 : prevSlide + 1
+    );
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide === 0 ? pages.length - 1 : prevSlide - 1));
+    setCurrentSlide((prevSlide) =>
+      prevSlide === 0 ? pages.length - 1 : prevSlide - 1
+    );
   };
 
   const onMouseDown = (e) => {
@@ -56,50 +71,28 @@ const Slider = ({ pages, index = 0 }) => {
   // Render
   const slides = pages.map((part, index) => {
     if (part !== undefined) {
+
       return (
-        <div key={index}>
+        <div key={index} className={`slide-item slide-item${index}`}>
           {part}
         </div>
       );
+
+
     }
     return null;
   });
 
-  return (
-    <div className="slider" onMouseDown={onMouseDown} onMouseMove={onMouseMove} onMouseUp={onMouseUp}>
-      <div className="slides">
-        {slides[currentSlide]}
-      </div>
-    </div>
-  );
+    return (
+        <SliderStyle
+          className="slider"
+          onMouseDown={onMouseDown}
+          onMouseMove={onMouseMove}
+          onMouseUp={onMouseUp}
+        >
+          <div className="slides">{slides[currentSlide]}</div>
+        </SliderStyle>
+    );
 };
 
 export default Slider;
-
-/* Exemple of use:
-//Imports
-import Slider from "./assets/components/Slider"
-
-export default function App() {
-  //State
-  //Comportement
-  //Render
-
-
-  let pages = [
-    "Abcd",
-    "Bcde",
-    <><h1>C'est la partie 3!</h1><p>Youpi</p></>,
-    "Defg"
-  ];
-
-  return (<>
-      <Slider
-      pages={pages}
-      index={1}
-      />
-      </>
-  )
-}
-
-*/
