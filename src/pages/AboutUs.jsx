@@ -6,37 +6,31 @@ import styled from "styled-components";
 
 import React, { useState, useEffect } from "react";
 
-
-
 //style
 const AboutUsStyle = styled.div`
   #about-us {
     outline: red 3px black;
   }
-
   h2 {
     color: #ddb993;
-    font-size:2em;
+    font-size: 2em;
   }
   .h2AndIntro {
     margin: 0 15%;
   }
-  
   .slider {
     margin: 0 115px;
   }
-
-  .intro-about-us{
-    display:none;
+  .intro-about-us {
+    display: none;
   }
-
   @media screen and (min-width: 769px) {
     .h2AndIntro h2 {
-      font-size:3em;
+      font-size: 3em;
     }
-    .intro-about-us{
-      display:flex;
-      font-size:1.25em;
+    .intro-about-us {
+      display: flex;
+      font-size: 1.25em;
     }
     .slider {
     }
@@ -47,7 +41,7 @@ const AboutUsStyle = styled.div`
       grid-auto-rows: minmax(100px, auto);
     }
     .slide-item {
-      padding:1em;
+      padding: 1em;
     }
     .slide-item0 {
       grid-column: 1 / 3;
@@ -65,34 +59,33 @@ const AboutUsStyle = styled.div`
       grid-column: 4;
       grid-row: 1 / 3;
     }
-    .slide-item0 .div-card-collaborator, .slide-item1 .div-card-collaborator {
-      display:flex;
-      flex-direction:row;
+    .slide-item0 .div-card-collaborator,
+    .slide-item1 .div-card-collaborator {
+      display: flex;
+      flex-direction: row;
       text-align: left;
     }
-    .slide-item0 .div-card-collaborator div, .slide-item1 .div-card-collaborator div {
-      padding-left:1em;
+    .slide-item0 .div-card-collaborator div,
+    .slide-item1 .div-card-collaborator div {
+      padding-left: 1em;
     }
   }
 `;
 
 function AboutUs() {
-  
-//Reaction at the change of the size of the screen
-const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 769);
-useEffect(() => {
-  const handleResize = () => {
-    setIsSmallScreen(window.innerWidth < 769);
-  };
-  window.addEventListener("resize", handleResize);
-  return () => {
-    window.removeEventListener("resize", handleResize);
-  };
-}, []);
+  //Reaction at the change of the size of the screen
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 769);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 769);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
-
-
-//Code
+  //Code
   let slidesQuiSommesNous = [];
   slidesQuiSommesNous.push(
     <CardCollaborator
@@ -127,85 +120,35 @@ useEffect(() => {
     />
   );
 
-  if (window.innerWidth < 769) {
-    return (
-      <>
-        <AboutUsStyle>
-          <section id="about-us">
-            <div className="h2AndIntro">
-              <h2>Qui sommes-nous ?</h2>
-              <Text
-                className="intro-about-us"
-                content="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus molestiae sequi consequuntur nesciunt voluptatibus, quam nobis perspiciatis nostrum at eaque esse neque, corrupti dolore quibusdam, impedit obcaecati? Enim, veritatis commodi?"
-              />
-            </div>
+  return (
+    <>
+      <AboutUsStyle>
+        <section id="about-us">
+          <div className="h2AndIntro">
+            <h2>Qui sommes-nous ?</h2>
+            <Text
+              className="intro-about-us"
+              content="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus molestiae sequi consequuntur nesciunt voluptatibus, quam nobis perspiciatis nostrum at eaque esse neque, corrupti dolore quibusdam, impedit obcaecati? Enim, veritatis commodi?"
+            />
+          </div>
 
+          {isSmallScreen ? (
             <Slider pages={slidesQuiSommesNous} index={0} />
-          </section>
-        </AboutUsStyle>
-      </>
-    );
-  } else {
-    return (
-      <>
-        <AboutUsStyle>
-          <section id="about-us">
-            <div className="h2AndIntro">
-              <h2>Qui sommes-nous ?</h2>
-              <Text
-                className="intro-about-us"
-                content="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus molestiae sequi consequuntur nesciunt voluptatibus, quam nobis perspiciatis nostrum at eaque esse neque, corrupti dolore quibusdam, impedit obcaecati? Enim, veritatis commodi?"
-              />
-            </div>
-
+          ) : (
             <div className="slider">
               <div className="slides">
-                <div key="0" className="slide-item slide-item0">
-                  <CardCollaborator
-                    src={slidesQuiSommesNous[0].props.src}
-                    name={slidesQuiSommesNous[0].props.name}
-                    spanName={slidesQuiSommesNous[0].props.spanName}
-                    description={slidesQuiSommesNous[0].props.description}
-                  />
-                </div>
-                <div key="1" className="slide-item slide-item1">
-                  <CardCollaborator
-                    src={slidesQuiSommesNous[1].props.src}
-                    name={slidesQuiSommesNous[1].props.name}
-                    spanName={slidesQuiSommesNous[1].props.spanName}
-                    description={slidesQuiSommesNous[1].props.description}
-                  />
-                </div>
-                <div key="2" className="slide-item slide-item2">
-                  <CardCollaborator
-                    src={slidesQuiSommesNous[2].props.src}
-                    name={slidesQuiSommesNous[2].props.name}
-                    spanName={slidesQuiSommesNous[2].props.spanName}
-                    description={slidesQuiSommesNous[2].props.description}
-                  />
-                </div>
-                <div key="3" className="slide-item slide-item3">
-                  <CardCollaborator
-                    src={slidesQuiSommesNous[3].props.src}
-                    name={slidesQuiSommesNous[3].props.name}
-                    spanName={slidesQuiSommesNous[3].props.spanName}
-                    description={slidesQuiSommesNous[3].props.description}
-                  />
-                </div>
+                {slidesQuiSommesNous.map((slide, index) => (
+                  <div className={`slide-item slide-item${index}`} key={index}>
+                    {slide}
+                  </div>
+                ))}
               </div>
             </div>
-          </section>
-        </AboutUsStyle>
-      </>
-    );
-  }
+          )}
+        </section>
+      </AboutUsStyle>
+    </>
+  );
 }
 
 export default AboutUs;
-
-
-
-
-
-
-
