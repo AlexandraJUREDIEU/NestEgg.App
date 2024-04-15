@@ -1,14 +1,12 @@
 /** ReadMe
- * This slider takes two props : 
+ * This slider takes two props :
  * - pages : Require a LIST (like '["Abcd","Bcde",partie3];') which represents the differents slides || REQUIRED
  * - index : Which slide is visible by default (default: 0) || OPTIONNAL
- * 
+ *
  * An example of use is present at the end
  * The slider will get the class 'slider'
  * The items of the sliders will get the class 'slide-item' as well as 'slide-item[X]' where X is the number of the slide
  * */
-
-
 
 import styled from "styled-components";
 import React, { useState } from "react";
@@ -21,7 +19,6 @@ const SliderStyle = styled.div`
   }
   .slider {
   }
-
 `;
 
 // Composant Slider
@@ -49,7 +46,7 @@ const Slider = ({ pages, index = 0 }) => {
     setStartX(e.clientX);
   };
 
-  const onMouseUp = () => {
+  const onMouseTouchUp = () => {
     if (!startX || !endX) return;
     const distance = startX - endX;
     if (Math.abs(distance) >= minSwipeDistance) {
@@ -68,31 +65,40 @@ const Slider = ({ pages, index = 0 }) => {
     setEndX(e.clientX);
   };
 
+  const onTouchStart = (e) => {
+    setStartX(e.touches[0].clientX);
+  };
+
+  const onTouchMove = (e) => {
+    if (!startX) return;
+    setEndX(e.touches[0].clientX);
+  };
+
   // Render
   const slides = pages.map((part, index) => {
     if (part !== undefined) {
-
       return (
         <div key={index} className={`slide-item slide-item${index}`}>
           {part}
         </div>
       );
-
-
     }
     return null;
   });
 
-    return (
-        <SliderStyle
-          className="slider"
-          onMouseDown={onMouseDown}
-          onMouseMove={onMouseMove}
-          onMouseUp={onMouseUp}
-        >
-          <div className="slides">{slides[currentSlide]}</div>
-        </SliderStyle>
-    );
+  return (
+    <SliderStyle
+      className="slider"
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onMouseTouchUp}
+      onMouseDown={onMouseDown}
+      onMouseMove={onMouseMove}
+      onMouseUp={onMouseTouchUp}
+    >
+      <div className="slides">{slides[currentSlide]}</div>
+    </SliderStyle>
+  );
 };
 
 export default Slider;
