@@ -4,10 +4,28 @@ import styled from "styled-components"
 
 //styles
 const ConceptStyle = styled.section`
+height: 85vh;
 .screen-nest-egg{
     display: none;
 }
-`
+
+.screen-concept {
+    width:8em;
+    height:8em;
+}
+
+.bird-and-signin {
+    display: flex;
+    flex-direction:row-reverse;
+    justify-content: space-around;
+    
+}
+
+.button-concept {
+    margin: auto 0;
+}
+
+`;
 
 
 function Concept() {
@@ -50,7 +68,12 @@ function Concept() {
                         Allez, rejoignez moi et embarquons dans cette aventure palpitante avec "Nest Egg" ! On va s'amuser, économiser et voler vers un avenir financier radieux !</span>}
                 />
             </div>
-            <ButtonLink to="/signin" content="Rejoins Max" />
+            <div class="bird-and-signin">
+            <div class="bird-concept-aside">
+                <img src="public\bird-concept.png" alt="bird concept" className="screen-concept"/>
+            </div>
+            <ButtonLink to="/signin" content="Rejoins Max" className="button-concept" />
+            </div>
         </ConceptStyle>
     </>)
 }
