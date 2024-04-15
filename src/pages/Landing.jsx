@@ -35,7 +35,7 @@ h1{
 }
 
 .btn-landing a{
-    font-size: 1em;
+    font-size: 1.25em;
     font-weight: 300;
     font-family: "Quicksand";
     margin: auto;
@@ -105,6 +105,7 @@ h1{
         margin-top: 0.75em;
         padding: 1.25em;
         width: 31.25em;
+        
     }
     
     .btn-landing a{
