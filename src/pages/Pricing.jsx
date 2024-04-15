@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 //style
 const PricingStyle = styled.section`
-height: 85vh;
+height: 100vh;
   .slider {
     border: black 3px solid;
   }

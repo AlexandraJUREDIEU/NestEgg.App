@@ -36,6 +36,7 @@ const AboutUsStyle = styled.div`
   }
   
   @media screen and (min-width: 769px) {
+    font-size:1.5em;
     .h2AndIntro h2 {
       font-size: 3em;
     }

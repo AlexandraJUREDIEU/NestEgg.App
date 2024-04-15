@@ -6,7 +6,6 @@ import styled from 'styled-components';
 //styles
 
 const LandingStyle = styled.section`
-
 height: 85vh;
 display: flex;
 flex-direction: column;
@@ -117,12 +116,31 @@ h1{
     
       
 }
+@media screen and (min-width: 1280px){
+    .landing-egg-img{
+        position:absolute;
+        top:15vh;
+        left:100%;
+    }
+    .conteneur-landing {
+        position:relative;
+        right:10%;
+        display:flex;
+        flex-direction:column;
+    }
+    h1 {
+        margin-top:1em;
+    }
+
+
+
+}
 `
 
 function Landing(){
     return (<>
         <LandingStyle id="landing">
-            <div>
+            <div className="conteneur-landing">
                 <h1>NEST <span className="balmy">EGG</span></h1>
                 <Text className="title-intro" content="Ne mettez pas tout vos oeufs dans le même panier"/>
                 <aside>

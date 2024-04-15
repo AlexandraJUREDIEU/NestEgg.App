@@ -29,8 +29,23 @@ const ConceptStyle = styled.section`
 
   @media screen and (min-width: 540px) {
     .slide-item {
-      font-size: 2em;
+      font-size: 1.5em;
       margin: 0 7em;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    .screen-nest-egg {
+      display: flex;
+      height: 600px;
+      margin: auto 0;
+    }
+    .telImage-Slider {
+      display:flex;
+      flex-direction:row;
+    }
+    .tellImage {
+        margin: auto 0 auto 50px;
     }
   }
 `;
@@ -120,21 +135,18 @@ function Concept() {
   return (
     <>
       <ConceptStyle id="concept">
-        <aside>
-          <img
-            src="public\screenshot-nestEgg.png"
-            alt="Téléphone Screenshot Nest-egg"
-            className="screen-nest-egg"
-          />
-        </aside>
-
-
-
-
-
         {isSmallScreen ? (
-            <Slider pages={sliderConcept}></Slider>
-          ) : (
+          <Slider pages={sliderConcept}></Slider>
+        ) : (
+          <>
+          <div className="telImage-Slider">
+            <aside className="tellImage">
+              <img
+                src="public\screenshot-nestEgg.png"
+                alt="Téléphone Screenshot Nest-egg"
+                className="screen-nest-egg"
+              />
+            </aside>
             <div className="slider">
               <div className="slides">
                 {sliderConcept.map((slide, index) => (
@@ -144,8 +156,9 @@ function Concept() {
                 ))}
               </div>
             </div>
-          )}
-
+            </div>
+          </>
+        )}
 
         <div className="bird-and-signin">
           <div className="bird-concept-aside">
