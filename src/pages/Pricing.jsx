@@ -132,7 +132,7 @@ function Pricing() {
   );
   slidesTarifs.push(
     <>
-      <CardPrice offerName="MAX" description="Offre max" price="2.99/ MOIS" />
+      <CardPrice offerName="MAX" description="Offre max" price="2,99€/ MOIS" />
     </>
   );
   slidesTarifs.push(
@@ -140,7 +140,7 @@ function Pricing() {
       <CardPrice
         offerName="BUSINESS"
         description="Offre business"
-        price="5.99/ MOIS"
+        price="5,99€/ MOIS"
       />
     </>
   );

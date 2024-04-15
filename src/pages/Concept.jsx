@@ -1,13 +1,22 @@
 import { ButtonLink } from "../assets/components/Button"
 import Text from "../assets/components/Text"
+import styled from "styled-components"
+
+//styles
+const ConceptStyle = styled.section`
+.screen-nest-egg{
+    display: none;
+}
+`
+
 
 function Concept() {
 
 
     return (<>
-        <section id="concept">
+        <ConceptStyle id="concept">
             <aside>
-                <img src="" alt="Téléphone Screenshot Nest-egg" />
+                <img src="public\screenshot-nestEgg.png" alt="Téléphone Screenshot Nest-egg" className="screen-nest-egg"/>
             </aside>
             <div>
                 <Text
@@ -42,7 +51,7 @@ function Concept() {
                 />
             </div>
             <ButtonLink to="/signin" content="Rejoins Max" />
-        </section>
+        </ConceptStyle>
     </>)
 }
 
