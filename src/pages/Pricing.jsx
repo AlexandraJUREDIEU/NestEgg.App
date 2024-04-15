@@ -10,7 +10,7 @@ const PricingStyle = styled.section`
   }
   .h1-tarifs {
     color: #ddb993;
-    font-size: 6em;
+    font-size: 3em;
     position: relative;
     top: 0.5em;
   }
@@ -29,6 +29,9 @@ const PricingStyle = styled.section`
     border: none;
   }
   @media screen and (min-width: 769px) {
+    .h1-tarifs{
+      font-size: 6em;
+    }
     h3 {
       font-size: 3em;
     }
