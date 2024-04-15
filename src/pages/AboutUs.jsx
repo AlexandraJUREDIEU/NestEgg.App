@@ -10,6 +10,7 @@ import React, { useState, useEffect } from "react";
 const AboutUsStyle = styled.div`
   #about-us {
     outline: red 3px black;
+    height: 100vh;
   }
   h2 {
     color: #ddb993;
@@ -18,8 +19,14 @@ const AboutUsStyle = styled.div`
   .h2AndIntro {
     margin: 0 15%;
   }
-  .slider {
-    margin: 0 115px;
+  .slider{
+    display: flex;
+    align-items: center;
+  }
+  .slides {
+    padding: 0 4em;
+    height: 100vh;
+    overflow-y: auto;
   }
   .intro-about-us {
     display: none;
@@ -32,13 +39,13 @@ const AboutUsStyle = styled.div`
       display: flex;
       font-size: 1.25em;
     }
-    .slider {
-    }
     .slides {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       grid-gap: 10px;
       grid-auto-rows: minmax(100px, auto);
+
+      padding: 0 7em;
     }
     .slide-item {
       padding: 1em;
