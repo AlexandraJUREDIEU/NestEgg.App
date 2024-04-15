@@ -21,19 +21,28 @@ const ConceptStyle = styled.section`
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-around;
+    margin-top:3em;
   }
 
   .button-concept {
     margin: auto 0;
   }
+  
+  .slide-item {
+    margin:0 3em 0 3em;
+  }
+  .slider {
+      margin-top:6em;
+  }
 
   @media screen and (min-width: 540px) {
     .slide-item {
-      font-size: 1.5em;
+      font-size: 1.2em;
       margin: 0 7em;
     }
   }
-
+  @media screen and (min-width: 769px) {
+    }
   @media screen and (min-width: 1280px) {
     .screen-nest-egg {
       display: flex;
@@ -67,7 +76,7 @@ function Concept() {
   sliderConcept.push(
     <>
       <Text
-        className="concept-para-1"
+        className="concept-para concept-para-1"
         content={
           <span>
             Salut les amis ! C&apos;est Max, votre oiseau préféré.
@@ -91,7 +100,7 @@ function Concept() {
   sliderConcept.push(
     <>
       <Text
-        className="concept-para-2"
+        className="concept-para concept-para-2"
         content={
           <span>
             {" "}
@@ -115,7 +124,7 @@ function Concept() {
   sliderConcept.push(
     <>
       <Text
-        className="concept-para-3"
+        className="concept-para concept-para-3"
         content={
           <span>
             Alors si vous avez des projets incroyables ou des rêves fous, on va

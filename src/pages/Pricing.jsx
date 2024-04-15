@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 //style
 const PricingStyle = styled.section`
-height: 100vh;
+  height: 85vh;
   .slider {
     border: black 3px solid;
   }
@@ -18,6 +18,7 @@ height: 100vh;
   .slide-item {
     height: 30em;
     padding: 2em 0;
+    height: 70vh;
   }
   .slider {
     padding: 0.5em 2.5em;
@@ -29,7 +30,28 @@ height: 100vh;
     margin: auto;
     border: none;
   }
-  @media screen and (min-width: 769px) {
+
+
+  @media screen and (min-width: 769px && max-width:1280px) {
+    .list-cardPrice {
+      margin: 0 3em;
+    }
+    .list-cardPrice > div {
+      padding: 0.5em 2.5em;
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 6.25em;
+      -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      color: white;
+      margin: auto;
+      border: none;
+
+      height:200px;
+      margin-bottom:5em;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
     .h1-tarifs{
       font-size: 6em;
     }
@@ -113,10 +135,10 @@ height: 100vh;
 
 function Pricing() {
   //Reaction at the change of the size of the screen
-  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 769);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 1280);
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 769);
+      setIsSmallScreen(window.innerWidth < 1280);
     };
     window.addEventListener("resize", handleResize);
     return () => {

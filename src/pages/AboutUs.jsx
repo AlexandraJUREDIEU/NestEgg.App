@@ -8,6 +8,8 @@ import React, { useState, useEffect } from "react";
 
 //style
 const AboutUsStyle = styled.div`
+font-size: 1.5em;
+
   #about-us {
     outline: red 3px black;
     height: 100vh;
@@ -18,6 +20,7 @@ const AboutUsStyle = styled.div`
   }
   .h2AndIntro {
     margin: 0 15%;
+    margin: 3em 0;
   }
   .slider{
     display: flex;
@@ -32,10 +35,29 @@ const AboutUsStyle = styled.div`
     display: none;
   }
   img{
-    height: 8em;
+    height: 12em;
   }
   
   @media screen and (min-width: 769px) {
+    .h2AndIntro h2 {
+      margin: 3em 0;
+    }
+    .slider {
+      margin-top:6em;
+    }
+    font-size: 1.5em;
+    .intro-about-us {
+      display: flex;
+    }
+    .div-card-collaborator {
+      display:flex;
+    }
+    .div-card-collaborator div{
+      margin: 0 2em;
+    }
+  }
+  
+  @media screen and (min-width: 1280px) {
     font-size:1.5em;
     .h2AndIntro h2 {
       font-size: 3em;
@@ -86,10 +108,10 @@ const AboutUsStyle = styled.div`
 
 function AboutUs() {
   //Reaction at the change of the size of the screen
-  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 769);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 1280);
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 769);
+      setIsSmallScreen(window.innerWidth < 1280);
     };
     window.addEventListener("resize", handleResize);
     return () => {
