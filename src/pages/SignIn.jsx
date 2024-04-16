@@ -2,6 +2,7 @@ import Input from "../assets/components/Input";
 import styled from "styled-components";
 import { Button } from "../assets/components/Button";
 import HeaderForm from "../assets/components/Headerform";
+import FooterForm from "../assets/components/FooterForm";
 
 //styles
 const SignInStyle = styled.div`
@@ -34,16 +35,11 @@ label{
     margin: 0.25em 2em;
 }
 
-.btn-signin{
-    width: 11.75em;
-    margin-top: 3.5em;
-    justify-content: center;
+button{
+    margin-top: 3em;
 }
 
-.already-have-account{
-    font-size: 0.75em;
-    margin-top: 1em;
-}
+
 `;
 
 function SignIn() {
@@ -68,10 +64,8 @@ function SignIn() {
             <label for="radio-ad">J’autorise Nest Egg à me proposer des offres commerciales partenaires</label>
             </div>
 
-            <Button className="btn-signin balmy" content="M'inscrire"/>
-
+            <FooterForm classNameP="balmy" content="S'inscrire" contentP="J'ai déjà un compte?" contentSpan="Me connecter" href="/login" />
         </form>
-            <p className="already-have-account">J'ai déjà un compte. <a href="/login">Me connecter</a></p>
         </SignInStyle>
     );
 }
