@@ -11,7 +11,6 @@ const AboutUsStyle = styled.div`
 font-size: 1.5em;
 
   #about-us {
-    outline: red 3px black;
     height: 100vh;
   }
   h2 {
@@ -20,7 +19,7 @@ font-size: 1.5em;
   }
   .h2AndIntro {
     margin: 0 15%;
-    margin: 3em 0;
+    margin: 3em;
   }
   .slider{
     display: flex;
@@ -39,9 +38,6 @@ font-size: 1.5em;
   }
   
   @media screen and (min-width: 769px) {
-    .h2AndIntro h2 {
-      margin: 3em 0;
-    }
     .slider {
       margin-top:6em;
     }
@@ -51,13 +47,30 @@ font-size: 1.5em;
     }
     .div-card-collaborator {
       display:flex;
+      flex-direction:column;
     }
     .div-card-collaborator div{
       margin: 0 2em;
     }
+    .intro-about-us {
+      margin: 0 2em;
+    }
+    img{
+      display: flow;
+      height:10em;
+      width:6em;
+      margin: 0 auto;
+    }
+    .div-card-collaborator {
+      justify-content:center;
+/*
+display: flex;
+flex-direction: row;
+*/
+    }
   }
   
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1080px) {
     font-size:1.5em;
     .h2AndIntro h2 {
       font-size: 3em;
@@ -72,25 +85,25 @@ font-size: 1.5em;
       grid-gap: 10px;
       grid-auto-rows: minmax(100px, auto);
 
-      padding: 0 7em;
-    }
-    .slide-item {
-      padding: 1em;
+    padding: 0 7em;
     }
     .slide-item0 {
       grid-column: 1 / 3;
-      grid-row: 1;
+      grid-row: 1 / 2;
     }
     .slide-item1 {
       grid-column: 1 / 3;
-      grid-row: 2;
+      grid-row: 2 / 3;
+      /* Décalage de la cellule: */
+      position:relative;
+      top:-8em;
     }
     .slide-item2 {
       grid-column: 3 / 4;
       grid-row: 1 / 3;
     }
     .slide-item3 {
-      grid-column: 4;
+      grid-column: 4 / 5;
       grid-row: 1 / 3;
     }
     .slide-item0 .div-card-collaborator,
@@ -108,16 +121,29 @@ font-size: 1.5em;
 
 function AboutUs() {
   //Reaction at the change of the size of the screen
-  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 1280);
+  const [screenSize, setScreenSize] = useState(getScreenSize());
+
   useEffect(() => {
-    const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 1280);
-    };
+    function handleResize() {
+      setScreenSize(getScreenSize());
+    }
+
     window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  function getScreenSize() {
+    const width = window.innerWidth;
+    if (width < 769) {
+      return "mobile";
+    } else if (width < 1280) {
+      return "tablet";
+    } else if (width < 1920) {
+      return "laptop";
+    } else {
+      return "desktop";
+    }
+  }
 
   //Code
   let slidesQuiSommesNous = [];
@@ -166,7 +192,7 @@ function AboutUs() {
               />
             </div>
 
-          {isSmallScreen ? (
+          {screenSize === ("mobile" || "tablet") ? (
             <Slider pages={slidesQuiSommesNous} index={0} />
           ) : (
             <div className="slider">

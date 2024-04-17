@@ -5,13 +5,14 @@ import styled from "styled-components";
 //Styles
 
 const FooterMainStyle = styled.footer`
-font-size: 0.75em;
+font-size: 1.75em;
 display: flex;
 flex-direction: column;
 padding: 0.25em;
 margin: auto;
-height: 15vh;
+height: 25vh;
 text-align: center;
+
 
 
 .text-contact-us{

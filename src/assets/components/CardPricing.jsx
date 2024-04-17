@@ -26,7 +26,9 @@ function CardPrice({offerName, description, price}){
           <div className="div-cardPricing">
             <h3>Offre <span className="balmy">{offerName}</span></h3>
             <p>{description}</p>
-            <Button content={price}/>
+            <div id="button-cardpricing">
+              <Button content={price}/>
+            </div>
           </div>
         </CardPricingStyle>
     </>)

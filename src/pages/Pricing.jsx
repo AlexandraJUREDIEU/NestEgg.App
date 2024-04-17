@@ -1,22 +1,18 @@
 import CardPrice from "../assets/components/CardPricing";
 import Slider from "../assets/components/Slider";
+import Text from "../assets/components/Text"
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 //style
 const PricingStyle = styled.section`
-  height: 85vh;
-  .slider {
-    border: black 3px solid;
-  }
+  height: 75vh;
   .h1-tarifs {
     color: #ddb993;
     font-size: 3em;
-    position: relative;
-    top: 0.5em;
+    margin-top:1em;
   }
   .slide-item {
-    height: 30em;
     padding: 2em 0;
     height: 70vh;
   }
@@ -27,42 +23,58 @@ const PricingStyle = styled.section`
     -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     color: white;
-    margin: auto;
+    margin: auto 3em;
     border: none;
   }
+  p {
+    margin: 0 7em;
+  }
 
-
-  @media screen and (min-width: 769px && max-width:1280px) {
+  @media screen and (min-width: 769px && max-width: 1279px) {
     .list-cardPrice {
       margin: 0 3em;
     }
     .list-cardPrice > div {
       padding: 0.5em 2.5em;
       background-color: rgba(255, 255, 255, 0.5);
-      border-radius: 6.25em;
+      border-radius: 2em;
       -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
       box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
       color: white;
       margin: auto;
       border: none;
 
-      height:200px;
-      margin-bottom:5em;
+      height: 200px;
+      margin-bottom: 1em;
+    }
+    .div-cardPricing {
+      display:flex;
+      flex-direction:row;
+      justify-content:space-between;
+      height:100%;
+      align-items: flex-end
+    }
+    .div-cardPricing h3{
+      align-self: flex-start;
+    }
+    .button-cardpricing{
+      align-self: flex-end;
     }
   }
 
   @media screen and (min-width: 1280px) {
-    .h1-tarifs{
+    font-size: 1.5em;
+    .h1-tarifs {
       font-size: 6em;
     }
     h3 {
-      font-size: 3em;
+      font-size: 2em;
     }
     .list-cardPrice {
       display: flex;
       justify-content: space-around;
-      margin: 0 115px;
-      height: 30em;
+      margin: 0 7em;
+      height: 20em;
       padding: 2em 0;
 
       flex-wrap: nowrap;
@@ -73,7 +85,7 @@ const PricingStyle = styled.section`
     }
     .list-cardPrice button {
       font-size: 1.5em;
-      margin: 10em auto;
+      margin: 5em auto;
     }
     .list-cardPrice div:nth-child(1) div button {
       background-color: rgba(255, 255, 255, 0.2);
@@ -111,7 +123,7 @@ const PricingStyle = styled.section`
     }
     .slide-item {
       width: 33.33%;
-      height: 30em;
+      height: 25em;
     }
     .slide-item0 {
       grid-row: 1;
@@ -135,10 +147,10 @@ const PricingStyle = styled.section`
 
 function Pricing() {
   //Reaction at the change of the size of the screen
-  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 1280);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 769);
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 1280);
+      setIsSmallScreen(window.innerWidth < 769);
     };
     window.addEventListener("resize", handleResize);
     return () => {
@@ -174,31 +186,37 @@ function Pricing() {
   return (
     <>
       <PricingStyle>
-        <h1 className="h1-tarifs">NOS TARIFS</h1>
+        <h1 className="h1-tarifs balmy">NOS TARIFS</h1>
         {isSmallScreen ? (
           <Slider pages={slidesTarifs} index={0} />
         ) : (
-          <div className="list-cardPrice">
-            {slidesTarifs.map(
-              (
-                {
-                  props: {
-                    children: {
-                      props: { offerName, description, price },
+          <>
+            <Text
+              content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet est placerat in egestas erat imperdiet sed. Auctor elit sed vulputate mi sit amet mauris commodo quis. Id volutpat lacus laoreet non. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis."
+              className="text-pricing"
+            />
+            <div className="list-cardPrice">
+              {slidesTarifs.map(
+                (
+                  {
+                    props: {
+                      children: {
+                        props: { offerName, description, price },
+                      },
                     },
                   },
-                },
-                index
-              ) => (
-                <CardPrice
-                  key={index}
-                  offerName={offerName}
-                  description={description}
-                  price={price}
-                />
-              )
-            )}
-          </div>
+                  index
+                ) => (
+                  <CardPrice
+                    key={index}
+                    offerName={offerName}
+                    description={description}
+                    price={price}
+                  />
+                )
+              )}
+            </div>
+          </>
         )}
       </PricingStyle>
     </>

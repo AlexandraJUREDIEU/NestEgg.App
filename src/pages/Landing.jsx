@@ -122,14 +122,18 @@ h1{
         top:15vh;
         left:100%;
     }
+    .conteneur-landing p, .conteneur-landing button{
+        margin:0;
+    }
     .conteneur-landing {
+        margin:0;
         position:relative;
         right:10%;
         display:flex;
         flex-direction:column;
-    }
-    h1 {
-        margin-top:1em;
+        justify-content: center;
+        align-items: center;
+        gap:2em;
     }
 
 

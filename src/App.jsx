@@ -4,7 +4,7 @@ import AboutUs from "./pages/AboutUs";
 import Concept from "./pages/Concept";
 import Landing from "./pages/Landing";
 import Pricing from "./pages/Pricing";
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import styled from "styled-components";
 import FooterMain from "./assets/layout/FooterMain";
 
@@ -20,9 +20,9 @@ const StyledSection = styled.section`
     scroll-snap-type: y mandatory;
   }
 
-.item-scroll{
+  .item-scroll{
     scroll-snap-align: start;
-}
+  }
 `;
 
 //Fonctions

@@ -7,32 +7,44 @@ import React, { useState, useEffect } from "react";
 //styles
 const ConceptStyle = styled.section`
   height: 100vh;
-
   .screen-nest-egg {
     display: none;
   }
 
   .screen-concept {
-    width: 8em;
-    height: 8em;
+    display:none;
+    width: 12em;
+    height: 12em;
+    float:left;
+    margin-right: 20px;
+  }
+  .tellImage {
+    margin: auto 0 auto 50px;
+  }
+
+  .telImage-Slider {
+    display:flex;
+    align-items:end;
   }
 
   .bird-and-signin {
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-around;
-    margin-top:3em;
+    margin-top: 3em;
   }
 
   .button-concept {
     margin: auto 0;
+    text-align: center;
+    justify-content: center;
   }
-  
+
   .slide-item {
-    margin:0 3em 0 3em;
+    margin: 0 3em 0 3em;
   }
   .slider {
-      margin-top:6em;
+    margin-top: 6em;
   }
 
   @media screen and (min-width: 540px) {
@@ -42,35 +54,57 @@ const ConceptStyle = styled.section`
     }
   }
   @media screen and (min-width: 769px) {
+    .button-concept {
+      width: 28em;
     }
+  }
   @media screen and (min-width: 1280px) {
+    font-size: 1.5em;
+    .button-concept {
+      width: 28em;
+    }
     .screen-nest-egg {
       display: flex;
       height: 600px;
       margin: auto 0;
     }
     .telImage-Slider {
-      display:flex;
-      flex-direction:row;
+      display: flex;
+      flex-direction: row;
     }
     .tellImage {
-        margin: auto 0 auto 50px;
+    }
+    .slider {
+      margin:0;
     }
   }
 `;
 
 function Concept() {
   //Reaction at the change of the size of the screen
-  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 769);
+  const [screenSize, setScreenSize] = useState(getScreenSize());
+
   useEffect(() => {
-    const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 769);
-    };
+    function handleResize() {
+      setScreenSize(getScreenSize());
+    }
+
     window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  function getScreenSize() {
+    const width = window.innerWidth;
+    if (width < 769) {
+      return "mobile";
+    } else if (width < 1280) {
+      return "tablet";
+    } else if (width < 1920) {
+      return "laptop";
+    } else {
+      return "desktop";
+    }
+  }
 
   let sliderConcept = [];
   sliderConcept.push(
@@ -144,39 +178,47 @@ function Concept() {
   return (
     <>
       <ConceptStyle id="concept">
-        {isSmallScreen ? (
+        {screenSize === "mobile" ? (
+          <>
           <Slider pages={sliderConcept}></Slider>
+          <img
+            src="public\bird-concept-mobile.png"
+            alt="bird concept"
+            className="screen-concept"
+          />
+</>
         ) : (
           <>
-          <div className="telImage-Slider">
-            <aside className="tellImage">
-              <img
-                src="public\screenshot-nestEgg.png"
-                alt="Téléphone Screenshot Nest-egg"
-                className="screen-nest-egg"
-              />
-            </aside>
-            <div className="slider">
-              <div className="slides">
-                {sliderConcept.map((slide, index) => (
-                  <div className={`slide-item slide-item${index}`} key={index}>
-                    {slide}
-                  </div>
-                ))}
+            <div className="telImage-Slider">
+              <aside className="tellImage">
+                <img
+                  src="public\screenshot-nestEgg.png"
+                  alt="Téléphone Screenshot Nest-egg"
+                  className="screen-nest-egg"
+                />
+              </aside>
+              <div className="slider">
+                <div className="slides">
+                  {sliderConcept.map((slide, index) => (
+                    <div
+                      className={`slide-item slide-item${index}`}
+                      key={index}
+                    >
+                      {slide}
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+              <img
+                src="public\bird-concept-autres.png"
+                alt="bird concept"
+                className="screen-concept"
+              />
             </div>
           </>
         )}
 
         <div className="bird-and-signin">
-          <div className="bird-concept-aside">
-            <img
-              src="public\bird-concept.png"
-              alt="bird concept"
-              className="screen-concept"
-            />
-          </div>
           <ButtonLink
             to="/signin"
             content="Rejoins Max"
