@@ -21,18 +21,6 @@ width:152px;
 height:100px;
 border-radius: 4em;
 
-border-left: solid red 5px;
-border-right: solid green 5px;
-border-top: solid yellow 5px;
-border-bottom: solid blue 5px;
-
-border-radius: 50%;
-border: 4px solid transparent;
-border-top-color: black;
-border-right-color: black;
-border-bottom-color: black;
-border-left-color: transparent;
-
 
     a{
     display: flex;
@@ -47,16 +35,16 @@ border-left-color: transparent;
     }
 
     article {
-      outline: red 3px solid;
+      /*outline: red 3px solid;*/
     }
     .short-box{
-      outline: orange 4px solid;
+      /*outline: orange 4px solid;*/
     }
     .long-box{
-      outline: yellow 4px solid;
+      /*outline: yellow 4px solid;*/
     }
     h3{
-      outline: blue 2px solid;
+      /*outline: blue 2px solid;*/
     }
 
     
