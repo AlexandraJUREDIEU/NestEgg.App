@@ -36,11 +36,17 @@ font-size: 1.5em;
   img{
     height: 12em;
   }
-  
-  @media screen and (min-width: 769px) {
-    .slider {
-      margin-top:6em;
+  @media screen and (max-width: 769px) {
+    font-size:1em;
+    .h2AndIntro {
+      background:yellow;
+      margin: 0;
     }
+    .slides {
+      padding:10px;
+    }
+  }
+  @media screen and (min-width: 769px) {
     font-size: 1.5em;
     .intro-about-us {
       display: flex;
@@ -70,8 +76,8 @@ flex-direction: row;
     }
   }
   
-  @media screen and (min-width: 1080px) {
-    font-size:1.5em;
+  @media screen and (min-width: 1280px) {
+    font-size:1.2em;
     .h2AndIntro h2 {
       font-size: 3em;
     }
@@ -86,6 +92,10 @@ flex-direction: row;
       grid-auto-rows: minmax(100px, auto);
 
     padding: 0 7em;
+    }
+    h2 {
+      display:inline;
+      white-space: nowrap;
     }
     .slide-item0 {
       grid-column: 1 / 3;
@@ -192,7 +202,7 @@ function AboutUs() {
               />
             </div>
 
-          {screenSize === ("mobile" || "tablet") ? (
+          {screenSize === "mobile" || screenSize === "tablet" ? (
             <Slider pages={slidesQuiSommesNous} index={0} />
           ) : (
             <div className="slider">

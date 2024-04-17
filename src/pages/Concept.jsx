@@ -10,9 +10,7 @@ const ConceptStyle = styled.section`
   .screen-nest-egg {
     display: none;
   }
-
   .screen-concept {
-    display:none;
     width: 12em;
     height: 12em;
     float:left;
@@ -46,20 +44,44 @@ const ConceptStyle = styled.section`
   .slider {
     margin-top: 6em;
   }
+  .screen-concept {
+    float:right;
+  }
 
-  @media screen and (min-width: 540px) {
+  @media screen and (min-width: 540px) and (max-width: 1280px) {
     .slide-item {
       font-size: 1.2em;
-      margin: 0 7em;
     }
   }
   @media screen and (min-width: 769px) {
     .button-concept {
       width: 28em;
     }
+    .bird-and-signin {
+      margin-top: 20px;
+    }
   }
   @media screen and (min-width: 1280px) {
-    font-size: 1.5em;
+    font-size: 1.2em;
+    .slide-item{
+      margin: 0;
+    }
+    .screen-concept {
+      width:30%;
+      height:10%;
+      shape-outside: url("https://placehold.co/133x133");
+      shape-margin: 20px;
+    }
+    .tellImage {
+      float:left;
+    }
+    .concept-para {
+      width:800px;
+      width: 100%;
+      font-size:1em;
+    }
+
+
     .button-concept {
       width: 28em;
     }
@@ -77,6 +99,9 @@ const ConceptStyle = styled.section`
     .slider {
       margin:0;
     }
+  }
+  @media screen and (min-width: 1920px) {
+    font-size: 1.5em;
   }
 `;
 
@@ -149,6 +174,11 @@ function Concept() {
             Quand on dépense, je trierai toutes nos dépenses dans des catégories
             colorées, comme ça, on saura toujours où va notre argent et comment
             faire pour économiser encore plus !
+              <img
+                src="public\bird-concept-autres.png"
+                alt="bird concept"
+                className="screen-concept"
+              />
           </span>
         }
       />
@@ -209,11 +239,6 @@ function Concept() {
                   ))}
                 </div>
               </div>
-              <img
-                src="public\bird-concept-autres.png"
-                alt="bird concept"
-                className="screen-concept"
-              />
             </div>
           </>
         )}

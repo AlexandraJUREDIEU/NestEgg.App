@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 //style
 const PricingStyle = styled.section`
-  height: 75vh;
+  height: 70vh;
   .h1-tarifs {
     color: #ddb993;
     font-size: 3em;
@@ -14,7 +14,7 @@ const PricingStyle = styled.section`
   }
   .slide-item {
     padding: 2em 0;
-    height: 70vh;
+    height: 50vh;
   }
   .slider {
     padding: 0.5em 2.5em;
@@ -30,7 +30,7 @@ const PricingStyle = styled.section`
     margin: 0 7em;
   }
 
-  @media screen and (min-width: 769px && max-width: 1279px) {
+  @media screen and (min-width: 769px) and (max-width: 1279px) {
     .list-cardPrice {
       margin: 0 3em;
     }
@@ -62,11 +62,8 @@ const PricingStyle = styled.section`
     }
   }
 
-  @media screen and (min-width: 1280px) {
-    font-size: 1.5em;
-    .h1-tarifs {
-      font-size: 6em;
-    }
+  @media screen and (min-width: 1200px) {
+    font-size: 1.2em;
     h3 {
       font-size: 2em;
     }
@@ -119,7 +116,8 @@ const PricingStyle = styled.section`
       width: 33.33%;
     }
     .h1-tarifs {
-      font-size: 6em;
+      margin-top:1em;
+      font-size: 3em;
     }
     .slide-item {
       width: 33.33%;
@@ -141,6 +139,10 @@ const PricingStyle = styled.section`
     .slide-item1 > .div-card-collaborator {
       display: flex;
       flex-direction: row;
+    }
+    @media screen and (min-width: 1800px) {
+      font-size: 1.5em;
+      
     }
   }
 `;

@@ -10,7 +10,7 @@ display: flex;
 flex-direction: column;
 padding: 0.25em;
 margin: auto;
-height: 25vh;
+height: 30vh;
 text-align: center;
 
 
@@ -44,9 +44,11 @@ text-align: center;
     text-decoration: none;
 }
 
-
+@media screen and (max-width: 540px){
+    font-size: 1em;
+}
 @media screen and (min-width: 540px){
-
+    font-size: 1em;
     .footer-col-1, .footer-col-4{
         width: 10em;
     }
@@ -64,6 +66,10 @@ text-align: center;
     img{
         height: 2.5em;
     }
+}
+@media screen and (min-width: 1280px){
+    font-size: 1.5em;
+}
 }
 `
 
