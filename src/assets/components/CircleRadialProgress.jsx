@@ -1,70 +1,61 @@
-//https://codepen.io/geedmo/pen/DggoNx
+/** ReadMe:
+ * This circle have the same props than ProgressBar:
+ * - progress : determine the actual progress of the bar (default 0 but highly advised) || OPTIONNAL
+ * Style:
+ * - width : the width of the bar (default 200) || OPTIONNAL
+ * - color1 : the color of the left part of the bar (default green) || OPTIONNAL
+ * - color2 : the color of the right part of the bar (default #fff2) || OPTIONNAL
+ * - height : the height of the bar (default 40) || OPTIONNAL
+ */
 
-// Import
-import { useState } from "react";
-import styled from "styled-components";
-
-// Styles
-const StyledCircleRadialProgress = styled.StyledCircleRadialProgress`
 
 
+import React from 'react';
+import styled from 'styled-components';
 
-* {
-    box-sizing: border-box;
-  }
-  
-  body {
-    width: 100vw;
-    height: 100svh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .progress-radial {
-    --size: 20rem;
-    
-    position: relative;
-    width: var(--size);
-    height: var(--size);
-    background-color: rgba(0 0 0 / .2);
-  }
-  
-  .progress {
-    --color: rgba(0 0 0 / 0);
-    --offset: 0%;
-    --size: 0%;
-    
+const StyleCircleRadialProgress = styled.div`
+  clip-path: circle(50%);
+  width: ${props => props.size};
+  height: ${props => props.size};
+  position: relative;
+
+  background: ${props =>
+      props.progress < 50
+        ? props.color1
+        : props.color2};
+
+
+  .rectangle1 {
+    width: 100px; /* Est-ce que cette ligne est nécessaire ? */
+    height: ${props => props.size};
     position: absolute;
-    inset: 0;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background:
-      radial-gradient(closest-side, rgba(0 0 0 / .2) 90%, transparent 90%),
-      conic-gradient(
-        rgba(0 0 0 / 0) var(--offset),
-        var(--color) var(--offset) calc(var(--offset) + var(--size)),
-        rgba(0 0 0 / 0) calc(var(--offset) + var(--size))
-      )
-    ;
+    top: 0;
+    left: 0;
+    transform-origin: center;
+    z-index: ${props => (props.progress < 50 ? 3 : 1)};
+    background: linear-gradient(calc(${props => props.progress * 3.6}deg - 90deg), ${props => props.color1} 50%, transparent 0);
   }
-  
-  #progress-1 {
-    --color: hsl(0 100% 50%);
-    --size: 50%;
+
+  .rectangle2 {
+    width: ${props => props.size};
+    height: ${props => props.size};
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: center;
+    transform: rotate(0);
+    z-index: 2;
+    background: linear-gradient(-90deg, ${props => props.color2} 50%, transparent 0);
   }
-  
-  #progress-2 {
-    --color: hsl(225 100% 50%);
-    --offset: 50%;
-    --size: 20%;
-  }
-  
-  #progress-3 {
-    --color: hsl(45 100% 50%);
-    --offset: 70%;
-    --size: 30%;
-  }
-  
+`;
+
+const CircleRadialProgress = ({ size = '100px', progress = 0, color1 = 'orange', color2 = 'green', height = '100px' }) => {
+  return (
+    <StyleCircleRadialProgress size={size} progress={progress} color1={color1} color2={color2} height={height}>
+      <div className="rectangle1" />
+      <div className="rectangle2" />
+    </StyleCircleRadialProgress>
+  );
+};
+
+export default CircleRadialProgress;
