@@ -78,8 +78,9 @@ flex-direction: row;
   @media screen and (min-width: 1280px) {
     font-size:1.2em;
     .h2AndIntro h2 {
-      font-size: 3em;
+      font-size: 3em;  
     }
+
     .intro-about-us {
       display: flex;
       font-size: 1.25em;

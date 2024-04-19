@@ -31,7 +31,7 @@ const LinkStyle = styled(Link)`
   font-size: 1.5em;
 `;
 
-const ButtonLink = ({ to, className, content }) => {
+const ButtonLink = ({ to, className, content}) => {
 
 
   return (

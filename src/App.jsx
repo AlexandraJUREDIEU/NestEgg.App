@@ -43,8 +43,8 @@ const links = [
 {to:"#concept" , text:"Concept", onClick: () => scrollToSection(conceptRef)},
 {to:"#about-us" , text:"Qui sommes nous?", onClick: () => scrollToSection(aboutUsRef)},
 {to:"#price" , text:"Tarifs", onClick: () => scrollToSection(pricingRef)},
-{to:"#auth" , text:"Connexion"},
-{to:"/dashboard" , text:"Tableau de bord"}, //A retirer
+{to:"/login" , text:"Connexion"},
+
 ];
 
 

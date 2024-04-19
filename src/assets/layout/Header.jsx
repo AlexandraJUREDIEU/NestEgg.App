@@ -16,13 +16,28 @@ const HeaderStyle = styled.header`
     order: 300;
   }
 
+  ul{
+  height: 4em;
+  display: flex;
+  align-items: center;
+  }
+
+  nav:nth-child(2) > ul:nth-child(1) > li:nth-child(4) > a:nth-child(1) {
+    background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 6.25em;
+  -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  color: white;
+  padding: 0.5em 1em;
+  }
+
   @media screen and (min-width: 1280px) {
     nav {
       order: 200;
     }
 
     nav ul {
-      font-size: 2em;
+      font-size: 1.5em;
       display: flex;
       flex-direction: row;
       justify-content: space-around;

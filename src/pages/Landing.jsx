@@ -142,6 +142,7 @@ h1{
 `
 
 function Landing(){
+    ;
     return (<>
         <LandingStyle id="landing">
             <div className="conteneur-landing">

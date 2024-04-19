@@ -33,7 +33,7 @@ const ConceptStyle = styled.section`
   }
 
   .button-concept {
-    margin: auto 0;
+    margin: auto 0.5em;
     text-align: center;
     justify-content: center;
   }
@@ -48,11 +48,15 @@ const ConceptStyle = styled.section`
     float:right;
   }
 
+  
 
   @media screen and (max-width: 770px) {
     .screen-concept-inside-concept {
       display:none;
     }
+    .concept-para{
+    margin-top: 4em;  
+  }
   }
   @media screen and (min-width: 540px) and (max-width: 1280px) {
     .slide-item {
@@ -87,9 +91,13 @@ const ConceptStyle = styled.section`
       font-size:1em;
     }
 
+    .concept-para-1{
+      margin-top: 1.5em;
+    }
 
     .button-concept {
       width: 28em;
+      margin-top: -4em;
     }
     .screen-nest-egg {
       display: flex;
@@ -103,7 +111,7 @@ const ConceptStyle = styled.section`
     .tellImage {
     }
     .slider {
-      margin:0;
+      margin:0 1em;
     }
   }
   @media screen and (min-width: 1920px) {
@@ -126,7 +134,7 @@ function Concept() {
 
   function getScreenSize() {
     const width = window.innerWidth;
-    if (width < 7) {
+    if (width < 770) {
       return "mobile";
     } else if (width < 1280) {
       return "tablet";

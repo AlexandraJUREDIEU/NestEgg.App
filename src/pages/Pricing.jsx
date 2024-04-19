@@ -30,6 +30,10 @@ const PricingStyle = styled.section`
     margin: 0 7em;
   }
 
+  .text-pricing{
+    margin-bottom: 1em;
+  }
+
   @media screen and (min-width: 769px) and (max-width: 1279px) {
     .list-cardPrice {
       margin: 0 3em;
