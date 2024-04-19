@@ -48,12 +48,18 @@ const ConceptStyle = styled.section`
     float:right;
   }
 
+
+  @media screen and (max-width: 770px) {
+    .screen-concept-inside-concept {
+      display:none;
+    }
+  }
   @media screen and (min-width: 540px) and (max-width: 1280px) {
     .slide-item {
       font-size: 1.2em;
     }
   }
-  @media screen and (min-width: 769px) {
+  @media screen and (min-width: 770px) {
     .button-concept {
       width: 28em;
     }
@@ -120,7 +126,7 @@ function Concept() {
 
   function getScreenSize() {
     const width = window.innerWidth;
-    if (width < 769) {
+    if (width < 7) {
       return "mobile";
     } else if (width < 1280) {
       return "tablet";
@@ -177,7 +183,7 @@ function Concept() {
               <img
                 src="public\bird-concept-autres.png"
                 alt="bird concept"
-                className="screen-concept"
+                className="screen-concept screen-concept-inside-concept"
               />
           </span>
         }

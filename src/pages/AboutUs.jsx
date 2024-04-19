@@ -39,7 +39,6 @@ font-size: 1.5em;
   @media screen and (max-width: 769px) {
     font-size:1em;
     .h2AndIntro {
-      background:yellow;
       margin: 0;
     }
     .slides {
