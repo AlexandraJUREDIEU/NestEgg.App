@@ -2,6 +2,7 @@
 import { ButtonLink } from "../assets/components/Button"
 import Text from "../assets/components/Text"
 import styled from 'styled-components';
+import React, { useState, useEffect } from "react";
 
 //styles
 
@@ -40,7 +41,7 @@ h1{
     margin: auto;
 }
 
-@media screen and (min-width: 540px){
+@media screen and (min-width: 540px) and (max-width:1280px){
     
     .landing-egg-img{
         height: 27.5em;
@@ -117,18 +118,20 @@ h1{
       
 }
 @media screen and (min-width: 1280px){
+    #landing {
+        display: flex;
+        flex-direction: row;
+        align-items: space-around;
+        justify-content: space-around;
+    }
     .landing-egg-img{
-        position:absolute;
-        top:15vh;
-        left:100%;
+        height:100%;
     }
     .conteneur-landing p, .conteneur-landing button{
         margin:0;
     }
     .conteneur-landing {
         margin:0;
-        position:relative;
-        right:10%;
         display:flex;
         flex-direction:column;
         justify-content: center;
@@ -136,24 +139,54 @@ h1{
         gap:2em;
     }
 
-
-
 }
 `
 
 function Landing(){
-    ;
+    //Reaction at the change of the size of the screen
+    const [screenSize, setScreenSize] = useState(getScreenSize());
+  
+    useEffect(() => {
+      function handleResize() {
+        setScreenSize(getScreenSize());
+      }
+  
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+  
+    function getScreenSize() {
+      const width = window.innerWidth;
+      if (width < 770) {
+        return "mobile";
+      } else if (width < 1280) {
+        return "tablet";
+      } else if (width < 1920) {
+        return "laptop";
+      } else {
+        return "desktop";
+      }
+    }
+
+
     return (<>
         <LandingStyle id="landing">
             <div className="conteneur-landing">
                 <h1>NEST <span className="balmy">EGG</span></h1>
                 <Text className="title-intro" content="Ne mettez pas tout vos oeufs dans le même panier"/>
+        {(screenSize === "mobile" || screenSize === "tablet") && (
                 <aside>
                 <img src="public\oeuf-nestEgg.png" alt="Oeuf Nest Egg" className="landing-egg-img"/>
-                </aside>
+                </aside>)
+                }
                 <ButtonLink to="#concept" className="btn-landing btn-landing-1" content="Découvrir le concept"/>           
                 <ButtonLink to="/dashboard" className="btn-landing btn-landing-2" content="Accéder à mon tableau de bord"/>     
-            </div>          
+            </div>
+        {(screenSize === "laptop" || screenSize === "desktop") && (
+                <aside>
+                <img src="public\oeuf-nestEgg.png" alt="Oeuf Nest Egg" className="landing-egg-img"/>
+                </aside>)
+                }
             
         </LandingStyle>
     </>)
