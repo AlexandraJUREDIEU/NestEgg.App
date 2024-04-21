@@ -10,11 +10,20 @@ mongoose.set("strictQuery", false);
 const mongoDB = process.env.MONGODB_URL;
 
 // Wait for database to connect, logging an error if there is a problem
-main().catch((err) => console.log(err));
+main();
+
 async function main() {
     try
     {
         await mongoose.connect(mongoDB);
+        const db = mongoose.connection.db;
+        const dbName = db.databaseName;
+        const collections = await mongoose.connection.db.listCollections().toArray();
+        console.log("Database name: " + dbName);
+        console.log("Collections: ");
+        collections.forEach((collection) => {
+            console.log(collection.name);
+        })
     }
     catch (err)
     {

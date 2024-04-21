@@ -12,6 +12,9 @@ require('./config/Database');
 
 app.use(cors());
 
+//Middleware
+app.use(express.json()); // transforme les données entrantes en json
+
 //Define the routes
 app.use('/', router);
 
