@@ -1,6 +1,6 @@
 import CardPrice from "../assets/components/CardPricing";
 import Slider from "../assets/components/Slider";
-import Text from "../assets/components/Text"
+import Text from "../assets/components/Text";
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
@@ -10,14 +10,10 @@ const PricingStyle = styled.section`
   .h1-tarifs {
     color: #ddb993;
     font-size: 3em;
-    margin-top:1em;
-  }
-  .slide-item {
-    padding: 2em 0;
-    height: 50vh;
+    height: 10vh;
   }
   .slider {
-    padding: 0.5em 2.5em;
+    padding: 0;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 6.25em;
     -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -26,11 +22,21 @@ const PricingStyle = styled.section`
     margin: auto 3em;
     border: none;
   }
+  .div-cardPricing {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .button {
+    margin: 0;
+    padding: 0;
+  }
   p {
     margin: 0 7em;
   }
 
-  .text-pricing{
+  .text-pricing {
     margin-bottom: 1em;
   }
 
@@ -52,16 +58,16 @@ const PricingStyle = styled.section`
       margin-bottom: 1em;
     }
     .div-cardPricing {
-      display:flex;
-      flex-direction:row;
-      justify-content:space-between;
-      height:100%;
-      align-items: flex-end
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      height: 100%;
+      align-items: flex-end;
     }
-    .div-cardPricing h3{
+    .div-cardPricing h3 {
       align-self: flex-start;
     }
-    .button-cardpricing{
+    .button-cardpricing {
       align-self: flex-end;
     }
   }
@@ -71,12 +77,13 @@ const PricingStyle = styled.section`
     h3 {
       font-size: 2em;
     }
+    .div-cardPricing {
+      height: 50vh;
+    }
     .list-cardPrice {
       display: flex;
       justify-content: space-around;
       margin: 0 7em;
-      height: 20em;
-      padding: 2em 0;
 
       flex-wrap: nowrap;
       background-color: rgba(255, 255, 255, 0.5);
@@ -86,7 +93,6 @@ const PricingStyle = styled.section`
     }
     .list-cardPrice button {
       font-size: 1.5em;
-      margin: 5em auto;
     }
     .list-cardPrice div:nth-child(1) div button {
       background-color: rgba(255, 255, 255, 0.2);
@@ -120,12 +126,11 @@ const PricingStyle = styled.section`
       width: 33.33%;
     }
     .h1-tarifs {
-      margin-top:1em;
+      margin-top: 1em;
       font-size: 3em;
     }
     .slide-item {
       width: 33.33%;
-      height: 25em;
     }
     .slide-item0 {
       grid-row: 1;
@@ -146,7 +151,6 @@ const PricingStyle = styled.section`
     }
     @media screen and (min-width: 1800px) {
       font-size: 1.5em;
-      
     }
   }
 `;
@@ -176,10 +180,10 @@ function Pricing() {
   );
   slidesTarifs.push(
     <>
-      <CardPrice 
-      offerName="MAX" 
-      description="Offre max" 
-      price="2,99€ /" 
+      <CardPrice
+      offerName="MAX"
+      description="Offre max"
+      price="2,99€ /"
       span="MOIS"
       />
     </>
