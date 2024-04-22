@@ -83,16 +83,41 @@ export default function HeaderContainer({ links }) {
 
 
 
+  const [disableScroll, setDisableScroll] = useState(false);
+  // Function to handle enabling/disabling scrolling
+  useEffect(() => {
+    if (disableScroll) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [disableScroll]);
+
+  // Function to toggle scrolling
+  const toggleScroll = () => {
+    setDisableScroll(!disableScroll);
+  };
+
+  const activateScroll = () => {
+    setDisableScroll("true");
+  };
+  const desactivateScroll = () => {
+    setDisableScroll("false");
+  };
+
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+
+
   //Comportement
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   //Render
   return (
-    <>
-      <HeaderStyle>
-        <LinkLogo to="/">
+    <HeaderStyle>
+      <LinkLogo to="/">
           <img
             src="/public/logo_nestegg.png"
             alt="Logo NestEgg"
@@ -115,7 +140,11 @@ export default function HeaderContainer({ links }) {
             <ul>
               {links.map((link, index) => (
                 <li key={index}>
-                  <Link to={link.to} onClick={link.onClick}>
+                  <Link to={link.to} 
+                  onClick={() => {
+                    link.onClick;
+                    desactivateScroll();
+                  }}>
                     {link.text}
                   </Link>
                 </li>
@@ -125,6 +154,6 @@ export default function HeaderContainer({ links }) {
         )}
         <Outlet />
       </HeaderStyle>
-    </>
   );
-}
+};
+
