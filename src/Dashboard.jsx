@@ -9,16 +9,17 @@ import ProgressBar from "./assets/components/ProgressBar";
 //Styles
 const DashboardStyle = createGlobalStyle`
   h1{
-    padding: 1em;
+    padding: 0.4em;
   }
 
   .div-container-boxes {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 1.5em;
+    gap: 0.5em;
     flex-wrap: wrap;
     width: 100vw;
+    height: 60vh;
     margin: auto;
   }
 
@@ -27,6 +28,42 @@ const DashboardStyle = createGlobalStyle`
     flex-direction:row;
   }
 
+  .short-box, .long-box{
+    border-radius: 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .short-box button{
+    height: 1.5em;
+  }
+
+  .short-box a{
+    font-size: 0.75em;
+  }
+  .short-box button a{
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .last-spent{
+    font-size: 0.75em;
+  }
+  .spent{
+    font-size: 0.5em;
+  }
+  
+  .bottom-dashboard{
+    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.25em;
+  }
+  .div-progress-bar{
+    margin-left: 2em;
+  }
 `;
 
 
@@ -57,7 +94,7 @@ function Dashboard() {
             <>
               <h3>
                 Votre objectif
-                <CircleRadialProgress progress="10" width="300" color1="darkred" color2="purple" height="40px"/>
+                <CircleRadialProgress progress="10" width="300" color1="darkred" color2="purple" height="40px" />
               </h3>
           </>}/>
           <Box id={3} href="/transactions" onClickAction={handleBoxClick} className="long-box" children={
@@ -67,10 +104,10 @@ function Dashboard() {
             </>}/>
           <Box id={4} href="/addTransaction" onClickAction={handleBoxClick} className="short-box" children={
             <>
-              <h3>Vos dernières dépenses</h3>
-              <div>Dépense 1</div>
-              <div>Dépense 2</div>
-              <div>Dépense 3</div>
+              <h3 className="last-spent">Vos dernières dépenses</h3>
+              <div className="spent">Dépense 1</div>
+              <div className="spent">Dépense 2</div>
+              <div className="spent">Dépense 3</div>
             </>}/>
           <Box id={5} href="/incoming" onClickAction={handleBoxClick} className="short-box" children={
             <>
@@ -89,13 +126,13 @@ function Dashboard() {
 
 
         <section className="bottom-dashboard">
-          <div>
+          <div className="div-progress-bar">
             Vital: <ProgressBar progress="70" width="200" color1="#F5A483" color2="#fff2" height="30px" />
           </div>
-          <div>
+          <div className="div-progress-bar">
             Loisirs: <ProgressBar progress="80" width="200" color1="#43A9B6" color2="#fff2" height="30px" />
           </div>
-          <div>
+          <div className="div-progress-bar">
             Epargne:<ProgressBar progress="20" width="200" color1="#B243B6" color2="#fff2" height="30px" />
           </div>
         </section>    

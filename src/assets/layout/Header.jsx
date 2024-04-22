@@ -22,6 +22,13 @@ const HeaderStyle = styled.header`
   align-items: center;
   }
 
+  nav ul li {
+    list-style-type: none;
+}
+nav ul li a {
+  text-decoration:none;
+}
+
   nav:nth-child(2) > ul:nth-child(1) > li:nth-child(4) > a:nth-child(1) {
     background-color: rgba(255, 255, 255, 0.5);
   border-radius: 6.25em;
@@ -30,6 +37,28 @@ const HeaderStyle = styled.header`
   color: white;
   padding: 0.5em 1em;
   }
+
+
+  // Début de la navbar en version mobile à continuer !!
+
+
+  /* nav{
+    position: absolute;
+    height: 85vh;
+    width: 100vw;
+    top: 15vh;
+    left: 0;
+    background: rgb(92, 39, 116);
+    background: linear-gradient(180deg, rgba(92, 39, 116, 1) 0%, rgba(57, 96, 203, 1) 100%);
+    backdrop-filter: blur(40px);
+    opacity: 95%;
+  } 
+
+  nav ul{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+  } */
 
   @media screen and (min-width: 1280px) {
     nav {
