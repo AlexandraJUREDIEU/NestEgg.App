@@ -20,14 +20,14 @@ const CardPricingStyle = styled.div`
 
 
 
-function CardPrice({offerName, description, price}){
+function CardPrice({offerName, description, price, span}){
     return (<>
         <CardPricingStyle>
           <div className="div-cardPricing">
             <h3>Offre <span className="balmy">{offerName}</span></h3>
             <p>{description}</p>
             <div id="button-cardpricing">
-              <Button content={price}/>
+              <Button content={price} span={span}></Button>
             </div>
           </div>
         </CardPricingStyle>
