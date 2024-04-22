@@ -11,6 +11,10 @@ background: rgb(92, 39, 116);
 background: linear-gradient(180deg, rgba(92, 39, 116, 1) 0%, rgba(57, 96, 203, 1) 100%);
 font-family: "Quicksand";
 
+position:absolute;
+top: 15vh;
+width:100vw;
+left:0;
 
 input{
     border: none;
