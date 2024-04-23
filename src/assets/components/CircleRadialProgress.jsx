@@ -15,8 +15,8 @@ import styled from 'styled-components';
 
 const StyleCircleRadialProgress = styled.div`
   clip-path: circle(50%);
-  width: ${props => props.size};
-  height: ${props => props.size};
+  width: ${props => props.width};
+  height: ${props => props.width};
   position: relative;
 
   background: ${props =>
@@ -26,8 +26,8 @@ const StyleCircleRadialProgress = styled.div`
 
 
   .rectangle1 {
-    width: 100px; /* Est-ce que cette ligne est nécessaire ? */
-    height: ${props => props.size};
+    width: ${props => props.width};
+    height: ${props => props.width};
     position: absolute;
     top: 0;
     left: 0;
@@ -37,8 +37,8 @@ const StyleCircleRadialProgress = styled.div`
   }
 
   .rectangle2 {
-    width: ${props => props.size};
-    height: ${props => props.size};
+    width: ${props => props.width};
+    height: ${props => props.width};
     position: absolute;
     top: 0;
     left: 0;
@@ -49,9 +49,9 @@ const StyleCircleRadialProgress = styled.div`
   }
 `;
 
-const CircleRadialProgress = ({ size = '100px', progress = 0, color1 = 'orange', color2 = 'green', height = '100px' }) => {
+const CircleRadialProgress = ({ width = '100px', progress = 0, color1 = 'orange', color2 = 'green', height = '100px' }) => {
   return (
-    <StyleCircleRadialProgress size={size} progress={progress} color1={color1} color2={color2} height={height}>
+    <StyleCircleRadialProgress width={width} progress={progress} color1={color1} color2={color2} height={height}>
       <div className="rectangle1" />
       <div className="rectangle2" />
     </StyleCircleRadialProgress>
