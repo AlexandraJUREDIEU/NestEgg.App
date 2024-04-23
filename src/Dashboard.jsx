@@ -9,7 +9,7 @@ import ProgressBar from "./assets/components/ProgressBar";
 //Styles
 const DashboardStyle = createGlobalStyle`
   h1{
-    padding: 0.4em;
+    padding: 0.3em;
   }
 
   .div-container-boxes {
@@ -19,12 +19,13 @@ const DashboardStyle = createGlobalStyle`
     gap: 0.5em;
     flex-wrap: wrap;
     width: 100vw;
-    height: 50vh;
+    height: 47vh;
     margin: auto;
   }
 
 .fXwZhN{
     margin: auto;
+    height: 50%;
   }
 
   .short-box, .long-box{
@@ -32,6 +33,7 @@ const DashboardStyle = createGlobalStyle`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    padding: 0.25em;
   }
 
   .short-box button{
@@ -42,7 +44,6 @@ const DashboardStyle = createGlobalStyle`
     font-size: 0.75em;
   }
   .short-box button a{
-    width: 100%;
     margin: 0 auto;
   }
 
@@ -53,11 +54,34 @@ const DashboardStyle = createGlobalStyle`
     font-size: 0.5em;
   }
   
+  .ico-add-transaction,{
+    height: 45px;
+    width: 45px;
+    margin: auto;
+}
+
+.ico-incoming-charges{
+  height: 35px;
+  margin: auto;
+}
+
+.text-ico-charges{
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+}
+
+.text-ico-charges p{
+  font-size: 2em;
+  font-weight: 600;
+}
+
   .bottom-dashboard{
-    height: 25vh;
+    height: 26.7vh;
     display: flex;
     flex-direction: column;
     gap: 0.25em;
+    margin-top: 1em;
   }
 
   .div-progress-bar{
@@ -74,8 +98,17 @@ const DashboardStyle = createGlobalStyle`
  
   .p-amount-left {
     font-size: 0.5em;
-    margin: 0;
+    margin: auto;
     padding: 0;
+    padding-right: 0.5em;
+    text-align: right;
+    width: 19em;
+    display: flex;
+    margin-bottom: 0.25em;
+  }
+
+  .font-300{
+    font-weight: 300;
   }
 `;
 
@@ -102,17 +135,17 @@ function Dashboard() {
         <HeaderContainer links={links}/>
         <h1>Tableau de bord</h1>
         <section className="div-container-boxes">
-          <Box id={1} href="/profile" onClickAction={handleBoxClick} className="short-box" children={<><h3>Salut Claire!</h3> <ButtonLink content="Actualiser mes charges" /></>}/>
+          <Box id={1} href="/profile" onClickAction={handleBoxClick} className="short-box" children={<><h3 className="font-300">Salut Claire!</h3> <ButtonLink content="Actualiser mes charges" /></>}/>
           <Box id={2} href="/settings" onClickAction={handleBoxClick} className="short-box" children={
             <>
-              <h3>
+              <h3 className="font-300">
                 Votre objectif
               </h3>
                 <CircleRadialProgress progress="10" width="50px" color1="darkred" color2="purple" height="40px" />
           </>}/>
           <Box id={3} href="/transactions" onClickAction={handleBoxClick} className="long-box" children={
             <>
-              <h3>Votre épargne</h3>
+              <h3 className="font-300">Votre épargne</h3>
               <p>697.02€</p>
             </>}/>
           <Box id={4} href="/addTransaction" onClickAction={handleBoxClick} className="short-box" children={
@@ -124,14 +157,16 @@ function Dashboard() {
             </>}/>
           <Box id={5} href="/incoming" onClickAction={handleBoxClick} className="short-box" children={
             <>
-              <img src="https://placehold.co/20x20" alt="image carte banquaire" />
-              <h3>Ajouter une transaction</h3>
+              <img src="public\ico-add-transaction.png" alt="image carte banquaire" className="ico-add-transaction"/>
+              <h3 className="font-300">Ajouter une transaction</h3>
             </>}/>
           <Box id={6} href="/incoming" onClickAction={handleBoxClick} className="long-box" children={
             <>
+            <div className="text-ico-charges">
               <p>3</p>
-              <img src="https://placehold.co/20x20" alt="" />
-              <h3>Charges à venir</h3>
+              <img src="public\ico-charges.png" alt="ico charges à venir" className="ico-incoming-charges" />
+            </div>
+              <h3 className="font-300">Charges à venir</h3>
             </>}/>
           
           
