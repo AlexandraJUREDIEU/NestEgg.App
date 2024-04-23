@@ -8,7 +8,7 @@ import React, { useState, useEffect } from "react";
 
 //style
 const AboutUsStyle = styled.div`
-font-size: 1.5em;
+  font-size: 1.5em;
 
   #about-us {
     height: 100vh;
@@ -21,7 +21,7 @@ font-size: 1.5em;
     margin: 0 15%;
     margin: 3em;
   }
-  .slider{
+  .slider {
   }
   .slides {
     overflow-y: auto;
@@ -29,16 +29,16 @@ font-size: 1.5em;
   .intro-about-us {
     display: none;
   }
-  img{
+  img {
     height: 12em;
   }
   @media screen and (max-width: 769px) {
-    font-size:1em;
+    font-size: 1em;
     .h2AndIntro {
       margin: 0;
     }
     .slides {
-      padding:10px;
+      padding: 10px;
     }
   }
   @media screen and (min-width: 769px) {
@@ -47,34 +47,34 @@ font-size: 1.5em;
       display: flex;
     }
     .div-card-collaborator {
-      display:flex;
-      flex-direction:column;
+      display: flex;
+      flex-direction: column;
     }
-    .div-card-collaborator div{
+    .div-card-collaborator div {
       margin: 0 2em;
     }
     .intro-about-us {
       margin: 0 2em;
     }
-    img{
+    img {
       display: flow;
-      height:10em;
-      width:6em;
+      height: 10em;
+      width: 6em;
       margin: 0 auto;
     }
     .div-card-collaborator {
-      justify-content:center;
-/*
+      justify-content: center;
+      /*
 display: flex;
 flex-direction: row;
 */
     }
   }
-  
+
   @media screen and (min-width: 1280px) {
-    font-size:1.2em;
+    font-size: 1.2em;
     .h2AndIntro h2 {
-      font-size: 3em;  
+      font-size: 3em;
     }
 
     .intro-about-us {
@@ -83,14 +83,13 @@ flex-direction: row;
     }
     .slides {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
       grid-gap: 10px;
-      grid-auto-rows: minmax(100px, auto);
+      grid-auto-rows: minmax(300px, auto);
 
-    padding: 0 7em;
+      padding: 0 7em;
     }
     h2 {
-      display:inline;
+      display: inline;
       white-space: nowrap;
     }
     .slide-item0 {
@@ -100,9 +99,7 @@ flex-direction: row;
     .slide-item1 {
       grid-column: 1 / 3;
       grid-row: 2 / 3;
-      /* Décalage de la cellule: */
-      position:relative;
-      top:-8em;
+      margin-top:1em;
     }
     .slide-item2 {
       grid-column: 3 / 4;
@@ -122,6 +119,17 @@ flex-direction: row;
     .slide-item1 .div-card-collaborator div {
       padding-left: 1em;
     }
+    .slides1and2 {
+      width:100%;
+      display:flex;
+      align-items:start;
+      flex-direction:column;
+    }
+    .slides {
+      overflow-y: auto;
+      width: 100%;
+    }
+
   }
 `;
 
@@ -186,30 +194,41 @@ function AboutUs() {
     />
   );
 
-    return (
-      <>
-        <AboutUsStyle>
-          <section id="about-us">
-            <div className="h2AndIntro">
-              <h2>Qui sommes-nous ?</h2>
-              <Text
-                className="intro-about-us"
-                content="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus molestiae sequi consequuntur nesciunt voluptatibus, quam nobis perspiciatis nostrum at eaque esse neque, corrupti dolore quibusdam, impedit obcaecati? Enim, veritatis commodi?"
-              />
-            </div>
+  return (
+    <>
+      <AboutUsStyle>
+        <section id="about-us">
+          <div className="h2AndIntro">
+            <h2>Qui sommes-nous ?</h2>
+            <Text
+              className="intro-about-us"
+              content="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus molestiae sequi consequuntur nesciunt voluptatibus, quam nobis perspiciatis nostrum at eaque esse neque, corrupti dolore quibusdam, impedit obcaecati? Enim, veritatis commodi?"
+            />
+          </div>
 
           {screenSize === "mobile" || screenSize === "tablet" ? (
             <Slider pages={slidesQuiSommesNous} index={0} />
           ) : (
-            <div className="slider">
-              <div className="slides">
-                {slidesQuiSommesNous.map((slide, index) => (
-                  <div className={`slide-item slide-item${index}`} key={index}>
-                    {slide}
+            <>
+              <div className="slider">
+                <div className="slides">
+                  <div className="slides1and2">
+                    <div className={`slide-item slide-item0`} key="0">
+                      {slidesQuiSommesNous[0]}
+                    </div>
+                    <div className={`slide-item slide-item1`} key="1">
+                      {slidesQuiSommesNous[1]}
+                    </div>
                   </div>
-                ))}
+                  <div className={`slide-item slide-item2`} key="2">
+                    {slidesQuiSommesNous[2]}
+                  </div>
+                  <div className={`slide-item slide-item3`} key="3">
+                    {slidesQuiSommesNous[3]}
+                  </div>
+                </div>
               </div>
-            </div>
+            </>
           )}
         </section>
       </AboutUsStyle>
