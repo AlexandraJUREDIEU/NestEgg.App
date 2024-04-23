@@ -19,6 +19,29 @@ const SliderStyle = styled.div`
   }
   .slider {
   }
+
+  /* Pagination */
+  .pagination {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+  }
+  .cercle-bordure {
+    width: 8px;
+    height: 8px;
+    border: 1px solid white;
+    border-radius: 50%;
+    margin: 0 1px;
+  }
+  .cercle-rempli {
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+    margin: 0 1px;
+  }
 `;
 
 // Composant Slider
@@ -86,6 +109,17 @@ const Slider = ({ pages, index = 0 }) => {
     return null;
   });
 
+  //Pagination
+  let length = slides.length;
+  let pagination = [];
+  for (let i = 0; i < length; i++) {
+    if (currentSlide === i) {
+      pagination.push(<div key={i} className="cercle-rempli"></div>);
+    } else {
+      pagination.push(<div key={i} className="cercle-bordure"></div>);
+    }
+  }
+
   return (
     <SliderStyle
       className="slider"
@@ -97,6 +131,7 @@ const Slider = ({ pages, index = 0 }) => {
       onMouseUp={onMouseTouchUp}
     >
       <div className="slides">{slides[currentSlide]}</div>
+      <div className="pagination">{pagination}</div>
     </SliderStyle>
   );
 };

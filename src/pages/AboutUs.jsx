@@ -22,12 +22,8 @@ font-size: 1.5em;
     margin: 3em;
   }
   .slider{
-    display: flex;
-    align-items: center;
   }
   .slides {
-    padding: 0 4em;
-    height: 100vh;
     overflow-y: auto;
   }
   .intro-about-us {
