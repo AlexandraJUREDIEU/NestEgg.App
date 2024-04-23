@@ -14,7 +14,6 @@ height: 30vh;
 text-align: center;
 
 
-
 .text-contact-us{
     margin-top: 0.25em;
 }
@@ -44,6 +43,7 @@ text-align: center;
     text-decoration: none;
 }
 
+
 @media screen and (max-width: 540px){
     font-size: 1em;
 }
@@ -70,6 +70,10 @@ text-align: center;
 @media screen and (min-width: 1280px){
     font-size: 1.5em;
 }
+}
+footer {
+    display:flex;
+    justify-content: flex-end;
 }
 `
 

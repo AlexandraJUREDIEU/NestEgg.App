@@ -6,15 +6,20 @@ import React, { useState, useEffect } from "react";
 
 //styles
 const ConceptStyle = styled.section`
+
   height: 100vh;
+
+  .slides {
+    height:50vh;
+  }
   .screen-nest-egg {
     display: none;
   }
   .screen-concept {
     width: 12em;
     height: 12em;
-    float:left;
     margin-right: 20px;
+    float:right;
   }
   .tellImage {
     margin: auto 0 auto 50px;
@@ -22,7 +27,7 @@ const ConceptStyle = styled.section`
 
   .telImage-Slider {
     display:flex;
-    align-items:end;
+    align-items:start;
   }
 
   .bird-and-signin {
@@ -44,10 +49,6 @@ const ConceptStyle = styled.section`
   .slider {
     margin-top: 6em;
   }
-  .screen-concept {
-    float:right;
-  }
-
   
 
   @media screen and (max-width: 770px) {
@@ -77,8 +78,8 @@ const ConceptStyle = styled.section`
       margin: 0;
     }
     .screen-concept {
-      width:30%;
-      height:10%;
+      width:30vh;
+      height:30vh;
       shape-outside: url("https://placehold.co/133x133");
       shape-margin: 20px;
     }
