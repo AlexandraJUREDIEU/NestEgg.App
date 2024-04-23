@@ -20,6 +20,7 @@ const StyleProgressBar = styled.div`
     align-items: center; /* Centrer verticalement */
   }
   .rectangle1 {
+    position:absolute;
     background: ${props => props.color1};
     width: calc(${props => props.width}px * ${props => props.progress} / 100);
     height: ${props => props.height};
@@ -31,7 +32,6 @@ const StyleProgressBar = styled.div`
     text-align:left;
   }
   .rectangle2 {
-    position:absolute;
     background: ${props => props.color2};
     width: ${props => props.width}px;
     height: ${props => props.height};
@@ -43,13 +43,13 @@ const StyleProgressBar = styled.div`
   }
 `;
 
-const ProgressBar = ({width = 200, progress = 0, color1= "green", color2="#fff2", height="40px"}) => {
+const ProgressBar = ({width = 200, progress = 0, color1= "green", color2="#fff2", height="40px", type=""}) => {
   return (
     <>
       <StyleProgressBar progress={progress} width={width} color1={color1} color2={color2} height={height}>
         <div className="conteneur">
-          <div className="rectangle1">{progress>10 && `${progress}%`}</div>
-          <div className="rectangle2">{progress<=10 && `${progress}%`}</div>
+          <div className="rectangle1">{progress>10 && `${type}`}</div>
+          <div className="rectangle2">{progress<=10 && `${type}`}</div>
         </div>
       </StyleProgressBar>
     </>

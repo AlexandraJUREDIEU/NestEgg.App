@@ -19,13 +19,12 @@ const DashboardStyle = createGlobalStyle`
     gap: 0.5em;
     flex-wrap: wrap;
     width: 100vw;
-    height: 60vh;
+    height: 50vh;
     margin: auto;
   }
 
-  .bottom-dashboard div {
-    display:flex;
-    flex-direction:row;
+.fXwZhN{
+    margin: auto;
   }
 
   .short-box, .long-box{
@@ -55,14 +54,28 @@ const DashboardStyle = createGlobalStyle`
   }
   
   .bottom-dashboard{
-    height: 15vh;
+    height: 25vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     gap: 0.25em;
   }
+
   .div-progress-bar{
-    margin-left: 2em;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .ico-progress-bar{
+    height: 30px;
+    margin-right: 0.5em;
+  }
+ 
+  .p-amount-left {
+    font-size: 0.5em;
+    margin: 0;
+    padding: 0;
   }
 `;
 
@@ -94,8 +107,8 @@ function Dashboard() {
             <>
               <h3>
                 Votre objectif
-                <CircleRadialProgress progress="10" width="300" color1="darkred" color2="purple" height="40px" />
               </h3>
+                <CircleRadialProgress progress="10" width="50px" color1="darkred" color2="purple" height="40px" />
           </>}/>
           <Box id={3} href="/transactions" onClickAction={handleBoxClick} className="long-box" children={
             <>
@@ -127,14 +140,20 @@ function Dashboard() {
 
         <section className="bottom-dashboard">
           <div className="div-progress-bar">
-            Vital: <ProgressBar progress="70" width="200" color1="#F5A483" color2="#fff2" height="30px" />
+            <img src="public\ico-vital.png" alt="ico vital" className="ico-progress-bar" />
+            <ProgressBar type="Vital" progress="70" width="280" color1="#F5A483" color2="#fff2" height="30px" />
           </div>
+            <p className="p-amount-left">Il vous reste 90€ pour finir la semaine, soit 22.50€ par jour</p>
           <div className="div-progress-bar">
-            Loisirs: <ProgressBar progress="80" width="200" color1="#43A9B6" color2="#fff2" height="30px" />
+          <img src="public\ico-loisirs.png" alt="ico loisirs" className="ico-progress-bar" />
+            <ProgressBar type="Loisirs" progress="80" width="280" color1="#43A9B6" color2="#fff2" height="30px" />
           </div>
+          <p className="p-amount-left">Il vous reste 90€ pour finir la semaine, soit 22.50€ par jour</p>
           <div className="div-progress-bar">
-            Epargne:<ProgressBar progress="20" width="200" color1="#B243B6" color2="#fff2" height="30px" />
+          <img src="public\ico-savings.png" alt="ico épargne" className="ico-progress-bar" />
+            <ProgressBar type="Épargne" progress="80" width="280" color1="#B243B6" color2="#fff2" height="30px" />
           </div>
+          <p className="p-amount-left">Il vous reste 90€ pour finir la semaine, soit 22.50€ par jour</p>
         </section>    
       </>
       )
