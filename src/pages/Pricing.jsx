@@ -201,7 +201,7 @@ function Pricing() {
 
   return (
     <>
-      <PricingStyle>
+      <PricingStyle id="price">
         <h1 className="h1-tarifs balmy">NOS TARIFS</h1>
         {isSmallScreen ? (
           <Slider pages={slidesTarifs} index={0} />

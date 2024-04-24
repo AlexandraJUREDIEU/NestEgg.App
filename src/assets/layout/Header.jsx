@@ -2,7 +2,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState } from "react";
 
 //Styles
 const HeaderStyle = styled.header`
@@ -16,49 +16,53 @@ const HeaderStyle = styled.header`
     order: 300;
   }
 
-  ul{
-  height: 4em;
-  display: flex;
-  align-items: center;
+  ul {
+    height: 4em;
+    display: flex;
+    align-items: center;
   }
 
   nav ul li {
     list-style-type: none;
-}
-nav ul li a {
-  text-decoration:none;
-}
+  }
+  nav ul li a {
+    text-decoration: none;
+  }
 
   nav:nth-child(2) > ul:nth-child(1) > li:nth-child(4) > a:nth-child(1) {
     background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 6.25em;
-  -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  color: white;
-  padding: 0.5em 1em;
+    border-radius: 6.25em;
+    -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: white;
+    padding: 0.5em 1em;
   }
-
 
   // Début de la navbar en version mobile à continuer !!
 
+  @media screen and (max-width: 1280px) {
+    nav {
+      position: absolute;
+      height: 85vh;
+      width: 100vw;
+      top: 15vh;
+      left: 0;
+      background: rgb(92, 39, 116);
+      background: linear-gradient(
+        180deg,
+        rgba(92, 39, 116, 1) 0%,
+        rgba(57, 96, 203, 1) 100%
+      );
+      backdrop-filter: blur(40px);
+      opacity: 95%;
+    }
 
-  /* nav{
-    position: absolute;
-    height: 85vh;
-    width: 100vw;
-    top: 15vh;
-    left: 0;
-    background: rgb(92, 39, 116);
-    background: linear-gradient(180deg, rgba(92, 39, 116, 1) 0%, rgba(57, 96, 203, 1) 100%);
-    backdrop-filter: blur(40px);
-    opacity: 95%;
-  } 
-
-  nav ul{
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-  } */
+    nav ul {
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
+    }
+  }
 
   @media screen and (min-width: 1280px) {
     nav {
@@ -72,13 +76,13 @@ nav ul li a {
       justify-content: space-around;
       margin-left: auto;
       overflow-x: auto;
-      gap:1em;
+      gap: 1em;
     }
     nav ul li {
-        list-style-type: none;
+      list-style-type: none;
     }
     nav ul li a {
-      text-decoration:none;
+      text-decoration: none;
     }
   }
 `;
@@ -95,8 +99,6 @@ const ImageIco = styled.img`
 //Fonctions
 
 export default function HeaderContainer({ links }) {
-
-
   //State
   //Reaction at the change of the size of the screen
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 1280);
@@ -110,15 +112,13 @@ export default function HeaderContainer({ links }) {
     };
   }, []);
 
-
-
   const [disableScroll, setDisableScroll] = useState(false);
   // Function to handle enabling/disabling scrolling
   useEffect(() => {
     if (disableScroll) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     }
   }, [disableScroll]);
 
@@ -134,9 +134,14 @@ export default function HeaderContainer({ links }) {
     setDisableScroll("false");
   };
 
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+
+
+function onClickNavBarEvent () {
+  link.onClick();
+  desactivateScroll();
+}
 
 
   //Comportement
@@ -147,42 +152,43 @@ export default function HeaderContainer({ links }) {
   return (
     <HeaderStyle>
       <LinkLogo to="/">
-          <img
-            src="/public/logo_nestegg.png"
-            alt="Logo NestEgg"
-            className="header-logo"
-          />
-        </LinkLogo>
-        
-        
-        {isSmallScreen && <>
-        <ImageIco
-          src="/public/icons-menu-hamburger.png"
-          alt="Menu"
-          className="header-ico-menu"
-          onClick={toggleMenu}
+        <img
+          src="/public/logo_nestegg.png"
+          alt="Logo NestEgg"
+          className="header-logo"
         />
-        </>}
+      </LinkLogo>
 
-        {(isMenuOpen || !isSmallScreen) && (
-          <nav>
-            <ul>
-              {links.map((link, index) => (
-                <li key={index}>
-                  <Link to={link.to} 
+      {isSmallScreen && (
+        <>
+          <ImageIco
+            src="/public/icons-menu-hamburger.png"
+            alt="Menu"
+            className="header-ico-menu"
+            onClick={toggleMenu}
+          />
+        </>
+      )}
+
+      {(isMenuOpen || !isSmallScreen) && (
+        <nav>
+          <ul>
+            {links.map((link, index) => (
+              <li key={index}>
+                <Link
+                  to={link.to}
                   onClick={() => {
-                    link.onClick;
-                    desactivateScroll();
-                  }}>
-                    {link.text}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        )}
-        <Outlet />
-      </HeaderStyle>
+                    onClickNavBarEvent(link)
+                  }}
+                >
+                  {link.text}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
+      <Outlet />
+    </HeaderStyle>
   );
-};
-
+}
