@@ -36,9 +36,13 @@ const HeaderStyle = styled.header`
     -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     color: white;
-    padding: 0.5em 2.5em;
-    
+    padding: 0.1em 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
+
+  
 
   .max-mobile-header{
     position: relative;
@@ -66,16 +70,12 @@ const HeaderStyle = styled.header`
     z-index:10000;
     border:0;
   }
-
-
   
-  .user-round-connexion{
-    width:30px;
-    height:30px;
-  }
   .user-round-connexion img {
-    width:30px;
-    height:30px;
+    width:50px;
+    height:50px;
+    margin-right: 1.5em;
+    display: flex;
   }
 
   // Début de la navbar en version mobile à continuer !!
@@ -97,7 +97,7 @@ const HeaderStyle = styled.header`
       opacity: 95%;
     }
 
-  
+    
 
     nav ul {
       display: flex;
@@ -109,6 +109,9 @@ const HeaderStyle = styled.header`
   @media screen and (min-width: 1280px) {
     nav {
       order: 200;
+    }
+    ul > li:nth-child(4) > a {
+      padding: 0.5em 1.5em;
     }
 
     nav ul {
@@ -248,7 +251,7 @@ function onClickNavBarEvent () {
                     onClickNavBarEvent(link)
                   }}
                 >
-                  {link.to==="/login" && <div className="user-round-connexion"><img src="public/user-round.png" /></div>}
+                  {link.to==="/login" && <div className="user-round-connexion"><img src="public\icons-user-round.png" /></div>}
                   {link.text}
                   <hr/>
                 </Link>
