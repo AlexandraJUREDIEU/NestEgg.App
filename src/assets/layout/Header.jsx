@@ -52,6 +52,23 @@ const HeaderStyle = styled.header`
     display:flex;
   }
   
+  hr{
+    display:none;
+  }
+  ul li:hover hr {
+    display:flex;
+    background: #DDB993;
+
+    height: 2px;
+    width: 1000px;
+
+    position: absolute;
+    z-index:10000;
+    border:0;
+  }
+
+
+  
   .user-round-connexion{
     width:30px;
     height:30px;
@@ -169,13 +186,34 @@ function onClickNavBarEvent () {
 }
 
 
+
+  //Hover:
+  // State for screen width
+  const [screenwidth, setscreenwidth] = useState(window.innerWidth);
+
+  // Update screen width on resize
+  useEffect(() => {
+    const handleResize = () => {
+      setscreenwidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+
+
+
+
   //Comportement
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+    setscreenwidth(window.innerWidth);
   };
   //Render
   return (
-    <HeaderStyle>
+    <HeaderStyle screenwidth={screenwidth}>
       <LinkLogo to="/">
         <img
           src="/public/logo_nestegg.png"
@@ -196,6 +234,7 @@ function onClickNavBarEvent () {
       )}
 
       {(isMenuOpen || !isSmallScreen) && (
+        <>
         <nav>
           <ul>
             {links.map((link, index) => (
@@ -209,13 +248,15 @@ function onClickNavBarEvent () {
                     onClickNavBarEvent(link)
                   }}
                 >
-                   {link.to==="/login" && <div className="user-round-connexion"><img src="public/user-round.png" /></div>}
+                  {link.to==="/login" && <div className="user-round-connexion"><img src="public/user-round.png" /></div>}
                   {link.text}
+                  <hr/>
                 </Link>
               </li>
             ))}
           </ul>
         </nav>
+        </>
       )}
       <Outlet />
     </HeaderStyle>
