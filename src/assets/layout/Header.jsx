@@ -12,7 +12,8 @@ const HeaderStyle = styled.header`
   height: 15vh;
   padding: 0.5em 2em 0em 1em;
 
-  .header-ico-menu {
+
+ .header-ico-menu {
     order: 300;
   }
 
@@ -74,9 +75,28 @@ const HeaderStyle = styled.header`
   .user-round-connexion img {
     width:50px;
     height:50px;
-    margin-right: 1.5em;
     display: flex;
   }
+
+
+
+
+
+
+  .text-connexion{
+    padding: 0 1.25em;
+    
+  }
+
+  ul > li:nth-child(4) > a {
+    padding: 0.2em 0.5em;
+    display:flex;
+    flex-align: center;
+  }
+
+
+
+
 
   // Début de la navbar en version mobile à continuer !!
 
@@ -245,16 +265,25 @@ function onClickNavBarEvent () {
                 
               {link.to==="/login" && isSmallScreen && <div><img className="max-mobile-header" src="public/mascotte-mobile-header.png"/></div> }
                 
-                <Link
-                  to={link.to}
-                  onClick={() => {
-                    onClickNavBarEvent(link)
-                  }}
-                >
-                  {link.to==="/login" && <div className="user-round-connexion"><img src="public\icons-user-round.png" /></div>}
-                  {link.text}
-                  <hr/>
-                </Link>
+              <Link
+                    to={link.to}
+                    onClick={() => {
+                      onClickNavBarEvent(link);
+                    }}
+                  >
+                    {link.to === "/login" ? (
+                      <>
+                        <div className="user-round-connexion">
+                          <img src="public\icons-user-round.png" />
+                        </div>
+
+                        <div className="text-connexion balmy">{link.text}</div>
+                      </>
+                    ) : (
+                      link.text
+                    )}
+                    <hr />
+                  </Link>
               </li>
             ))}
           </ul>
