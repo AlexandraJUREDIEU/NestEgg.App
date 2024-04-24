@@ -12,7 +12,7 @@ const HeaderStyle = styled.header`
   height: 15vh;
   padding: 0.5em 2em 0em 1em;
 
-
+  
  .header-ico-menu {
     order: 300;
   }
@@ -59,6 +59,9 @@ const HeaderStyle = styled.header`
   
   hr{
     display:none;
+  }
+  nav {
+    overflow-x: hidden;
   }
   ul li:hover hr {
     display:flex;
