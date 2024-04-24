@@ -27,15 +27,38 @@ const HeaderStyle = styled.header`
   }
   nav ul li a {
     text-decoration: none;
+    font-size: 1.5em;
   }
 
-  nav:nth-child(2) > ul:nth-child(1) > li:nth-child(4) > a:nth-child(1) {
+  ul > li:nth-child(4) > a {
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 6.25em;
     -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     color: white;
-    padding: 0.5em 1em;
+    padding: 0.5em 2.5em;
+    
+  }
+
+  .max-mobile-header{
+    position: relative;
+    height: 150px;
+    z-index: 5;
+    margin-bottom: -0.37em;
+    margin-left: -6.7em;
+  }
+
+  ul > li:nth-child(4) > a{
+    display:flex;
+  }
+  
+  .user-round-connexion{
+    width:30px;
+    height:30px;
+  }
+  .user-round-connexion img {
+    width:30px;
+    height:30px;
   }
 
   // Début de la navbar en version mobile à continuer !!
@@ -56,6 +79,8 @@ const HeaderStyle = styled.header`
       backdrop-filter: blur(40px);
       opacity: 95%;
     }
+
+  
 
     nav ul {
       display: flex;
@@ -175,12 +200,16 @@ function onClickNavBarEvent () {
           <ul>
             {links.map((link, index) => (
               <li key={index}>
+                
+              {link.to==="/login" && isSmallScreen && <div><img className="max-mobile-header" src="public/mascotte-mobile-header.png"/></div> }
+                
                 <Link
                   to={link.to}
                   onClick={() => {
                     onClickNavBarEvent(link)
                   }}
                 >
+                   {link.to==="/login" && <div className="user-round-connexion"><img src="public/user-round.png" /></div>}
                   {link.text}
                 </Link>
               </li>
