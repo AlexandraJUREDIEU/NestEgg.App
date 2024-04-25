@@ -18,10 +18,11 @@ const AboutUsStyle = styled.div`
   }
   h2 {
     color: #ddb993;
-    font-size: 2em;
   }
   .h2AndIntro h2 {
-    margin: 1.5em 1em;
+    margin: 1.5em 0;
+    font-size: 1.75em;
+    font-weight:300;
   }
   .slider {
     height:69vh;
@@ -253,7 +254,7 @@ function AboutUs() {
           </div>
 
           {screenSize === "mobile" || screenSize === "tablet" ? (
-            <Slider pages={slidesQuiSommesNous} index={0} />
+            <Slider pages={slidesQuiSommesNous} paginationOffset={"-0.7em"} />
           ) : (
             <>
               <div className="slider">

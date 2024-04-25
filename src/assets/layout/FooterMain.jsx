@@ -44,7 +44,7 @@ justify-content: center;
     text-decoration: none;
 }
 @media screen and (max-width: 540px){
-    font-size: 1em;
+    font-size: 0.75em;
 }
 @media screen and (min-width: 540px){
     font-size: 1em;

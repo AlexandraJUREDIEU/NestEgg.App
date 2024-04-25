@@ -26,7 +26,8 @@ const PricingStyle = styled.section`
     height: 60vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 2em 0;
   }
   .button {
     margin: 0;
@@ -206,7 +207,7 @@ function Pricing() {
       <PricingStyle id="price">
         <h1 className="h1-tarifs balmy">NOS TARIFS</h1>
         {isSmallScreen ? (
-          <Slider pages={slidesTarifs} index={0} />
+          <Slider pages={slidesTarifs} paginationOffset={"0.7em"}/>
         ) : (
           <>
             <Text

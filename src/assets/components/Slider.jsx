@@ -1,8 +1,9 @@
 /** ReadMe
- * This slider takes two props :
+ * This slider takes three props :
  * - pages : Require a LIST (like '["Abcd","Bcde",partie3];') which represents the differents slides || REQUIRED
  * - index : Which slide is visible by default (default: 0) || OPTIONNAL
- *
+ * - paginationoffset : Tell how many pixels the pagination should move (up and down)(can be negative) || OPTIONNAL
+ * 
  * An example of use is present at the end
  * The slider will get the class 'slider'
  * The items of the sliders will get the class 'slide-item' as well as 'slide-item[X]' where X is the number of the slide
@@ -23,7 +24,7 @@ const SliderStyle = styled.div`
   /* Pagination */
   .pagination-conteneur{
     position:relative;
-    top: -0.7em;
+    top: ${props => props.paginationoffset};
   }
   .pagination {
     position: absolute;
@@ -49,7 +50,7 @@ const SliderStyle = styled.div`
 `;
 
 // Composant Slider
-const Slider = ({ pages, index = 0 }) => {
+const Slider = ({ pages, index = 0, paginationoffset = '0em' }) => {
   // State
   const [currentSlide, setCurrentSlide] = useState(index);
   const [startX, setStartX] = useState(null);
@@ -133,6 +134,7 @@ const Slider = ({ pages, index = 0 }) => {
       onMouseDown={onMouseDown}
       onMouseMove={onMouseMove}
       onMouseUp={onMouseTouchUp}
+      paginationoffset={paginationoffset}
     >
       <div className="slides">{slides[currentSlide]}</div>
       <div className="pagination-conteneur"><div className="pagination">{pagination}</div></div>
