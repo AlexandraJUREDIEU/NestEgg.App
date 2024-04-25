@@ -78,20 +78,39 @@ flex-direction: row;
   }
 
   @media screen and (min-width: 1280px) {
-    font-size: 1.2em;
+    font-size: 1em;
+    .h2AndIntro{
+      height:20vh;
+    }
+    .slider{
+      height:80vh;
+    }
+    .slides1and2, .slide-item {
+      justify-content: center;
+      height:80vh;
+    }
+    .slide-item{
+      
+      /*
+      justify-content: center;
+      align-items: center;
+      display:flex;
+      */
+
+    }
+
     .h2AndIntro h2 {
       font-size: 3em;
     }
 
     .intro-about-us {
       display: flex;
-      font-size: 1.25em;
     }
     .slides {
       display: grid;
-      grid-gap: 10px;
-      grid-auto-rows: minmax(300px, auto);
-
+      grid-gap: 1vw;
+      grid-template-columns: 39vw 23vw 23vw;
+      grid-auto-rows: auto auto;
       padding: 0 7em;
     }
     h2 {
@@ -99,20 +118,20 @@ flex-direction: row;
       white-space: nowrap;
     }
     .slide-item0 {
-      grid-column: 1 / 3;
+      grid-column: 1 / 2;
       grid-row: 1 / 2;
     }
     .slide-item1 {
-      grid-column: 1 / 3;
+      grid-column: 1 / 2;
       grid-row: 2 / 3;
       margin-top:1em;
     }
     .slide-item2 {
-      grid-column: 3 / 4;
+      grid-column: 2 / 3;
       grid-row: 1 / 3;
     }
     .slide-item3 {
-      grid-column: 4 / 5;
+      grid-column: 3 / 4;
       grid-row: 1 / 3;
     }
     .slide-item0 .div-card-collaborator,
@@ -135,8 +154,20 @@ flex-direction: row;
       overflow-y: auto;
       width: 100%;
     }
-
   }
+
+
+  @media screen and (min-width: 1280px) and (min-height: 700px) {
+    font-size: 1.25em;
+  }
+
+  @media screen and (min-width: 1600px) {
+    font-size: 1.5em;
+  }
+  @media screen and (min-height: 1000px) {
+    font-size: 1.5em;
+  }
+
   @media screen and (max-height: 500px) {
     font-size:1.25em;
     .h2AndIntro h2 {

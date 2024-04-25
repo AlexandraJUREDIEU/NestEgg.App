@@ -57,24 +57,6 @@ const HeaderStyle = styled.header`
     display:flex;
   }
   
-  hr{
-    display:none;
-  }
-  nav {
-    overflow-x: hidden;
-  }
-  ul li:hover hr {
-    display:flex;
-    background: #DDB993;
-
-    height: 2px;
-    width: 1000px;
-
-    position: absolute;
-    z-index:10000;
-    border:0;
-  }
-  
   .user-round-connexion img {
     width:50px;
     height:50px;
@@ -99,6 +81,11 @@ const HeaderStyle = styled.header`
 
 
 
+
+
+  hr{
+    display:none;
+  }
 
 
   // Début de la navbar en version mobile à continuer !!
@@ -127,6 +114,25 @@ const HeaderStyle = styled.header`
       flex-direction: column;
       gap: 2em;
     }
+
+
+    nav {
+      overflow-x: hidden;
+    }
+    ul li:hover hr {
+      display:flex;
+      background: #DDB993;
+  
+      height: 2px;
+      width: 1000px;
+  
+      position: absolute;
+      z-index:10000;
+      border:0;
+    }
+    
+
+
   }
 
   @media screen and (min-width: 1280px) {
