@@ -21,7 +21,7 @@ const AboutUsStyle = styled.div`
     font-size: 2em;
   }
   .h2AndIntro h2 {
-    margin: 1em 0;
+    margin: 1.5em 1em;
   }
   .slider {
     height:69vh;
@@ -42,6 +42,9 @@ const AboutUsStyle = styled.div`
     }
     .slides {
       padding: 10px;
+    }
+    .div-card-collaborator h2 {
+      font-size:1.5em;
     }
   }
   @media screen and (min-width: 769px) {

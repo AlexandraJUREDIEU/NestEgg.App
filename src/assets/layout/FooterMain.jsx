@@ -12,7 +12,8 @@ padding: 0.25em;
 margin: auto;
 height: 30vh;
 text-align: center;
-
+display: flex;
+justify-content: center;
 
 .text-contact-us{
     margin-top: 0.25em;
