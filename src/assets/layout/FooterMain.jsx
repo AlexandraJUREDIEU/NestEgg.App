@@ -42,8 +42,6 @@ text-align: center;
 .footer-col-4 a{
     text-decoration: none;
 }
-
-
 @media screen and (max-width: 540px){
     font-size: 1em;
 }
@@ -70,6 +68,11 @@ text-align: center;
 @media screen and (min-width: 1280px){
     font-size: 1.5em;
 }
+@media screen and (max-height:370px){
+    font-size: 0.5em;
+}
+@media screen and (max-height:480px){
+    font-size: 0.75em;
 }
 footer {
     display:flex;

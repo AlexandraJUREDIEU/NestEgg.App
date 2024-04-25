@@ -54,7 +54,6 @@ const PricingStyle = styled.section`
       margin: auto;
       border: none;
 
-      height: 200px;
       margin-bottom: 1em;
     }
     .div-cardPricing {
@@ -149,9 +148,12 @@ const PricingStyle = styled.section`
       display: flex;
       flex-direction: row;
     }
-    @media screen and (min-width: 1800px) {
-      font-size: 1.5em;
-    }
+  }
+  @media screen and (min-width: 1800px) {
+    font-size: 1.5em;
+  }
+  @media screen and (max-height:500px){
+    font-size:0.8em;
   }
 `;
 

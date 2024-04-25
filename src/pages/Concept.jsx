@@ -10,16 +10,18 @@ const ConceptStyle = styled.section`
   height: 100vh;
 
   .slides {
-    height:50vh;
+    height:60vh;
   }
   .screen-nest-egg {
     display: none;
   }
   .screen-concept {
-    width: 12em;
-    height: 12em;
+    height: 40vh;
+    max-height:12em;
+    aspect-ratio: 1 / 1;
     margin-right: 20px;
     float:right;
+    z-index:100000000;
   }
   .tellImage {
     margin: auto 0 auto 50px;
@@ -55,13 +57,13 @@ const ConceptStyle = styled.section`
     .screen-concept-inside-concept {
       display:none;
     }
-    .concept-para{
-    margin-top: 4em;  
-  }
   }
   @media screen and (min-width: 540px) and (max-width: 1280px) {
     .slide-item {
-      font-size: 1.2em;
+      font-size: 0.8em;
+    }
+    .slider{
+      margin-top: 2em;
     }
   }
   @media screen and (min-width: 770px) {

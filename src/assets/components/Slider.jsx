@@ -21,6 +21,10 @@ const SliderStyle = styled.div`
   }
 
   /* Pagination */
+  .pagination-conteneur{
+    position:relative;
+    top: -0.7em;
+  }
   .pagination {
     position: absolute;
     left: 50%;
@@ -29,15 +33,15 @@ const SliderStyle = styled.div`
     flex-direction: row;
   }
   .cercle-bordure {
-    width: 8px;
-    height: 8px;
+    width: 0.5em;
+    height: 0.5em;
     border: 1px solid white;
     border-radius: 50%;
     margin: 0 1px;
   }
   .cercle-rempli {
-    width: 8px;
-    height: 8px;
+    width: 0.5em;
+    height: 0.5em;
     background-color: white;
     border-radius: 50%;
     margin: 0 1px;
@@ -131,7 +135,8 @@ const Slider = ({ pages, index = 0 }) => {
       onMouseUp={onMouseTouchUp}
     >
       <div className="slides">{slides[currentSlide]}</div>
-      <div className="pagination">{pagination}</div>
+      <div className="pagination-conteneur"><div className="pagination">{pagination}</div></div>
+      
     </SliderStyle>
   );
 };

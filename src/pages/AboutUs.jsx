@@ -13,15 +13,18 @@ const AboutUsStyle = styled.div`
   #about-us {
     height: 100vh;
   }
+  .h2AndIntro {
+    margin: 0 2em;
+  }
   h2 {
     color: #ddb993;
     font-size: 2em;
   }
-  .h2AndIntro {
-    margin: 0 15%;
-    margin: 3em;
+  .h2AndIntro h2 {
+    margin: 1em 0;
   }
   .slider {
+    height:69vh;
   }
   .slides {
     overflow-y: auto;
@@ -29,11 +32,11 @@ const AboutUsStyle = styled.div`
   .intro-about-us {
     display: none;
   }
-  img {
-    height: 12em;
+  .slide-item{
+    margin-bottom:1em;
   }
   @media screen and (max-width: 769px) {
-    font-size: 1em;
+    font-size: 1.25em;
     .h2AndIntro {
       margin: 0;
     }
@@ -58,8 +61,8 @@ const AboutUsStyle = styled.div`
     }
     img {
       display: flow;
-      height: 10em;
-      width: 6em;
+      height: 5em;
+      width: 5em;
       margin: 0 auto;
     }
     .div-card-collaborator {
@@ -131,6 +134,15 @@ flex-direction: row;
     }
 
   }
+  @media screen and (max-height: 500px) {
+    font-size:1.25em;
+    .h2AndIntro h2 {
+      margin:0;
+    }
+  }
+  @media screen and (max-height: 370px) {
+    font-size:1em;
+  }
 `;
 
 function AboutUs() {
@@ -163,7 +175,7 @@ function AboutUs() {
   let slidesQuiSommesNous = [];
   slidesQuiSommesNous.push(
     <CardCollaborator
-      src="public\user-round.png"
+      src="public\icons-user-round.png"
       name="Alexandra"
       spanName="JUREDIEU"
       description=" Lorem ipsum dolor sit amet, consectetur adipisci elit,  sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad  minim veniam, quis nostrum exercitationem ullam corporis suscipit  laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure  reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla  pariatur."
@@ -171,7 +183,7 @@ function AboutUs() {
   );
   slidesQuiSommesNous.push(
     <CardCollaborator
-      src="public\user-round.png"
+      src="public\icons-user-round.png"
       name="Sofien"
       spanName="TEBOURBI"
       description=" Aliquet lectus proin nibh nisl condimentum id venenatis. Dolor magna eget est lorem ipsum. Ultrices eros in cursus turpis massa tincidunt dui ut ornare. Feugiat pretium nibh ipsum consequat nisl vel pretium."
@@ -179,7 +191,7 @@ function AboutUs() {
   );
   slidesQuiSommesNous.push(
     <CardCollaborator
-      src="public\user-round.png"
+      src="public\icons-user-round.png"
       name="Luca"
       spanName="LEROY"
       description=" Cursus turpis massa tincidunt dui ut ornare lectus sit amet. Consequat id porta nibh venenatis cras sed felis eget. Non nisi est sit amet. At elementum eu facilisis sed odio morbi quis."
@@ -187,7 +199,7 @@ function AboutUs() {
   );
   slidesQuiSommesNous.push(
     <CardCollaborator
-      src="public\user-round.png"
+      src="public\icons-user-round.png"
       name="Romain"
       spanName="Meese"
       description=" Maecenas pharetra convallis posuere morbi. Sit amet nulla facilisi morbi tempus iaculis urna. Nulla facilisi etiam dignissim diam quis."
