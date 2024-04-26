@@ -29,7 +29,9 @@ const AboutUsStyle = styled.div`
     height:50vh;
   }
   .slides {
-    overflow-y: auto;
+    height:50vh;
+  }
+
   }
   .intro-about-us {
     display: none;
@@ -72,9 +74,9 @@ const AboutUsStyle = styled.div`
     .div-card-collaborator {
       justify-content: center;
       /*
-display: flex;
-flex-direction: row;
-*/
+        display: flex;
+        flex-direction: row;
+      */
     }
   }
 
@@ -254,7 +256,7 @@ function AboutUs() {
           </div>
 
           {screenSize === "mobile" || screenSize === "tablet" ? (
-            <Slider pages={slidesQuiSommesNous} paginationoffset={"-0.7em"} />
+            <Slider pages={slidesQuiSommesNous} paginationoffset={"0.5em"} />
           ) : (
             <>
               <div className="slider">

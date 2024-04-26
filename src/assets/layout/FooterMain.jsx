@@ -43,8 +43,21 @@ justify-content: center;
 .footer-col-4 a{
     text-decoration: none;
 }
+
 @media screen and (max-width: 540px){
     font-size: 0.75em;
+
+    .bar-vertical-footer {
+        border:solid 1px white;
+        position:absolute;
+        left: 50%;
+        height:50px;
+    }
+}
+@media screen and (max-width: 340px){
+    .bar-vertical-footer {
+        position: static;
+    }
 }
 @media screen and (min-width: 540px){
     font-size: 1em;
@@ -65,15 +78,18 @@ justify-content: center;
     img{
         height: 2.5em;
     }
+    .bar-vertical-footer {
+        display:none;
+    }
 }
 @media screen and (min-width: 1280px){
     font-size: 1.5em;
 }
-@media screen and (max-height:370px){
-    font-size: 0.5em;
-}
 @media screen and (max-height:480px){
     font-size: 0.75em;
+}
+@media screen and (max-height:370px){
+    font-size: 0.5em;
 }
 footer {
     display:flex;
@@ -100,6 +116,7 @@ function FooterMain(){
                         <img src="public\linkedin-logo.png" alt="Linkedin" />
                     </div>
                 </div>
+                <div className="bar-vertical-footer"></div>
                 <div className="footer-col-4">
                     <Link>Mentions légales</Link>
                     <Link>Politique de confidentialité</Link>

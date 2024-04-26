@@ -25,6 +25,7 @@ const SliderStyle = styled.div`
   .pagination-conteneur{
     position:relative;
     top: ${props => props.paginationoffset};
+    z-index:1;
   }
   .pagination {
     position: absolute;

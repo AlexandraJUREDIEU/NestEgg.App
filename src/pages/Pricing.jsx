@@ -23,11 +23,18 @@ const PricingStyle = styled.section`
     border: none;
   }
   .div-cardPricing {
-    height: 60vh;
+    height: 55vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 2em 0;
+  }
+  .pagination{
+    height: 5vh;
+    display:flex;
+    align-items: flex-end;
+    positon:absolute;
+    top:5px;
   }
   .button {
     margin: 0;
@@ -40,7 +47,6 @@ const PricingStyle = styled.section`
   .text-pricing {
     margin-bottom: 1em;
   }
-
   @media screen and (min-width: 769px) and (max-width: 1279px) {
     .list-cardPrice {
       margin: 0 3em;
@@ -207,7 +213,7 @@ function Pricing() {
       <PricingStyle id="price">
         <h1 className="h1-tarifs balmy">NOS TARIFS</h1>
         {isSmallScreen ? (
-          <Slider pages={slidesTarifs} paginationoffset={"0.1em"}/>
+          <Slider pages={slidesTarifs} paginationoffset={"-0.5em"}/>
         ) : (
           <>
             <Text
