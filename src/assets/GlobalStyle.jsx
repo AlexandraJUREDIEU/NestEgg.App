@@ -31,6 +31,10 @@ a{
     font-family: "balmy";
 }
 
+.item-scroll{
+    overflow-y:scroll;
+}
+
 `;
 
 export default GlobalStyle;
