@@ -227,7 +227,7 @@ function Concept() {
       <ConceptStyle id="concept">
         {screenSize === "mobile" ? (
           <>
-          <Slider pages={sliderConcept} paginationOffset={"-0.7em"}></Slider>
+          <Slider pages={sliderConcept} paginationoffset={"-0.7em"}></Slider>
           <img
             src="public\bird-concept-mobile.png"
             alt="bird concept"

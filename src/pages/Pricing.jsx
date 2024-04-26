@@ -207,7 +207,7 @@ function Pricing() {
       <PricingStyle id="price">
         <h1 className="h1-tarifs balmy">NOS TARIFS</h1>
         {isSmallScreen ? (
-          <Slider pages={slidesTarifs} paginationOffset={"0.7em"}/>
+          <Slider pages={slidesTarifs} paginationoffset={"0.1em"}/>
         ) : (
           <>
             <Text

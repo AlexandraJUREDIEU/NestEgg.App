@@ -2,7 +2,7 @@
  * This slider takes three props :
  * - pages : Require a LIST (like '["Abcd","Bcde",partie3];') which represents the differents slides || REQUIRED
  * - index : Which slide is visible by default (default: 0) || OPTIONNAL
- * - paginationoffset : Tell how many pixels the pagination should move (up and down)(can be negative) || OPTIONNAL
+ * - paginationoffset : Tell how many the pagination should move down (require an unit, can be negative)(default 0, -0.7em advised) || OPTIONNAL
  * 
  * An example of use is present at the end
  * The slider will get the class 'slider'
@@ -50,7 +50,7 @@ const SliderStyle = styled.div`
 `;
 
 // Composant Slider
-const Slider = ({ pages, index = 0, paginationoffset = '0em' }) => {
+const Slider = ({ pages, index = 0, paginationoffset = '0' }) => {
   // State
   const [currentSlide, setCurrentSlide] = useState(index);
   const [startX, setStartX] = useState(null);

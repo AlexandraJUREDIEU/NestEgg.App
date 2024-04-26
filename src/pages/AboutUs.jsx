@@ -17,6 +17,7 @@ const AboutUsStyle = styled.div`
     margin: 0 2em;
   }
   h2 {
+    height:10vh;
     color: #ddb993;
   }
   .h2AndIntro h2 {
@@ -25,7 +26,7 @@ const AboutUsStyle = styled.div`
     font-weight:300;
   }
   .slider {
-    height:69vh;
+    height:50vh;
   }
   .slides {
     overflow-y: auto;
@@ -34,7 +35,6 @@ const AboutUsStyle = styled.div`
     display: none;
   }
   .slide-item{
-    margin-bottom:1em;
   }
   @media screen and (max-width: 769px) {
     font-size: 1.25em;
@@ -254,7 +254,7 @@ function AboutUs() {
           </div>
 
           {screenSize === "mobile" || screenSize === "tablet" ? (
-            <Slider pages={slidesQuiSommesNous} paginationOffset={"-0.7em"} />
+            <Slider pages={slidesQuiSommesNous} paginationoffset={"-0.7em"} />
           ) : (
             <>
               <div className="slider">
