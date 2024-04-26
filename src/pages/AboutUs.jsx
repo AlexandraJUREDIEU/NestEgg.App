@@ -26,13 +26,12 @@ const AboutUsStyle = styled.div`
     font-weight:300;
   }
   .slider {
-    height:50vh;
+    min-height:80vh;
   }
   .slides {
-    height:50vh;
+    min-height:80vh;
   }
 
-  }
   .intro-about-us {
     display: none;
   }
@@ -111,10 +110,10 @@ const AboutUsStyle = styled.div`
     }
     .slides {
       display: grid;
-      grid-gap: 1vw;
+      grid-gap: 0 1vw;
       grid-template-columns: 39vw 23vw 23vw;
       grid-auto-rows: auto auto;
-      padding: 0 7em;
+      padding-left: 7em;
     }
     h2 {
       display: inline;
@@ -127,7 +126,6 @@ const AboutUsStyle = styled.div`
     .slide-item1 {
       grid-column: 1 / 2;
       grid-row: 2 / 3;
-      margin-top:1em;
     }
     .slide-item2 {
       grid-column: 2 / 3;

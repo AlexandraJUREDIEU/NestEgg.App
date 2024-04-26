@@ -6,7 +6,9 @@ import React, { useState, useEffect } from "react";
 
 //styles
 const ConceptStyle = styled.section`
-
+display:flex;
+flex-direction:column;
+  align-items: center;
   height: 100vh;
 
   .slides {
@@ -80,7 +82,6 @@ const ConceptStyle = styled.section`
       margin: 0;
     }
     .screen-concept {
-      width:30vh;
       height:30vh;
       shape-outside: url("https://placehold.co/133x133");
       shape-margin: 20px;

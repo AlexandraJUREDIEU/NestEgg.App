@@ -42,11 +42,9 @@ const PricingStyle = styled.section`
   }
   p {
     margin: 0 7em;
+    height:15vh;
   }
 
-  .text-pricing {
-    margin-bottom: 1em;
-  }
   @media screen and (min-width: 769px) and (max-width: 1279px) {
     .list-cardPrice {
       margin: 0 3em;
@@ -78,13 +76,13 @@ const PricingStyle = styled.section`
     }
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     font-size: 1.2em;
     h3 {
       font-size: 2em;
     }
     .div-cardPricing {
-      height: 50vh;
+      height: 45vh;
     }
     .list-cardPrice {
       display: flex;
