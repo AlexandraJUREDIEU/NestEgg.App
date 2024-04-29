@@ -17,14 +17,12 @@ const LandingStyle = styled.section`
   .conteneur-landing{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     height:85vh;
   }
   .landing-egg-img {
     height: 15.2em;
-    /*margin-top: 1.5em;
-    margin-left: 3.5em;*/
   }
 
   h1 {
@@ -67,7 +65,7 @@ const LandingStyle = styled.section`
         margin-top: 3em;*/
         display:none;
     }
-
+    
     h1 {
       font-size: 5em;
     }
@@ -154,7 +152,9 @@ const LandingStyle = styled.section`
     font-size:1em;
     
     .landing-egg-img {
-      /*display:flex;*/
+      display:flex;
+      margin-top: 1.5em;
+      margin-left: 3.5em;
     }
     h1 {
       font-size:1.5em;
