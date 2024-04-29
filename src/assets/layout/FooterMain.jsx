@@ -13,7 +13,8 @@ margin: auto;
 height: 30vh;
 text-align: center;
 display: flex;
-justify-content: center;
+justify-content: flex-end;
+padding-bottom:2vh;
 
 .text-contact-us{
     margin-top: 0.25em;

@@ -21,15 +21,14 @@ const AboutUsStyle = styled.div`
     color: #ddb993;
   }
   .h2AndIntro h2 {
-    margin: 1.5em 0;
     font-size: 1.75em;
     font-weight:300;
   }
   .slider {
-    min-height:80vh;
+    height:80vh;
   }
   .slides {
-    min-height:80vh;
+    height:80vh;
   }
 
   .intro-about-us {
@@ -37,6 +36,7 @@ const AboutUsStyle = styled.div`
   }
   .slide-item{
   }
+
   @media screen and (max-width: 769px) {
     font-size: 1.25em;
     .h2AndIntro {
@@ -52,7 +52,14 @@ const AboutUsStyle = styled.div`
   @media screen and (min-width: 769px) {
     font-size: 1.5em;
     .intro-about-us {
+      height:20vh;
       display: flex;
+    }
+    .slider {
+      height:60vh;
+    }
+    .slides {
+      height:60vh;
     }
     .div-card-collaborator {
       display: flex;
@@ -85,11 +92,11 @@ const AboutUsStyle = styled.div`
       height:20vh;
     }
     .slider{
-      height:80vh;
+      height:60vh;
     }
     .slides1and2, .slide-item {
       justify-content: center;
-      height:80vh;
+      height:60vh;
     }
     .slide-item{
       

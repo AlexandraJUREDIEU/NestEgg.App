@@ -88,8 +88,6 @@ const HeaderStyle = styled.header`
   }
 
 
-  // Début de la navbar en version mobile à continuer !!
-
   @media screen and (max-width: 1280px) {
     nav {
       position: absolute;
@@ -119,21 +117,34 @@ const HeaderStyle = styled.header`
     nav {
       overflow-x: hidden;
     }
-    ul li:hover hr {
-      display:flex;
-      background: #DDB993;
+
+
+    ul {
+      position: relative;
+    }
   
-      height: 2px;
-      width: 1000px;
-  
-      position: absolute;
-      z-index:10000;
-      border:0;
+    ul li {
+      position: relative;
     }
     
 
-
+    ul li hr {
+      display: flex;
+      background: #DDB993;
+      height: 2px;
+      width: 0;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transition: width 1s ease-in-out;
+    }
+  
+    ul li:hover hr {
+      width: 1000px;
+      transition-delay: 0s;
+    }
   }
+
 
   @media screen and (min-width: 1280px) {
     nav {
@@ -158,6 +169,11 @@ const HeaderStyle = styled.header`
     nav ul li a {
       text-decoration: none;
     }
+  }
+
+
+  @media screen and (min-width: 1280px) {
+    background:red;
   }
 `;
 const LinkLogo = styled(Link)`
@@ -222,7 +238,6 @@ function onClickNavBarEvent () {
   //Hover:
   // State for screen width
   const [screenwidth, setscreenwidth] = useState(window.innerWidth);
-
   // Update screen width on resize
   useEffect(() => {
     const handleResize = () => {
@@ -257,7 +272,7 @@ function onClickNavBarEvent () {
       {isSmallScreen && (
         <>
           <ImageIco
-            src="/public/icons-menu-hamburger.png"
+            src={isMenuOpen ? "/public/icons8-effacer-100.png" : "/public/icons-menu-hamburger.png"}
             alt="Menu"
             className="header-ico-menu"
             onClick={toggleMenu}

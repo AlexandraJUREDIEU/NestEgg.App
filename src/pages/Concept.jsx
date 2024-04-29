@@ -11,9 +11,6 @@ flex-direction:column;
   align-items: center;
   height: 100vh;
 
-  .slides {
-    height:60vh;
-  }
   .screen-nest-egg {
     display: none;
   }
@@ -59,13 +56,21 @@ flex-direction:column;
     .screen-concept-inside-concept {
       display:none;
     }
+    .slides {
+      height:60vh;
+      display: flex;
+      justify-content: center;
+    }
   }
   @media screen and (min-width: 540px) and (max-width: 1280px) {
     .slide-item {
       font-size: 0.8em;
     }
-    .slider{
-      margin-top: 2em;
+    .slider {
+      margin-top: 0;
+    }
+    .slides{
+      padding-top:2em;
     }
   }
   @media screen and (min-width: 770px) {

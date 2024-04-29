@@ -8,9 +8,14 @@ import React, { useState, useEffect } from "react";
 
 const LandingStyle = styled.section`
   height: 85vh;
-  display: flex;
-  flex-direction: column;
-
+  
+  .conteneur-landing{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height:85vh;
+  }
   .landing-egg-img {
     height: 15.2em;
     /*margin-top: 1.5em;
@@ -19,12 +24,10 @@ const LandingStyle = styled.section`
 
   h1 {
     font-size: 2.5em;
-    height: 15vh;
   }
 
   .title-intro {
     width: 14em;
-    height: 10vh;
     margin: 0 auto;
   }
 
@@ -42,11 +45,10 @@ const LandingStyle = styled.section`
   }
 
   .landing-egg-img {
-    height: 30vh;
+    display:none;
   }
 
   .btnLink-landing {
-    height: 20vh;
   }
 
   @media screen and (min-width: 540px) and (max-width: 1280px) {
@@ -123,7 +125,6 @@ const LandingStyle = styled.section`
       justify-content: center;
     }
     aside {
-        height:100%;
         display:flex;
         align-items:center;
     }
@@ -144,11 +145,26 @@ const LandingStyle = styled.section`
       gap: 2em;
     }
   }
-  @media screen and (max-height: 630px) {
-    .landing-egg-img {
-        display:none;
+  @media screen and (max-width: 668px) {
+    font-size:1em;
+    
+    /*.landing-egg-img {
+        display:block;
+    }*/
+    top: 50vh;
+    h1 {
+      font-size:1.5em;
     }
+    .title-intro{
+      font-size:1em;
     }
+    .btn-landing a {
+      font-size:1em;
+    }
+    .btn-landing {
+      width:20em;
+    }
+  }
 `;
 
 function Landing() {
@@ -185,13 +201,15 @@ function Landing() {
     <>
       <LandingStyle id="landing">
         <div className="conteneur-landing">
-          <h1>
-            NEST <span className="balmy">EGG</span>
-          </h1>
-          <Text
-            className="title-intro"
-            content="Ne mettez pas tout vos oeufs dans le même panier"
-          />
+          <div>
+            <h1>
+              NEST <span className="balmy">EGG</span>
+            </h1>
+            <Text
+              className="title-intro"
+              content="Ne mettez pas tout vos oeufs dans le même panier"
+            />
+          </div>
           {(screenSize === "mobile" || screenSize === "tablet") && (
             <aside>
               <img
