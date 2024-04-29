@@ -8,7 +8,12 @@ import React, { useState, useEffect } from "react";
 
 const LandingStyle = styled.section`
   height: 85vh;
-  
+  #landing{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:space-between;
+  }
   .conteneur-landing{
     display: flex;
     flex-direction: column;
@@ -50,6 +55,10 @@ const LandingStyle = styled.section`
 
   .btnLink-landing {
   }
+  aside {
+    display:flex;
+    align-items:center;
+  }
 
   @media screen and (min-width: 540px) and (max-width: 1280px) {
     .landing-egg-img {
@@ -65,7 +74,6 @@ const LandingStyle = styled.section`
 
     .title-intro {
       font-size: 2em;
-      width: 17em;
     }
 
     .btn-landing {
@@ -85,15 +93,13 @@ const LandingStyle = styled.section`
   @media screen and (min-width: 840px) {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
 
     .landing-egg-img {
       display: flex;
       flex-direction: row;
       justify-content: end;
       /*height: 36.125em;*/
-      margin-left: 8.5em;
-      margin-top: 3em;
     }
 
     h1 {
@@ -102,7 +108,6 @@ const LandingStyle = styled.section`
 
     .title-intro {
       font-size: 2em;
-      width: 17em;
     }
 
     .btn-landing {
@@ -130,6 +135,7 @@ const LandingStyle = styled.section`
     .landing-egg-img {
       max-height:400px;
       height:100%;
+      width:auto;
     }
     .conteneur-landing p,
     .conteneur-landing button {

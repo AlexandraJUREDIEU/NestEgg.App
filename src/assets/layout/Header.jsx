@@ -28,7 +28,7 @@ const HeaderStyle = styled.header`
   }
   nav ul li a {
     text-decoration: none;
-    font-size: 1.5em;
+    font-size: 1em;
   }
 
   ul > li:nth-child(4) > a {

@@ -56,10 +56,10 @@ const AboutUsStyle = styled.div`
       display: flex;
     }
     .slider {
-      height:60vh;
+      height:80vh;
     }
     .slides {
-      height:60vh;
+      height:80vh;
     }
     .div-card-collaborator {
       display: flex;
@@ -96,7 +96,7 @@ const AboutUsStyle = styled.div`
     }
     .slides1and2, .slide-item {
       justify-content: center;
-      height:60vh;
+      height:80vh;
     }
     .slide-item{
       
