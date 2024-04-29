@@ -144,13 +144,12 @@ const LandingStyle = styled.section`
       gap: 2em;
     }
   }
-  /*@media screen and (max-width: 668px) {
+  @media screen and (max-width: 668px) {
     font-size:1em;
     
     .landing-egg-img {
-      display:flex;
+      /*display:flex;*/
     }
-    top: 50vh;
     h1 {
       font-size:1.5em;
     }
@@ -162,8 +161,10 @@ const LandingStyle = styled.section`
     }
     .btn-landing {
       width:20em;
+      height:2em;
+      padding:0;
     }
-  }*/
+  }
 `;
 
 function Landing() {
