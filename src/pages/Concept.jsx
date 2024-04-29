@@ -6,8 +6,8 @@ import React, { useState, useEffect } from "react";
 
 //styles
 const ConceptStyle = styled.section`
-display:flex;
-flex-direction:column;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   height: 100vh;
 
@@ -16,19 +16,19 @@ flex-direction:column;
   }
   .screen-concept {
     height: 40vh;
-    max-height:12em;
+    max-height: 12em;
     aspect-ratio: 1 / 1;
     margin-right: 20px;
-    float:right;
-    z-index:100000000;
+    float: right;
+    z-index: 100000000;
   }
   .tellImage {
     margin: auto 0 auto 50px;
   }
 
   .telImage-Slider {
-    display:flex;
-    align-items:start;
+    display: flex;
+    align-items: start;
   }
 
   .bird-and-signin {
@@ -47,17 +47,13 @@ flex-direction:column;
   .slide-item {
     margin: 0 3em 0 3em;
   }
-  .slider {
-    margin-top: 6em;
-  }
-  
 
   @media screen and (max-width: 770px) {
     .screen-concept-inside-concept {
-      display:none;
+      display: none;
     }
     .slides {
-      height:60vh;
+      height: 60vh;
       display: flex;
       justify-content: center;
     }
@@ -69,8 +65,8 @@ flex-direction:column;
     .slider {
       margin-top: 0;
     }
-    .slides{
-      padding-top:2em;
+    .slides {
+      padding-top: 2em;
     }
   }
   @media screen and (min-width: 770px) {
@@ -83,24 +79,24 @@ flex-direction:column;
   }
   @media screen and (min-width: 1280px) {
     font-size: 1.2em;
-    .slide-item{
+    .slide-item {
       margin: 0;
     }
     .screen-concept {
-      height:30vh;
+      height: 30vh;
       shape-outside: url("https://placehold.co/133x133");
       shape-margin: 20px;
     }
     .tellImage {
-      float:left;
+      float: left;
     }
     .concept-para {
-      width:800px;
+      width: 800px;
       width: 100%;
-      font-size:1em;
+      font-size: 1em;
     }
 
-    .concept-para-1{
+    .concept-para-1 {
       margin-top: 1.5em;
     }
 
@@ -120,7 +116,7 @@ flex-direction:column;
     .tellImage {
     }
     .slider {
-      margin:0 1em;
+      margin: 0 1em;
     }
   }
   @media screen and (min-width: 1920px) {
@@ -197,11 +193,11 @@ function Concept() {
             Quand on dépense, je trierai toutes nos dépenses dans des catégories
             colorées, comme ça, on saura toujours où va notre argent et comment
             faire pour économiser encore plus !
-              <img
-                src="public\bird-concept-autres.png"
-                alt="bird concept"
-                className="screen-concept screen-concept-inside-concept"
-              />
+            <img
+              src="public\bird-concept-autres.png"
+              alt="bird concept"
+              className="screen-concept screen-concept-inside-concept"
+            />
           </span>
         }
       />
@@ -233,13 +229,22 @@ function Concept() {
       <ConceptStyle id="concept">
         {screenSize === "mobile" ? (
           <>
-          <Slider pages={sliderConcept} paginationoffset={"-0.7em"}></Slider>
-          <img
-            src="public\bird-concept-mobile.png"
-            alt="bird concept"
-            className="screen-concept"
-          />
-</>
+            <Slider pages={sliderConcept} paginationoffset={"-0.7em"}></Slider>
+            <div>
+              <img
+              src="public\bird-concept-mobile.png"
+              alt="bird concept"
+              className="screen-concept"
+            />
+            <div className="bird-and-signin">
+              <ButtonLink
+                to="/signin"
+                content="Rejoins Max"
+                className="button-concept"
+              />
+            </div>
+            </div>
+          </>
         ) : (
           <>
             <div className="telImage-Slider">
@@ -263,16 +268,15 @@ function Concept() {
                 </div>
               </div>
             </div>
+            <div className="bird-and-signin">
+              <ButtonLink
+                to="/signin"
+                content="Rejoins Max"
+                className="button-concept"
+              />
+            </div>
           </>
         )}
-
-        <div className="bird-and-signin">
-          <ButtonLink
-            to="/signin"
-            content="Rejoins Max"
-            className="button-concept"
-          />
-        </div>
       </ConceptStyle>
     </>
   );
