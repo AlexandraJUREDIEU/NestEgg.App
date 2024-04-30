@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
-const userSchema = new mongoose.Schema({
+const budgetSchema = new mongoose.Schema({
 	admin: { 
 		type: mongoose.Schema.Types.ObjectId,
-		ref: 'User', //added by chatgpt, weird
+		ref: 'User',
 		required: true 
 	},
 	typeBudget: {
@@ -29,19 +29,15 @@ const userSchema = new mongoose.Schema({
 		}
 	},
 	guests: [{
-		type: mongoose.Schema.Types.ObjectId, 
-		ref: 'Guest',
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'User',
 		required: true 
 	}],
 	accounts: [{
 		type: mongoose.Schema.Types.ObjectId, 
-		ref: 'Accounts',
+		ref: 'BankAccount',
 		required: true 
 	}]
 });
 
-<<<<<<< Updated upstream
 module.exports = mongoose.model("Budget", budgetSchema, "Budget");
-=======
-module.exports = mongoose.model("Budget", userSchema, "Budget");
->>>>>>> Stashed changes
