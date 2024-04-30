@@ -11,7 +11,6 @@ router.get('/', (req, res) => {
 });
 
 router.use('/budget', budgetRoute);
-
 router.use('/users', userRoute);
 
 module.exports = router;

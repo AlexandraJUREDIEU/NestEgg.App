@@ -4,7 +4,7 @@ require("dotenv").config();
 // Basic express server
 const express = require('express');
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 const cors = require('cors');
 const router = require('./routes/index');
 
@@ -15,11 +15,10 @@ app.use(cors());
 //Middleware
 app.use(express.json()); // transforme les données entrantes en json
 
+
 //Define the routes
 app.use('/', router);
 
 app.listen(port, () => {
     console.log(`app listening on port ${port}`)
 })
-
-process.env;

@@ -18,12 +18,12 @@ async function main() {
         await mongoose.connect(mongoDB);
         const db = mongoose.connection.db;
         const dbName = db.databaseName;
-        const collections = await mongoose.connection.db.listCollections().toArray();
+/*         const collections = await mongoose.connection.db.listCollections().toArray();
         console.log("Database name: " + dbName);
         console.log("Collections: ");
         collections.forEach((collection) => {
             console.log(collection.name);
-        })
+        }) */
     }
     catch (err)
     {

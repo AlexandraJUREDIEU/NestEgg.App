@@ -3,12 +3,14 @@ const User = require('../models/user.js');
 // handle errors
 const handleErrors = (err) => {
 	let errors = { lastNameUser: '', firstNameUser: '', emailUser: '', password: '', confirmPassword: '', newsletter: '', commercialAd: '', premium: '', connectMethod: '', budget: '' };
-	console.log(err.message, err.code);
+    console.log(err.code);
+    console.log(err.message, err.code);
 	if (err.code === 11000) {
 		errors.email = 'that email is already registered';
 		return errors;
 	}
 
+    console.log(err.message);
 	if (err.message.includes('User validation failed')) {
 		Object.values(err.errors).forEach(({ properties }) => {
 			errors[properties.path] = properties.message;
@@ -36,6 +38,15 @@ module.exports.signup_post = async (req, res) => {
     }
 
     try {
+
+        const userExists = await User
+        .findOne({ emaiUser: emailUser })
+        .exec();
+        if (userExists){
+            const err = {message: 'User already in database', code: 11000};
+            throw err;
+        }
+
         const user = await User.create({
             lastNameUser,
             firstNameUser,
@@ -57,16 +68,14 @@ module.exports.signup_post = async (req, res) => {
 };
 
 module.exports.login_post = async (req, res) => {
-    const { emailUser, password } = req.body;
+    const { emaiUser, password } = req.body;
     try {
         const user = await User.find({
-            emaiUser: emailUser,
-            password,
+            emaiUser: emaiUser,
+            password: password,
         });
         res.status(201).json(user)
-		res.send('user found');
     } catch (err) {
-        console.error(err);
-        res.status(400).send('error, user not found');
+        res.status(400).send(handleErrors(err));
     }
 }
