@@ -39,6 +39,7 @@ module.exports.signup_post = async (req, res) => {
 
     try {
 
+    
         const userExists = await User
         .findOne({ emaiUser: emailUser })
         .exec();

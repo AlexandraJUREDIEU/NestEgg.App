@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
-	emaiUser: {
+	emailUser: {
 		type: String,
 		required: true,
 		validate: [(email) => email.includes('@'), 'Invalid email']
@@ -52,4 +52,4 @@ const userSchema = new mongoose.Schema({
 	}
 });
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("Users", userSchema, "Users");
