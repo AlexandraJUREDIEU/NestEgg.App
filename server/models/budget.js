@@ -37,7 +37,13 @@ const budgetSchema = new mongoose.Schema({
 		type: mongoose.Schema.Types.ObjectId, 
 		ref: 'BankAccount',
 		required: true 
+	}],
+	fixedCharges : [{
+		nameCharge : {type : String, required : true},
+		monthlyCharge : {type : Number, required : true},
+		billingInterval : {type : Number, required : true},
+		category : {type: mongoose.Schema.Types.ObjectId, ref : 'Category', required : true},
 	}]
 });
 
-module.exports = mongoose.model("Budget", budgetSchema);
+module.exports = mongoose.model("Budget", budgetSchema, "Budget");
