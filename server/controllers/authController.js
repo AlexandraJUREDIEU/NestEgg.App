@@ -41,7 +41,7 @@ module.exports.signup_post = async (req, res) => {
 
     
         const userExists = await User
-        .findOne({ emaiUser: emailUser })
+        .findOne({ emailUser: emailUser })
         .exec();
         if (userExists){
             const err = {message: 'User already in database', code: 11000};
@@ -51,7 +51,7 @@ module.exports.signup_post = async (req, res) => {
         const user = await User.create({
             lastNameUser,
             firstNameUser,
-            emaiUser: emailUser,
+            emailUser: emailUser,
             password,
 			confirmPassword,
             newsletter,
@@ -69,10 +69,10 @@ module.exports.signup_post = async (req, res) => {
 };
 
 module.exports.login_post = async (req, res) => {
-    const { emaiUser, password } = req.body;
+    const { emailUser, password } = req.body;
     try {
         const user = await User.find({
-            emaiUser: emaiUser,
+            emailUser: emailUser,
             password: password,
         });
         res.status(201).json(user)
