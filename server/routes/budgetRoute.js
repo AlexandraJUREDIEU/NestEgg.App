@@ -3,18 +3,15 @@ const express = require('express');
 const router = express.Router();
 
 // Import the controllers
-/*
-home controller plus tard?
-const budgetController = require('../controllers/authController');
-*/
+const homeController = require ('../controllers/homeController');
 
 // Define the routes
 router.get('/', (req, res) => {
 	res.send('Hello Budgets!');
 })
 
-/*router.get('/:typebudget', userController.getTypeBudgetByUser);
-router.post('/signup', authController.signup_post);
-router.post('/login', authController.login_post);*/
+router.get('/:typebudget', homeController.getBudgetByUser);
+router.get('/:id', homeController.getIdByUser);
+router.get('/:nextcharges', homeController.getNextChargesByUser);
 
 module.exports = router;
