@@ -15,8 +15,7 @@ const transactionSchema = new mongoose.Schema({
         typeBudget : { type: String, required: true }, 
         typeCategory : { type: String, required: true }, 
         idBankAccount : { type: mongoose.Schema.Types.ObjectId, ref: "BankAccount", required: true }, 
-    }],
-	
+    }]
 	});
 
-module.exports = mongoose.model("Transactions", transactionSchema);
+module.exports = mongoose.model("Transactions", transactionSchema, "Transaction");

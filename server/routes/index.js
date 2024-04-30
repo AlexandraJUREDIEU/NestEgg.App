@@ -4,11 +4,14 @@ const router = express.Router();
 // Import the Routes
 const userRoute = require('./userRoute.js');
 const budgetRoute = require('./budgetRoute.js');
+const test = require('./test.js');
 
 // Define the routes
 router.get('/', (req, res) => {
 	res.send('Hello World!');
 });
+
+router.use('/test', test);
 /*
 router.use('/budget', budgetRoute);
 router.use('/users', userRoute);

@@ -1,8 +1,8 @@
-const transactionModel = require('../models/transaction');
+const transactionModel = require('../models/transactions');
 
 exports.getAllTransactions = async (req, res) => {
     try {
-		const transactions = await transactionModel.find([{transactions : req.params.transaction}]);
+		const transactions = await transactionModel.find({transactions : req.params.transaction});
 		if (!transactions) 
 		{
 			res.status(404).send('No item found');
