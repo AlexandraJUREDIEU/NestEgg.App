@@ -1,15 +1,15 @@
 const transactionModel = require('../models/transaction');
 
-exports.getAllTransactions = async (req, res) => {
+exports.getFixedCharges = async (req, res) => {
     try {
-		const transactions = await transactionModel.find([{transactions : req.params.transaction}]);
-		if (!transactions) 
+		const fixedCharges = await transactionModel.find([{transactions : req.params.fixedCharges}]);
+		if (!fixedCharges) 
 		{
 			res.status(404).send('No item found');
 		}
 		else 
 		{
-			res.json(transactions);
+			res.json(fixedCharges);
 		}
 	} 
 	catch (err) 
