@@ -4,7 +4,6 @@
  * The User model represents a user in the application.
  */
 const mongoose = require("mongoose");
-const budget = require("./budget");
 
 const userSchema = new mongoose.Schema({
 	lastNameUser: {
@@ -38,10 +37,14 @@ const userSchema = new mongoose.Schema({
 		required: true 
 	},
 	premium: { 
-		type: Boolean, 
+		type: String, 
 		required: true 
 	},
 	connectMethod: { 
+		type: String, 
+		required: true 
+	},
+	status: { 
 		type: String, 
 		required: true 
 	},
@@ -52,4 +55,4 @@ const userSchema = new mongoose.Schema({
 	}
 });
 
-module.exports = mongoose.model("Users", userSchema, "Users");
+module.exports = mongoose.model("User", userSchema, "Users");

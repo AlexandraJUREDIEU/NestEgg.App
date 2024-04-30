@@ -31,7 +31,7 @@ const budgetSchema = new mongoose.Schema({
 	guests: [{
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'User',
-		required: true 
+		required: false 
 	}],
 	accounts: [{
 		type: mongoose.Schema.Types.ObjectId, 
@@ -40,4 +40,4 @@ const budgetSchema = new mongoose.Schema({
 	}]
 });
 
-module.exports = mongoose.model("Budget", budgetSchema, "Budget");
+module.exports = mongoose.model("Budget", budgetSchema);
