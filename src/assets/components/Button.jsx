@@ -7,11 +7,9 @@
  * */ 
 
 
-// Imports
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-// Styles
 const ButtonStyle = styled.button`
   display: flex;
   align-items: center;
@@ -33,23 +31,22 @@ const LinkStyle = styled(Link)`
   font-size: 1.5em;
 `;
 
-// Functions
-const Button = ({ action, to, className, content }) => {
-  // State
+const ButtonLink = ({ to, className, content}) => {
 
-  // Comportement
-  const handleClick = () => {
-    if (action) {
-      action();
-    }
-  };
 
-// Render
   return (
-    <ButtonStyle className={className} onClick={handleClick}>
+    <ButtonStyle className={className} >
       <LinkStyle to={to}>{content}</LinkStyle>
     </ButtonStyle>
   );
 };
 
-export default Button;
+const Button = ({ onClick, className, content, type }) => {
+  return (
+    <ButtonStyle className={className} onClick={onClick} type={type}>
+      {content}
+    </ButtonStyle>
+  );
+};
+
+export { ButtonLink, Button };

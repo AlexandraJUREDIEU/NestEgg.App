@@ -1,0 +1,195 @@
+//imports
+import { ButtonLink } from "../assets/components/Button"
+import Text from "../assets/components/Text"
+import styled from 'styled-components';
+import React, { useState, useEffect } from "react";
+
+//styles
+
+const LandingStyle = styled.section`
+height: 85vh;
+display: flex;
+flex-direction: column;
+
+
+.landing-egg-img{
+    height: 15.2em;
+    margin-top: 1.5em;
+    margin-left: 3.5em;
+}
+
+h1{
+    font-size: 2.5em;
+}
+
+.title-intro{
+    width : 14em;
+    margin: auto;
+}
+
+
+.btn-landing{
+    margin-top: 0.75em;
+    padding: 0.87em;
+    min-width: 12em;
+}
+
+.btn-landing a{
+    font-size: 1.25em;
+    font-weight: 300;
+    font-family: "Quicksand";
+    margin: auto;
+}
+
+@media screen and (min-width: 540px) and (max-width:1280px){
+    
+    .landing-egg-img{
+        height: 27.5em;
+        margin-left: 8.5em;
+        margin-top: 3em;
+    }
+    
+    h1{
+        font-size: 5em;
+    }
+    
+    .title-intro{
+        font-size: 2em;
+        width : 17em;
+        margin: auto;
+    }
+    
+    
+    .btn-landing{
+        margin-top: 0.75em;
+        padding: 1.25em;
+        width: 31.25em;
+    }
+    
+    .btn-landing a{
+        font-size: 1.75em;
+        font-weight: 300;
+        font-family: "Quicksand";
+        margin: auto;
+    }
+}
+
+
+@media screen and (min-width: 840px){
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+        
+
+    .landing-egg-img{
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        height: 36.125em;
+        margin-left: 8.5em;
+        margin-top: 3em;
+    }
+    
+    h1{
+        font-size: 5em;
+    }
+    
+    .title-intro{
+        font-size: 2em;
+        width : 17em;
+        margin: auto;
+    }
+    
+    
+    .btn-landing{
+        margin-top: 0.75em;
+        padding: 1.25em;
+        width: 31.25em;
+        
+    }
+    
+    .btn-landing a{
+        font-size: 1.75em;
+        font-weight: 300;
+        font-family: "Quicksand";
+        margin: auto;
+    }
+    
+      
+}
+@media screen and (min-width: 1280px){
+    #landing {
+        display: flex;
+        flex-direction: row;
+        align-items: space-around;
+        justify-content: space-around;
+    }
+    .landing-egg-img{
+        height:100%;
+    }
+    .conteneur-landing p, .conteneur-landing button{
+        margin:0;
+    }
+    .conteneur-landing {
+        margin:0;
+        display:flex;
+        flex-direction:column;
+        justify-content: center;
+        align-items: center;
+        gap:2em;
+    }
+
+}
+`
+
+function Landing(){
+    //Reaction at the change of the size of the screen
+    const [screenSize, setScreenSize] = useState(getScreenSize());
+  
+    useEffect(() => {
+      function handleResize() {
+        setScreenSize(getScreenSize());
+      }
+  
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+  
+    function getScreenSize() {
+      const width = window.innerWidth;
+      if (width < 770) {
+        return "mobile";
+      } else if (width < 1280) {
+        return "tablet";
+      } else if (width < 1920) {
+        return "laptop";
+      } else {
+        return "desktop";
+      }
+    }
+
+
+    return (<>
+        <LandingStyle id="landing">
+            <div className="conteneur-landing">
+                <h1>NEST <span className="balmy">EGG</span></h1>
+                <Text className="title-intro" content="Ne mettez pas tout vos oeufs dans le même panier"/>
+        {(screenSize === "mobile" || screenSize === "tablet") && (
+                <aside>
+                <img src="public\oeuf-nestEgg.png" alt="Oeuf Nest Egg" className="landing-egg-img"/>
+                </aside>)
+                }
+                <ButtonLink to="#concept" className="btn-landing btn-landing-1" content="Découvrir le concept"/>           
+                <ButtonLink to="/dashboard" className="btn-landing btn-landing-2" content="Accéder à mon tableau de bord"/>     
+            </div>
+        {(screenSize === "laptop" || screenSize === "desktop") && (
+                <aside>
+                <img src="public\oeuf-nestEgg.png" alt="Oeuf Nest Egg" className="landing-egg-img"/>
+                </aside>)
+                }
+            
+        </LandingStyle>
+    </>)
+}
+
+export default Landing

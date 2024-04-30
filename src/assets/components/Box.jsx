@@ -17,14 +17,37 @@ const BoxStyle = styled.article`
 display: flex;
 flex-direction: column;
 background-color: rgba(255, 255, 255, 0.25);
-height: 100%;
-width: 100%;
+width:152px;
+height:100px;
 border-radius: 4em;
+
 
     a{
     display: flex;
     flex-direction: column;
     }
+
+
+    .div-container-boxes {
+      display:flex;
+      flex-direction: row;
+      outline: green 5px solid;
+    }
+
+    article {
+      /*outline: red 3px solid;*/
+    }
+    .short-box{
+      /*outline: orange 4px solid;*/
+    }
+    .long-box{
+      /*outline: yellow 4px solid;*/
+    }
+    h3{
+      /*outline: blue 2px solid;*/
+    }
+
+    
 `
 
 // Functions

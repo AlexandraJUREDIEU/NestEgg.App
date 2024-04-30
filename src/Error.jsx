@@ -1,8 +1,7 @@
 //Imports
 import { Link } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
-import Button from "./assets/components/Button";
-
+import { ButtonLink } from "./assets/components/Button";
 
 
 //Styles
@@ -60,7 +59,7 @@ function Error() {
         <h1 className="balmy-text">404</h1>
         <p><span>Oups...</span> On ne fait pas d'omelette<br/>sans casser des oeufs</p>
         <p>Cette page semble introuvable</p>
-        <Button to="/" className="balmy-text" content="Retour"/>
+        <ButtonLink to="/" className="balmy-text" content="Retour"/>
         </section>
       </>
     )
