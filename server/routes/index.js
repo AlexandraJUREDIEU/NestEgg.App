@@ -9,8 +9,8 @@ const budgetRoute = require('./budgetRoute.js');
 router.get('/', (req, res) => {
 	res.send('Hello World!');
 });
-
+/*
 router.use('/budget', budgetRoute);
 router.use('/users', userRoute);
-
+*/
 module.exports = router;
