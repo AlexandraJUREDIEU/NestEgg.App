@@ -44,29 +44,41 @@ const PricingStyle = styled.section`
     margin: 0 7em;
     height:15vh;
   }
+    conteneur-landing {
+      width: 60%;
+    }
+    aside {
+      width:40%;
+    }
+    img {
+      aspect-ratio: 1 / 1;
+      width:40%;
+    }
 
   @media screen and (min-width: 769px) and (max-width: 1279px) {
     .list-cardPrice {
       margin: 0 3em;
     }
     .list-cardPrice > div {
-      padding: 0.5em 2.5em;
+      padding: 0 2.5em;
       background-color: rgba(255, 255, 255, 0.5);
       border-radius: 2em;
       -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
       box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
       color: white;
-      margin: auto;
       border: none;
 
-      margin-bottom: 1em;
+    }
+    .list-cardPrice{
+      height:45vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-around;
     }
     .div-cardPricing {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
       height: 100%;
       align-items: flex-end;
+      padding: 0;
     }
     .div-cardPricing h3 {
       align-self: flex-start;

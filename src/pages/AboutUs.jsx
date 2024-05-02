@@ -52,7 +52,6 @@ const AboutUsStyle = styled.div`
   @media screen and (min-width: 769px) {
     font-size: 1.5em;
     .intro-about-us {
-      height:20vh;
       display: flex;
     }
     .slider {
@@ -60,9 +59,6 @@ const AboutUsStyle = styled.div`
     }
     .slides {
       height:65vh;
-    }
-    .pagination{
-      height:2vh;
     }
     .div-card-collaborator {
       display: flex;
@@ -98,8 +94,7 @@ const AboutUsStyle = styled.div`
       height:60vh;
     }
     .slides1and2, .slide-item {
-      justify-content: center;
-      height:80vh;
+      justify-content: space-around;
     }
     .slide-item{
       
