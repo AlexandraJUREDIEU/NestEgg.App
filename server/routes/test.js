@@ -15,6 +15,6 @@ router.get('/', (req, res) => {
 router.get('/transactions', transactionService.getAllTransactions);
 router.get('/budget', budgetService.getBudgetByUser);
 router.get('/fixedCharges', bankAccountService.getFixedCharges);
-router.get('/connect', auth.login_post);
+router.post('/connect', auth.login_post);
 
 module.exports = router;
