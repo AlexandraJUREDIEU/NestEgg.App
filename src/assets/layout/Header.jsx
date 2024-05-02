@@ -10,6 +10,7 @@ const HeaderStyle = styled.header`
   justify-content: space-between;
   align-items: center;
   height: 15vh;
+  min-height:5em;
   padding: 0.5em 2em 0em 1em;
 
   
@@ -46,11 +47,12 @@ const HeaderStyle = styled.header`
   
 
   .max-mobile-header{
-    position: relative;
     height: 150px;
     z-index: 5;
+    /*position: relative;
     margin-bottom: -0.37em;
-    margin-left: -6.7em;
+    margin-left: -6.7em;*/
+    display:flex;
   }
 
   ul > li:nth-child(4) > a{
@@ -110,7 +112,7 @@ const HeaderStyle = styled.header`
     nav ul {
       display: flex;
       flex-direction: column;
-      gap: 2em;
+      gap: 0em;
     }
 
 
@@ -143,18 +145,93 @@ const HeaderStyle = styled.header`
       transition: width 1s ease-in-out;
       visibility:hidden;
     }
-  
-    ul li:hover hr {
+
+    ul li:not(:nth-child(4)):hover hr {
       visibility:visible;
       background: #DDB993;
+      border:none;
       position: absolute;
       bottom: 0;
       left: 0;
-      height: 2px;
+      height: 1px;
       width: 1000px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+CODE ALTERNATIF A REGLER (romain)
+
+ul {
+  position: relative;
+}
+
+ul li {
+  position: relative;
+}
+
+
+
+
+
+
+ul li hr {
+  font-size:0em;
+  display: block;
+  height: 0;
+  width: 0;
+  position: absolute;
+  bottom: 0;
+  right: -1000px;
+  transition: width 1s ease-in-out, right 1s ease-in-out;
+  visibility:hidden;
+}
+
+ul li:not(:nth-child(4)):hover hr {
+  visibility:visible;
+  background: #DDB993;
+  border:none;
+  position: absolute;
+  bottom: 0;
+  right: -1000px;
+  height: 1px;
+  width: 1000px;
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+  }
+
+  @media screen and (min-height: 370px) {
+    nav ul {
+      gap: 1em;
     }
   }
 
+  @media screen and (min-height: 430px) {
+    nav ul {
+      gap: 2em;
+    }
+  }
 
   @media screen and (min-width: 1280px) {
     nav {
@@ -272,7 +349,7 @@ function onClickNavBarEvent () {
     <HeaderStyle screenwidth={screenwidth}>
       <LinkLogo to="/">
         <img
-          src="/public/logo_nestegg.png"
+          src="/logo_nestegg.png"
           alt="Logo NestEgg"
           className="header-logo"
         />
@@ -281,7 +358,7 @@ function onClickNavBarEvent () {
       {isSmallScreen && (
         <>
           <ImageIco
-            src={isMenuOpen ? "/public/icons8-effacer-100.png" : "/public/icons-menu-hamburger.png"}
+            src={isMenuOpen ? "/icons8-effacer-100.png" : "/icons-menu-hamburger.png"}
             alt="Menu"
             className="header-ico-menu"
             onClick={toggleMenu}
@@ -296,7 +373,7 @@ function onClickNavBarEvent () {
             {links.map((link, index) => (
               <li key={index}>
                 
-              {link.to==="/login" && isSmallScreen && <div><img className="max-mobile-header" src="public/mascotte-mobile-header.png"/></div> }
+              {link.to==="/login" && isSmallScreen && <div><img className="max-mobile-header" src="mascotte-mobile-header.png"/></div> }
                 
               <Link
                     to={link.to}
@@ -307,7 +384,7 @@ function onClickNavBarEvent () {
                     {link.to === "/login" ? (
                       <>
                         <div className="user-round-connexion">
-                          <img src="public\icons-user-round.png" />
+                          <img src="icons-user-round.png" />
                         </div>
 
                         <div className="text-connexion balmy">{link.text}</div>

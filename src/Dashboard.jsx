@@ -167,14 +167,14 @@ function Dashboard() {
             </>}/>
           <Box id={5} href="/incoming" onClickAction={handleBoxClick} className="short-box" children={
             <>
-              <img src="public\ico-add-transaction.png" alt="image carte banquaire" className="ico-add-transaction"/>
+              <img src="ico-add-transaction.png" alt="image carte banquaire" className="ico-add-transaction"/>
               <h3 className="font-300">Ajouter une transaction</h3>
             </>}/>
           <Box id={6} href="/incoming" onClickAction={handleBoxClick} className="long-box" children={
             <>
             <div className="text-ico-charges">
               <p>3</p>
-              <img src="public\ico-charges.png" alt="ico charges à venir" className="ico-incoming-charges" />
+              <img src="ico-charges.png" alt="ico charges à venir" className="ico-incoming-charges" />
             </div>
               <h3 className="font-300">Charges à venir</h3>
             </>}/>
@@ -185,17 +185,17 @@ function Dashboard() {
 
         <section className="bottom-dashboard">
           <div className="div-progress-bar">
-            <img src="public\ico-vital.png" alt="ico vital" className="ico-progress-bar" />
+            <img src="ico-vital.png" alt="ico vital" className="ico-progress-bar" />
             <ProgressBar type="Vital" progress="70" width="280" color1="#F5A483" color2="#fff2" height="20px" />
           </div>
             <p className="p-amount-left">Il vous reste 90€ pour finir la semaine, soit 22.50€ par jour</p>
           <div className="div-progress-bar">
-          <img src="public\ico-loisirs.png" alt="ico loisirs" className="ico-progress-bar" />
+          <img src="ico-loisirs.png" alt="ico loisirs" className="ico-progress-bar" />
             <ProgressBar type="Loisirs" progress="80" width="280" color1="#43A9B6" color2="#fff2" height="20px" />
           </div>
           <p className="p-amount-left">Il vous reste 90€ pour finir la semaine, soit 22.50€ par jour</p>
           <div className="div-progress-bar">
-          <img src="public\ico-savings.png" alt="ico épargne" className="ico-progress-bar" />
+          <img src="ico-savings.png" alt="ico épargne" className="ico-progress-bar" />
             <ProgressBar type="Épargne" progress="80" width="280" color1="#B243B6" color2="#fff2" height="20px" />
           </div>
           <p className="p-amount-left">Il vous reste 90€ pour finir la semaine, soit 22.50€ par jour</p>

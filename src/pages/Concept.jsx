@@ -194,7 +194,7 @@ function Concept() {
             colorées, comme ça, on saura toujours où va notre argent et comment
             faire pour économiser encore plus !
             <img
-              src="public\bird-concept-autres.png"
+              src="bird-concept-autres.png"
               alt="bird concept"
               className="screen-concept screen-concept-inside-concept"
             />
@@ -232,7 +232,7 @@ function Concept() {
             <Slider pages={sliderConcept} paginationoffset={"-0.7em"}></Slider>
             <div>
               <img
-              src="public\bird-concept-mobile.png"
+              src="bird-concept-mobile.png"
               alt="bird concept"
               className="screen-concept"
             />
@@ -250,7 +250,7 @@ function Concept() {
             <div className="telImage-Slider">
               <aside className="tellImage">
                 <img
-                  src="public\screenshot-nestEgg.png"
+                  src="screenshot-nestEgg.png"
                   alt="Téléphone Screenshot Nest-egg"
                   className="screen-nest-egg"
                 />

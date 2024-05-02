@@ -7,12 +7,11 @@ import React, { useState, useEffect } from "react";
 //styles
 
 const LandingStyle = styled.section`
-  height: 85vh;
-  #landing{
+  .landing{
+    width:100%;
     display:flex;
     flex-direction:row;
-    justify-content:space-between;
-    align-items:space-between;
+    justify-content:space-around;
   }
   .conteneur-landing{
     display: flex;
@@ -22,7 +21,8 @@ const LandingStyle = styled.section`
     height:85vh;
   }
   .landing-egg-img {
-    height: 15.2em;
+    height: 18.2em;
+    padding-top:3em;
   }
 
   h1 {
@@ -59,11 +59,12 @@ const LandingStyle = styled.section`
   }
 
   @media screen and (min-width: 540px) and (max-width: 1280px) {
+
     .landing-egg-img {
       /*height: 27.5em;
         margin-left: 8.5em;
         margin-top: 3em;*/
-        display:none;
+        display:flex;
     }
     
     h1 {
@@ -124,16 +125,13 @@ const LandingStyle = styled.section`
   @media screen and (min-width: 1280px),
   screen and (max-height:630px) {
     #landing {
-      display: flex;
-      flex-direction: row;
       justify-content: center;
     }
     aside {
     }
     .landing-egg-img {
       max-height:400px;
-      height:100%;
-      width:auto;
+      height:80%;
     }
     .conteneur-landing p,
     .conteneur-landing button {
@@ -147,14 +145,16 @@ const LandingStyle = styled.section`
       align-items: center;
       gap: 2em;
     }
+    #landing{
+      width:50vh;
+      height:80vh;
+    }
   }
-  @media screen and (max-width: 668px) {
+  @media screen and (max-width: 700px) {
     font-size:1em;
     
     .landing-egg-img {
       display:flex;
-      margin-top: 1.5em;
-      margin-left: 3.5em;
     }
     h1 {
       font-size:1.5em;
@@ -206,6 +206,7 @@ function Landing() {
   return (
     <>
       <LandingStyle id="landing">
+        <div className="landing">
         <div className="conteneur-landing">
           <div>
             <h1>
@@ -219,7 +220,7 @@ function Landing() {
           {(screenSize === "mobile" || screenSize === "tablet") && (
             <aside>
               <img
-                src="public\oeuf-nestEgg.png"
+                src="oeuf-nestEgg.png"
                 alt="Oeuf Nest Egg"
                 className="landing-egg-img"
               />
@@ -241,12 +242,13 @@ function Landing() {
         {(screenSize === "laptop" || screenSize === "desktop") && (
           <aside>
             <img
-              src="public\oeuf-nestEgg.png"
+              src="oeuf-nestEgg.png"
               alt="Oeuf Nest Egg"
               className="landing-egg-img"
             />
           </aside>
         )}
+        </div>
       </LandingStyle>
     </>
   );

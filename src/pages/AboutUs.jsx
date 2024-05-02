@@ -56,10 +56,13 @@ const AboutUsStyle = styled.div`
       display: flex;
     }
     .slider {
-      height:80vh;
+      height:65vh;
     }
     .slides {
-      height:80vh;
+      height:65vh;
+    }
+    .pagination{
+      height:2vh;
     }
     .div-card-collaborator {
       display: flex;
@@ -217,7 +220,7 @@ function AboutUs() {
   let slidesQuiSommesNous = [];
   slidesQuiSommesNous.push(
     <CardCollaborator
-      src="public\icons-user-round.png"
+      src="icons-user-round.png"
       name="Alexandra"
       spanName="JUREDIEU"
       description=" Lorem ipsum dolor sit amet, consectetur adipisci elit,  sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad  minim veniam, quis nostrum exercitationem ullam corporis suscipit  laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure  reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla  pariatur."
@@ -225,7 +228,7 @@ function AboutUs() {
   );
   slidesQuiSommesNous.push(
     <CardCollaborator
-      src="public\icons-user-round.png"
+      src="icons-user-round.png"
       name="Sofien"
       spanName="TEBOURBI"
       description=" Aliquet lectus proin nibh nisl condimentum id venenatis. Dolor magna eget est lorem ipsum. Ultrices eros in cursus turpis massa tincidunt dui ut ornare. Feugiat pretium nibh ipsum consequat nisl vel pretium."
@@ -233,7 +236,7 @@ function AboutUs() {
   );
   slidesQuiSommesNous.push(
     <CardCollaborator
-      src="public\icons-user-round.png"
+      src="icons-user-round.png"
       name="Luca"
       spanName="LEROY"
       description=" Cursus turpis massa tincidunt dui ut ornare lectus sit amet. Consequat id porta nibh venenatis cras sed felis eget. Non nisi est sit amet. At elementum eu facilisis sed odio morbi quis."
@@ -241,7 +244,7 @@ function AboutUs() {
   );
   slidesQuiSommesNous.push(
     <CardCollaborator
-      src="public\icons-user-round.png"
+      src="icons-user-round.png"
       name="Romain"
       spanName="Meese"
       description=" Maecenas pharetra convallis posuere morbi. Sit amet nulla facilisi morbi tempus iaculis urna. Nulla facilisi etiam dignissim diam quis."
