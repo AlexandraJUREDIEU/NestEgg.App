@@ -19,6 +19,16 @@ router.get('/transactions', transactionService.getAllTransactions);
 router.get('/budget', budgetService.getBudgetByUser);
 router.get('/fixedCharges', bankAccountService.getFixedCharges);
 router.post('/connect', auth.login_post);
+router.get('/getnbrtransactions', async (req, res) => {
+    try {
+        const response = await axios.get('http://localhost:8000/dashboard/transactions');
+        res.json("Il y a " + response.data[0].transactions.length + " transactions.");
+    }
+    catch {
+        console.error(error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
 
 
 
