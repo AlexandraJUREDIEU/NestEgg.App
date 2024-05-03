@@ -7,10 +7,12 @@ const app = express();
 const port = process.env.PORT || 3000;
 const cors = require('cors');
 const router = require('./routes/index');
+const cookieParser = require('cookie-parser');
 
 require('./config/Database');   
 
 app.use(cors());
+app.use(cookieParser());
 
 //Middleware
 app.use(express.json()); // transforme les données entrantes en json

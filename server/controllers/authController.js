@@ -93,6 +93,9 @@ module.exports.login_post = async (req, res) => {
         // Si l'utilisateur existe, générez un jeton JWT
         const token = jwt.sign({ userId: user._id }, secretKey, { expiresIn: '1h' });
 
+         // Stockez le jeton JWT dans un cookie
+         res.cookie('token', token, { httpOnly: true, maxAge: 3600000 }); // Expires in 1 hour (3600000 milliseconds)
+
         // Renvoyez le jeton JWT au client
         res.status(200).json({ token });
     } catch (err) {
