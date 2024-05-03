@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const axios = require('axios');
 
 // Import the services
 const transactionService = require('../services/transactionService.js');
@@ -18,6 +19,31 @@ router.get('/transactions', transactionService.getAllTransactions);
 router.get('/budget', budgetService.getBudgetByUser);
 router.get('/fixedCharges', bankAccountService.getFixedCharges);
 router.post('/connect', auth.login_post);
+
+
+
+
+router.get('/example', async (req, res) => {
+    try {
+        const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+        res.json(response.data);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
 
 module.exports = router;
 // dashboardController.js
