@@ -5,6 +5,7 @@ const router = express.Router();
 // Import the controllers
 const userController = require('../controllers/userController');
 const authController = require('../controllers/authController');
+const dashboardController = require('../controllers/dashboardController');
 
 // Define the routes
 router.get('/', (req, res) => {

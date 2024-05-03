@@ -7,14 +7,14 @@ const bankAccountService = require('../services/bankAccountService.js');
 const budgetService = require('../services/budgetService.js');
 const auth = require('../controllers/authController.js');
 
+const homeController = require('../controllers/dashboardController.js');
+
 // Define the routes
 router.get('/', (req, res) => {
     res.send('Hello transactions!');
-})
+});
 
-router.get('/transactions', transactionService.getAllTransactions);
-router.get('/budget', budgetService.getBudgetByUser);
-router.get('/fixedCharges', bankAccountService.getFixedCharges);
-router.post('/connect', auth.login_post);
+router.use('/dashboard', homeController);
+//router.post('/r', homeController.ttt);
 
 module.exports = router;
