@@ -1,4 +1,3 @@
-// import dotenv and use it to load the environment variables
 require("dotenv").config();
 
 // Basic express server
@@ -9,14 +8,12 @@ const cors = require('cors');
 const router = require('./routes/index');
 const cookieParser = require('cookie-parser');
 
+
 require('./config/Database');   
 
 app.use(cors());
 app.use(cookieParser());
-
-//Middleware
-app.use(express.json()); // transforme les données entrantes en json
-
+app.use(express.json());
 
 //Define the routes
 app.use('/', router);

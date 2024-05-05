@@ -1,12 +1,6 @@
 //Imports
 import HeaderContainer from "./assets/layout/Header";
-
-
-
 //Styles
-
-
-
 //Fonctions
 const links = [
   {to:"/transactions" , text:"Vos Transactions"},
@@ -15,7 +9,6 @@ const links = [
   {to:"/stats" , text:"Stats"},
   {to:"/dashboard" , text:"Tableau de bord"}, //A retirer
   ];
-
 
 function Summary() {
     //State

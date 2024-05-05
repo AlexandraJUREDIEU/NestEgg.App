@@ -1,14 +1,9 @@
+require('dotenv').config();
 const User = require('../models/user.js');
 const jwt = require('jsonwebtoken');
-const crypto = require('crypto');
-
-// Génération d'une clé aléatoire de 256 bits (32 octets)
-const generateSecretKey = () => {
-    return crypto.randomBytes(32).toString('hex');
-};
-
-const secretKey = generateSecretKey();
-console.log('Secret key:', secretKey);
+const accessTokenSecret = process.env.ACCESS_TOKEN_SECRET;
+const refreshTokenSecret = process.env.REFRESH_TOKEN_SECRET;
+const cookieSecret = process.env.COOKIE_SECRET;
 
 // handle errors
 const handleErrors = (err) => {
@@ -42,14 +37,10 @@ module.exports.signup_post = async (req, res) => {
         connectMethod,
         budgetId 
     } = req.body;
-
     if (password !== confirmPassword) {
         return res.status(400).send("Passwords do not match");
     }
-
     try {
-
-    
         const userExists = await User
         .findOne({ emailUser: emailUser })
         .exec();
@@ -57,7 +48,6 @@ module.exports.signup_post = async (req, res) => {
             const err = {message: 'User already in database', code: 11000};
             throw err;
         }
-
         const user = await User.create({
             lastNameUser,
             firstNameUser,
@@ -70,15 +60,12 @@ module.exports.signup_post = async (req, res) => {
             connectMethod,
             budget: budgetId 
         });
-
         res.status(201).json(user);
     } catch (err) {
         const err_msg = handleErrors(err);
         res.status(400).send(err_msg);
     }
 };
-
-
 
 // Modifiez la méthode login_post pour utiliser JWT
 module.exports.login_post = async (req, res) => {
@@ -90,19 +77,17 @@ module.exports.login_post = async (req, res) => {
             return res.status(400).json({ message: 'Invalid email or password' });
         }
 
+        const accessToken = jwt.sign({ userId: user._id }, accessTokenSecret, { expiresIn: '1h' });
         // Si l'utilisateur existe, générez un jeton JWT
-        const token = jwt.sign({ userId: user._id }, secretKey, { expiresIn: '1h' });
-
+        const refreshToken = jwt.sign({ userId: user._id }, refreshTokenSecret, { secure: true }, { expiresIn: '1h' });
          // Stockez le jeton JWT dans un cookie
-         res.cookie('token', token, { httpOnly: true, maxAge: 3600000 }); // Expires in 1 hour (3600000 milliseconds)
-
+         res.cookie('refreshToken', refreshToken, { httpOnly: true, maxAge: 3600000 }); // Expires in 1 hour (3600000 milliseconds)
         // Renvoyez le jeton JWT au client
         res.status(200).json({ token });
     } catch (err) {
         res.status(500).json({ message: 'Internal server error' });
     }
 };
-
 
 // Middleware pour vérifier le jeton JWT
 module.exports.verifyToken = (req, res, next) => {

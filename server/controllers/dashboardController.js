@@ -30,11 +30,6 @@ router.post('/connect', auth.login_post);
     }
 });*/
 
-
-
-
-
-
 //router.get('/manouvelleroute', frontDashboard.displayTest);
 
 router.get('/manouvelleroute', async (req, res) => {
@@ -48,11 +43,7 @@ router.get('/manouvelleroute', async (req, res) => {
     }
 });
 
-
-
-
 /*
-
 router.get('/example', async (req, res) => {
     try {
         const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
@@ -73,18 +64,6 @@ router.get('/example', async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 });*/
-
-
-
-
-
-
-
-
-
-
-
-
 
 module.exports = router;
 // dashboardController.js

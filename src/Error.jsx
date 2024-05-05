@@ -1,5 +1,4 @@
 //Imports
-import { Link } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
 import { ButtonLink } from "./assets/components/Button";
 
@@ -45,9 +44,6 @@ p{
 }
 `
 
-
-//Fonctions
-
 function Error() {
     //State
     //Comportement
@@ -64,5 +60,4 @@ function Error() {
       </>
     )
   }
-  
   export default Error;

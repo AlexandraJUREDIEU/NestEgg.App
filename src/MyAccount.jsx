@@ -1,12 +1,5 @@
-//Imports
 import HeaderContainer from "./assets/layout/Header";
-
-
-
 //Styles
-
-
-
 //Fonctions
 const links = [
   {to:"/bank-account" , text:"Compte bancaire"},
@@ -15,7 +8,6 @@ const links = [
   {to:"/setting" , text:"Paramètre"},
   {to:"/dashboard" , text:"Tableau de bord"}, //A retirer
   ];
-
 
 function MyAccount() {
     //State

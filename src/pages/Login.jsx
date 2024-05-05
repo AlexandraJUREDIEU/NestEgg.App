@@ -2,6 +2,7 @@ import Input from "../assets/components/Input";
 import styled from "styled-components";
 import HeaderForm from "../assets/components/Headerform";
 import FooterForm from "../assets/components/FooterForm";
+import { AuthProvider } from "../auth/AuthWrapper";
 
 // Style
 
@@ -48,9 +49,8 @@ label{
     align-items: center;
     justify-content: center;
     gap: 0.5em;
-     margin-top: 3em;
+    margin-top: 3em;
 }
-
 `;
 
 function Login() {
