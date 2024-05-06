@@ -1,16 +1,18 @@
 const userModel = require('../models/user');
 
-// Define the functions that will be used in the routes
-exports.getUserByEmail = async (req, res) => {
+exports.getUsersList = async (req, res) => {
 	try {
-		const user = await userModel.findOne({ emailUser: req.params.mail });
-		if (!user) 
-		{
-			res.status(404).send('No item found');
-		}
+		const usersList = await userModel.find({}).exec();
+		if (!usersList) 
+			{
+				res.status(404).send('No item found');
+			}
 		else 
 		{
-			res.json(user);
+			const list = usersList.map(user => {
+				return {id: user._id, name: user.firstNameUser, lastname: user.lastNameUser, email: user.emailUser};
+		})
+			res.json(list);
 		}
 	} 
 	catch (err) 
@@ -20,17 +22,34 @@ exports.getUserByEmail = async (req, res) => {
 	}
 }
 
-exports.deleteUser = async (req, res) => {
+module.exports.getAuthenticatedUser = async (req, res) => {
 	try {
-		const user = await userModel
-			.findOneAndDelete({ emailUser: req.params.mail });
+		const user = await userModel.findById(req.user.id).exec();
 		if (!user) {
 			res.status(404).send('No item found');
 		}
-		res.json(user);
+		else {
+			res.json(user);
+		}
 	}
 	catch (err) {
-		res.status(500).send(err);
+		console.error(err);
+		res.status(500).send
 	}
 }
 
+module.exports.getUserById = async (req, res) => {
+	try {
+		const user = await userModel.findById(req.params.id).exec();
+		if (!user) {
+			res.status(404).send('No item found');
+		}
+		else {
+			res.json(user);
+		}
+	}
+	catch (err) {
+		console.error(err);
+		res.status(500).send(err);
+	}
+}

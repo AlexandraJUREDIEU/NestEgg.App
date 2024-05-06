@@ -52,7 +52,15 @@ const userSchema = new mongoose.Schema({
 		type: mongoose.Schema.Types.ObjectId, 
 		ref: 'Budget', 
 		required: false 
-	}
+	},
+	accessToken: { 
+		type: String, 
+		required: false 
+	},
+	refreshToken: { 
+		type: String, 
+		required: false 
+	},
 });
 
 module.exports = mongoose.model("User", userSchema, "Users");

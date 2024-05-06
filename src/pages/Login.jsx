@@ -2,7 +2,8 @@ import Input from "../assets/components/Input";
 import styled from "styled-components";
 import HeaderForm from "../assets/components/Headerform";
 import FooterForm from "../assets/components/FooterForm";
-import { AuthProvider } from "../auth/AuthWrapper";
+import { useState } from "react";
+import { useAuth } from "../auth/AuthWrapper";
 
 // Style
 
@@ -54,12 +55,29 @@ label{
 `;
 
 function Login() {
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const { loginAuth } = useAuth();
+
+    const emailUser = (e) => {
+        setEmail(e.target.value);
+    }
+
+    const passwordUser = (e) => {
+        setPassword(e.target.value);
+    }
+    const loginOnClick = (e) => {
+        e.preventDefault();
+        loginAuth({ email, password });
+    }
+
     return (
         <LoginStyle>
             <HeaderForm content="CONNEXION"/>
-            <form method="get">
-                <Input type="email" placeholder="E-mail"/>
-                <Input type="password" placeholder="Mot de passe"/>
+            <form onSubmit={loginOnClick} method="get">
+                <Input type="email" value={email} placeholder="E-mail" onChange={emailUser} />
+                <Input type="password" value={password} placeholder="Mot de passe" onChange={passwordUser}/>
                 
                 <p className="forget-password">Mot de passe oublié ? Cliquez <a href="/">ici</a></p>
 
@@ -68,7 +86,7 @@ function Login() {
                 <label htmlFor="remember-me">Se souvenir de moi</label>
                 </div>
 
-            <FooterForm classNameP="balmy" content="Se connecter" contentP="Je n'ai pas de compte. " contentSpan="S'inscrire" href="/signin"/>    
+            <FooterForm classNameP="balmy" content="Se connecter" contentP="Je n'ai pas de compte. " contentSpan="S'inscrire" />    
             </form>
         </LoginStyle>
     );

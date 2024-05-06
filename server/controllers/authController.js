@@ -1,30 +1,33 @@
 require('dotenv').config();
 const User = require('../models/user.js');
 const jwt = require('jsonwebtoken');
+const { generatJWT, clearTokens } = require('../services/auth.js');
+const bcrypt = require('bcrypt');
+const user = require('../models/user.js');
 const accessTokenSecret = process.env.ACCESS_TOKEN_SECRET;
 const refreshTokenSecret = process.env.REFRESH_TOKEN_SECRET;
 const cookieSecret = process.env.COOKIE_SECRET;
 
 // handle errors
 const handleErrors = (err) => {
-	let errors = { lastNameUser: '', firstNameUser: '', emailUser: '', password: '', confirmPassword: '', newsletter: '', commercialAd: '', premium: '', connectMethod: '', budget: '' };
+    let errors = { lastNameUser: '', firstNameUser: '', emailUser: '', password: '', confirmPassword: '', newsletter: '', commercialAd: '', premium: '', connectMethod: '', budget: '' };
     console.log(err.code);
     console.log(err.message, err.code);
-	if (err.code === 11000) {
-		errors.email = 'that email is already registered';
-		return errors;
-	}
+    if (err.code === 11000) {
+        errors.email = 'that email is already registered';
+        return errors;
+    }
 
     console.log(err.message);
-	if (err.message.includes('User validation failed')) {
-		Object.values(err.errors).forEach(({ properties }) => {
-			errors[properties.path] = properties.message;
-		});
-	}
-	return errors;
+    if (err.message.includes('User validation failed')) {
+        Object.values(err.errors).forEach(({ properties }) => {
+            errors[properties.path] = properties.message;
+        });
+    }
+    return errors;
 }
 
-module.exports.signup_post = async (req, res) => {
+module.exports.signup_post = async (req, res, next) => {
     const {
         lastNameUser,
         firstNameUser,
@@ -35,17 +38,19 @@ module.exports.signup_post = async (req, res) => {
         commercialAd,
         premium,
         connectMethod,
-        budgetId 
+        budgetId,
+        status
     } = req.body;
+
     if (password !== confirmPassword) {
         return res.status(400).send("Passwords do not match");
     }
     try {
         const userExists = await User
-        .findOne({ emailUser: emailUser })
-        .exec();
-        if (userExists){
-            const err = {message: 'User already in database', code: 11000};
+            .findOne({ emailUser: emailUser })
+            .exec();
+        if (userExists) {
+            const err = { message: 'User already in database', code: 11000 };
             throw err;
         }
         const user = await User.create({
@@ -53,54 +58,87 @@ module.exports.signup_post = async (req, res) => {
             firstNameUser,
             emailUser: emailUser,
             password,
-			confirmPassword,
+            confirmPassword,
             newsletter,
             commercialAd,
             premium,
             connectMethod,
-            budget: budgetId 
+            budget: budgetId,
+            status: status
         });
-        res.status(201).json(user);
+        next();
     } catch (err) {
+        console.log(err);
         const err_msg = handleErrors(err);
         res.status(400).send(err_msg);
     }
 };
 
-// Modifiez la méthode login_post pour utiliser JWT
-module.exports.login_post = async (req, res) => {
+module.exports.login_post = async (req, res, next) => {
     const { emailUser, password } = req.body;
     try {
-        // Vérifiez si l'utilisateur existe dans la base de données avec l'email et le mot de passe fournis
         const user = await User.findOne({ emailUser, password }).exec();
         if (!user) {
             return res.status(400).json({ message: 'Invalid email or password' });
         }
-
-        const accessToken = jwt.sign({ userId: user._id }, accessTokenSecret, { expiresIn: '1h' });
-        // Si l'utilisateur existe, générez un jeton JWT
-        const refreshToken = jwt.sign({ userId: user._id }, refreshTokenSecret, { secure: true }, { expiresIn: '1h' });
-         // Stockez le jeton JWT dans un cookie
-         res.cookie('refreshToken', refreshToken, { httpOnly: true, maxAge: 3600000 }); // Expires in 1 hour (3600000 milliseconds)
-        // Renvoyez le jeton JWT au client
-        res.status(200).json({ token });
-    } catch (err) {
-        res.status(500).json({ message: 'Internal server error' });
+        req.userId = user._id;
+        return next();
+    } catch (error) {
+        return next(error);
     }
 };
 
-// Middleware pour vérifier le jeton JWT
-module.exports.verifyToken = (req, res, next) => {
-    const token = req.headers.authorization;
-    if (!token) {
-        return res.status(401).json({ message: 'Unauthorized' });
+module.exports.logout = async (req, res, next) => {
+    try {
+        await clearTokens(req, res, next);
+        res.status(204);
     }
+    catch (error) {
+        return next(error);
+    }
+};
 
-    jwt.verify(token, secretKey, (err, decoded) => {
-        if (err) {
-            return res.status(403).json({ message: 'Invalid token' });
+module.exports.refreshAccessToken = async (req, res, next) => {
+
+    const { REFRESH_TOKEN_SECRET, ACCESS_TOKEN_SECRET, ACCESS_TOKEN_LIFE } = process.env;
+
+    const { signedCookies } = req;
+    const { refreshToken } = signedCookies;
+    if (!refreshToken) {
+        return res.sendStatus(204);
+    }
+    try {
+        const refreshTokenInDB = await user.findOne({ refreshToken });
+        if (!refreshTokenInDB) {
+            await clearTokens(req, res, next);
+            const error = createError.Unauthorized();
+            throw error;
         }
-        req.userId = decoded.userId;
-        next();
-    });
-};
+        try {
+            const decodedToken = jwt.verify(refreshToken, REFRESH_TOKEN_SECRET);
+            const { userId } = decodedToken;
+            const user = users.find(user => user.id == userId);
+
+            if (!user) {
+                await clearTokens(req, res);
+                const error = createError("Invalid credentials", 401);
+                throw error;
+            }
+
+            const accessToken = generateJWT(
+                user.id,
+                ACCESS_TOKEN_SECRET,
+                ACCESS_TOKEN_LIFE
+            );
+            return res.status(200).json({
+                user,
+                accessToken,
+                expiresAt: new Date(Date.now() + ms(ACCESS_TOKEN_LIFE)),
+            });
+        } catch (error) {
+            return next(error);
+        }
+    } catch (error) {
+        return next(error);
+    }
+}

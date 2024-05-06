@@ -1,19 +1,12 @@
 //user routes
 const express = require('express');
 const router = express.Router();
+const { isAuthenticated } = require('../middlewares/auth');
 
-// Import the controllers
 const userController = require('../controllers/userController');
-const authController = require('../controllers/authController');
-const dashboardController = require('../controllers/dashboardController');
 
-// Define the routes
-router.get('/', (req, res) => {
-	res.send('Hello Users!');
-})
-
-router.get('/:mail', userController.getUserByEmail);
-router.post('/signup', authController.signup_post);
-router.post('/login', authController.login_post);
+router.get('/list', userController.getUsersList);
+router.get('/me', isAuthenticated, userController.getAuthenticatedUser);
+router.get('/:id', isAuthenticated, userController.getUserById);
 
 module.exports = router;

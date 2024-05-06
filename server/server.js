@@ -12,8 +12,8 @@ const cookieParser = require('cookie-parser');
 require('./config/Database');   
 
 app.use(cors());
-app.use(cookieParser());
-app.use(express.json());
+app.use(cookieParser(process.env.COOKIE_SECRET));
+app.use(express.json({type: 'application/json'}));
 
 //Define the routes
 app.use('/', router);

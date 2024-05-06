@@ -1,4 +1,3 @@
-//Imports
 import HeaderContainer from "./assets/layout/Header";
 import AboutUs from "./pages/AboutUs";
 import Concept from "./pages/Concept";
@@ -8,11 +7,7 @@ import React, { useRef } from 'react';
 import styled from "styled-components";
 import FooterMain from "./assets/layout/FooterMain";
 
-
-//Styles
-
 const StyledSection = styled.section`
-
 
   .scroller{
     
@@ -24,9 +19,6 @@ const StyledSection = styled.section`
     scroll-snap-align: start;
   }
 `;
-
-//Fonctions
-
 
 export default function App() {
 
@@ -44,14 +36,8 @@ const links = [
 {to:"#about-us" , text:"Qui sommes nous?", onClick: () => scrollToSection(aboutUsRef)},
 {to:"#price" , text:"Tarifs", onClick: () => scrollToSection(pricingRef)},
 {to:"/login" , text:"Connexion"},
-
 ];
 
-
-  //State
-  
-  //Comportement
-  //Render
   return (<>
   <div className="scroller">
       <HeaderContainer links={links}/>
@@ -64,5 +50,3 @@ const links = [
       </>
   )
 }
-
-
