@@ -57,18 +57,18 @@ function Login() {
 
     const { loginAuth } = useAuth();
 
+    
     const loginOnClick = (e) => {
         e.preventDefault();
-        console.log(email, password);
-        loginAuth({ email, password });
+        loginAuth({ email: document.getElementById("email").value, password: document.getElementById("password").value });
     }
 
     return (
         <LoginStyle>
             <HeaderForm content="CONNEXION"/>
-            <form onSubmit={loginOnClick} method="post">
-                <Input type="email" value={email} placeholder="E-mail" />
-                <Input type="password" value={password} placeholder="Mot de passe" />
+            <form onClick={loginOnClick} method="post">
+                <Input id="email" type="email"  placeholder="E-mail" />
+                <Input id="password" type="password" placeholder="Mot de passe" />
                 
                 <p className="forget-password">Mot de passe oublié ? Cliquez <a href="/">ici</a></p>
 

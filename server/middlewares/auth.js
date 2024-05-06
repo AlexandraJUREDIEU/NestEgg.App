@@ -14,12 +14,13 @@ module.exports.generateAuthToken = async (req, res, next) =>
 				return res.status(404).send('User not found');
 			}
 	
+		
 			const refreshToken = generateJWT(
 				req.userId,
 				`${process.env.REFRESH_TOKEN_SECRET}`,
 				REFRESH_TOKEN_LIFE
 			);
-	
+
 			const accessToken = generateJWT(
 				req.userId, 
 				`${process.env.ACCESS_TOKEN_SECRET}`, 
