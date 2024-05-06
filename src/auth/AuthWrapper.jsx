@@ -1,12 +1,13 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 
 const AuthContext = createContext();
 
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState({ name: "", isAuth: false });
+    const [user, setUser] = useState({ name: "", isAuth: true });
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -21,7 +22,6 @@ export const AuthProvider = ({ children }) => {
             const response = await axios.post('http://localhost:8000/auth/login', { emailUser: emailUser, password: password });
             localStorage.setItem('token', JSON.stringify(response.data.token));
             setUser({ name: emailUser, isAuth: true });
-
         } catch (error) {
             console.error("Login failed:", error);
         }

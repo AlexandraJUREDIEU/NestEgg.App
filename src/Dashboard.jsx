@@ -5,6 +5,7 @@ import { createGlobalStyle } from "styled-components";
 import { ButtonLink } from "./assets/components/Button";
 import CircleRadialProgress from "./assets/components/CircleRadialProgress";
 import ProgressBar from "./assets/components/ProgressBar";
+import { useAuth } from "./auth/AuthWrapper";
 
 //Styles
 const DashboardStyle = createGlobalStyle`
