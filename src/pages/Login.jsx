@@ -2,7 +2,9 @@ import Input from "../assets/components/Input";
 import styled from "styled-components";
 import HeaderForm from "../assets/components/Headerform";
 import FooterForm from "../assets/components/FooterForm";
+import { useState } from "react";
 import { useAuth } from "../auth/AuthWrapper";
+import { set } from "mongoose";
 
 // Style
 
@@ -59,16 +61,21 @@ function Login() {
 
     
     const loginOnClick = (e) => {
+        const emailInput = document.querySelector("input[name='email']").value;
+        const passwordInput = document.querySelector("input[name='password']").value;
+        console.log({ emailUser: emailInput, password: passwordInput });
+        console.log({ emailUser: emailInput, password: passwordInput });
+        loginAuth({ emailUser: emailInput, password: passwordInput });
+
         e.preventDefault();
-        loginAuth({ email: document.getElementById("email").value, password: document.getElementById("password").value });
     }
 
     return (
         <LoginStyle>
             <HeaderForm content="CONNEXION"/>
-            <form onClick={loginOnClick} method="post">
-                <Input id="email" type="email"  placeholder="E-mail" />
-                <Input id="password" type="password" placeholder="Mot de passe" />
+            <form method="post">
+                <Input name="email" type="email" value="email" placeholder="E-mail" />
+                <Input name="password" type="password" value="password" placeholder="Mot de passe" />
                 
                 <p className="forget-password">Mot de passe oublié ? Cliquez <a href="/">ici</a></p>
 
@@ -77,7 +84,7 @@ function Login() {
                 <label htmlFor="remember-me">Se souvenir de moi</label>
                 </div>
 
-            <FooterForm classNameP="balmy" content="Se connecter" contentP="Je n'ai pas de compte. " contentSpan="S'inscrire" />    
+                <button onClick={loginOnClick}>valider</button>
             </form>
         </LoginStyle>
     );

@@ -41,6 +41,7 @@ function Input(props) {
     <div>
       <StyledInput
         type={props.type}
+        name={props.name}
         placeholder={props.placeholder}
         value={inputValue}
         onChange={handleChange}

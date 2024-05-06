@@ -15,11 +15,13 @@ export const AuthProvider = ({ children }) => {
         }
     }, []);
 
-    const loginAuth = async ({ username, password }) => {
+    const loginAuth = async ({ emailUser, password }) => {
         try {
-            const response = await axios.post('http://localhost:8000/auth/login', { emailUser, password });
+            console.log({ emailUser: emailUser, password: password });
+            const response = await axios.post('http://localhost:8000/auth/login', { emailUser: emailUser, password: password });
             localStorage.setItem('token', JSON.stringify(response.data.token));
-            setUser({ name: username, isAuth: true });
+            setUser({ name: emailUser, isAuth: true });
+
         } catch (error) {
             console.error("Login failed:", error);
         }
