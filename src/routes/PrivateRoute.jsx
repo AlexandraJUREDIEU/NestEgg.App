@@ -5,7 +5,7 @@ import { useAuth } from '../auth/AuthWrapper';
 const PrivateRoute = ({ children }) => {
     const { user } = useAuth();
 
-    return user.isAuth ? children : <Navigate to="/login" replace />;
+    return user.isAuth ? children : <Navigate to="/login" />;
 };
 
 export default PrivateRoute;

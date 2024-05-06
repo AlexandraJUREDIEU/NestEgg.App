@@ -2,7 +2,6 @@ import Input from "../assets/components/Input";
 import styled from "styled-components";
 import HeaderForm from "../assets/components/Headerform";
 import FooterForm from "../assets/components/FooterForm";
-import { useState } from "react";
 import { useAuth } from "../auth/AuthWrapper";
 
 // Style
@@ -56,28 +55,20 @@ label{
 
 function Login() {
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
     const { loginAuth } = useAuth();
 
-    const emailUser = (e) => {
-        setEmail(e.target.value);
-    }
-
-    const passwordUser = (e) => {
-        setPassword(e.target.value);
-    }
     const loginOnClick = (e) => {
         e.preventDefault();
+        console.log(email, password);
         loginAuth({ email, password });
     }
 
     return (
         <LoginStyle>
             <HeaderForm content="CONNEXION"/>
-            <form onSubmit={loginOnClick} method="get">
-                <Input type="email" value={email} placeholder="E-mail" onChange={emailUser} />
-                <Input type="password" value={password} placeholder="Mot de passe" onChange={passwordUser}/>
+            <form onSubmit={loginOnClick} method="post">
+                <Input type="email" value={email} placeholder="E-mail" />
+                <Input type="password" value={password} placeholder="Mot de passe" />
                 
                 <p className="forget-password">Mot de passe oublié ? Cliquez <a href="/">ici</a></p>
 
