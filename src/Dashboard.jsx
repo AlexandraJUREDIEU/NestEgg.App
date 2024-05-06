@@ -6,6 +6,11 @@ import { ButtonLink } from "./assets/components/Button";
 import CircleRadialProgress from "./assets/components/CircleRadialProgress";
 import ProgressBar from "./assets/components/ProgressBar";
 import { useAuth } from "./auth/AuthWrapper";
+import { useState, useEffect } from "react";
+import axios from 'axios';
+import API_URL from './config';
+
+
 
 //Styles
 const DashboardStyle = createGlobalStyle`
@@ -132,7 +137,32 @@ const links = [
   ];
 
 function Dashboard() {
+
+
     //State
+const [transactions, setTransactions] = useState([]);
+
+
+  useEffect(() => {
+    axios.get(`${API_URL}/dashboard/transactions`)
+      .then(response => {
+        const transactions = response.data[0].transactions;
+        setTransactions(transactions);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
+
+
+  console.log("vvvvvv");
+  console.log(transactions[0]);
+  if (transactions.length > 0) {
+    console.log(transactions[0].name);
+  }
+  console.log("^^^^^^");
+
+
 
     //Comportement
     const handleBoxClick = (id) => {
@@ -160,12 +190,33 @@ function Dashboard() {
               <p>697.02€</p>
             </>}/>
           <Box id={4} href="/addTransaction" onClickAction={handleBoxClick} className="short-box" children={
-            <>
-              <h3 className="last-spent">Vos dernières dépenses</h3>
-              <div className="spent">Dépense 1</div>
-              <div className="spent">Dépense 2</div>
-              <div className="spent">Dépense 3</div>
-            </>}/>
+          <>
+            <h3 className="last-spent">Vos dernières dépenses</h3>
+            {transactions.length > 0 && (
+            <div className="spent">
+              {transactions[0].typeCategory}
+              {transactions[0].date}
+              {transactions[0].name}
+              {transactions[0].montant}
+            </div>
+            )}
+            {transactions.length > 0 && (
+            <div className="spent">
+              {transactions[1].typeCategory}
+              {transactions[1].date}
+              {transactions[1].name}
+              {transactions[1].montant}
+            </div>
+            )}
+            {transactions.length > 0 && (
+            <div className="spent">
+              {transactions[2].typeCategory}
+              {transactions[2].date}
+              {transactions[2].name}
+              {transactions[2].montant}
+            </div>
+            )}
+          </>}/>
           <Box id={5} href="/incoming" onClickAction={handleBoxClick} className="short-box" children={
             <>
               <img src="ico-add-transaction.png" alt="image carte banquaire" className="ico-add-transaction"/>

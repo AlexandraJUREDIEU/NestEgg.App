@@ -7,6 +7,7 @@ const port = process.env.PORT || 3000;
 const cors = require('cors');
 const router = require('./routes/index');
 const cookieParser = require('cookie-parser');
+const API_URL = process.env.API_URL || 'http://localhost:8000';
 
 
 require('./config/Database');   
@@ -21,3 +22,13 @@ app.use('/', router);
 app.listen(port, () => {
     console.log(`app listening on port ${port}`)
 })
+
+// Utilisation de API_URL
+app.get('/api', (req, res) => {
+    res.send(`API disponible à l'URL : ${API_URL}`);
+});
+
+
+
+
+

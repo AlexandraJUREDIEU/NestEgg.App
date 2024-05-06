@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 
+
 // Import the services
 const transactionService = require('../services/transactionService.js');
 const bankAccountService = require('../services/bankAccountService.js');
@@ -19,7 +20,7 @@ router.get('/transactions', transactionService.getAllTransactions);
 router.get('/budget', budgetService.getBudgetByUser);
 router.get('/fixedCharges', bankAccountService.getFixedCharges);
 router.post('/connect', auth.login_post);
-/*router.get('/getnbrtransactions', async (req, res) => {
+router.get('/getnbrtransactions', async (req, res) => {
     try {
         const response = await axios.get('http://localhost:8000/dashboard/transactions');
         res.json("Il y a " + response.data[0].transactions.length + " transactions.");
@@ -28,14 +29,15 @@ router.post('/connect', auth.login_post);
         console.error(error);
         res.status(500).json({ error: 'Internal server error' });
     }
-});*/
+});
 
 //router.get('/manouvelleroute', frontDashboard.displayTest);
 
 router.get('/manouvelleroute', async (req, res) => {
     try {
-        const response = await axios.get('http://localhost:8000/dashboard/transactions');
-        res.json(response.data);
+        const response = await axios.get('/transactions');
+        console.log(response);
+        //res.json(response.data);
     }
     catch {
         console.error(error);
