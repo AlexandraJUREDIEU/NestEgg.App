@@ -10,8 +10,6 @@ module.exports.generateAuthToken = async (req, res, next) =>
 	{
 		try {
 			const user = await userModel.findById(req.userId).exec();
-			console.log(user);
-			console.log(`${process.env.ACCESS_TOKEN_SECRET}`)
 			if (!user) {
 				return res.status(404).send('User not found');
 			}
@@ -27,12 +25,6 @@ module.exports.generateAuthToken = async (req, res, next) =>
 				`${process.env.ACCESS_TOKEN_SECRET}`, 
 				ACCESS_TOKEN_LIFE
 			);
-	
-			const token = {
-				refreshToken,
-				userId: req.userId,
-				expirationTime: new Date(Date.now() + ms(REFRESH_TOKEN_LIFE)).getTime(),
-			};
 	
 			await userModel.findOneAndUpdate({ _id: req.userId }, { refreshToken: refreshToken })
 	

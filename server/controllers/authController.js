@@ -1,14 +1,10 @@
 require('dotenv').config();
 const User = require('../models/user.js');
 const jwt = require('jsonwebtoken');
-const { generatJWT, clearTokens } = require('../services/auth.js');
+const { clearTokens } = require('../services/auth.js');
 const bcrypt = require('bcrypt');
 const user = require('../models/user.js');
-const accessTokenSecret = process.env.ACCESS_TOKEN_SECRET;
-const refreshTokenSecret = process.env.REFRESH_TOKEN_SECRET;
-const cookieSecret = process.env.COOKIE_SECRET;
 
-// handle errors
 const handleErrors = (err) => {
     let errors = { lastNameUser: '', firstNameUser: '', emailUser: '', password: '', confirmPassword: '', newsletter: '', commercialAd: '', premium: '', connectMethod: '', budget: '' };
     console.log(err.code);
@@ -66,6 +62,7 @@ module.exports.signup_post = async (req, res, next) => {
             budget: budgetId,
             status: status
         });
+        req.userId = user._id;
         next();
     } catch (err) {
         console.log(err);
@@ -117,7 +114,7 @@ module.exports.refreshAccessToken = async (req, res, next) => {
         try {
             const decodedToken = jwt.verify(refreshToken, REFRESH_TOKEN_SECRET);
             const { userId } = decodedToken;
-            const user = users.find(user => user.id == userId);
+            const user = User.findOne({ _id: userId});
 
             if (!user) {
                 await clearTokens(req, res);
