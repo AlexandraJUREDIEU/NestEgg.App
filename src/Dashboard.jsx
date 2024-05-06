@@ -154,14 +154,14 @@ const [transactions, setTransactions] = useState([]);
       });
   }, []);
 
-
+/*
   console.log("vvvvvv");
   console.log(transactions[0]);
   if (transactions.length > 0) {
     console.log(transactions[0].name);
   }
   console.log("^^^^^^");
-
+*/
 
 
     //Comportement
