@@ -5,6 +5,9 @@ import FooterForm from "../assets/components/FooterForm";
 import { useState } from "react";
 import { useAuth } from "../auth/AuthWrapper";
 import { set } from "mongoose";
+import { useNavigate } from "react-router-dom";
+import axios from 'axios';
+import API_URL from '../config';
 
 // Style
 
@@ -58,17 +61,51 @@ label{
 function Login() {
 
     const { loginAuth } = useAuth();
-
+    const navigate = useNavigate();
     
-    const loginOnClick = (e) => {
+    const loginOnClick = async (e) => {
+        e.preventDefault();
         const emailInput = document.querySelector("input[name='email']").value;
         const passwordInput = document.querySelector("input[name='password']").value;
-        console.log({ emailUser: emailInput, password: passwordInput });
-        console.log({ emailUser: emailInput, password: passwordInput });
-        loginAuth({ emailUser: emailInput, password: passwordInput });
+        
+        try {
+            const response = await loginAuth({ emailUser: emailInput, password: passwordInput });
+            if (response.status==200){
+                const userListResponse = await axios.get(`${API_URL}/users/list`);
+                const users = userListResponse.data;
+                const user = users.find(user => user.email === emailInput);
+                if (user) {
+                    console.log("User details:", user);
+                    navigate("/dashboard");
+                } else {
+                    console.log("User not found");
+                }
+            }
+        } catch (error) {
+            console.error("Error during login:", error);
+        }
+    };
+    
 
-        e.preventDefault();
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
     return (
         <LoginStyle>

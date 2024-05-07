@@ -18,10 +18,10 @@ export const AuthProvider = ({ children }) => {
 
     const loginAuth = async ({ emailUser, password }) => {
         try {
-            console.log({ emailUser: emailUser, password: password });
             const response = await axios.post('http://localhost:8000/auth/login', { emailUser: emailUser, password: password });
             localStorage.setItem('token', JSON.stringify(response.data.token));
             setUser({ name: emailUser, isAuth: true });
+            return response;
         } catch (error) {
             console.error("Login failed:", error);
         }
