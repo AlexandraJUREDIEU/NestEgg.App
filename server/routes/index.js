@@ -5,7 +5,7 @@ const router = express.Router();
 const userRoute = require('./userRoute.js');
 // const budgetRoute = require('./budgetRoute.js');
 const auth = require('./auth.js');
-const dashboardRoute = require('./dashboardRoute.js');
+const homeController = require('../controllers/dashboardController.js');
 
 router.get('/', (req, res) => {
 	res.send('Welcome to the API');
@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 // router.use('/budget', budgetRoute);
 router.use('/users', userRoute);
 router.use('/auth', auth.router);
-router.use('/api', dashboardRoute.router)
 
+router.use('/dashboard', homeController);
 
 module.exports = router;

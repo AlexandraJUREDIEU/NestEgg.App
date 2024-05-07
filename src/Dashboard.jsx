@@ -142,22 +142,17 @@ function Dashboard() {
     //State
 const [transactions, setTransactions] = useState([]);
 
-const reqData = axios.get(`${API_URL}/dashboard/transactions`, {
-  headers: {
-    Authorization: `Bearer ${localStorage.getItem('token')}`
-  }
-})
-  .then(response => {
-    const transactions = response.data[0].transactions;
-    setTransactions(transactions);
-  })
-  .catch(error => {
-    console.error('Error fetching data:', error);
-  });
-}
 
   useEffect(() => {
-    reqData(), []});
+    axios.get(`${API_URL}/dashboard/transactions`)
+      .then(response => {
+        const transactions = response.data[0].transactions;
+        setTransactions(transactions);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
 
 
 

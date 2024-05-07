@@ -24,7 +24,9 @@ app.listen(port, () => {
 })
 
 // Utilisation de API_URL
-
+app.get('/api', (req, res) => {
+    res.send(`API disponible à l'URL : ${API_URL}`);
+});
 
 
 
