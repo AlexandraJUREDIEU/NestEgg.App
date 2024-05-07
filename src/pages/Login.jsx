@@ -76,7 +76,7 @@ function Login() {
                 const user = users.find(user => user.email === emailInput);
                 if (user) {
                     console.log("User details:", user);
-                    navigate("/dashboard");
+                    navigate(`/dashboard?userId=${user.id}`);
                 } else {
                     console.log("User not found");
                 }

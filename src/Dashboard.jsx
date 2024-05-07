@@ -159,15 +159,21 @@ const reqData = axios.get(`${API_URL}/dashboard/transactions`, {
   useEffect(() => {
     reqData(), []});
 
-/*
-  console.log("vvvvvv");
-  console.log(transactions[0]);
-  if (transactions.length > 0) {
-    console.log(transactions[0].name);
-  }
-  console.log("^^^^^^");
-*/
 
+
+  const [activeUser, setActiveUser] = useState([]);
+  async function getUser() {
+    const idUser = new URLSearchParams(location.search).get("userId");
+    const userListResponse = await axios.get(`${API_URL}/users/list`);
+    const users = userListResponse.data;
+    const user = users.find(user => user.id === idUser);
+    if (user) {
+      setActiveUser(user);
+    } else {
+      console.log("User not found");
+    }
+  }
+  getUser();
 
     //Comportement
     const handleBoxClick = (id) => {
@@ -181,7 +187,11 @@ const reqData = axios.get(`${API_URL}/dashboard/transactions`, {
         <HeaderContainer links={links}/>
         <h1>Tableau de bord</h1>
         <section className="div-container-boxes">
-          <Box id={1} href="/profile" onClickAction={handleBoxClick} className="short-box" children={<><h3 className="font-300">Salut Claire!</h3> <ButtonLink content="Actualiser mes charges" /></>}/>
+          <Box id={1} href="/profile" onClickAction={handleBoxClick} className="short-box" children={<>
+          <h3 className="font-300">
+            Salut 
+          {<div>{activeUser.name}</div>}
+          </h3> <ButtonLink content="Actualiser mes charges" /></>}/>
           <Box id={2} href="/settings" onClickAction={handleBoxClick} className="short-box" children={
             <>
               <h3 className="font-300">
