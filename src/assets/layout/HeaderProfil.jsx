@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 //Styles
 const HeaderProfilStyle = styled.header`
+  /*Vue globale*/
   display: flex;
   flex-direction: row;
   img {
@@ -25,26 +26,39 @@ const HeaderProfilStyle = styled.header`
     display: flex;
     align-items: center;
   }
-  .nomHeaderProfil {
-    display: none;
+  ul li a.active {
+    background:red;
   }
 
+  /*Vue mobile*/
+  @media screen and (max-width: 1000px) {
+    ul li:first-child {
+      display:none;
+    }
+    .nomHeaderProfil {
+      display: none;
+    }
+  }
+  
+  /*Vue desktop*/
   @media screen and (min-width: 1000px) {
+    flex-direction: column;
     ul {
       flex-direction: column;
       left: 0;
       top: 0;
       width: 20%;
       align-items: center;
-      border-radius: 2em;
+      border-radius: 0 2em 2em 0;
     }
-    .nomHeaderProfil {
-      display: flex;
+    li a {
+      display:flex;
+      align-items: center;
     }
-    img {
-      display: none;
+    ul li:first-child img {
+      width:10em;
+      height:10em;
     }
-    flex-direction: column;
   }
 `;
 
@@ -53,11 +67,20 @@ export default function HeaderProfil({ links }) {
     <>
       <HeaderProfilStyle>
       <ul>
-          {links.map((link, index) => (
+        <li>
+          <Link to="/">
+            <img
+            src="/logo_nestegg.png"
+            alt="Logo NestEgg"
+            className="header-logo"
+            />
+          </Link>
+        </li>
+          {links.map((link, index, imgsrc) => (
             <li key={index}>
-              <Link to={link.to}>
+              <Link to={link.to} className={link.to === location.pathname ? 'active' : ''}>
                 <div className="user-round-connexion">
-                  <img src="icons-user-round.png" alt="User" />
+                  <img src={link.imgsrc} alt="User" />
                 </div>
                 <div className="nomHeaderProfil balmy">{link.text}</div>
               </Link>
