@@ -1,5 +1,14 @@
 import HeaderContainer from "./assets/layout/Header";
+import HeaderProfile from './assets/layout/HeaderProfil.jsx';
+import styled from "styled-components";
 //Styles
+const Style = styled.header`
+  width:100wh;
+  height:100vh;
+`;
+
+
+
 //Fonctions
 const links = [
   {to:"/bank-account" , text:"Compte bancaire"},
@@ -15,8 +24,10 @@ function MyAccount() {
     //Render
     return (
       <>
-      <HeaderContainer links={links}/>
-        <h1>Mon Compte</h1>
+        <Style>
+        <HeaderProfile links={links}></HeaderProfile>
+          Mon profil:
+        </Style>
       </>
     )
   }
