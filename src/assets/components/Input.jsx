@@ -49,4 +49,33 @@ function Input(props) {
     </div>
   );
 }
-export default Input;
+
+// Functions
+function Select(props)  {
+  // State
+  const [selectedValue, setSelectedValue] = useState("");
+
+  // Comportement
+  const handleChange = (e) => {
+    setSelectedValue(e.target.value);
+    if (props.onChange) {
+      props.onChange(e.target.value);
+    }
+  };
+
+  // Render
+  return (
+    <div>
+      <StyledInput value={selectedValue} onChange={handleChange}>
+        {props.options.map((option, index) => (
+          <option key={index} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </StyledInput>
+    </div>
+  );
+}
+
+export {Input, Select} ;
+
