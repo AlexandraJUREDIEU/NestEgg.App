@@ -9,7 +9,7 @@ const HeaderProfilStyle = styled.header`
   flex-direction: row;
   img {
     width: 2em;
-    height: 2em;
+    height: 8vh;
   }
   ul {
     display: flex;
@@ -20,9 +20,10 @@ const HeaderProfilStyle = styled.header`
     bottom: 0;
     border-radius: 8em 8em 0 0;
     background-color: rgba(255, 255, 255, 0.5);
+    height:10%;
   }
   li {
-    padding: 0.5em 0;
+    padding: 1vh 0;
     display: flex;
     align-items: center;
   }

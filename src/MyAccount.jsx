@@ -1,11 +1,11 @@
 import HeaderContainer from "./assets/layout/Header";
 import HeaderProfile from './assets/layout/HeaderProfil.jsx';
+
+
 import styled from "styled-components";
 
 
 
-import SectionInWrapper from "./assets/components/SectionInWrapper";
-import Wrapper from "./assets/components/Wrapper";
 import Profil from "./pages/myAccount/Profil.jsx";
 import Compte from "./pages/myAccount/Compte.jsx";
 import Ressources from "./pages/myAccount/Ressources.jsx";
@@ -17,11 +17,14 @@ const Style = styled.header`
   /*Vue globale*/
   width:100wh;
   height:100vh;
-  .section{
+  section{
     border-radius:50px;
     background-color: rgba(255, 255, 255, 0.5);
     padding:0 5em;
     padding-top:1em;
+  }
+  section {
+    height: 90vh;
   }
 
   /*Vue mobile*/
@@ -82,42 +85,15 @@ function MyAccount() {
       <>
         <Style>
         <HeaderProfile links={links}></HeaderProfile>
-        <div className="sections">
+        {/*<div className="sections">
           <section className="section section1">section1</section>
           <section className="section section2">section2</section>
-        </div>
-        <Profil />
-        <Compte />
-        <Ressources />
-        <ChargesFixes />
+        </div>*/}
 
-
-
-
-
-
-
-          {/*Ressources */}
-          <Wrapper
-            initial={<div>SOSO LE PELICAN</div>}
-            deroule={<><SectionInWrapper
-              title="Salaire N°1"
-              text="Arrive vers le"
-              listOptions={['01', '02', '03']}
-            />
-            <SectionInWrapper
-              title="Salaire N°2"
-              text="Arrive vers le"
-              listOptions={['01', '02', '03']}
-            />
-            <SectionInWrapper
-              title="Salaire N°3"
-              text="Arrive vers le"
-              listOptions={['01', '02', '03']}
-            /></>
-          }
-        >
-        </Wrapper>
+        <section><Profil /></section>
+        <section><Compte /></section>
+        <section><Ressources /></section>
+        <section><ChargesFixes /></section>
         </Style>
       </>
     )
