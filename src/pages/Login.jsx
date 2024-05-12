@@ -1,4 +1,4 @@
-import Input from "../assets/components/Input";
+import {Input} from "../assets/components/Input";
 import styled from "styled-components";
 import HeaderForm from "../assets/components/Headerform";
 import FooterForm from "../assets/components/FooterForm";

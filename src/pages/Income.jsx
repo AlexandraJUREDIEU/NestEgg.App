@@ -1,4 +1,4 @@
-import Input from "../assets/components/Input";
+import {Input} from "../assets/components/Input";
 import Wrapper from "../assets/components/Wrapper";
 
 function Income(){

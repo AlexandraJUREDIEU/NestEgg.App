@@ -1,6 +1,17 @@
 import HeaderContainer from "./assets/layout/Header";
 import HeaderProfile from './assets/layout/HeaderProfil.jsx';
 import styled from "styled-components";
+
+
+
+import SectionInWrapper from "./assets/components/SectionInWrapper";
+import Wrapper from "./assets/components/Wrapper";
+import Profil from "./pages/myAccount/Profil.jsx";
+import Compte from "./pages/myAccount/Compte.jsx";
+import Ressources from "./pages/myAccount/Ressources.jsx";
+import ChargesFixes from "./pages/myAccount/ChargesFixes.jsx";
+
+
 //Styles
 const Style = styled.header`
   /*Vue globale*/
@@ -75,6 +86,38 @@ function MyAccount() {
           <section className="section section1">section1</section>
           <section className="section section2">section2</section>
         </div>
+        <Profil />
+        <Compte />
+        <Ressources />
+        <ChargesFixes />
+
+
+
+
+
+
+
+          {/*Ressources */}
+          <Wrapper
+            initial={<div>SOSO LE PELICAN</div>}
+            deroule={<><SectionInWrapper
+              title="Salaire N°1"
+              text="Arrive vers le"
+              listOptions={['01', '02', '03']}
+            />
+            <SectionInWrapper
+              title="Salaire N°2"
+              text="Arrive vers le"
+              listOptions={['01', '02', '03']}
+            />
+            <SectionInWrapper
+              title="Salaire N°3"
+              text="Arrive vers le"
+              listOptions={['01', '02', '03']}
+            /></>
+          }
+        >
+        </Wrapper>
         </Style>
       </>
     )

@@ -1,14 +1,45 @@
 import React from 'react';
-// import styled from 'styled-components';
+import styled from 'styled-components';
 import {Input, Select} from './Input';
 import { useState, useEffect } from "react";
-const SectionInWrapper = ({ title, text, className }) => {
 
-    const options = [
-        { value: "option1", label: "Option 1" },
-        { value: "option2", label: "Option 2" },
-        { value: "option3", label: "Option 3" }
-    ];
+
+const StyledSectionInWrapper = styled.span`
+
+display:flex;
+flex-direction:column;
+align-items:center;
+
+input {
+    width:100%;
+}
+
+.titleAndInput, .textAndSelactAndInput {
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content:space-between;
+    width:100%;
+}
+
+.textAndSelect {
+    display:flex;
+    flex-direction:row;
+}
+
+select{
+    display:flex;
+    align-items:center;
+}
+`;
+
+
+
+
+
+
+
+const SectionInWrapper = ({ title, text, listOptions }) => {
 
     const [selectedOption, setSelectedOption] = useState("");
 
@@ -18,17 +49,23 @@ const SectionInWrapper = ({ title, text, className }) => {
 
     return (
         <>
-            <div>
+        <StyledSectionInWrapper>
+            <div className="titleAndInput">
                 <p>{title}</p> <Input name="ammount" type="number" />
-                <p>{text}</p> <Input name="date" type="number" />
-                <Select
-                    options={options}
-                    onChange={handleSelectChange}
-                    value={selectedOption}
-                />
             </div>
+            <div className="textAndSelactAndInput">
+                <div className="textAndSelect">
+                    <p>{text}</p>
+                    <Select
+                        options={listOptions}
+                        value="2"
+                    />
+                </div>
+                <Input name="date" type="number" />
+            </div>
+          </StyledSectionInWrapper>
         </>
-    );
+    );    
 }
 
 export default SectionInWrapper;

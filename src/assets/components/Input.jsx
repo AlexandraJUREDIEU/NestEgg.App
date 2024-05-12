@@ -63,17 +63,31 @@ function Select(props)  {
     }
   };
 
+  const listOptions = props.options.map((part, index) => {
+    if (part !== undefined) {
+      return (
+        <>
+          {index === props.value ? (
+            <option key={index} selected>
+              {part}
+            </option>
+            ) : (
+            <option key={index}>
+              {part}
+            </option>
+          )}
+        </>
+      );
+    }
+  });
+
   // Render
   return (
-    <div>
-      <StyledInput value={selectedValue} onChange={handleChange}>
-        {props.options.map((option, index) => (
-          <option key={index} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </StyledInput>
-    </div>
+    <>
+      <select>
+        {listOptions}
+      </select>
+    </>
   );
 }
 
