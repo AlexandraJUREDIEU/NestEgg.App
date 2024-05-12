@@ -10,8 +10,6 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 import API_URL from './config';
 
-
-
 //Styles
 const DashboardStyle = createGlobalStyle`
   h1{
@@ -175,6 +173,10 @@ const [transactions, setTransactions] = useState([]);
       console.log(`La boîte ${id} a été cliquée.`);
     };
 
+
+
+
+
     //Render
     return (
       <>
@@ -261,7 +263,7 @@ const [transactions, setTransactions] = useState([]);
             <ProgressBar type="Épargne" progress="80" width="280" color1="#B243B6" color2="#fff2" height="20px" />
           </div>
           <p className="p-amount-left">Il vous reste 90€ pour finir la semaine, soit 22.50€ par jour</p>
-        </section>    
+        </section>
       </>
       )
   }
