@@ -1,4 +1,5 @@
 import Wrapper from "../../assets/components/Wrapper"
+import ProfilLigneInvite from "../../assets/components/ProfilLigneInvite"
 
 function Profil() {
     //State
@@ -15,7 +16,15 @@ function Profil() {
         />
         Budget individuel [on/off]
 
-        Lucas peeopoMailer@hotmail.fr X
+        <ProfilLigneInvite
+        name="Lucas"
+        mail="peepoMailer@hotmail.fr" />
+        <ProfilLigneInvite
+        name="Lucès"
+        mail="peepoMailer@hotmail.fr" />
+        <ProfilLigneInvite
+        name="Lucus"
+        mail="peepoMailer@hotmail.fr" />
 
         Invitez des amis
       </>
