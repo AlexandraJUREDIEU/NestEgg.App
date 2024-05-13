@@ -21,10 +21,9 @@ const Style = styled.header`
     border-radius:50px;
     background-color: rgba(255, 255, 255, 0.5);
     padding:0 5em;
-    padding-top:1em;
   }
   section {
-    height: 90vh;
+    height: 75vh;
   }
 
   /*Vue mobile*/
@@ -71,11 +70,18 @@ const Style = styled.header`
 
 //Fonctions
 const links = [
-  {to:"/my-account" , text:"Placeholder my account active", imgsrc:"icons-menu-hamburger.png"},
-  {to:"/bank-account" , text:"Compte bancaire", imgsrc:"icons-menu-hamburger.png"},
-  {to:"/income" , text:"Revenus", imgsrc:"icons-menu-hamburger.png"},
-  {to:"/monthly-bills" , text:"Charges fixes", imgsrc:"icons-menu-hamburger.png"},
+  {to:"/my-account" , text:"Placeholder my account active", imgsrc:"icons-user-round.png"},
+  {to:"/bank-account" , text:"Compte bancaire", imgsrc:"?"},
+  {to:"/income" , text:"Revenus", imgsrc:"icons8-euro-money-100.png"},
+  {to:"/monthly-bills" , text:"Charges fixes", imgsrc:"icons8-categorize-100.png"},
   ];
+
+  const linksHeader = [
+    {to:"#concept" , text:"Concept", onClick: () => scrollToSection(conceptRef)},
+    {to:"#about-us" , text:"Qui sommes nous?", onClick: () => scrollToSection(aboutUsRef)},
+    {to:"#price" , text:"Tarifs", onClick: () => scrollToSection(pricingRef)},
+    {to:"/login" , text:"Connexion"},
+    ];
 
 function MyAccount() {
     //State
@@ -83,6 +89,7 @@ function MyAccount() {
     //Render
     return (
       <>
+        <HeaderContainer links={linksHeader}/>
         <Style>
         <HeaderProfile links={links}></HeaderProfile>
         {/*<div className="sections">
@@ -95,7 +102,7 @@ function MyAccount() {
         <section><Ressources /></section>
         <section><ChargesFixes /></section>
         </Style>
-      </>
+        </>
     )
   }
   

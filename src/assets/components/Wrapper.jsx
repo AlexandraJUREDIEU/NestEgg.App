@@ -1,7 +1,26 @@
 // Import
 import React, { useState } from "react";
+import styled from 'styled-components';
 
 // Styles
+
+const WrapperStyle = styled.div`
+img {
+  transform: rotate(90deg);
+}
+.nameAndMail{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.conteneurWrapper{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+`;
+
+
 
 // Functions
 function Wrapper({ initial, deroule }) {
@@ -20,20 +39,33 @@ function Wrapper({ initial, deroule }) {
 
   // Render
   return (
-    <div onClick={changerEtat}>
-      {state ? (
-        <>
-          {initial}
-          <span className="fleche">^</span>
-          <div onClick={handleClickInside}>{deroule}</div>
-        </>
-      ) : (
-        <>
-          {initial}
-          <span className="fleche">V</span>
-        </>
-      )}
-    </div>
+    <WrapperStyle>
+      <div className="conteneurWrapper" onClick={changerEtat}>
+        <div className="nameAndMail">
+          {state ? (
+            <>
+              {initial}
+              <div onClick={handleClickInside}>{deroule}</div>
+            </>
+          ) : (
+            <>{initial}</>
+          )}
+        </div>
+        {state ? (
+          <>
+            <span className="fleche">
+              <img src="icons8-back-100.png" alt="arrow to hide" />
+            </span>
+          </>
+        ) : (
+          <>
+            <span className="fleche">
+              <img src="icons8-forward-100.png" alt="arrow to show" />
+            </span>
+          </>
+        )}
+      </div>
+    </WrapperStyle>
   );
 }
 

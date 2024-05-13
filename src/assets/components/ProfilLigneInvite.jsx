@@ -21,6 +21,10 @@ const ProfilLigneInviteStyle = styled.div`
         display:flex;
         flex-direction:row;
         justify-content:space-between;
+        align-items:center;
+    }
+    img {
+      height:0.8em;
     }
 `
 
@@ -44,7 +48,7 @@ const Box = ({name, mail}) => {
                 <div>{name}</div>
                 <div>{mail}</div>
             </div>
-            <img src="" alt="" />X
+            <img src="icons8-effacer-100.png" alt="X" />
         </div>
         </ProfilLigneInviteStyle>
     </>
