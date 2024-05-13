@@ -20,7 +20,7 @@ const Style = styled.header`
   section{
     border-radius:50px;
     background-color: rgba(255, 255, 255, 0.5);
-    padding:0 5em;
+    padding:0 2em;
   }
   section {
     height: 75vh;

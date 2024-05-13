@@ -20,6 +20,11 @@ const ProfilStyle = styled.header`
   img{
     height:0.8em;
   }
+  form div{
+    display:flex;
+    justify-content:space-between;
+
+  }
 `;
 
 
@@ -40,16 +45,27 @@ function Profil() {
               <div>Leroy Luca</div>
               peepoMail@hotmail.fr
             </>}
-            deroule={<>zzz
+            deroule={<>
+            <form>
+              <div>
+              <label>Nom</label>
+              <input type="text" id="name" name="name" required minlength="4" maxlength="20" />
+              </div>
+              <div>
+              <label>Prénom</label>
+              <input type="text" id="name" name="name" required minlength="4" maxlength="20" />
+              </div>
+              <div>
+              <label>E-mail</label>
+              <input type="email" id="name" name="name" required minlength="4" maxlength="20" />
+              </div>
+              <div>
+              <label>Mot de passe</label>
+              <input type="password" id="name" name="name" required minlength="4" maxlength="20" />
+              </div>
+              <button type="submit">Valider</button>
+            </form>
             </>
-              /*<form>
-                Nom <input>Leroy</input>
-                Prénom Luca
-                E-mail peepoMailer@hotmail.fr
-                Mot de passe ************
-  
-                Enregistrer
-              </form>*/
             }
           />
           Budget individuel [on/off]
