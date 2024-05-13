@@ -21,6 +21,7 @@ const HeaderProfilStyle = styled.header`
     border-radius: 8em 8em 0 0;
     background-color: rgba(255, 255, 255, 0.5);
     height:10%;
+    padding: 0 5vh;
   }
   li {
     padding: 1vh 0;
@@ -29,6 +30,11 @@ const HeaderProfilStyle = styled.header`
   }
   ul li a.active {
     background:red;
+  }
+
+  ul img{
+    height:2em !important;
+    width:2em !important;
   }
 
   /*Vue mobile*/

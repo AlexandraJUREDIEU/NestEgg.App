@@ -10,6 +10,11 @@ const ProfilStyle = styled.header`
   flex-direction:column;
   gap:1em;
 
+  .InviteAndPlus {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+  }
   .conteneurWrapper {
     background-color: rgba(255, 255, 255, 0.5);
     border-radius:1em;
@@ -17,6 +22,7 @@ const ProfilStyle = styled.header`
   form div{
     display:flex;
     justify-content:space-between;
+
   }
 `;
 

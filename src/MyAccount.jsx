@@ -13,17 +13,12 @@ import ChargesFixes from "./pages/myAccount/ChargesFixes.jsx";
 
 
 //Styles
-const Style = styled.header`
+const Style = styled.div`
   /*Vue globale*/
-  width:100wh;
+  width:100%;
   height:100vh;
   section{
     border-radius:3em;
-    background-color: rgba(255, 255, 255, 0.5);
-    padding:0 2em;
-  }
-  section {
-    height: 75vh;
   }
   img{
     width:0.8em;
@@ -71,6 +66,12 @@ const Style = styled.header`
 `;
 
 
+const SectionWrapper = styled.section`
+  position: relative;
+  height: 100vh;
+  left:0;
+`;
+
 
 //Fonctions
 const links = [
@@ -93,18 +94,27 @@ function MyAccount() {
     //Render
     return (
       <>
-        <HeaderContainer links={linksHeader}/>
         <Style>
-        <HeaderProfile links={links}></HeaderProfile>
-        {/*<div className="sections">
-          <section className="section section1">section1</section>
-          <section className="section section2">section2</section>
-        </div>*/}
-
-        <section><Profil /></section>
-        <section><Compte /></section>
-        <section><Ressources /></section>
-        <section><ChargesFixes /></section>
+          <SectionWrapper>
+            <HeaderContainer links={linksHeader}/>
+            <HeaderProfile links={links}/>
+            <Profil />
+          </SectionWrapper>
+          <SectionWrapper>
+            <HeaderContainer links={linksHeader}/>
+            <HeaderProfile links={links}/>
+            <Compte />
+          </SectionWrapper>
+          <SectionWrapper>
+            <HeaderContainer links={linksHeader}/>
+            <HeaderProfile links={links}/>
+            <Ressources />
+          </SectionWrapper>
+          <SectionWrapper>
+            <HeaderContainer links={linksHeader}/>
+            <HeaderProfile links={links}/>
+            <ChargesFixes />
+          </SectionWrapper>
         </Style>
         </>
     )
