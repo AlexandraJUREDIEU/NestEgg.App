@@ -1,4 +1,6 @@
-import Wrapper from "../../assets/components/Wrapper"
+import HeaderProfil from "../../assets/layout/HeaderProfil";
+
+import Wrapper from "../../assets/components/Wrapper";
 import ProfilLigneInvite from "../../assets/components/ProfilLigneInvite";
 import PhraseAmicale from "./PhraseAmicale";
 import LineWithPlus from "../../assets/components/LineWith+";
@@ -33,6 +35,7 @@ function Profil() {
     return (
       <>
         <ProfilStyle>
+            <HeaderProfil/>
           <PhraseAmicale/>
           <Wrapper
             initial={<>

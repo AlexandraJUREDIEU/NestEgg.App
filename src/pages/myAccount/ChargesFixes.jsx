@@ -1,3 +1,5 @@
+import HeaderProfil from "../../assets/layout/HeaderProfil";
+
 import PhraseAmicale from "./PhraseAmicale";
 import Wrapper from "../../assets/components/Wrapper";
 import SectionInWrapper from "../../assets/components/SectionInWrapper";
@@ -9,6 +11,7 @@ function ChargesFixes() {
     return (
       <>
         <PhraseAmicale/>
+            <HeaderProfil/>
         <Wrapper
             initial={
             <>

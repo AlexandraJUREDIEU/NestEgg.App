@@ -1,3 +1,5 @@
+import HeaderProfil from "../../assets/layout/HeaderProfil";
+
 import PhraseAmicale from "./PhraseAmicale";
 import Wrapper from "../../assets/components/Wrapper"
 
@@ -36,6 +38,7 @@ function Compte() {
     return (
       <>
       <CompteStyle>
+            <HeaderProfil/>
       <PhraseAmicale/>
         <Wrapper
         initial={<>

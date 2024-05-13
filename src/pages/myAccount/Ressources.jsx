@@ -1,3 +1,5 @@
+import HeaderProfil from "../../assets/layout/HeaderProfil";
+
 import SectionInWrapper from "../../assets/components/SectionInWrapper";
 import Wrapper from "../../assets/components/Wrapper";
 import PhraseAmicale from "./PhraseAmicale";
@@ -25,6 +27,7 @@ function Ressources() {
     return (
       <>
       <RessourcesStyle>
+            <HeaderProfil/>
         <PhraseAmicale/>
           <Wrapper
             initial={

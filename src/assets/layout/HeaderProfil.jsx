@@ -1,3 +1,5 @@
+import HeaderContainer from "../../assets/layout/Header";
+
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -69,9 +71,24 @@ const HeaderProfilStyle = styled.header`
   }
 `;
 
-export default function HeaderProfil({ links }) {
+const links = [
+  {to:"/my-account" , text:"Placeholder my account active", imgsrc:"icons-user-round.png"},
+  {to:"/bank-account" , text:"Compte bancaire", imgsrc:"?"},
+  {to:"/income" , text:"Revenus", imgsrc:"icons8-euro-money-100.png"},
+  {to:"/monthly-bills" , text:"Charges fixes", imgsrc:"icons8-categorize-100.png"},
+  ];
+
+  const linksHeader = [
+    {to:"#concept" , text:"Concept", onClick: () => scrollToSection(conceptRef)},
+    {to:"#about-us" , text:"Qui sommes nous?", onClick: () => scrollToSection(aboutUsRef)},
+    {to:"#price" , text:"Tarifs", onClick: () => scrollToSection(pricingRef)},
+    {to:"/login" , text:"Connexion"},
+    ];
+
+export default function HeaderProfil() {
   return (
     <>
+    <HeaderContainer links={linksHeader}/>
       <HeaderProfilStyle>
       <ul>
         <li>

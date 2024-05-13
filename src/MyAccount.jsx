@@ -1,6 +1,3 @@
-import HeaderContainer from "./assets/layout/Header";
-import HeaderProfile from './assets/layout/HeaderProfil.jsx';
-
 
 import styled from "styled-components";
 
@@ -74,19 +71,6 @@ const SectionWrapper = styled.section`
 
 
 //Fonctions
-const links = [
-  {to:"/my-account" , text:"Placeholder my account active", imgsrc:"icons-user-round.png"},
-  {to:"/bank-account" , text:"Compte bancaire", imgsrc:"?"},
-  {to:"/income" , text:"Revenus", imgsrc:"icons8-euro-money-100.png"},
-  {to:"/monthly-bills" , text:"Charges fixes", imgsrc:"icons8-categorize-100.png"},
-  ];
-
-  const linksHeader = [
-    {to:"#concept" , text:"Concept", onClick: () => scrollToSection(conceptRef)},
-    {to:"#about-us" , text:"Qui sommes nous?", onClick: () => scrollToSection(aboutUsRef)},
-    {to:"#price" , text:"Tarifs", onClick: () => scrollToSection(pricingRef)},
-    {to:"/login" , text:"Connexion"},
-    ];
 
 function MyAccount() {
     //State
@@ -96,23 +80,15 @@ function MyAccount() {
       <>
         <Style>
           <SectionWrapper>
-            <HeaderContainer links={linksHeader}/>
-            <HeaderProfile links={links}/>
             <Profil />
           </SectionWrapper>
           <SectionWrapper>
-            <HeaderContainer links={linksHeader}/>
-            <HeaderProfile links={links}/>
             <Compte />
           </SectionWrapper>
           <SectionWrapper>
-            <HeaderContainer links={linksHeader}/>
-            <HeaderProfile links={links}/>
             <Ressources />
           </SectionWrapper>
           <SectionWrapper>
-            <HeaderContainer links={linksHeader}/>
-            <HeaderProfile links={links}/>
             <ChargesFixes />
           </SectionWrapper>
         </Style>
