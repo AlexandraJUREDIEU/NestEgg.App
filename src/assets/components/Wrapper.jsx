@@ -5,7 +5,7 @@ import styled from 'styled-components';
 // Styles
 
 const WrapperStyle = styled.div`
-img {
+.fleche img {
   transform: rotate(90deg);
 }
 .nameAndMail{

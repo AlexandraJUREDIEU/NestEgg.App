@@ -18,12 +18,16 @@ const Style = styled.header`
   width:100wh;
   height:100vh;
   section{
-    border-radius:50px;
+    border-radius:3em;
     background-color: rgba(255, 255, 255, 0.5);
     padding:0 2em;
   }
   section {
     height: 75vh;
+  }
+  img{
+    width:0.8em;
+    height:0.8em;
   }
 
   /*Vue mobile*/

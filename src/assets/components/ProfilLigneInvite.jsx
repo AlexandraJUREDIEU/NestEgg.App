@@ -23,9 +23,6 @@ const ProfilLigneInviteStyle = styled.div`
         justify-content:space-between;
         align-items:center;
     }
-    img {
-      height:0.8em;
-    }
 `
 
 // Functions

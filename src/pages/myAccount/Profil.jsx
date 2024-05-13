@@ -1,5 +1,7 @@
 import Wrapper from "../../assets/components/Wrapper"
-import ProfilLigneInvite from "../../assets/components/ProfilLigneInvite"
+import ProfilLigneInvite from "../../assets/components/ProfilLigneInvite";
+import PhraseAmicale from "./PhraseAmicale";
+import LineWithPlus from "../../assets/components/LineWith+";
 
 import styled from "styled-components";
 
@@ -8,28 +10,15 @@ const ProfilStyle = styled.header`
   flex-direction:column;
   gap:1em;
 
-  .InviteAndPlus {
-    display:flex;
-    flex-direction:row;
-    justify-content:space-between;
-  }
   .conteneurWrapper {
     background-color: rgba(255, 255, 255, 0.5);
     border-radius:1em;
   }
-  img{
-    height:0.8em;
-  }
   form div{
     display:flex;
     justify-content:space-between;
-
   }
 `;
-
-
-
-
 
 function Profil() {
     //State
@@ -38,8 +27,7 @@ function Profil() {
     return (
       <>
         <ProfilStyle>
-          <p>Bonjour Luca</p>
-          <p>Plus que 158 jours pour remplir votre objectif</p>
+          <PhraseAmicale/>
           <Wrapper
             initial={<>
               <div>Leroy Luca</div>
@@ -48,22 +36,22 @@ function Profil() {
             deroule={<>
             <form>
               <div>
-              <label>Nom</label>
-              <input type="text" id="name" name="name" required minlength="4" maxlength="20" />
+                <label>Nom</label>
+                <input type="text" id="name" name="name" required minlength="4" maxlength="20" />
               </div>
               <div>
-              <label>Prénom</label>
-              <input type="text" id="name" name="name" required minlength="4" maxlength="20" />
+                <label>Prénom</label>
+                <input type="text" id="name" name="name" required minlength="4" maxlength="20" />
               </div>
               <div>
-              <label>E-mail</label>
-              <input type="email" id="name" name="name" required minlength="4" maxlength="20" />
+                <label>E-mail</label>
+                <input type="email" id="name" name="name" required minlength="4" maxlength="20" />
               </div>
               <div>
-              <label>Mot de passe</label>
-              <input type="password" id="name" name="name" required minlength="4" maxlength="20" />
+                <label>Mot de passe</label>
+                <input type="password" id="name" name="name" required minlength="4" maxlength="20" />
               </div>
-              <button type="submit">Valider</button>
+              <button type="submit">Enregistrer les modifications</button>
             </form>
             </>
             }
@@ -72,7 +60,7 @@ function Profil() {
           <ProfilLigneInvite name="Lucas" mail="peepoMailer@hotmail.fr" />
           <ProfilLigneInvite name="Lucès" mail="peepoMailer@hotmail.fr" />
           <ProfilLigneInvite name="Lucus" mail="peepoMailer@hotmail.fr" />
-          <div className="InviteAndPlus"><p>Invitez des amis</p><img src="icons8-add-90.png" alt="" /></div>
+          <LineWithPlus text="Invitez des amis"></LineWithPlus>
         </ProfilStyle>
       </>
     );
