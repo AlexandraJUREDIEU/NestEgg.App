@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
 
 const budgetSchema = new mongoose.Schema({
-	admin: { 
-		type: mongoose.Schema.Types.ObjectId,
+	admin: {
+		/*type: mongoose.Schema.Types.ObjectId,*/
+		type: String,
 		ref: 'User',
 		required: true 
 	},

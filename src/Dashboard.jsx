@@ -1,14 +1,14 @@
 //Imports
 import HeaderContainer from "./assets/layout/Header";
-import Box from "./assets/components/Box"
+import Box from "./assets/components/Box";
 import { createGlobalStyle } from "styled-components";
 import { ButtonLink } from "./assets/components/Button";
 import CircleRadialProgress from "./assets/components/CircleRadialProgress";
 import ProgressBar from "./assets/components/ProgressBar";
 import { useAuth } from "./auth/AuthWrapper";
 import { useState, useEffect } from "react";
-import axios from 'axios';
-import API_URL from './config';
+import axios from "axios";
+import API_URL from "./config";
 
 //Styles
 const DashboardStyle = createGlobalStyle`
@@ -126,146 +126,268 @@ const DashboardStyle = createGlobalStyle`
   }
 `;
 
-
 //Fonctions
 const links = [
-  {to:"/my-account" , text:"Mon Compte"},
-  {to:"/summary" , text:"Synthese"},
-  {to:"#add-transaction" , text:"Ajouter une transaction"}
-  ];
+  { to: "/my-account", text: "Mon Compte" },
+  { to: "/summary", text: "Synthese" },
+  { to: "#add-transaction", text: "Ajouter une transaction" },
+];
 
 function Dashboard() {
-
-
-    //State
-const [transactions, setTransactions] = useState([]);
-
-
-  useEffect(() => {
-    axios.get(`${API_URL}/dashboard/transactions`)
-      .then(response => {
-        const transactions = response.data[0].transactions;
-        setTransactions(transactions);
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-      });
-  }, []);
-
-
-
+  //State
+  //Récupérer l'utilisateur
   const [activeUser, setActiveUser] = useState([]);
   async function getUser() {
     const idUser = new URLSearchParams(location.search).get("userId");
-    const userListResponse = await axios.get(`${API_URL}/users/list`);
-    const users = userListResponse.data;
-    const user = users.find(user => user.id === idUser);
-    if (user) {
-      setActiveUser(user);
-    } else {
-      console.log("User not found");
+    try {
+      const userListResponse = await axios.get(`${API_URL}/users/list`);
+      const user = userListResponse.data.find((user) => user.id === idUser);
+      if (user) {
+        setActiveUser(user);
+        getChargesFixes(user.id);
+      } else {
+        console.log("User not found");
+      }
+    } catch (error) {
+      console.error("Error fetching user data:", error);
     }
   }
   getUser();
 
-    //Comportement
-    const handleBoxClick = (id) => {
-      console.log(`La boîte ${id} a été cliquée.`);
-    };
+  //Récupérer les transactions
+  const [transactions, setTransactions] = useState([]);
+  useEffect(() => {
+    async function fetchTransactions() {
+      try {
+        const response = await axios.get(`${API_URL}/dashboard/transactions`);
+        const transactionsData = response.data[0].transactions;
+        setTransactions(transactionsData);
+      } catch (error) {
+        console.error("Error fetching transactions:", error);
+      }
+    }
+    fetchTransactions();
+  }, []);
+
+  //Récupérer les charges fixes
+  const [chargesFixes, setChargesFixes] = useState([]);
+  async function getChargesFixes(userId) {
+    try {
+      const userChargesFixe = await axios.get(
+        `${API_URL}/dashboard/fixedCharges?userid=${userId}`
+      );
+      setChargesFixes(userChargesFixe.data[0]);
+    } catch (error) {
+      console.error("Error fetching fixed charges:", error);
+    }
+  }
 
 
 
+  //Comportement
+  const handleBoxClick = (id) => {
+    console.log(`La boîte ${id} a été cliquée.`);
+  };
 
 
-    //Render
-    return (
-      <>
+
+  //Render
+  return (
+    <>
+
+
+
+      {activeUser && (
+        <>
+          <p>User found: {activeUser.name}</p>
+          {chargesFixes.length != 0 ? (
+            <>Voici ton premier goal: {chargesFixes.goals[0].nameGoal}</>
+          ) : (
+            <p>Loading...</p>
+          )}
+        </>
+      )}
+
       <DashboardStyle />
-        <HeaderContainer links={links}/>
-        <h1>Tableau de bord</h1>
-        <section className="div-container-boxes">
-          <Box id={1} href="/profile" onClickAction={handleBoxClick} className="short-box" children={<>
-          <h3 className="font-300">
-            Salut 
-          {<div>{activeUser.name}</div>}
-          </h3> <ButtonLink content="Actualiser mes charges" /></>}/>
-          <Box id={2} href="/settings" onClickAction={handleBoxClick} className="short-box" children={
+      <HeaderContainer links={links} />
+      <h1>Tableau de bord</h1>
+
+      <section className="div-container-boxes">
+        <Box
+          id={1}
+          href="/profile"
+          onClickAction={handleBoxClick}
+          className="short-box"
+          children={
             <>
               <h3 className="font-300">
-                Votre objectif
-              </h3>
-                <CircleRadialProgress progress="10" width="50px" color1="darkred" color2="purple" height="40px" />
-          </>}/>
-          <Box id={3} href="/transactions" onClickAction={handleBoxClick} className="long-box" children={
+                Salut
+                {<div>{activeUser.name}</div>}
+              </h3>{" "}
+              <ButtonLink content="Actualiser mes charges" />
+            </>
+          }
+        />
+        <Box
+          id={2}
+          href="/settings"
+          onClickAction={handleBoxClick}
+          className="short-box"
+          children={
+            <>
+              <h3 className="font-300">Votre objectif</h3>
+              <CircleRadialProgress
+                progress="10"
+                width="50px"
+                color1="darkred"
+                color2="purple"
+                height="40px"
+              />
+            </>
+          }
+        />
+        <Box
+          id={3}
+          href="/transactions"
+          onClickAction={handleBoxClick}
+          className="long-box"
+          children={
             <>
               <h3 className="font-300">Votre épargne</h3>
               <p>697.02€</p>
-            </>}/>
-          <Box id={4} href="/addTransaction" onClickAction={handleBoxClick} className="short-box" children={
-          <>
-            <h3 className="last-spent">Vos dernières dépenses</h3>
-            {transactions.length > 0 && (
-            <div className="spent">
-              {transactions[0].typeCategory}
-              {transactions[0].date}
-              {transactions[0].name}
-              {transactions[0].montant}
-            </div>
-            )}
-            {transactions.length > 0 && (
-            <div className="spent">
-              {transactions[1].typeCategory}
-              {transactions[1].date}
-              {transactions[1].name}
-              {transactions[1].montant}
-            </div>
-            )}
-            {transactions.length > 0 && (
-            <div className="spent">
-              {transactions[2].typeCategory}
-              {transactions[2].date}
-              {transactions[2].name}
-              {transactions[2].montant}
-            </div>
-            )}
-          </>}/>
-          <Box id={5} href="/incoming" onClickAction={handleBoxClick} className="short-box" children={
+            </>
+          }
+        />
+        <Box
+          id={4}
+          href="/addTransaction"
+          onClickAction={handleBoxClick}
+          className="short-box"
+          children={
             <>
-              <img src="ico-add-transaction.png" alt="image carte banquaire" className="ico-add-transaction"/>
+              <h3 className="last-spent">Vos dernières dépenses</h3>
+              {transactions.length > 0 && (
+                <div className="spent">
+                  {transactions[0].typeCategory}
+                  {transactions[0].date}
+                  {transactions[0].name}
+                  {transactions[0].montant}
+                </div>
+              )}
+              {transactions.length > 0 && (
+                <div className="spent">
+                  {transactions[1].typeCategory}
+                  {transactions[1].date}
+                  {transactions[1].name}
+                  {transactions[1].montant}
+                </div>
+              )}
+              {transactions.length > 0 && (
+                <div className="spent">
+                  {transactions[2].typeCategory}
+                  {transactions[2].date}
+                  {transactions[2].name}
+                  {transactions[2].montant}
+                </div>
+              )}
+            </>
+          }
+        />
+        <Box
+          id={5}
+          href="/incoming"
+          onClickAction={handleBoxClick}
+          className="short-box"
+          children={
+            <>
+              <img
+                src="ico-add-transaction.png"
+                alt="image carte banquaire"
+                className="ico-add-transaction"
+              />
               <h3 className="font-300">Ajouter une transaction</h3>
-            </>}/>
-          <Box id={6} href="/incoming" onClickAction={handleBoxClick} className="long-box" children={
+            </>
+          }
+        />
+        <Box
+          id={6}
+          href="/incoming"
+          onClickAction={handleBoxClick}
+          className="long-box"
+          children={
             <>
-            <div className="text-ico-charges">
-              <p>3</p>
-              <img src="ico-charges.png" alt="ico charges à venir" className="ico-incoming-charges" />
-            </div>
+              <div className="text-ico-charges">
+                <p>3</p>
+                <img
+                  src="ico-charges.png"
+                  alt="ico charges à venir"
+                  className="ico-incoming-charges"
+                />
+              </div>
               <h3 className="font-300">Charges à venir</h3>
-            </>}/>
-          
-          
-        </section>
+            </>
+          }
+        />
+      </section>
 
+      <section className="bottom-dashboard">
+        <div className="div-progress-bar">
+          <img
+            src="ico-vital.png"
+            alt="ico vital"
+            className="ico-progress-bar"
+          />
+          <ProgressBar
+            type="Vital"
+            progress="70"
+            width="280"
+            color1="#F5A483"
+            color2="#fff2"
+            height="20px"
+          />
+        </div>
+        <p className="p-amount-left">
+          Il vous reste 90€ pour finir la semaine, soit 22.50€ par jour
+        </p>
+        <div className="div-progress-bar">
+          <img
+            src="ico-loisirs.png"
+            alt="ico loisirs"
+            className="ico-progress-bar"
+          />
+          <ProgressBar
+            type="Loisirs"
+            progress="80"
+            width="280"
+            color1="#43A9B6"
+            color2="#fff2"
+            height="20px"
+          />
+        </div>
+        <p className="p-amount-left">
+          Il vous reste 90€ pour finir la semaine, soit 22.50€ par jour
+        </p>
+        <div className="div-progress-bar">
+          <img
+            src="ico-savings.png"
+            alt="ico épargne"
+            className="ico-progress-bar"
+          />
+          <ProgressBar
+            type="Épargne"
+            progress="80"
+            width="280"
+            color1="#B243B6"
+            color2="#fff2"
+            height="20px"
+          />
+        </div>
+        <p className="p-amount-left">
+          Il vous reste 90€ pour finir la semaine, soit 22.50€ par jour
+        </p>
+      </section>
+    </>
+  );
+}
 
-        <section className="bottom-dashboard">
-          <div className="div-progress-bar">
-            <img src="ico-vital.png" alt="ico vital" className="ico-progress-bar" />
-            <ProgressBar type="Vital" progress="70" width="280" color1="#F5A483" color2="#fff2" height="20px" />
-          </div>
-            <p className="p-amount-left">Il vous reste 90€ pour finir la semaine, soit 22.50€ par jour</p>
-          <div className="div-progress-bar">
-          <img src="ico-loisirs.png" alt="ico loisirs" className="ico-progress-bar" />
-            <ProgressBar type="Loisirs" progress="80" width="280" color1="#43A9B6" color2="#fff2" height="20px" />
-          </div>
-          <p className="p-amount-left">Il vous reste 90€ pour finir la semaine, soit 22.50€ par jour</p>
-          <div className="div-progress-bar">
-          <img src="ico-savings.png" alt="ico épargne" className="ico-progress-bar" />
-            <ProgressBar type="Épargne" progress="80" width="280" color1="#B243B6" color2="#fff2" height="20px" />
-          </div>
-          <p className="p-amount-left">Il vous reste 90€ pour finir la semaine, soit 22.50€ par jour</p>
-        </section>
-      </>
-      )
-  }
-  
-  export default Dashboard;
+export default Dashboard;
