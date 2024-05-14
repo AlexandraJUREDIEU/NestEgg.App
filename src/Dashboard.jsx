@@ -145,6 +145,7 @@ function Dashboard() {
       if (user) {
         setActiveUser(user);
         getChargesFixes(user.id);
+        fetchTransactions(user.id);
       } else {
         console.log("User not found");
       }
@@ -156,27 +157,23 @@ function Dashboard() {
 
   //Récupérer les transactions
   const [transactions, setTransactions] = useState([]);
-  useEffect(() => {
-    async function fetchTransactions() {
+  async function fetchTransactions(userId) {
       try {
-        const response = await axios.get(`${API_URL}/dashboard/transactions`);
-        const transactionsData = response.data[0].transactions;
-        setTransactions(transactionsData);
+        const response = await axios.get(`${API_URL}/dashboard/transactions?userid=${userId}`);
+        const data = response.data[0].transactions;
+        setTransactions(data);
       } catch (error) {
         console.error("Error fetching transactions:", error);
       }
     }
-    fetchTransactions();
-  }, []);
 
   //Récupérer les charges fixes
   const [chargesFixes, setChargesFixes] = useState([]);
   async function getChargesFixes(userId) {
     try {
-      const userChargesFixe = await axios.get(
-        `${API_URL}/dashboard/fixedCharges?userid=${userId}`
-      );
-      setChargesFixes(userChargesFixe.data[0]);
+      const userChargesFixe = await axios.get(`${API_URL}/dashboard/fixedCharges?userid=${userId}`);
+      const data = userChargesFixe.data[0];
+      setChargesFixes(data);
     } catch (error) {
       console.error("Error fetching fixed charges:", error);
     }
@@ -207,6 +204,8 @@ function Dashboard() {
           )}
         </>
       )}
+
+
 
       <DashboardStyle />
       <HeaderContainer links={links} />
