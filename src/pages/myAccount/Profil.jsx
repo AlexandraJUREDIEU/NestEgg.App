@@ -7,10 +7,9 @@ import LineWithPlus from "../../assets/components/LineWith+";
 
 import styled from "styled-components";
 
-const ProfilStyle = styled.header`
+const ProfilStyle = styled.main`
   display:flex;
   flex-direction:column;
-  gap:1em;
 
   .InviteAndPlus {
     display:flex;
@@ -34,7 +33,7 @@ function Profil() {
     //Render
     return (
       <>
-      <HeaderProfil/>
+        <HeaderProfil/>
         <ProfilStyle>
           <PhraseAmicale/>
           <Wrapper

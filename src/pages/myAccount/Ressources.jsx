@@ -7,7 +7,7 @@ import PhraseAmicale from "./PhraseAmicale";
 import styled from 'styled-components';
 
 
-const RessourcesStyle = styled.div`
+const RessourcesStyle = styled.main`
   .initialRessources{
   display:flex;
   align-items:center;

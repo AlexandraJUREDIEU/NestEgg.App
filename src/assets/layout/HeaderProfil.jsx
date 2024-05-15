@@ -1,6 +1,6 @@
 import HeaderContainer from "../../assets/layout/Header";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -57,6 +57,7 @@ const HeaderProfilStyle = styled.header`
       left: 0;
       top: 0;
       width: 20%;
+      height:100%;
       align-items: center;
       border-radius: 0 2em 2em 0;
     }
@@ -65,15 +66,15 @@ const HeaderProfilStyle = styled.header`
       align-items: center;
     }
     ul li:first-child img {
-      width:10em;
-      height:10em;
+      width:7em !important;
+      height:7em !important;
     }
   }
 `;
 
 const links = [
-  {to:"/my-account/profil" , text:"Placeholder my account active", imgsrc:"/icons-user-round.png"},
-  {to:"/my-account/compte" , text:"Compte bancaire", imgsrc:"/?"},
+  {to:"/my-account/profil" , text:"Profil", imgsrc:"/icons-user-round.png"},
+  {to:"/my-account/compte" , text:"Comptes bancaire", imgsrc:"/?"},
   {to:"/my-account/ressources" , text:"Revenus", imgsrc:"/icons8-euro-money-100.png"},
   {to:"/my-account/chargesfixes" , text:"Charges fixes", imgsrc:"/icons8-categorize-100.png"},
   ];
@@ -86,10 +87,27 @@ const linksHeader = [
   ];
 
 export default function HeaderProfil() {
+  
+  // State for screen width
+  const [screenwidth, setscreenwidth] = useState(window.innerWidth);
+  // Update screen width on resize
+  useEffect(() => {
+    const handleResize = () => {
+      setscreenwidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+
+
+
   return (
     <>
-    <HeaderContainer links={linksHeader}/>
       <HeaderProfilStyle>
+      {screenwidth < 1000 && <HeaderContainer links={linksHeader}/>}
       <ul>
         <li>
           <Link to="/">
@@ -102,12 +120,12 @@ export default function HeaderProfil() {
         </li>
           {links.map((link, index) => (
             <li key={index}>
-              <Link to={link.to} className={link.to === location.pathname ? 'active' : ''}>
-                <div className="user-round-connexion">
-                  <img src={link.imgsrc} alt="User" />
-                </div>
-                <div className="nomHeaderProfil balmy">{link.text}</div>
-              </Link>
+            <Link to={link.to} className={link.to === location.pathname ? 'active' : ''}>
+              <div className="user-round-connexion">
+                <img src={link.imgsrc} alt="User" />
+              </div>
+              <div className="nomHeaderProfil balmy">{link.text}</div>
+            </Link>
             </li>
           ))}
         </ul>

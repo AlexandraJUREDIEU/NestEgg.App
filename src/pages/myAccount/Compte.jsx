@@ -6,7 +6,7 @@ import Wrapper from "../../assets/components/Wrapper"
 import styled from "styled-components";
 import LineWithPlus from "../../assets/components/LineWith+";
 
-const CompteStyle = styled.header`
+const CompteStyle = styled.main`
 
 .conteneurContenuCompte {
   display:flex;
