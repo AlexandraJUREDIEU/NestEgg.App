@@ -18,6 +18,7 @@ router.get('/', (req, res) => {
 
 router.get('/transactions', transactionService.getAllTransactions);
 router.get('/budget', budgetService.getBudgetByUser);
+router.get('/nameAccount', bankAccountService.getNameAccount);
 router.get('/fixedCharges', bankAccountService.getFixedCharges);
 router.post('/connect', auth.login_post);
 router.get('/getnbrtransactions', async (req, res) => {
@@ -45,6 +46,33 @@ router.get('/manouvelleroute', async (req, res) => {
     }
 });
 
+module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 router.get('/example', async (req, res) => {
     try {
@@ -67,7 +95,7 @@ router.get('/example', async (req, res) => {
     }
 });*/
 
-module.exports = router;
+
 // dashboardController.js
 /*exports.ttt = (req, res) => {
     res.send('ttt');
