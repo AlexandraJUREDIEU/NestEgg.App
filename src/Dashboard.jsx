@@ -198,7 +198,8 @@ function Dashboard() {
         <>
           <p>User found: {activeUser.name}</p>
           {chargesFixes.length != 0 ? (
-            <>Voici ton premier goal: {chargesFixes.goals[0].nameGoal}</>
+            <>Voici ton premier goal: {chargesFixes.goals[0].nameGoal}
+            <br></br>Voici ta première transaction: {transactions[0].name}</>
           ) : (
             <p>Loading...</p>
           )}

@@ -106,7 +106,7 @@ function Login() {
 
 
     
-
+    // <FooterForm classNameP="balmy" content="Se connecter" contentP="Je n'ai pas de compte. " contentSpan="S'inscrire" />
     return (
         <LoginStyle>
             <HeaderForm content="CONNEXION"/>

@@ -78,12 +78,12 @@ const links = [
   {to:"/monthly-bills" , text:"Charges fixes", imgsrc:"icons8-categorize-100.png"},
   ];
 
-  const linksHeader = [
-    {to:"#concept" , text:"Concept", onClick: () => scrollToSection(conceptRef)},
-    {to:"#about-us" , text:"Qui sommes nous?", onClick: () => scrollToSection(aboutUsRef)},
-    {to:"#price" , text:"Tarifs", onClick: () => scrollToSection(pricingRef)},
-    {to:"/login" , text:"Connexion"},
-    ];
+const linksHeader = [
+  {to:"#concept" , text:"Concept", onClick: () => scrollToSection(conceptRef)},
+  {to:"#about-us" , text:"Qui sommes nous?", onClick: () => scrollToSection(aboutUsRef)},
+  {to:"#price" , text:"Tarifs", onClick: () => scrollToSection(pricingRef)},
+  {to:"/login" , text:"Connexion"},
+  ];
 
 export default function HeaderProfil() {
   return (

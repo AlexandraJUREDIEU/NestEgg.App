@@ -1,5 +1,3 @@
-
-
 const userModel = require('../models/user');
 const budgetModel = require('../models/budget');
 
