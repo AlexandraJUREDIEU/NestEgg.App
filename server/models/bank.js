@@ -5,4 +5,4 @@ const bankSchema = new mongoose.Schema({
 	urlLogo: { type: String, required: true },
 	});
 
-module.exports = mongoose.model("Bank", bankSchema);
+module.exports = mongoose.model("Bank", bankSchema, "Bank");
