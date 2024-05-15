@@ -55,13 +55,13 @@ function Wrapper({ initial, deroule }) {
         {state ? (
           <>
             <span className="fleche">
-              <img src="icons8-back-100.png" alt="arrow to hide" />
+              <img src="/icons8-back-100.png" alt="arrow to hide" />
             </span>
           </>
         ) : (
           <>
             <span className="fleche">
-              <img src="icons8-forward-100.png" alt="arrow to show" />
+              <img src="/icons8-forward-100.png" alt="arrow to show" />
             </span>
           </>
         )}

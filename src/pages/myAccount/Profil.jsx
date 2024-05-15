@@ -34,8 +34,8 @@ function Profil() {
     //Render
     return (
       <>
+      <HeaderProfil/>
         <ProfilStyle>
-            <HeaderProfil/>
           <PhraseAmicale/>
           <Wrapper
             initial={<>

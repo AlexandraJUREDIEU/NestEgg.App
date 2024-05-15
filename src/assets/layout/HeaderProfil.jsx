@@ -72,10 +72,10 @@ const HeaderProfilStyle = styled.header`
 `;
 
 const links = [
-  {to:"/my-account" , text:"Placeholder my account active", imgsrc:"icons-user-round.png"},
-  {to:"/bank-account" , text:"Compte bancaire", imgsrc:"?"},
-  {to:"/income" , text:"Revenus", imgsrc:"icons8-euro-money-100.png"},
-  {to:"/monthly-bills" , text:"Charges fixes", imgsrc:"icons8-categorize-100.png"},
+  {to:"/my-account/profil" , text:"Placeholder my account active", imgsrc:"/icons-user-round.png"},
+  {to:"/my-account/compte" , text:"Compte bancaire", imgsrc:"/?"},
+  {to:"/my-account/ressources" , text:"Revenus", imgsrc:"/icons8-euro-money-100.png"},
+  {to:"/my-account/chargesfixes" , text:"Charges fixes", imgsrc:"/icons8-categorize-100.png"},
   ];
 
 const linksHeader = [
@@ -100,7 +100,7 @@ export default function HeaderProfil() {
             />
           </Link>
         </li>
-          {links.map((link, index, imgsrc) => (
+          {links.map((link, index) => (
             <li key={index}>
               <Link to={link.to} className={link.to === location.pathname ? 'active' : ''}>
                 <div className="user-round-connexion">

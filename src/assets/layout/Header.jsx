@@ -377,7 +377,7 @@ function onClickNavBarEvent () {
             {links.map((link, index) => (
               <li key={index}>
                 
-              {link.to==="/login" && isSmallScreen && <div><img className="max-mobile-header" src="mascotte-mobile-header.png"/></div> }
+              {link.to==="/login" && isSmallScreen && <div><img className="max-mobile-header" src="/mascotte-mobile-header.png"/></div> }
                 
               <Link
                     to={link.to}
@@ -388,7 +388,7 @@ function onClickNavBarEvent () {
                     {link.to === "/login" ? (
                       <>
                         <div className="user-round-connexion">
-                          <img src="icons-user-round.png" />
+                          <img src="/icons-user-round.png" />
                         </div>
 
                         <div className="text-connexion balmy">{link.text}</div>

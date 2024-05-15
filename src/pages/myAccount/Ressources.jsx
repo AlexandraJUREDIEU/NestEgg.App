@@ -26,14 +26,14 @@ function Ressources() {
     //Render
     return (
       <>
+      <HeaderProfil/>
       <RessourcesStyle>
-            <HeaderProfil/>
         <PhraseAmicale/>
           <Wrapper
             initial={
             <>
             <div className="initialRessources">
-              <img src="icons8-utilisateur-100-not-circle.png" alt="" />
+              <img src="/icons8-utilisateur-100-not-circle.png" alt="" />
               <p>Luca</p>
               </div>
             </>}
@@ -45,7 +45,7 @@ function Ressources() {
           <Wrapper
             initial={<>
               <div className="initialRessources">
-                <img src="icons8-utilisateur-100-not-circle.png" alt="" />
+                <img src="/icons8-utilisateur-100-not-circle.png" alt="" />
                 <div>SOSO LE PELICAN</div>
               </div>
             </>}

@@ -8,6 +8,7 @@ import Compte from "./pages/myAccount/Compte.jsx";
 import Ressources from "./pages/myAccount/Ressources.jsx";
 import ChargesFixes from "./pages/myAccount/ChargesFixes.jsx";
 
+import Header from "./assets/layout/Header.jsx";
 
 //Styles
 const Style = styled.div`

@@ -10,9 +10,9 @@ function ChargesFixes() {
     //Render
     return (
       <>
-        <PhraseAmicale/>
-            <HeaderProfil/>
-        <Wrapper
+        <HeaderProfil/>
+          <PhraseAmicale/>
+          <Wrapper
             initial={
             <>
               <p>Maison</p>
@@ -21,13 +21,13 @@ function ChargesFixes() {
             <>
               Placeholder salaires Luca
             </>}
-        />
+          />
 
 
-        <Wrapper
+          <Wrapper
             initial={<>
               <div className="initialRessources">
-                <img src="icons8-utilisateur-100-not-circle.png" alt="" />
+                <img src="/icons8-utilisateur-100-not-circle.png" alt="" />
                 <div>Abonnements</div>
               </div>
             </>}
@@ -41,7 +41,7 @@ function ChargesFixes() {
               text="Prélevé le"
               listOptions={['01', '02', '03']}
             />
-            </>
+          </>
           }
         />
 

@@ -37,18 +37,18 @@ function Compte() {
     //Render
     return (
       <>
+      <HeaderProfil/>
       <CompteStyle>
-            <HeaderProfil/>
       <PhraseAmicale/>
         <Wrapper
         initial={<>
-        <img src="icons8-settings-100.png" alt="" />
+        <img src="/icons8-settings-100.png" alt="" />
         <p>Compte courant Luca</p>
         </>}
         deroule="Placeholder compte 1"/>
         <Wrapper
         initial={<>
-        <img src="icons8-settings-100.png" alt="" />
+        <img src="/icons8-settings-100.png" alt="" />
         <p>Livret a Luca</p>
         </>}
         deroule={
@@ -60,7 +60,7 @@ function Compte() {
               <p>254,56€</p>
             </div>
             <div className="avatarAndName">
-              <img src="icons8-utilisateur-100-not-circle.png" alt="" />
+              <img src="/icons8-utilisateur-100-not-circle.png" alt="" />
               <p>Luca</p>
             </div>
           </div>
