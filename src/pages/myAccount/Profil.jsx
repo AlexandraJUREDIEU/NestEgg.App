@@ -48,19 +48,19 @@ function Profil({activeUser}) {
             <form>
               <div>
                 <label>Nom</label>
-                <input type="text" id="name" name="name" required minlength="4" maxlength="20" />
+                <input type="text" id="name" name="name" required minLength="4" maxLength="20" />
               </div>
               <div>
                 <label>Prénom</label>
-                <input type="text" id="name" name="name" required minlength="4" maxlength="20" />
+                <input type="text" id="name" name="name" required minLength="4" maxLength="20" />
               </div>
               <div>
                 <label>E-mail</label>
-                <input type="email" id="name" name="name" required minlength="4" maxlength="20" />
+                <input type="email" id="name" name="name" required minLength="4" maxLength="20" />
               </div>
               <div>
                 <label>Mot de passe</label>
-                <input type="password" id="name" name="name" required minlength="4" maxlength="20" />
+                <input type="password" id="name" name="name" required minLength="4" maxLength="20" />
               </div>
               <button type="submit">Enregistrer les modifications</button>
             </form>
