@@ -67,7 +67,7 @@ function Select(props)  {
     if (part !== undefined) {
       return (
         <>
-          {index === props.value ? (
+          {index+1 == props.value ? (
             <option key={index} selected>
               {part}
             </option>

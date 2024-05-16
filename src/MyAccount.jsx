@@ -95,6 +95,7 @@ function MyAccount() {
     const [activeUser, setActiveUser] = useState([]);
     const [transactions, setTransactions] = useState([]);
     const [chargesFixes, setChargesFixes] = useState([]);
+    const [bankAccount, setBankAccount] = useState([]);
 
 
   async function getUser() {
@@ -105,6 +106,7 @@ function MyAccount() {
       if (user) {
         setActiveUser(user);
         getChargesFixes(user.id);
+        fetchBank(user.id);
         fetchTransactions(user.id);
       } else {
         console.log("User not found");
@@ -134,10 +136,15 @@ function MyAccount() {
     }
   };
 
-
-
-
-
+  const fetchBank = async (userId) => {
+    try {
+      const response = await axios.get(`${API_URL}/dashboard/nameAccount?userid=${userId}`);
+      const data = response.data;
+      setBankAccount(data);
+  } catch (error) {
+    console.error('Error fetching bank:', error);
+  }
+  };
 
 
   useEffect(() => {
@@ -164,13 +171,14 @@ function MyAccount() {
           <p>User found: {activeUser.name}</p>
           {chargesFixes.length != 0 ? (
             <>Voici ton premier goal: {chargesFixes.goals[0].nameGoal}
-            <br></br>Voici ta première transaction: {transactions[0].name}</>
-          ) : (
+            <br></br>Voici ta première transaction: {transactions[0].name}
+            <br></br>Banque: {bankAccount.mabanque}</>  
+        ) : (
             <p>Loading...</p>
           )}
         </>
       )}
-    */}
+      */}
       
         <Style>
           <Routes>
@@ -178,7 +186,7 @@ function MyAccount() {
             <Route path="/profil" element={<Profil activeUser={activeUser} />} />
             <Route path="/compte" element={<Compte activeUser={activeUser} chargesFixes={chargesFixes} />} />
             <Route path="/ressources" element={<Ressources activeUser={activeUser} />} />
-            <Route path="/chargesFixes" element={<ChargesFixes activeUser={activeUser} chargesFixes={chargesFixes}/>} />
+            <Route path="/chargesFixes" element={<ChargesFixes activeUser={activeUser} chargesFixes={chargesFixes} bankAccount={bankAccount}/>} />
           </Routes>
         </Style>
       </>

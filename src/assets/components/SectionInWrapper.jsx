@@ -39,7 +39,7 @@ select{
 
 
 
-const SectionInWrapper = ({ title, text, listOptions }) => {
+const SectionInWrapper = ({ title, text, listOptions, day = 0, valueAmount, valueBank }) => {
 
     const [selectedOption, setSelectedOption] = useState("");
 
@@ -51,17 +51,17 @@ const SectionInWrapper = ({ title, text, listOptions }) => {
         <>
         <StyledSectionInWrapper>
             <div className="titleAndInput">
-                <p>{title}</p> <Input name="ammount" type="number" />
+                <p>{title}</p> <div>{valueAmount}</div>
             </div>
             <div className="textAndSelactAndInput">
                 <div className="textAndSelect">
                     <p>{text}</p>
                     <Select
                         options={listOptions}
-                        value="2"
+                        value={day}
                     />
                 </div>
-                <Input name="date" type="number" />
+                <div>{valueBank}</div>
             </div>
           </StyledSectionInWrapper>
         </>

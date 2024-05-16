@@ -8,7 +8,7 @@ import styled from "styled-components";
 
 const ChargesFixesStyle = styled.main``;
 
-function ChargesFixes({activeUser, chargesFixes}) {
+function ChargesFixes({activeUser, chargesFixes, bankAccount}) {
 
   const generateListOptions = () => {
     return Array.from({ length: 31 }, (_, i) => (i + 1).toString().padStart(2, '0'));
@@ -42,16 +42,20 @@ function ChargesFixes({activeUser, chargesFixes}) {
               <div>Abonnements</div>
             </div>
           </>}
-          deroule={<><SectionInWrapper
-            title="Netflix"
-            text="Prélevé le"
-            listOptions={listOptions}
-          />
+          deroule={<>
+          
+          
+          {bankAccount.length== 0 ? "Loading..." :chargesFixes.fixedCharges.map((charge, index) => (
           <SectionInWrapper
-            title="Netflix"
+            key={index}
+            title={bankAccount.length == 0 ? "Loading..." : charge.nameCharge}
             text="Prélevé le"
+            day="1"
             listOptions={listOptions}
+            valueAmount={bankAccount.length == 0 ? "Loading..." : charge.monthlyCharge}
+            valueBank={bankAccount.length == 0 ? "Loading..." : bankAccount[0][0].nameBankAccount}
           />
+          ))}
         </>
         }
       />
