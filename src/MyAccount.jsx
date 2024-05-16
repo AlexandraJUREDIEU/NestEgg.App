@@ -157,29 +157,6 @@ function MyAccount() {
 
     return (
       <>
-      {/*
-      {activeUser && (
-        <>
-          <p>User found: {activeUser.name}</p>
-        </>
-      )}
-    */}
-
-      {/*
-      {transactions && (
-        <>
-          <p>User found: {activeUser.name}</p>
-          {chargesFixes.length != 0 ? (
-            <>Voici ton premier goal: {chargesFixes.goals[0].nameGoal}
-            <br></br>Voici ta première transaction: {transactions[0].name}
-            <br></br>Banque: {bankAccount.mabanque}</>  
-        ) : (
-            <p>Loading...</p>
-          )}
-        </>
-      )}
-      */}
-      
         <Style>
           <Routes>
             <Route path="/" element={<Navigate to="/my-account/profil" />} />
