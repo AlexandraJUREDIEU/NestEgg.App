@@ -40,7 +40,7 @@ function PhraseAmicale() {
       <>
         <Style>
         <h1>Bonjour {activeUser.name}</h1>
-        <p>Plus que 158 jours pour remplir votre objectif</p>
+        <p>Plus que [placeholder] jours pour remplir votre objectif</p>
         </Style>
       </>
     );

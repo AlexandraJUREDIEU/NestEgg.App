@@ -136,55 +136,54 @@ const links = [
 function Dashboard() {
   //State
   //Récupérer l'utilisateur
-  const [activeUser, setActiveUser] = useState([]);
-  async function getUser() {
-    const idUser = new URLSearchParams(location.search).get("userId");
-    try {
-      const userListResponse = await axios.get(`${API_URL}/users/list`);
-      const user = userListResponse.data.find((user) => user.id === idUser);
-      if (user) {
-        setActiveUser(user);
-        getChargesFixes(user.id);
-        fetchTransactions(user.id);
-      } else {
-        console.log("User not found");
+    const [activeUser, setActiveUser] = useState([]);
+    const [transactions, setTransactions] = useState([]);
+    const [chargesFixes, setChargesFixes] = useState([]);
+  
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const idUser = new URLSearchParams(location.search).get('userId');
+          const userListResponse = await axios.get(`${API_URL}/users/list`);
+          const user = userListResponse.data.find(user => user.id === idUser);
+          if (user) {
+            setActiveUser(user);
+            getChargesFixes(user.id);
+            fetchTransactions(user.id);
+          } else {
+            console.log('User not found');
+          }
+        } catch (error) {
+          console.error('Error fetching user data:', error);
+        }
+      };
+  
+      fetchData();
+    }, []); // Empty dependency array ensures this effect runs only once after initial render
+  
+    const getChargesFixes = async (userId) => {
+      try {
+        const userChargesFixe = await axios.get(`${API_URL}/dashboard/fixedCharges?userid=${userId}`);
+        const data = userChargesFixe.data[0];
+        setChargesFixes(data);
+      } catch (error) {
+        console.error('Error fetching fixed charges:', error);
       }
-    } catch (error) {
-      console.error("Error fetching user data:", error);
-    }
-  }
-  getUser();
-
-  //Récupérer les transactions
-  const [transactions, setTransactions] = useState([]);
-  async function fetchTransactions(userId) {
+    };
+  
+    const fetchTransactions = async (userId) => {
       try {
         const response = await axios.get(`${API_URL}/dashboard/transactions?userid=${userId}`);
         const data = response.data[0].transactions;
         setTransactions(data);
       } catch (error) {
-        console.error("Error fetching transactions:", error);
+        console.error('Error fetching transactions:', error);
       }
-    }
-
-  //Récupérer les charges fixes
-  const [chargesFixes, setChargesFixes] = useState([]);
-  async function getChargesFixes(userId) {
-    try {
-      const userChargesFixe = await axios.get(`${API_URL}/dashboard/fixedCharges?userid=${userId}`);
-      const data = userChargesFixe.data[0];
-      setChargesFixes(data);
-    } catch (error) {
-      console.error("Error fetching fixed charges:", error);
-    }
-  }
-
-
-
-  //Comportement
-  const handleBoxClick = (id) => {
-    console.log(`La boîte ${id} a été cliquée.`);
-  };
+    };
+  
+    const handleBoxClick = (id) => {
+      console.log(`La boîte ${id} a été cliquée.`);
+    };
 
 
 
@@ -194,7 +193,7 @@ function Dashboard() {
 
 
 
-      {activeUser && (
+      {!!activeUser && (
         <>
           <p>User found: {activeUser.name}</p>
           {chargesFixes.length != 0 ? (
