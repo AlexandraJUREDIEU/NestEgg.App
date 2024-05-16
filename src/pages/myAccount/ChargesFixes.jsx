@@ -8,7 +8,7 @@ import styled from "styled-components";
 
 const ChargesFixesStyle = styled.main``;
 
-function ChargesFixes() {
+function ChargesFixes({activeUser, chargesFixes}) {
     //State
     //Comportement
     //Render
@@ -17,7 +17,7 @@ function ChargesFixes() {
       <HeaderProfil/>
 
       <ChargesFixesStyle>
-      <PhraseAmicale/>
+        <PhraseAmicale activeUser={activeUser}/>
         <Wrapper
           initial={
           <>

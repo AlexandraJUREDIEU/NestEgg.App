@@ -31,7 +31,7 @@ const CompteStyle = styled.main`
 `;
 
 
-function Compte() {
+function Compte({activeUser, chargesFixes}) {
     //State
     //Comportement
     //Render
@@ -39,7 +39,7 @@ function Compte() {
       <>
       <HeaderProfil/>
       <CompteStyle>
-      <PhraseAmicale/>
+          <PhraseAmicale activeUser={activeUser}/>
         <Wrapper
         initial={<>
         <img src="/icons8-settings-100.png" alt="" />

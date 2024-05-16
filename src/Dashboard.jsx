@@ -193,7 +193,7 @@ function Dashboard() {
 
 
 
-      {!!activeUser && (
+      {activeUser && (
         <>
           <p>User found: {activeUser.name}</p>
           {chargesFixes.length != 0 ? (

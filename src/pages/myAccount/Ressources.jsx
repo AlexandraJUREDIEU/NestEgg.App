@@ -20,7 +20,7 @@ const RessourcesStyle = styled.main`
   }
 `;
 
-function Ressources() {
+function Ressources({activeUser}) {
     //State
     //Comportement
     //Render
@@ -28,7 +28,7 @@ function Ressources() {
       <>
       <HeaderProfil/>
       <RessourcesStyle>
-        <PhraseAmicale/>
+          <PhraseAmicale activeUser={activeUser}/>
           <Wrapper
             initial={
             <>

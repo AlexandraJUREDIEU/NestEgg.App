@@ -92,7 +92,11 @@ function MyAccount() {
     //State
 
   //Récupérer l'utilisateur
-  const [activeUser, setActiveUser] = useState([]);
+    const [activeUser, setActiveUser] = useState([]);
+    const [transactions, setTransactions] = useState([]);
+    const [chargesFixes, setChargesFixes] = useState([]);
+
+
   async function getUser() {
     const idUser = new URLSearchParams(location.search).get("userId");
     try {
@@ -100,8 +104,8 @@ function MyAccount() {
       const user = userListResponse.data.find((user) => user.id === idUser);
       if (user) {
         setActiveUser(user);
-        /*getChargesFixes(user.id);
-        fetchTransactions(user.id);*/
+        getChargesFixes(user.id);
+        fetchTransactions(user.id);
       } else {
         console.log("User not found");
       }
@@ -110,11 +114,35 @@ function MyAccount() {
     }
   }
   
+  const getChargesFixes = async (userId) => {
+    try {
+      const userChargesFixe = await axios.get(`${API_URL}/dashboard/fixedCharges?userid=${userId}`);
+      const data = userChargesFixe.data[0];
+      setChargesFixes(data);
+    } catch (error) {
+      console.error('Error fetching fixed charges:', error);
+    }
+  };
+
+  const fetchTransactions = async (userId) => {
+    try {
+      const response = await axios.get(`${API_URL}/dashboard/transactions?userid=${userId}`);
+      const data = response.data[0].transactions;
+      setTransactions(data);
+    } catch (error) {
+      console.error('Error fetching transactions:', error);
+    }
+  };
+
+
+
+
+
+
 
   useEffect(() => {
     getUser();
   }, []);
-
 
 
     //Comportement
@@ -129,17 +157,31 @@ function MyAccount() {
         </>
       )}
     */}
+
+      {/*
+      {transactions && (
+        <>
+          <p>User found: {activeUser.name}</p>
+          {chargesFixes.length != 0 ? (
+            <>Voici ton premier goal: {chargesFixes.goals[0].nameGoal}
+            <br></br>Voici ta première transaction: {transactions[0].name}</>
+          ) : (
+            <p>Loading...</p>
+          )}
+        </>
+      )}
+    */}
+      
         <Style>
           <Routes>
             <Route path="/" element={<Navigate to="/my-account/profil" />} />
-            <Route path="/profil" element={<Profil activeUser={activeUser}/>} />
-            <Route path="/compte" element={<Compte activeUser={activeUser} />} />
+            <Route path="/profil" element={<Profil activeUser={activeUser} />} />
+            <Route path="/compte" element={<Compte activeUser={activeUser} chargesFixes={chargesFixes} />} />
             <Route path="/ressources" element={<Ressources activeUser={activeUser} />} />
-            <Route path="/chargesFixes" element={<ChargesFixes activeUser={activeUser} />} />
+            <Route path="/chargesFixes" element={<ChargesFixes activeUser={activeUser} chargesFixes={chargesFixes}/>} />
           </Routes>
         </Style>
       </>
     )
   }
-  
   export default MyAccount;
