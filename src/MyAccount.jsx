@@ -109,7 +109,11 @@ function MyAccount() {
       console.error("Error fetching user data:", error);
     }
   }
-  getUser();
+  
+
+  useEffect(() => {
+    getUser();
+  }, []);
 
 
 
