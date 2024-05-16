@@ -30,36 +30,15 @@ const ProfilStyle = styled.main`
   }
 `;
 
-function Profil() {
+function Profil({activeUser}) {
     //State
-
-    //Récupérer l'utilisateur
-  const [activeUser, setActiveUser] = useState([]);
-  async function getUser() {
-    const idUser = new URLSearchParams(location.search).get("userId");
-    try {
-      const userListResponse = await axios.get(`${API_URL}/users/list`);
-      const user = userListResponse.data.find((user) => user.id === idUser);
-      if (user) {
-        setActiveUser(user);
-        /*getChargesFixes(user.id);
-        fetchTransactions(user.id);*/
-      } else {
-        console.log("User not found");
-      }
-    } catch (error) {
-      console.error("Error fetching user data:", error);
-    }
-  }
-  getUser();
-
     //Comportement
     //Render
     return (
       <>
         <HeaderProfil/>
         <ProfilStyle>
-          <PhraseAmicale/>
+          <PhraseAmicale activeUser={activeUser}/>
           <Wrapper
             initial={<>
               <div>{activeUser.name} {activeUser.lastname}</div>

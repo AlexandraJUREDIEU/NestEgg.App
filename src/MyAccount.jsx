@@ -128,10 +128,10 @@ function MyAccount() {
         <Style>
           <Routes>
             <Route path="/" element={<Navigate to="/my-account/profil" />} />
-            <Route path="/profil" element={<Profil />} />
-            <Route path="/compte" element={<Compte />} />
-            <Route path="/ressources" element={<Ressources />} />
-            <Route path="/chargesFixes" element={<ChargesFixes />} />
+            <Route path="/profil" element={<Profil activeUser={activeUser}/>} />
+            <Route path="/compte" element={<Compte activeUser={activeUser} />} />
+            <Route path="/ressources" element={<Ressources activeUser={activeUser} />} />
+            <Route path="/chargesFixes" element={<ChargesFixes activeUser={activeUser} />} />
           </Routes>
         </Style>
       </>
