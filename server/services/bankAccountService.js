@@ -37,10 +37,6 @@ exports.getNameAccount = async (req, res) => {
             return res.status(404).send('User not found');
         }
 
-
-
-
-
     // Trouver les comptes bancaires associés à l'utilisateur
     const response = await budgetModel.find({"accounts.owner" : "ObjectId('" + userId + "')" });
 
@@ -50,13 +46,16 @@ exports.getNameAccount = async (req, res) => {
 
     const listBankAccountUserWithoutObject = listBankAccountUser.map(id => id.slice(10, id.length-2))
 
-
-
-
     let finalReturn = [];
     for (account of listBankAccountUserWithoutObject){
         finalReturn.push(await accountModel.find({_id : account}));
     }
+
+
+    finalReturn = finalReturn.map((item) => {
+        return {...item, mabanque: finalReturn[0][0].bank.slice(10, finalReturn[0][0].bank.length-2)};
+      });
+    
 
     return res.json(finalReturn);
 
