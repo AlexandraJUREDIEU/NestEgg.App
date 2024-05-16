@@ -3,7 +3,9 @@ import styled from "styled-components";
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useState, useEffect } from "react";
+import axios from "axios";
+import API_URL from "./config";
 
 import Profil from "./pages/myAccount/Profil.jsx";
 import Compte from "./pages/myAccount/Compte.jsx";
@@ -88,11 +90,41 @@ const SectionWrapper = styled.section`
 
 function MyAccount() {
     //State
+
+  //Récupérer l'utilisateur
+  const [activeUser, setActiveUser] = useState([]);
+  async function getUser() {
+    const idUser = new URLSearchParams(location.search).get("userId");
+    try {
+      const userListResponse = await axios.get(`${API_URL}/users/list`);
+      const user = userListResponse.data.find((user) => user.id === idUser);
+      if (user) {
+        setActiveUser(user);
+        /*getChargesFixes(user.id);
+        fetchTransactions(user.id);*/
+      } else {
+        console.log("User not found");
+      }
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    }
+  }
+  getUser();
+
+
+
     //Comportement
     //Render
 
     return (
       <>
+      {/*
+      {activeUser && (
+        <>
+          <p>User found: {activeUser.name}</p>
+        </>
+      )}
+    */}
         <Style>
           <Routes>
             <Route path="/" element={<Navigate to="/my-account/profil" />} />
