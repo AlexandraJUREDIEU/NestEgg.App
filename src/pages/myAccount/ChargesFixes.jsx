@@ -52,7 +52,7 @@ function ChargesFixes({activeUser, chargesFixes, bankAccount}) {
             text="Prélevé le"
             day="1"
             listOptions={listOptions}
-            valueAmount={bankAccount.length == 0 ? "Loading..." : charge.monthlyCharge}
+            valueAmount={bankAccount.length == 0 ? "Loading..." : charge.monthlyCharge + "€"}
             valueBank={bankAccount.length == 0 ? "Loading..." : bankAccount[0][0].nameBankAccount}
           />
           ))}
