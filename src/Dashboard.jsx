@@ -132,6 +132,7 @@ const links = [
   { to: "/summary", text: "Synthese" },
   { to: "#add-transaction", text: "Ajouter une transaction" },
 ];
+let string ;
 
 function Dashboard() {
   //State
@@ -150,6 +151,7 @@ function Dashboard() {
             setActiveUser(user);
             getChargesFixes(user.id);
             fetchTransactions(user.id);
+            string= "http://localhost:5173/my-account/profil?userId=" + user.id;
           } else {
             console.log('User not found');
           }
@@ -186,14 +188,11 @@ function Dashboard() {
     };
 
 
-
   //Render
   return (
     <>
-
-
-
-      {activeUser && (
+    {// Affichage des différentes data récupérés du back-end
+      /*{activeUser && (
         <>
           <p>User found: {activeUser.name}</p>
           {chargesFixes.length != 0 ? (
@@ -204,12 +203,12 @@ function Dashboard() {
           )}
         </>
       )}
-
-
+      */}
 
       <DashboardStyle />
       <HeaderContainer links={links} />
       <h1>Tableau de bord</h1>
+      <a href={string}>Voir mon profil</a>
 
       <section className="div-container-boxes">
         <Box
