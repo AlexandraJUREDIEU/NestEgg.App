@@ -9,6 +9,11 @@ import styled from "styled-components";
 const ChargesFixesStyle = styled.main``;
 
 function ChargesFixes({activeUser, chargesFixes}) {
+
+  const generateListOptions = () => {
+    return Array.from({ length: 31 }, (_, i) => (i + 1).toString().padStart(2, '0'));
+  };
+  const listOptions = generateListOptions();
     //State
     //Comportement
     //Render
@@ -40,12 +45,12 @@ function ChargesFixes({activeUser, chargesFixes}) {
           deroule={<><SectionInWrapper
             title="Netflix"
             text="Prélevé le"
-            listOptions={['01', '02', '03']}
+            listOptions={listOptions}
           />
           <SectionInWrapper
             title="Netflix"
             text="Prélevé le"
-            listOptions={['01', '02', '03']}
+            listOptions={listOptions}
           />
         </>
         }
