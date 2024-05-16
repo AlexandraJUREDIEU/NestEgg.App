@@ -48,15 +48,15 @@ function Profil({activeUser}) {
             <form>
               <div>
                 <label>Nom</label>
-                <input type="text" id="name" name="name" required minLength="4" maxLength="20" />
+                <input type="text" id="name" name="name" required minLength="4" maxLength="20" defaultValue={activeUser.lastname}/>
               </div>
               <div>
                 <label>Prénom</label>
-                <input type="text" id="name" name="name" required minLength="4" maxLength="20" />
+                <input type="text" id="name" name="name" required minLength="4" maxLength="20" defaultValue={activeUser.name}/>
               </div>
               <div>
                 <label>E-mail</label>
-                <input type="email" id="name" name="name" required minLength="4" maxLength="20" />
+                <input type="email" id="name" name="name" required minLength="4" maxLength="20" defaultValue={activeUser.email} />
               </div>
               <div>
                 <label>Mot de passe</label>
