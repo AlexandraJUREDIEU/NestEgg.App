@@ -26,7 +26,7 @@ const LineWithPlus = ({text}) => {
     <LineWithPlusStyle>
         <div className="InviteAndPlus">
             <p>{text}</p>
-            <img src="icons8-add-90.png" alt="+" />
+            <img src="/icons8-add-90.png" alt="+" />
         </div>
         </LineWithPlusStyle>
     </>

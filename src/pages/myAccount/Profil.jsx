@@ -1,13 +1,9 @@
 import HeaderProfil from "../../assets/layout/HeaderProfil";
-
 import Wrapper from "../../assets/components/Wrapper";
 import ProfilLigneInvite from "../../assets/components/ProfilLigneInvite";
 import PhraseAmicale from "./PhraseAmicale";
 import LineWithPlus from "../../assets/components/LineWith+";
-import { useState, useEffect } from "react";
 import styled from "styled-components";
-import axios from "axios";
-import API_URL from "../../config";
 
 
 const ProfilStyle = styled.main`
@@ -40,6 +36,7 @@ function Profil({activeUser}) {
         <ProfilStyle>
           <PhraseAmicale activeUser={activeUser}/>
           <Wrapper
+          // activeUser."X" affiche la proprité souhaitée du User
             initial={<>
               <div>{activeUser.name} {activeUser.lastname}</div>
               {activeUser.email} 

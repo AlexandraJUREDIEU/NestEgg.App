@@ -1,18 +1,14 @@
 
 import styled from "styled-components";
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import axios from "axios";
 import API_URL from "./config";
-
 import Profil from "./pages/myAccount/Profil.jsx";
 import Compte from "./pages/myAccount/Compte.jsx";
 import Ressources from "./pages/myAccount/Ressources.jsx";
 import ChargesFixes from "./pages/myAccount/ChargesFixes.jsx";
-
-import Header from "./assets/layout/Header.jsx";
 
 //Styles
 const Style = styled.div`
@@ -78,32 +74,33 @@ const Style = styled.div`
   }
 `;
 
-
-const SectionWrapper = styled.section`
-  position: relative;
-  height: 100vh;
-  left:0;
-`;
-
-
 //Fonctions
 
 function MyAccount() {
     //State
 
-  //Récupérer l'utilisateur
+  //Récupérer les fonctions nécéssaires au fetch des données de l'utilisateur
     const [activeUser, setActiveUser] = useState([]);
     const [transactions, setTransactions] = useState([]);
     const [chargesFixes, setChargesFixes] = useState([]);
     const [bankAccount, setBankAccount] = useState([]);
 
+    // Cherches les données de l'utilisateur au chargement de la page uniquement
+    useEffect(() => {
+      getUser();
+    }, []);
+
 
   async function getUser() {
+    //Récupérer l'id de l'utilisateur venant de l'url
     const idUser = new URLSearchParams(location.search).get("userId");
     try {
+      // Récupère les données de l'url de back et récupère le contenu de cette dernière 
       const userListResponse = await axios.get(`${API_URL}/users/list`);
+      // Récupère l'utilisateur correspondant à la réponse précédente
       const user = userListResponse.data.find((user) => user.id === idUser);
       if (user) {
+        // Si il trouve l'user, setActiveUser est le state, et pour le reste il effectue les fonctions qui sont en dessous avec la variable user.id
         setActiveUser(user);
         getChargesFixes(user.id);
         fetchBank(user.id);
@@ -118,8 +115,11 @@ function MyAccount() {
   
   const getChargesFixes = async (userId) => {
     try {
+      // Récupère les données de l'url de back et récupère le contenu de cette dernière 
       const userChargesFixe = await axios.get(`${API_URL}/dashboard/fixedCharges?userid=${userId}`);
+      // Récupération des charges fixes via le résultat de la méthode get d'axios
       const data = userChargesFixe.data[0];
+      // modification du state
       setChargesFixes(data);
     } catch (error) {
       console.error('Error fetching fixed charges:', error);
@@ -128,8 +128,11 @@ function MyAccount() {
 
   const fetchTransactions = async (userId) => {
     try {
+      // Récupère les données de l'url de back et récupère le contenu de cette dernière 
       const response = await axios.get(`${API_URL}/dashboard/transactions?userid=${userId}`);
+      // Récupération des transactions via le résultat de la méthode get d'axios
       const data = response.data[0].transactions;
+      // modification du state
       setTransactions(data);
     } catch (error) {
       console.error('Error fetching transactions:', error);
@@ -138,23 +141,22 @@ function MyAccount() {
 
   const fetchBank = async (userId) => {
     try {
+      // Récupère les données de l'url de back et récupère le contenu de cette dernière 
       const response = await axios.get(`${API_URL}/dashboard/nameAccount?userid=${userId}`);
+      // récupération de la banque via le résultat de la méthode get d'axios
       const data = response.data;
+      // modification du state
       setBankAccount(data);
   } catch (error) {
     console.error('Error fetching bank:', error);
   }
   };
 
-
-  useEffect(() => {
-    getUser();
-  }, []);
-
-
     //Comportement
     //Render
 
+/* return des routes avec à l'intérieur la props activeUser qui permet de le récupérer facilement sur toutes les pages, et ensuite les props comme par exemple 
+chargesFixes qui servent à récupérer facilement les données sur la page en question */
     return (
       <>
         <Style>
