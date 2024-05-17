@@ -9,7 +9,7 @@ const bankAccountSchema = new mongoose.Schema({
 	nameBankAccount: { type: String, required: true },
 	typeAccount: { type: String, required: true },
 	amount: { type: Number, required: true },
-	bank: { type: mongoose.Schema.Types.ObjectId, ref: "Bank", required: true },
+	bank: { type: String, ref: "Bank", required: true },
 	});
 
-module.exports = mongoose.model("BankAccount", bankAccountSchema);
+module.exports = mongoose.model("BankAccount", bankAccountSchema, "BankAccount");

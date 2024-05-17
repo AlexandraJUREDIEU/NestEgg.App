@@ -112,9 +112,9 @@ function FooterMain(){
                 <div className="footer-col-2">
                     <Link to="/signin" className="text-join-us">Rejoignez nous</Link>
                     <div className="footer-col-3">
-                        <img src="insta-logo.png" alt="Instagram" />
-                        <img src="facebook-logo.png" alt="Facebook" />
-                        <img src="linkedin-logo.png" alt="Linkedin" />
+                        <img src="/insta-logo.png" alt="Instagram" />
+                        <img src="/facebook-logo.png" alt="Facebook" />
+                        <img src="/linkedin-logo.png" alt="Linkedin" />
                     </div>
                 </div>
                 <div className="bar-vertical-footer"></div>

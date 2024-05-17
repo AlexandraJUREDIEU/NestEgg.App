@@ -7,11 +7,7 @@ img{
     height: 120px;
 }
 
-
-    
-
 `
-
 
 function HeaderForm({content, className}){
     return(<>

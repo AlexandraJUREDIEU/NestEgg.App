@@ -49,4 +49,47 @@ function Input(props) {
     </div>
   );
 }
-export default Input;
+
+// Functions
+function Select(props)  {
+  // State
+  const [selectedValue, setSelectedValue] = useState("");
+
+  // Comportement
+  const handleChange = (e) => {
+    setSelectedValue(e.target.value);
+    if (props.onChange) {
+      props.onChange(e.target.value);
+    }
+  };
+
+  const listOptions = props.options.map((part, index) => {
+    if (part !== undefined) {
+      return (
+        <>
+          {index+1 == props.value ? (
+            <option key={index} selected>
+              {part}
+            </option>
+            ) : (
+            <option key={index}>
+              {part}
+            </option>
+          )}
+        </>
+      );
+    }
+  });
+
+  // Render
+  return (
+    <>
+      <select>
+        {listOptions}
+      </select>
+    </>
+  );
+}
+
+export {Input, Select} ;
+
