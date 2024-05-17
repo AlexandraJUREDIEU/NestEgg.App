@@ -49,7 +49,9 @@ function Ressources({activeUser}) {
                 <div>SOSO LE PELICAN</div>
               </div>
             </>}
-            deroule={<><SectionInWrapper
+            deroule={
+            <>
+            <SectionInWrapper
               title="Salaire N°1"
               text="Arrive vers le"
               listOptions={['01', '02', '03']}
@@ -66,7 +68,8 @@ function Ressources({activeUser}) {
             /></>
           }
           />
-
+          {/* Le day des SectionInWrapper est par défaut sur 1 car la valeur n'a pas été créé sur la base de données*/}
+          
 
 
 

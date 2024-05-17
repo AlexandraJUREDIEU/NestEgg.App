@@ -72,6 +72,7 @@ const HeaderProfilStyle = styled.header`
   }
 `;
 
+//Liens des headers
 const links = [
   {to:"/my-account/profil" , text:"Profil", imgsrc:"/icons-user-round.png"},
   {to:"/my-account/compte" , text:"Comptes bancaire", imgsrc:"/?"},
@@ -86,11 +87,10 @@ const linksHeader = [
   {to:"/login" , text:"Connexion"},
   ];
 
-export default function HeaderProfil() {
-  
-  // State for screen width
+function HeaderProfil() {
+  // State
   const [screenwidth, setscreenwidth] = useState(window.innerWidth);
-  // Update screen width on resize
+  // Update la largeur de l'écran quand on la change
   useEffect(() => {
     const handleResize = () => {
       setscreenwidth(window.innerWidth);
@@ -101,9 +101,7 @@ export default function HeaderProfil() {
     };
   }, []);
 
-
-
-
+  //Return
   return (
     <>
       <HeaderProfilStyle>
@@ -133,3 +131,4 @@ export default function HeaderProfil() {
     </>
   );
 }
+export default HeaderProfil;

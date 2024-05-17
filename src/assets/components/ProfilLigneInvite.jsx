@@ -28,14 +28,7 @@ const ProfilLigneInviteStyle = styled.div`
 // Functions
 const Box = ({name, mail}) => {
   // State
-  
-    // Comportement
-    const handleClick = () => {
-    if (onClickAction) {
-      onClickAction(id);
-    }
-  };
-
+  // Comportement
   // Render
   return (
     <>

@@ -1,7 +1,19 @@
+/* ReadMe
+ * Ce composant est créé pour les pages Ressources et Charges Fixes:
+ * 
+ * Détermine tout ce qui sera affiché dans le composant:
+ * title : nom de la section || REQUIRED
+ * valueAmount : coût de la section || REQUIRED
+ * text : texte affiché au début de la seconde ligne || REQUIRED
+ * day : jour du mois où la section prend effet (default 1) || OPTIONNAL
+ * 
+ * valueBank : nom du compte associé à la section || REQUIRED
+ * listOptions : options associé au Select || REQUIRED
+ * */
+
 import React from 'react';
 import styled from 'styled-components';
-import {Input, Select} from './Input';
-import { useState, useEffect } from "react";
+import {Select} from './Input';
 
 
 const StyledSectionInWrapper = styled.span`
@@ -33,20 +45,7 @@ select{
 }
 `;
 
-
-
-
-
-
-
-const SectionInWrapper = ({ title, text, listOptions, day = 0, valueAmount, valueBank }) => {
-
-    const [selectedOption, setSelectedOption] = useState("");
-
-    const handleSelectChange = (value) => {
-        setSelectedOption(value);
-    };
-
+const SectionInWrapper = ({ title, text, listOptions, day = 1, valueAmount, valueBank }) => {
     return (
         <>
         <StyledSectionInWrapper>

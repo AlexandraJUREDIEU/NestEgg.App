@@ -44,9 +44,9 @@ function ChargesFixes({activeUser, chargesFixes, bankAccount}) {
           </>}
           deroule={<>
           
-          
+          {/* Le day est par défaut sur 1 car la valeur n'a pas été créé sur la base de données*/}
           {bankAccount.length== 0 ? "Loading..." :chargesFixes.fixedCharges.map((charge, index) => (
-          <SectionInWrapper
+           <SectionInWrapper
             key={index}
             title={bankAccount.length == 0 ? "Loading..." : charge.nameCharge}
             text="Prélevé le"
