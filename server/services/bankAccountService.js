@@ -14,6 +14,7 @@ exports.getFixedCharges = async (req, res) => {
             return res.status(404).send('User not found');
         }
 
+        // Trouver les comptes bancaires associés à l'utilisateur --> les propriétés 'admin' qui match le schema ci dessous seront trouvées
         const fixedCharges = await budgetModel.find({admin: "ObjectId('" + user._id + "')"});
         if (!fixedCharges) {
             return res.status(404).send('No budget found for this user');
@@ -28,8 +29,9 @@ exports.getFixedCharges = async (req, res) => {
 }
 
 
-exports.getNameAccount = async (req, res) => {
+exports.getAccount = async (req, res) => {
     try {
+        // Find the user
         const userId = req.query.userid;
         const user = await userModel.findById(userId);
 
@@ -37,25 +39,25 @@ exports.getNameAccount = async (req, res) => {
             return res.status(404).send('User not found');
         }
 
-    // Trouver les comptes bancaires associés à l'utilisateur
+    // Trouver les comptes bancaires associés à l'utilisateur --> les propriétés 'admin' qui match le schema ci dessous seront trouvées
     const response = await budgetModel.find({"accounts.owner" : "ObjectId('" + userId + "')" });
 
-
+        // Réduit la liste à uniquement les ID des comptes bancaires
     const listBankAccountUser = response[0].accounts.map(m=>m.idBankAccount);
     
-
+        // Enlèves des caractères à la string pour ne récupérer que l'ID sans le "objectid" à l'intérieur
     const listBankAccountUserWithoutObject = listBankAccountUser.map(id => id.slice(10, id.length-2))
 
+    // boucle for qui retourne les ID des comptes sans le objectID
     let finalReturn = [];
     for (account of listBankAccountUserWithoutObject){
         finalReturn.push(await accountModel.find({_id : account}));
     }
 
-
+    // Pour chaque compte bancaire : ressort la banque associé
     finalReturn = finalReturn.map((item) => {
         return {...item, mabanque: finalReturn[0][0].bank.slice(10, finalReturn[0][0].bank.length-2)};
       });
-    
 
     return res.json(finalReturn);
 

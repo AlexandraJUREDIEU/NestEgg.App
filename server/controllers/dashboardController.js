@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 
 router.get('/transactions', transactionService.getAllTransactions);
 router.get('/budget', budgetService.getBudgetByUser);
-router.get('/nameAccount', bankAccountService.getNameAccount);
+router.get('/nameAccount', bankAccountService.getAccount);
 router.get('/fixedCharges', bankAccountService.getFixedCharges);
 router.post('/connect', auth.login_post);
 router.get('/getnbrtransactions', async (req, res) => {
