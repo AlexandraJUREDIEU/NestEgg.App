@@ -123,7 +123,7 @@ const LandingStyle = styled.section`
     }
   }
   @media screen and (min-width: 1280px),
-  screen and (max-height:630px) {
+  screen and (max-height:720px) {
     #landing {
       justify-content: center;
     }
@@ -189,7 +189,7 @@ function Landing() {
   function getScreenSize() {
     const width = window.innerWidth;
     const height = window.innerHeight;
-    if (height < 630) {
+    if (height < 720) {
         return "desktop";
     }
     if (width < 770) {
