@@ -208,7 +208,6 @@ function Dashboard() {
       <DashboardStyle />
       <HeaderContainer links={links} />
       <h1>Tableau de bord</h1>
-      <a href={string}>Voir mon profil</a>
 
       <section className="div-container-boxes">
         <Box
@@ -222,7 +221,7 @@ function Dashboard() {
                 Salut
                 {<div>{activeUser.name}</div>}
               </h3>{" "}
-              <ButtonLink content="Actualiser mes charges" />
+                <ButtonLink to={string} content="Actualiser mes charges" />
             </>
           }
         />

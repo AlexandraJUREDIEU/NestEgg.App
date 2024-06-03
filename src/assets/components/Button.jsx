@@ -44,7 +44,8 @@ const ButtonLink = ({ to, className, content}) => {
 const Button = ({ onClick, className, content, type, span }) => {
   return (
     <ButtonStyle className={className} onClick={onClick} type={type}>
-      <div> {content} </div> <span className='balmy'>{span}</span>
+      <div> {content} </div>
+      <span className='balmy'>{span}</span>
     </ButtonStyle>
   );
 };
