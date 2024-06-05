@@ -75,7 +75,7 @@ const HeaderProfilStyle = styled.header`
 //Liens des headers
 const links = [
   {to:"/my-account/profil" , text:"Profil", imgsrc:"/icons-user-round.png"},
-  {to:"/my-account/compte" , text:"Comptes bancaire", imgsrc:"/?"},
+  {to:"/my-account/compte" , text:"Comptes bancaire", imgsrc:"/icons8-visa-50.png"},
   {to:"/my-account/ressources" , text:"Revenus", imgsrc:"/icons8-euro-money-100.png"},
   {to:"/my-account/chargesfixes" , text:"Charges fixes", imgsrc:"/icons8-categorize-100.png"},
   ];
