@@ -30,9 +30,6 @@ const HeaderProfilStyle = styled.header`
     display: flex;
     align-items: center;
   }
-  ul li a.active {
-    background:red;
-  }
 
   ul img{
     height:2em !important;
@@ -46,6 +43,9 @@ const HeaderProfilStyle = styled.header`
     }
     .nomHeaderProfil {
       display: none;
+    }
+    ul li a.active {
+      border-bottom: #DDB993 5px solid;
     }
   }
   
@@ -68,6 +68,9 @@ const HeaderProfilStyle = styled.header`
     ul li:first-child img {
       width:7em !important;
       height:7em !important;
+    }
+    ul li a.active {
+      background:#DDB993;
     }
   }
 `;
