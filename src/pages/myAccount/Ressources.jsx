@@ -9,15 +9,33 @@ import styled from 'styled-components';
 
 const RessourcesStyle = styled.main`
   .initialRessources{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+    display:flex;
+    width:100%;
+    margin:1em 0 1em 1em;
+  }
+  .initialRessources p {
+    text-align:left;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:80%;
+  }
+  .iconinItialRessources {
+    width:10%;
+    display:flex;
+    align-items:left;
+  }
+  .iconinItialRessources img{
+    transform: scale(2.5);
+    position:relative;
+    left:1em;
   }
 
   .conteneurWrapper{
     background-color: rgba(255, 255, 255, 0.5);
     border-radius:2em;
   }
+
 `;
 
 function Ressources({activeUser}) {
@@ -32,9 +50,9 @@ function Ressources({activeUser}) {
           <Wrapper
             initial={
             <>
-            <div className="initialRessources">
-              <img src="/icons8-utilisateur-100-not-circle.png" alt="" />
-              <p>Luca</p>
+              <div className="initialRessources">
+                <span className="iconinItialRessources"><img src="/icons8-utilisateur-100-not-circle.png" alt="" /></span>
+                <p>Luca</p>
               </div>
             </>}
             deroule={
@@ -45,8 +63,8 @@ function Ressources({activeUser}) {
           <Wrapper
             initial={<>
               <div className="initialRessources">
-                <img src="/icons8-utilisateur-100-not-circle.png" alt="" />
-                <div>SOSO LE PELICAN</div>
+                <span className="iconinItialRessources"></span>{/*empty div to work with the space-between. This is the place to add an icon to the differents accounts*/}
+                <p>SOSO LE PELICAN</p>
               </div>
             </>}
             deroule={

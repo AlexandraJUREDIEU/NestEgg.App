@@ -42,15 +42,44 @@ input {
 select{
     display:flex;
     align-items:center;
+    background:#53358A;
+    color:white;
+    border:none;
+    border-radius:1em;
+    padding:0 0.7em;
+    width:3em;
+
+    /*remove the arrow from select*/
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
 }
+
+.titleAndInput p {
+    font-size:20px;
+}
+.textAndSelect p {
+    margin-right:1em;
+}
+.valueBank, .valueAmount {
+    background:#53358A;
+    width:50%;
+    border-radius:10px;
+}
+margin-left:1em;
+
+margin-bottom:2em;
+padding-bottom:2em;
+
 `;
 
-const SectionInWrapper = ({ title, text, listOptions, day = 1, valueAmount, valueBank }) => {
+const SectionInWrapper = ({ title, text, listOptions, day = 1, valueAmount = "?", valueBank = "Banque Inconnu" }) => {
     return (
         <>
         <StyledSectionInWrapper>
             <div className="titleAndInput">
-                <p>{title}</p> <div>{valueAmount}</div>
+                <p>{title}</p> <div className="valueAmount">{valueAmount}€</div>
             </div>
             <div className="textAndSelactAndInput">
                 <div className="textAndSelect">
@@ -60,7 +89,7 @@ const SectionInWrapper = ({ title, text, listOptions, day = 1, valueAmount, valu
                         value={day}
                     />
                 </div>
-                <div>{valueBank}</div>
+                <div className="valueBank">{valueBank}</div>
             </div>
           </StyledSectionInWrapper>
         </>
