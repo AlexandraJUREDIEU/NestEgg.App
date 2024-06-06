@@ -236,8 +236,8 @@ function Dashboard() {
               <CircleRadialProgress
                 progress="10"
                 width="50px"
-                color1="darkred"
-                color2="purple"
+                color1="#B24396"
+                color2="#43A9B6"
                 height="40px"
               />
             </>
