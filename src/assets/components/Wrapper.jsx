@@ -7,6 +7,8 @@ import styled from 'styled-components';
 const WrapperStyle = styled.div`
 .fleche img {
   transform: rotate(90deg);
+  width: 0.8em;
+  height: 0.8em;
 }
 .nameAndMail{
   display:flex;

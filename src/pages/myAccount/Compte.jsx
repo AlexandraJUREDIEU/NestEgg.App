@@ -42,13 +42,11 @@ function Compte({activeUser, chargesFixes}) {
           <PhraseAmicale activeUser={activeUser}/>
         <Wrapper
         initial={<>
-        <img src="/icons8-settings-100.png" alt="" />
         <p>Compte courant Luca</p>
         </>}
         deroule="Placeholder compte 1"/>
         <Wrapper
         initial={<>
-        <img src="/icons8-settings-100.png" alt="" />
         <p>Livret a Luca</p>
         </>}
         deroule={

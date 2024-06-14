@@ -10,10 +10,8 @@ const HeaderProfilStyle = styled.header`
   display: flex;
   flex-direction: row;
   img {
-    width: 2em;
-    height: 8vh;
   }
-  ul {
+  .headerProfilUl {
     display: flex;
     justify-content: space-around;
     list-style: none;
@@ -25,26 +23,26 @@ const HeaderProfilStyle = styled.header`
     height:10%;
     padding: 0 5vh;
   }
-  li {
+  .headerProfilUl li {
     padding: 1vh 0;
     display: flex;
     align-items: center;
   }
 
-  ul img{
+  .headerProfilUl img{
     height:2em !important;
     width:2em !important;
   }
 
   /*Vue mobile*/
   @media screen and (max-width: 1000px) {
-    ul li:first-child {
+    .headerProfilUl li:first-child {
       display:none;
     }
     .nomHeaderProfil {
       display: none;
     }
-    ul li a.active {
+    .headerProfilUl li a.active {
       border-bottom: #DDB993 5px solid;
     }
   }
@@ -52,7 +50,7 @@ const HeaderProfilStyle = styled.header`
   /*Vue desktop*/
   @media screen and (min-width: 1000px) {
     flex-direction: column;
-    ul {
+    .headerProfilUl {
       flex-direction: column;
       left: 0;
       top: 0;
@@ -61,16 +59,21 @@ const HeaderProfilStyle = styled.header`
       align-items: center;
       border-radius: 0 2em 2em 0;
     }
-    li a {
+    .headerProfilUl li a {
       display:flex;
       align-items: center;
     }
-    ul li:first-child img {
+    .headerProfilUl li:first-child img {
       width:7em !important;
       height:7em !important;
     }
-    ul li a.active {
+    .headerProfilUl li a.active {
       background:#DDB993;
+      padding: 0.5em;
+      border-radius:1em;
+    }
+    .headerProfilUl li a div{
+      margin-left:0.5em;
     }
   }
 `;
@@ -109,7 +112,7 @@ function HeaderProfil() {
     <>
       <HeaderProfilStyle>
       {screenwidth < 1000 && <HeaderContainer links={linksHeader}/>}
-      <ul>
+      <ul className="headerProfilUl">
         <li>
           <Link to="/">
             <img

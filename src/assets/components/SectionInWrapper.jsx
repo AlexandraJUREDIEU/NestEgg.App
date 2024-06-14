@@ -74,7 +74,7 @@ padding-bottom:2em;
 
 `;
 
-const SectionInWrapper = ({ title, text, listOptions, day = 1, valueAmount = "?", valueBank = "Banque Inconnu" }) => {
+const SectionInWrapper = ({ title, text, listOptions, day = 1, valueAmount = "?", valueBank = "Banque Inconnue" }) => {
     return (
         <>
         <StyledSectionInWrapper>

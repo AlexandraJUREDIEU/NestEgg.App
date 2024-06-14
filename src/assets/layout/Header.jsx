@@ -72,7 +72,9 @@ const HeaderStyle = styled.header`
   }
 
 
-
+  .headerBird img {
+    width:8em;
+  }
 
   .text-connexion{
     padding: 0 1.25em;
@@ -377,7 +379,7 @@ function onClickNavBarEvent () {
             {links.map((link, index) => (
               <li key={index}>
                 
-              {link.to==="/login" && isSmallScreen && <div><img className="max-mobile-header" src="/mascotte-mobile-header.png"/></div> }
+              {link.to==="/login" && isSmallScreen && <div className="headerBird"><img className="max-mobile-header" src="/mascotte-mobile-header.png"/></div> }
                 
               <Link
                     to={link.to}
