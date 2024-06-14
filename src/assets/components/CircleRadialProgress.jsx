@@ -18,7 +18,7 @@ const StyleCircleRadialProgress = styled.div`
   width: ${props => props.width};
   height: ${props => props.width};
   position: relative;
-  margin: 0 0 0 3em;
+  margin: 0 0 0 ${props => props.margin};
 
   background: ${props =>
       props.progress < 50
@@ -56,15 +56,15 @@ const StyleDisplay = styled.span`
 `;
 
 
-const CircleRadialProgress = ({ width = '100px', progress = 0, color1 = 'orange', color2 = 'green', height = '100px' }) => {
+const CircleRadialProgress = ({ width = '100px', progress = 0, color1 = 'orange', color2 = 'green', height = '100px', margin = '3em' }) => {
   return (
     <>
-      <StyleCircleRadialProgress width={width} progress={progress} color1={color1} color2={color2} height={height}>
+      <StyleCircleRadialProgress width={width} progress={progress} color1={color1} color2={color2} height={height} margin={margin}>
         <div className="rectangle1" />
         <div className="rectangle2" />
       </StyleCircleRadialProgress>
       <StyleDisplay>
-        {progress}%
+        <div className="percentageCircleRadialProgress">{progress}%</div>
       </StyleDisplay>
     </>
   );

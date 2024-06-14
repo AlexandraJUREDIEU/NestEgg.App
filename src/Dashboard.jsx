@@ -124,6 +124,22 @@ const DashboardStyle = createGlobalStyle`
   .font-300{
     font-weight: 300;
   }
+
+
+  .spent {
+    display:flex;
+    width:100%;
+    justify-content:space-around;
+  }
+  .col1, .col2, .col3 {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+  }
+  .spent .percentageCircleRadialProgress {
+    display:none;
+    }
 `;
 
 //Fonctions
@@ -187,6 +203,13 @@ function Dashboard() {
       console.log(`La boîte ${id} a été cliquée.`);
     };
 
+    const formatDateToFrench = (isoDate) => {
+      return new Date(isoDate).toLocaleDateString('fr-FR', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+      });
+    };
 
   //Render
   return (
@@ -265,26 +288,92 @@ function Dashboard() {
               <h3 className="last-spent">Vos dernières dépenses</h3>
               {transactions.length > 0 && (
                 <div className="spent">
-                  {transactions[0].typeCategory}
-                  {transactions[0].date}
-                  {transactions[0].name}
-                  {transactions[0].montant}
+                  <div className="col1">
+                    <p>
+                    {
+                      transactions[0].typeBudget == "loisir"
+                      &&
+                      <CircleRadialProgress color1="#43A9B6" width="1em" margin="0"/>
+                    }
+                    {
+                      transactions[0].typeBudget == "vital"
+                      &&
+                      <CircleRadialProgress color1="#F5A483" width="1em" margin="0"/>
+                    }
+                    {
+                      transactions[0].typeBudget == "récurrent"
+                      &&
+                      <CircleRadialProgress color1="#B243B6" width="1em" margin="0"/>
+                    }
+                    </p>
+                  </div>
+                  <div className="col2">
+                    <p>{formatDateToFrench(transactions[0].date)}</p>
+                    <p>{transactions[0].name}</p>
+                  </div>
+                  <div className="col3">
+                    {transactions[0].montant}€
+                  </div>
                 </div>
               )}
               {transactions.length > 0 && (
                 <div className="spent">
-                  {transactions[1].typeCategory}
-                  {transactions[1].date}
-                  {transactions[1].name}
-                  {transactions[1].montant}
+                  <div className="col1">
+                    <p>
+                    {
+                      transactions[1].typeBudget == "loisir"
+                      &&
+                      <CircleRadialProgress color1="#43A9B6" width="1em" margin="0"/>
+                    }
+                    {
+                      transactions[1].typeBudget == "vital"
+                      &&
+                      <CircleRadialProgress color1="#F5A483" width="1em" margin="0"/>
+                    }
+                    {
+                      transactions[1].typeBudget == "récurrent"
+                      &&
+                      <CircleRadialProgress color1="#B243B6" width="1em" margin="0"/>
+                    }
+                    </p>
+                  </div>
+                  <div className="col2">
+                    <p>{formatDateToFrench(transactions[1].date)}</p>
+                    <p>{transactions[1].name}</p>
+                  </div>
+                  <div className="col3">
+                    {transactions[1].montant}€
+                  </div>
                 </div>
               )}
               {transactions.length > 0 && (
                 <div className="spent">
-                  {transactions[2].typeCategory}
-                  {transactions[2].date}
-                  {transactions[2].name}
-                  {transactions[2].montant}
+                  <div className="col1">
+                    <p>
+                    {
+                      transactions[2].typeBudget == "loisir"
+                      &&
+                      <CircleRadialProgress color1="#43A9B6" width="1em" margin="0"/>
+                    }
+                    {
+                      transactions[2].typeBudget == "vital"
+                      &&
+                      <CircleRadialProgress color1="#F5A483" width="1em" margin="0"/>
+                    }
+                    {
+                      transactions[2].typeBudget == "récurrent"
+                      &&
+                      <CircleRadialProgress color1="#B243B6" width="1em" margin="0"/>
+                    }
+                    </p>
+                  </div>
+                  <div className="col2">
+                    <p>{formatDateToFrench(transactions[2].date)}</p>
+                    <p>{transactions[2].name}</p>
+                  </div>
+                  <div className="col3">
+                    {transactions[2].montant}€
+                  </div>
                 </div>
               )}
             </>
