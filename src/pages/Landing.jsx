@@ -131,7 +131,6 @@ const LandingStyle = styled.section`
     }
     .landing-egg-img {
       max-height:400px;
-      height:80%;
     }
     .conteneur-landing p,
     .conteneur-landing button {
@@ -189,7 +188,7 @@ function Landing() {
   function getScreenSize() {
     const width = window.innerWidth;
     const height = window.innerHeight;
-    if (height < 720) {
+    if (height < 720 && width > 600) {
         return "desktop";
     }
     if (width < 770) {
