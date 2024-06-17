@@ -21,6 +21,19 @@ const WrapperStyle = styled.div`
   justify-content:space-between;
   align-items:center;
 }
+
+
+.nameAndMail{
+  overflow-y: scroll;
+  max-height: 40vh;
+}
+@media screen and (min-width:1000px) {
+  .nameAndMail{
+    overflow-y: scroll;
+    max-height: 65vh;
+  }
+}
+
 `;
 
 
